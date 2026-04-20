@@ -6,19 +6,24 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    /**
-     * Constructor para aplicar el middleware auth.
-     */
-    public function __construct()
+    public function home()
     {
-        $this->middleware('auth');
+        return view('welcome');
     }
 
-    /**
-     * Muestra la página principal.
-     */
-    public function index()
+    public function dashboard()
     {
-        return view('pageprincipal');
+        $driverCount  = \App\Models\Driver::count();
+        $teamCount    = \App\Models\Team::count();
+        $circuitCount = \App\Models\Circuit::count();
+        $gpCount      = \App\Models\GrandPrix::count();
+
+        $latestResults = \App\Models\GrandPrix::with(['circuit', 'raceResults.driver', 'raceResults.team'])
+            ->where('status', 'completed')
+            ->orderByDesc('date')
+            ->limit(3)
+            ->get();
+
+        return view('dashboard', compact('driverCount', 'teamCount', 'circuitCount', 'gpCount', 'latestResults'));
     }
 }

@@ -12,7 +12,17 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                inter:  ['Inter', ...defaultTheme.fontFamily.sans],
+                oswald: ['Oswald', 'sans-serif'],
+                sans:   ['Inter', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                'f1-red':  '#E10600',
+                'f1-dark': '#0f0f13',
+                'f1-card': '#17171e',
+            },
+            backgroundOpacity: {
+                3: '0.03',
             },
         },
     },
