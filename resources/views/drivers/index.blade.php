@@ -7,7 +7,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="section-title">Drivers</h1>
-                <p class="section-subtitle">{{ $drivers->total() }} driver(s) in the database</p>
+                <p class="section-subtitle">{{ $drivers->count() }} driver(s) in the database</p>
             </div>
             @auth
                 @if(auth()->user()->isAdmin())
@@ -69,6 +69,5 @@
         @endforelse
     </div>
 
-    <div class="mt-8">{{ $drivers->links() }}</div>
 </div>
 @endsection
