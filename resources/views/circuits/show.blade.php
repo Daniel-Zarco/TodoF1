@@ -29,12 +29,31 @@
                     <img src="{{ $circuit->photo_url }}" alt="{{ $circuit->name }}" class="max-w-full max-h-full object-contain opacity-80 relative z-10">
                 </div>
             @else
-                <div class="card h-48 relative bg-gradient-to-br from-[#111111] to-[#050505] overflow-hidden flex flex-col items-center justify-center border border-f1-border">
-                    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 11px);"></div>
-                    <div class="absolute -top-10 -left-10 w-48 h-48 border-[30px] border-f1-red/5 rounded-full"></div>
-                    
-                    <span class="relative font-oswald text-6xl font-black tracking-widest text-white/10 z-10">{{ strtoupper(substr($circuit->name, 0, 3)) }}</span>
-                    <div class="relative w-12 h-1.5 bg-f1-red/50 mt-4 rounded-full z-10"></div>
+                <div class="h-48 rounded-lg relative bg-[#090909] overflow-hidden border border-f1-border">
+                    {{-- Background watermark --}}
+                    <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+                        <span class="font-oswald font-black uppercase whitespace-nowrap"
+                              style="font-size: 5rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.03); line-height: 1;">
+                            {{ strtoupper($circuit->name) }}
+                        </span>
+                    </div>
+                    {{-- Red vertical accent bar --}}
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-f1-red/60 via-f1-red/10 to-transparent"></div>
+                    {{-- Center abbreviation --}}
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="font-oswald text-7xl font-black text-white/[0.06] select-none" style="letter-spacing: -0.02em;">
+                            {{ strtoupper(substr($circuit->name, 0, 3)) }}
+                        </span>
+                    </div>
+                    {{-- Bottom-left country --}}
+                    <div class="absolute bottom-4 left-5">
+                        <p class="text-white/20 text-[10px] uppercase tracking-[0.25em] font-medium">
+                            {{ strtoupper($circuit->country) }}
+                        </p>
+                    </div>
+                    {{-- Corner rings --}}
+                    <div class="absolute -top-8 -right-8 w-24 h-24 rounded-full border border-white/[0.03]"></div>
+                    <div class="absolute -top-4 -right-4 w-12 h-12 rounded-full border border-white/[0.03]"></div>
                 </div>
             @endif
             <div class="card p-6">

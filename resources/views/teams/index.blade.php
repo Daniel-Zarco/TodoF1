@@ -19,22 +19,20 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="space-y-4">
         @forelse($teams as $i => $team)
-            <a href="{{ route('teams.show', $team) }}" class="card-hover flex items-center gap-5 p-5 group">
+            <a href="{{ route('teams.show', $team) }}" class="card-hover flex items-center gap-4 px-5 py-4 group">
                 {{-- Position indicator --}}
                 @php $pos = ($teams->currentPage() - 1) * $teams->perPage() + $i + 1; @endphp
-                <div class="w-8 text-center font-oswald text-2xl font-bold {{ $pos === 1 ? 'text-f1-red' : ($pos <= 3 ? 'text-white/60' : 'text-white/20') }}">
+                <div class="w-7 text-center font-oswald text-xl font-bold flex-shrink-0 {{ $pos === 1 ? 'text-f1-red' : ($pos <= 3 ? 'text-white/60' : 'text-white/20') }}">
                     {{ $pos }}
                 </div>
 
-                {{-- Logo --}}
-                <div class="w-20 h-14 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex-shrink-0 flex items-center justify-center relative overflow-hidden group-hover:border-f1-red/20 transition-all">
-                    <div class="absolute inset-0 bg-f1-red/5 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+                {{-- Logo: transparent SVG, no background needed --}}
+                <div class="w-20 h-10 flex-shrink-0 flex items-center justify-center">
                     @if($team->logo_url)
-                        <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="max-w-[80%] max-h-[80%] object-contain relative z-10 filter brightness-90 group-hover:brightness-110 transition-all">
+                        <img src="{{ $team->logo_url }}" alt="{{ $team->name }}"
+                             class="w-full h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all">
                     @else
-                        <div class="relative z-10 w-10 h-10 rounded bg-f1-red/20 flex items-center justify-center text-f1-red font-oswald font-bold text-xs">
-                            {{ strtoupper(substr($team->name, 0, 3)) }}
-                        </div>
+                        <div class="font-oswald text-lg font-black text-white/20 tracking-tight">{{ strtoupper(substr($team->name, 0, 3)) }}</div>
                     @endif
                 </div>
 

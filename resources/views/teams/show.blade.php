@@ -5,17 +5,14 @@
 <div class="page-header">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row gap-6 items-start">
-            @if($team->logo_url)
-                <div class="w-32 h-24 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden shadow-[0_0_30px_-10px_rgba(225,6,0,0.1)]">
-                    <div class="absolute inset-0 bg-f1-red/10 blur-2xl"></div>
-                    <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="max-w-[80%] max-h-[80%] object-contain relative z-10">
-                </div>
-            @else
-                <div class="w-32 h-24 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden shadow-[0_0_30px_-10px_rgba(225,6,0,0.05)]">
-                    <div class="absolute inset-0 bg-f1-red/5 blur-xl"></div>
-                    <div class="relative z-10 font-oswald text-3xl font-bold text-f1-red/50 tracking-widest">{{ strtoupper(substr($team->name, 0, 3)) }}</div>
-                </div>
-            @endif
+            <div class="w-36 h-20 flex items-center justify-center flex-shrink-0 relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-f1-red/10 to-transparent blur-3xl rounded-full"></div>
+                @if($team->logo_url)
+                    <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="w-full h-full object-contain relative z-10">
+                @else
+                    <div class="relative z-10 font-oswald text-5xl font-black text-white/20 tracking-tighter">{{ strtoupper(substr($team->name, 0, 3)) }}</div>
+                @endif
+            </div>
             <div class="flex-1">
                 <h1 class="section-title">{{ $team->name }}</h1>
                 <p class="section-subtitle">{{ $team->country }} · Founded {{ $team->founded_year ?? '—' }} · {{ $team->base ?? '—' }}</p>

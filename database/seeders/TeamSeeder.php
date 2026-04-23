@@ -15,7 +15,7 @@ class TeamSeeder extends Seeder
                 'country' => 'Austria',
                 'base' => 'Milton Keynes, UK',
                 'founded_year' => 2005,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/red-bull-racing-logo.png',
+                'logo_url' => '/images/teams/red-bull-racing.png',
                 'power_unit' => 'Honda RBPT',
             ],
             [
@@ -23,7 +23,7 @@ class TeamSeeder extends Seeder
                 'country' => 'Italy',
                 'base' => 'Maranello, Italy',
                 'founded_year' => 1950,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/ferrari-logo.png',
+                'logo_url' => '/images/teams/ferrari.png',
                 'power_unit' => 'Ferrari',
             ],
             [
@@ -31,7 +31,7 @@ class TeamSeeder extends Seeder
                 'country' => 'Germany',
                 'base' => 'Brackley, UK',
                 'founded_year' => 2010,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/mercedes-logo.png',
+                'logo_url' => '/images/teams/mercedes.png',
                 'power_unit' => 'Mercedes',
             ],
             [
@@ -39,7 +39,7 @@ class TeamSeeder extends Seeder
                 'country' => 'United Kingdom',
                 'base' => 'Woking, UK',
                 'founded_year' => 1966,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/mclaren-logo.png',
+                'logo_url' => '/images/teams/mclaren.png',
                 'power_unit' => 'Mercedes',
             ],
             [
@@ -47,7 +47,7 @@ class TeamSeeder extends Seeder
                 'country' => 'United Kingdom',
                 'base' => 'Silverstone, UK',
                 'founded_year' => 2021,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/aston-martin-logo.png',
+                'logo_url' => '/images/teams/aston-martin.png',
                 'power_unit' => 'Mercedes',
             ],
             [
@@ -55,7 +55,7 @@ class TeamSeeder extends Seeder
                 'country' => 'France',
                 'base' => 'Enstone, UK',
                 'founded_year' => 2021,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/alpine-logo.png',
+                'logo_url' => '/images/teams/alpine.png',
                 'power_unit' => 'Renault',
             ],
             [
@@ -63,7 +63,7 @@ class TeamSeeder extends Seeder
                 'country' => 'United Kingdom',
                 'base' => 'Grove, UK',
                 'founded_year' => 1977,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/williams-logo.png',
+                'logo_url' => '/images/teams/williams.png',
                 'power_unit' => 'Mercedes',
             ],
             [
@@ -71,7 +71,7 @@ class TeamSeeder extends Seeder
                 'country' => 'Italy',
                 'base' => 'Faenza, Italy',
                 'founded_year' => 2006,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/rb-logo.png',
+                'logo_url' => '/images/teams/rb.png',
                 'power_unit' => 'Honda RBPT',
             ],
             [
@@ -79,7 +79,7 @@ class TeamSeeder extends Seeder
                 'country' => 'Switzerland',
                 'base' => 'Hinwil, Switzerland',
                 'founded_year' => 1993,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/kick-sauber-logo.png',
+                'logo_url' => '/images/teams/kick-sauber.png',
                 'power_unit' => 'Ferrari',
             ],
             [
@@ -87,7 +87,7 @@ class TeamSeeder extends Seeder
                 'country' => 'United States',
                 'base' => 'Kannapolis, USA',
                 'founded_year' => 2016,
-                'logo_url' => 'https://media.formula1.com/content/dam/fom-website/teams/2024/haas-f1-team-logo.png',
+                'logo_url' => '/images/teams/haas.png',
                 'power_unit' => 'Ferrari',
             ],
         ];

@@ -30,15 +30,15 @@
         <div class="card p-6 mb-8 border-f1-red/20 bg-f1-red/5 flex flex-col sm:flex-row gap-5 items-center">
             <div class="font-oswald text-7xl font-bold text-f1-red/20 select-none">1</div>
 
-            @if($leader->logo_url)
-                <div class="w-24 h-16 flex items-center justify-center flex-shrink-0">
-                    <img src="{{ $leader->logo_url }}" alt="{{ $leader->name }}" class="max-w-full max-h-full object-contain">
-                </div>
-            @else
-                <div class="w-20 h-20 rounded-lg bg-f1-red/20 flex items-center justify-center font-oswald text-2xl font-bold text-f1-red flex-shrink-0">
-                    {{ strtoupper(substr($leader->name, 0, 3)) }}
-                </div>
-            @endif
+            <div class="w-28 h-14 flex items-center justify-center flex-shrink-0 relative">
+                <div class="absolute inset-0 opacity-10 blur-xl rounded-full"
+                     style="background: radial-gradient(ellipse, rgba(255,255,255,0.15), transparent 70%);"></div>
+                @if($leader->logo_url)
+                    <img src="{{ $leader->logo_url }}" alt="{{ $leader->name }}" class="w-full h-full object-contain relative z-10">
+                @else
+                    <div class="relative z-10 font-oswald text-3xl font-black text-f1-red/40 tracking-tighter">{{ strtoupper(substr($leader->name, 0, 3)) }}</div>
+                @endif
+            </div>
 
             <div class="flex-1 text-center sm:text-left">
                 <div class="text-xs text-f1-red/80 uppercase tracking-widest font-semibold mb-1">Championship Leader</div>
@@ -81,12 +81,10 @@
                             </td>
                             <td>
                                 <div class="flex items-center gap-3">
-                                    @if($team->logo_url)
-                                        <div class="w-10 h-7 flex items-center justify-center flex-shrink-0">
-                                            <img src="{{ $team->logo_url }}" alt="{{ $team->name }}"
-                                                 class="max-w-full max-h-full object-contain opacity-80">
-                                        </div>
-                                    @endif
+                                    <div class="w-14 h-8 flex items-center justify-center flex-shrink-0">
+                                        <img src="{{ $team->logo_url }}" alt="{{ $team->name }}"
+                                             class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                                    </div>
                                     <a href="{{ route('teams.show', $team) }}"
                                        class="font-medium text-white hover:text-f1-red transition-colors text-sm">
                                         {{ $team->name }}

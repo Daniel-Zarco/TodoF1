@@ -23,12 +23,38 @@
                     @if($circuit->photo_url)
                         <img src="{{ $circuit->photo_url }}" alt="{{ $circuit->name }}" class="w-full h-full object-contain p-4 opacity-60 group-hover:opacity-90 transition-opacity relative z-10">
                     @else
-                        <div class="absolute inset-0 bg-gradient-to-br from-[#111111] to-[#050505] flex flex-col items-center justify-center overflow-hidden">
-                            <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 11px);"></div>
-                            <div class="absolute -bottom-6 -right-6 w-32 h-32 border-[20px] border-f1-red/5 rounded-full"></div>
-                            
-                            <span class="relative font-oswald text-5xl font-black tracking-widest text-white/10 group-hover:text-white/20 transition-colors z-10">{{ strtoupper(substr($circuit->name, 0, 3)) }}</span>
-                            <div class="relative w-8 h-1 bg-f1-red/50 mt-3 rounded-full z-10"></div>
+                        {{-- Premium circuit graphic fallback --}}
+                        <div class="absolute inset-0 bg-[#090909] flex flex-col justify-between overflow-hidden">
+
+                            {{-- Background watermark: full circuit name, very faint --}}
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="font-oswald font-black uppercase whitespace-nowrap"
+                                      style="font-size: 5rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.03); line-height: 1;">
+                                    {{ strtoupper($circuit->name) }}
+                                </span>
+                            </div>
+
+                            {{-- Red accent: top-left corner bar --}}
+                            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-f1-red/60 via-f1-red/10 to-transparent"></div>
+
+                            {{-- Bottom-left: country tag --}}
+                            <div class="absolute bottom-4 left-5">
+                                <p class="text-white/20 text-[10px] uppercase tracking-[0.25em] font-medium group-hover:text-white/30 transition-colors">
+                                    {{ strtoupper($circuit->country) }}
+                                </p>
+                            </div>
+
+                            {{-- Center: bold abbreviation --}}
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="font-oswald text-6xl font-black tracking-tight text-white/[0.07] group-hover:text-white/[0.12] transition-colors select-none" style="letter-spacing: -0.02em;">
+                                    {{ strtoupper(substr($circuit->name, 0, 3)) }}
+                                </span>
+                            </div>
+
+                            {{-- Top-right: subtle corner detail --}}
+                            <div class="absolute -top-8 -right-8 w-24 h-24 rounded-full border border-white/[0.03]"></div>
+                            <div class="absolute -top-4 -right-4 w-12 h-12 rounded-full border border-white/[0.03]"></div>
+
                         </div>
                     @endif
                 </div>
