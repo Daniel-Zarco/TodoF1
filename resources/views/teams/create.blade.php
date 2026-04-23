@@ -33,10 +33,7 @@
                 <label for="power_unit" class="form-label">Power Unit / Engine</label>
                 <input id="power_unit" type="text" name="power_unit" value="{{ old('power_unit') }}" class="form-input">
             </div>
-            <div>
-                <label for="constructor_points" class="form-label">Constructor Points</label>
-                <input id="constructor_points" type="number" name="constructor_points" value="{{ old('constructor_points', 0) }}" min="0" class="form-input">
-            </div>
+
             <div class="sm:col-span-2">
                 <label for="logo_url" class="form-label">Logo URL</label>
                 <input id="logo_url" type="url" name="logo_url" value="{{ old('logo_url') }}" placeholder="https://…" class="form-input">

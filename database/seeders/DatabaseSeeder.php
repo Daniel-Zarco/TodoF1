@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
 
         // Seed F1 data in dependency order
         $this->call([
+            SeasonSeeder::class,
             TeamSeeder::class,
             CircuitSeeder::class,
             DriverSeeder::class,

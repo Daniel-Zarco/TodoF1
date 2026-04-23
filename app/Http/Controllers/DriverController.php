@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Driver;
+use App\Models\Season;
+use App\Models\SeasonEntry;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -10,14 +12,16 @@ class DriverController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Driver::with('team')->orderBy('name');
+        $query = Driver::with(['seasonEntries.team', 'seasonEntries.season'])->orderBy('name');
 
         if ($request->filled('search')) {
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
         if ($request->filled('team')) {
-            $query->where('team_id', $request->team);
+            $query->whereHas('seasonEntries', function ($q) use ($request) {
+                $q->where('team_id', $request->team);
+            });
         }
 
         if ($request->filled('nationality')) {
@@ -32,7 +36,7 @@ class DriverController extends Controller
 
     public function show(Driver $driver)
     {
-        $driver->load(['team', 'raceResults.grandPrix.circuit']);
+        $driver->load(['seasonEntries.team', 'seasonEntries.season', 'raceResults.grandPrix.circuit']);
 
         $totalPoints  = $driver->raceResults->sum('points');
         $wins         = $driver->raceResults->where('position', 1)->count();
@@ -62,9 +66,21 @@ class DriverController extends Controller
             'is_active'     => 'boolean',
         ]);
 
+        $teamId = $request->input('team_id');
+        unset($validated['team_id']);
+
         $validated['is_active'] = $request->boolean('is_active', true);
 
-        Driver::create($validated);
+        $driver = Driver::create($validated);
+
+        if ($teamId) {
+            $season = Season::firstOrCreate(['year' => 2024]);
+            SeasonEntry::create([
+                'season_id' => $season->id,
+                'team_id' => $teamId,
+                'driver_id' => $driver->id,
+            ]);
+        }
 
         return redirect()->route('drivers.index')
             ->with('success', "Driver {$validated['name']} created successfully.");
@@ -89,9 +105,25 @@ class DriverController extends Controller
             'is_active'     => 'boolean',
         ]);
 
+        $teamId = $request->input('team_id');
+        unset($validated['team_id']);
+
         $validated['is_active'] = $request->boolean('is_active');
 
         $driver->update($validated);
+
+        if ($teamId) {
+            $season = Season::firstOrCreate(['year' => 2024]);
+            SeasonEntry::updateOrCreate(
+                ['season_id' => $season->id, 'driver_id' => $driver->id],
+                ['team_id' => $teamId]
+            );
+        } else {
+            $season = Season::where('year', 2024)->first();
+            if ($season) {
+                SeasonEntry::where('season_id', $season->id)->where('driver_id', $driver->id)->delete();
+            }
+        }
 
         return redirect()->route('drivers.show', $driver)
             ->with('success', "Driver {$driver->name} updated successfully.");

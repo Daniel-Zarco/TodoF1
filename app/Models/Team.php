@@ -17,7 +17,6 @@ class Team extends Model
         'base',
         'founded_year',
         'logo_url',
-        'constructor_points',
         'power_unit',
     ];
 
@@ -25,13 +24,12 @@ class Team extends Model
     {
         return [
             'founded_year'        => 'integer',
-            'constructor_points'  => 'integer',
         ];
     }
 
-    public function drivers(): HasMany
+    public function seasonEntries(): HasMany
     {
-        return $this->hasMany(Driver::class);
+        return $this->hasMany(SeasonEntry::class);
     }
 
     public function raceResults(): HasMany

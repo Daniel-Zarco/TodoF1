@@ -25,8 +25,16 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="space-y-5">
             @if($circuit->photo_url)
-                <div class="card p-4 flex items-center justify-center h-48">
-                    <img src="{{ $circuit->photo_url }}" alt="{{ $circuit->name }}" class="max-w-full max-h-full object-contain opacity-80">
+                <div class="card p-4 flex items-center justify-center h-48 relative overflow-hidden">
+                    <img src="{{ $circuit->photo_url }}" alt="{{ $circuit->name }}" class="max-w-full max-h-full object-contain opacity-80 relative z-10">
+                </div>
+            @else
+                <div class="card h-48 relative bg-gradient-to-br from-[#111111] to-[#050505] overflow-hidden flex flex-col items-center justify-center border border-f1-border">
+                    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #fff 10px, #fff 11px);"></div>
+                    <div class="absolute -top-10 -left-10 w-48 h-48 border-[30px] border-f1-red/5 rounded-full"></div>
+                    
+                    <span class="relative font-oswald text-6xl font-black tracking-widest text-white/10 z-10">{{ strtoupper(substr($circuit->name, 0, 3)) }}</span>
+                    <div class="relative w-12 h-1.5 bg-f1-red/50 mt-4 rounded-full z-10"></div>
                 </div>
             @endif
             <div class="card p-6">

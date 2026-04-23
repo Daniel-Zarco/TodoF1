@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('team_id')->nullable()->constrained()->nullOnDelete();
             $table->string('name');
             $table->string('nationality');
             $table->date('date_of_birth')->nullable();

@@ -21,16 +21,18 @@
         @forelse($teams as $i => $team)
             <a href="{{ route('teams.show', $team) }}" class="card-hover flex items-center gap-5 p-5 group">
                 {{-- Position indicator --}}
-                <div class="w-8 text-center font-oswald text-2xl font-bold text-white/20">
-                    {{ ($teams->currentPage() - 1) * $teams->perPage() + $i + 1 }}
+                @php $pos = ($teams->currentPage() - 1) * $teams->perPage() + $i + 1; @endphp
+                <div class="w-8 text-center font-oswald text-2xl font-bold {{ $pos === 1 ? 'text-f1-red' : ($pos <= 3 ? 'text-white/60' : 'text-white/20') }}">
+                    {{ $pos }}
                 </div>
 
                 {{-- Logo --}}
-                <div class="w-16 h-10 flex-shrink-0 flex items-center justify-center">
+                <div class="w-20 h-14 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex-shrink-0 flex items-center justify-center relative overflow-hidden group-hover:border-f1-red/20 transition-all">
+                    <div class="absolute inset-0 bg-f1-red/5 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
                     @if($team->logo_url)
-                        <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="max-w-full max-h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all">
+                        <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="max-w-[80%] max-h-[80%] object-contain relative z-10 filter brightness-90 group-hover:brightness-110 transition-all">
                     @else
-                        <div class="w-10 h-10 rounded-lg bg-f1-red/20 flex items-center justify-center text-f1-red font-oswald font-bold text-xs">
+                        <div class="relative z-10 w-10 h-10 rounded bg-f1-red/20 flex items-center justify-center text-f1-red font-oswald font-bold text-xs">
                             {{ strtoupper(substr($team->name, 0, 3)) }}
                         </div>
                     @endif
@@ -50,7 +52,7 @@
 
                 {{-- Points --}}
                 <div class="text-right">
-                    <div class="font-oswald text-2xl font-bold text-white">{{ $team->constructor_points }}</div>
+                    <div class="font-oswald text-2xl font-bold text-white">{{ number_format($team->race_results_sum_points ?? 0, 1) }}</div>
                     <div class="text-xs text-white/30">pts</div>
                 </div>
             </a>

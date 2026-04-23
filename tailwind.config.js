@@ -18,8 +18,10 @@ export default {
             },
             colors: {
                 'f1-red':  '#E10600',
-                'f1-dark': '#0f0f13',
-                'f1-card': '#17171e',
+                'f1-black': '#000000',
+                'f1-dark': '#0A0A0A',
+                'f1-card': '#111111',
+                'f1-border': '#222222',
             },
             backgroundOpacity: {
                 3: '0.03',

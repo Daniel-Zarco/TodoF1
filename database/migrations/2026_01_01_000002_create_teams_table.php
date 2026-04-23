@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('base')->nullable();
             $table->unsignedSmallInteger('founded_year')->nullable();
             $table->string('logo_url')->nullable();
-            $table->unsignedSmallInteger('constructor_points')->default(0);
             $table->string('power_unit')->nullable(); // engine supplier
             $table->timestamps();
             $table->softDeletes();

@@ -27,28 +27,28 @@
     {{-- Championship leader highlight --}}
     @if($standings->isNotEmpty())
         @php $leader = $standings->first(); @endphp
-        <div class="card p-6 mb-8 border-yellow-500/20 bg-yellow-500/3 flex flex-col sm:flex-row gap-5 items-center">
-            <div class="font-oswald text-7xl font-bold text-yellow-400/30 select-none">1</div>
+        <div class="card p-6 mb-8 border-f1-red/20 bg-f1-red/5 flex flex-col sm:flex-row gap-5 items-center">
+            <div class="font-oswald text-7xl font-bold text-f1-red/20 select-none">1</div>
 
             @if($leader->photo_url)
                 <img src="{{ $leader->photo_url }}" alt="{{ $leader->name }}"
-                     class="w-20 h-20 rounded-full object-cover object-top ring-2 ring-yellow-500/40">
+                     class="w-20 h-20 rounded-full object-cover object-top ring-2 ring-f1-red/50">
             @else
-                <div class="w-20 h-20 rounded-full bg-yellow-500/20 flex items-center justify-center font-oswald text-2xl font-bold text-yellow-400">
+                <div class="w-20 h-20 rounded-full bg-f1-red/20 flex items-center justify-center font-oswald text-2xl font-bold text-f1-red">
                     {{ strtoupper(substr($leader->name, 0, 2)) }}
                 </div>
             @endif
 
             <div class="flex-1 text-center sm:text-left">
-                <div class="text-xs text-yellow-400/60 uppercase tracking-widest font-semibold mb-1">Championship Leader</div>
-                <a href="{{ route('drivers.show', $leader) }}" class="font-oswald text-3xl font-bold text-white hover:text-yellow-400 transition-colors">
+                <div class="text-xs text-f1-red/80 uppercase tracking-widest font-semibold mb-1">Championship Leader</div>
+                <a href="{{ route('drivers.show', $leader) }}" class="font-oswald text-3xl font-bold text-white hover:text-f1-red transition-colors">
                     {{ $leader->name }}
                 </a>
                 <p class="text-white/40 text-sm mt-1">{{ $leader->team?->name ?? '—' }}</p>
             </div>
 
             <div class="text-center">
-                <div class="font-oswald text-5xl font-bold text-yellow-400">{{ number_format($leader->season_points ?? 0, 1) }}</div>
+                <div class="font-oswald text-5xl font-bold text-f1-red">{{ number_format($leader->season_points ?? 0, 1) }}</div>
                 <div class="text-xs text-white/30 uppercase tracking-widest mt-1">Points</div>
             </div>
         </div>
@@ -70,10 +70,10 @@
                 <tbody>
                     @forelse($standings as $i => $driver)
                         @php $pos = $i + 1; @endphp
-                        <tr class="{{ $pos <= 3 ? 'bg-yellow-500/3' : '' }}">
+                        <tr class="{{ $pos === 1 ? 'bg-white/5' : '' }}">
                             <td class="text-center">
                                 <span class="font-oswald text-xl font-bold
-                                    {{ $pos === 1 ? 'text-yellow-400' : ($pos === 2 ? 'text-slate-400' : ($pos === 3 ? 'text-orange-500' : 'text-white/20')) }}">
+                                    {{ $pos === 1 ? 'text-f1-red' : ($pos <= 3 ? 'text-white' : 'text-white/20') }}">
                                     {{ $pos }}
                                 </span>
                             </td>
@@ -99,7 +99,7 @@
                                 </div>
                             </td>
                             <td class="hidden sm:table-cell text-white/50 text-sm">
-                                {{ $driver->team?->name ?? '—' }}
+                                {{ $driver->currentTeam()?->name ?? '—' }}
                             </td>
                             <td class="hidden md:table-cell text-center text-white/40 text-sm">
                                 {{ $driver->nationality }}

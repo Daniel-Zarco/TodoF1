@@ -9,8 +9,9 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::withCount('drivers')
-            ->orderByDesc('constructor_points')
+        $teams = Team::withCount('seasonEntries as drivers_count')
+            ->withSum('raceResults', 'points')
+            ->orderByDesc('race_results_sum_points')
             ->paginate(10);
 
         return view('teams.index', compact('teams'));
@@ -18,7 +19,7 @@ class TeamController extends Controller
 
     public function show(Team $team)
     {
-        $team->load(['drivers', 'raceResults.grandPrix']);
+        $team->load(['seasonEntries.driver', 'raceResults.grandPrix']);
         $totalPoints  = $team->raceResults->sum('points');
         $wins         = $team->raceResults->where('position', 1)->count();
 
@@ -38,7 +39,6 @@ class TeamController extends Controller
             'base'               => 'nullable|string|max:150',
             'founded_year'       => 'nullable|integer|min:1950|max:' . date('Y'),
             'logo_url'           => 'nullable|url|max:500',
-            'constructor_points' => 'nullable|integer|min:0',
             'power_unit'         => 'nullable|string|max:100',
         ]);
 
@@ -61,7 +61,6 @@ class TeamController extends Controller
             'base'               => 'nullable|string|max:150',
             'founded_year'       => 'nullable|integer|min:1950|max:' . date('Y'),
             'logo_url'           => 'nullable|url|max:500',
-            'constructor_points' => 'nullable|integer|min:0',
             'power_unit'         => 'nullable|string|max:100',
         ]);
 

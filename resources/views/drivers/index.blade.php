@@ -39,13 +39,12 @@
         @forelse($drivers as $driver)
             <a href="{{ route('drivers.show', $driver) }}" class="card-hover group flex flex-col">
                 {{-- Photo --}}
-                <div class="relative h-48 bg-gradient-to-br from-f1-card to-f1-dark overflow-hidden">
+                <div class="relative h-48 bg-f1-black overflow-hidden">
                     @if($driver->photo_url)
                         <img src="{{ $driver->photo_url }}" alt="{{ $driver->name }}"
                              class="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity">
                     @else
-                        <div class="w-full h-full flex items-center justify-center">
-                            <span class="font-oswald text-5xl font-bold text-white/10">{{ strtoupper(substr($driver->name, 0, 2)) }}</span>
+                            <span class="font-oswald text-5xl font-bold text-white/5">{{ strtoupper(substr($driver->name, 0, 2)) }}</span>
                         </div>
                     @endif
                     @if($driver->number)
@@ -60,7 +59,7 @@
                 <div class="p-4 flex flex-col flex-1">
                     <h2 class="font-semibold text-white group-hover:text-f1-red transition-colors">{{ $driver->name }}</h2>
                     <p class="text-xs text-white/40 mt-0.5">{{ $driver->nationality }}</p>
-                    <p class="text-xs text-white/30 mt-1">{{ $driver->team?->name ?? 'No team' }}</p>
+                    <p class="text-xs text-white/30 mt-1">{{ $driver->currentTeam()?->name ?? 'No team' }}</p>
                 </div>
             </a>
         @empty

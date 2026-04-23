@@ -12,7 +12,7 @@ class StandingsController extends Controller
     {
         $season = $request->get('season', date('Y'));
 
-        $standings = Driver::with('team')
+        $standings = Driver::with(['seasonEntries.team', 'seasonEntries.season'])
             ->withSum(['raceResults as season_points' => function ($q) use ($season) {
                 $q->whereHas('grandPrix', fn ($gp) => $gp->where('season', $season));
             }], 'points')
@@ -28,7 +28,7 @@ class StandingsController extends Controller
     {
         $season = $request->get('season', date('Y'));
 
-        $standings = Team::with('drivers')
+        $standings = Team::with('seasonEntries.driver')
             ->withSum(['raceResults as season_points' => function ($q) use ($season) {
                 $q->whereHas('grandPrix', fn ($gp) => $gp->where('season', $season));
             }], 'points')

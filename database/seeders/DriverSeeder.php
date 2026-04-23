@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Driver;
+use App\Models\Season;
+use App\Models\SeasonEntry;
 use App\Models\Team;
 use Illuminate\Database\Seeder;
 
@@ -181,10 +183,11 @@ class DriverSeeder extends Seeder
             ],
         ];
 
+        $season = Season::where('year', 2024)->first();
+
         foreach ($drivers as $data) {
             $team = Team::where('name', $data['team'])->first();
-            Driver::create([
-                'team_id'       => $team?->id,
+            $driver = Driver::create([
                 'name'          => $data['name'],
                 'nationality'   => $data['nationality'],
                 'date_of_birth' => $data['date_of_birth'],
@@ -193,6 +196,14 @@ class DriverSeeder extends Seeder
                 'bio'           => $data['bio'],
                 'is_active'     => $data['is_active'],
             ]);
+
+            if ($team && $season) {
+                SeasonEntry::create([
+                    'season_id' => $season->id,
+                    'team_id'   => $team->id,
+                    'driver_id' => $driver->id,
+                ]);
+            }
         }
     }
 }

@@ -28,7 +28,7 @@
                     @endif
                 </div>
                 <h1 class="section-title">{{ $driver->name }}</h1>
-                <p class="section-subtitle">{{ $driver->nationality }} · {{ $driver->team?->name ?? 'No team' }}</p>
+                <p class="section-subtitle">{{ $driver->nationality }} · {{ $driver->currentTeam()?->name ?? 'No team' }}</p>
                 @if($driver->date_of_birth)
                     <p class="text-white/30 text-sm mt-1">Born {{ $driver->date_of_birth->format('d M Y') }} · Age {{ $driver->age }}</p>
                 @endif
@@ -63,7 +63,7 @@
                         <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Points</div>
                     </div>
                     <div class="bg-white/3 rounded-lg p-3 text-center">
-                        <div class="font-oswald text-3xl font-bold text-yellow-400">{{ $wins }}</div>
+                        <div class="font-oswald text-3xl font-bold text-white">{{ $wins }}</div>
                         <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Wins</div>
                     </div>
                     <div class="bg-white/3 rounded-lg p-3 text-center">
@@ -71,7 +71,7 @@
                         <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Podiums</div>
                     </div>
                     <div class="bg-white/3 rounded-lg p-3 text-center">
-                        <div class="font-oswald text-3xl font-bold text-purple-400">{{ $poles }}</div>
+                        <div class="font-oswald text-3xl font-bold text-white">{{ $poles }}</div>
                         <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Poles</div>
                     </div>
                 </div>
@@ -86,16 +86,17 @@
             @endif
 
             {{-- Team --}}
-            @if($driver->team)
+            @if($driver->currentTeam())
+                @php $currentTeam = $driver->currentTeam(); @endphp
             <div class="card p-6">
                 <h2 class="font-oswald text-lg font-bold text-white uppercase tracking-wide mb-3">Current Team</h2>
-                <a href="{{ route('teams.show', $driver->team) }}" class="flex items-center gap-3 hover:text-f1-red transition-colors group">
-                    @if($driver->team->logo_url)
-                        <img src="{{ $driver->team->logo_url }}" alt="{{ $driver->team->name }}" class="w-10 h-10 object-contain">
+                <a href="{{ route('teams.show', $currentTeam) }}" class="flex items-center gap-3 hover:text-f1-red transition-colors group">
+                    @if($currentTeam->logo_url)
+                        <img src="{{ $currentTeam->logo_url }}" alt="{{ $currentTeam->name }}" class="w-10 h-10 object-contain">
                     @endif
                     <div>
-                        <div class="font-semibold text-white group-hover:text-f1-red transition-colors">{{ $driver->team->name }}</div>
-                        <div class="text-xs text-white/40">{{ $driver->team->country }}</div>
+                        <div class="font-semibold text-white group-hover:text-f1-red transition-colors">{{ $currentTeam->name }}</div>
+                        <div class="text-xs text-white/40">{{ $currentTeam->country }}</div>
                     </div>
                 </a>
             </div>
@@ -134,7 +135,7 @@
                                         @if($result->dnf)
                                             <span class="badge-red">DNF</span>
                                         @else
-                                            <span class="{{ $result->position <= 3 ? 'font-bold text-yellow-400' : '' }}">{{ $result->position ?? '—' }}</span>
+                                            <span class="{{ $result->position === 1 ? 'font-bold text-f1-red' : ($result->position <= 3 ? 'font-bold text-white' : '') }}">{{ $result->position ?? '—' }}</span>
                                         @endif
                                     </td>
                                     <td class="text-center font-semibold">{{ $result->points }}</td>

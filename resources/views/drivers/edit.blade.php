@@ -43,7 +43,7 @@
                 <select id="team_id" name="team_id" class="form-select">
                     <option value="">— No team —</option>
                     @foreach($teams as $team)
-                        <option value="{{ $team->id }}" {{ old('team_id', $driver->team_id) == $team->id ? 'selected' : '' }}>{{ $team->name }}</option>
+                        <option value="{{ $team->id }}" {{ old('team_id', $driver->currentTeam()?->id) == $team->id ? 'selected' : '' }}>{{ $team->name }}</option>
                     @endforeach
                 </select>
                 @error('team_id') <p class="form-error">{{ $message }}</p> @enderror

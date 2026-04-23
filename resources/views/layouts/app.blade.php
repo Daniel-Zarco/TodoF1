@@ -16,16 +16,16 @@
     <!-- Scripts & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="h-full bg-f1-dark font-inter text-white antialiased" x-data="{ mobileOpen: false }">
+<body class="h-full bg-f1-black font-inter text-white antialiased" x-data="{ mobileOpen: false }">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-f1-dark/95 backdrop-blur border-b border-white/5">
+    <nav class="sticky top-0 z-50 bg-f1-black/95 backdrop-blur-md border-b border-f1-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
 
                 <!-- Logo -->
                 <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                    <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-f1-red font-oswald font-bold text-white text-sm tracking-wider group-hover:bg-red-600 transition-colors">F1</span>
+                    <span class="flex items-center justify-center w-8 h-8 rounded-sm bg-f1-red font-oswald font-bold text-white text-xs tracking-wider group-hover:bg-red-700 transition-colors">F1</span>
                     <span class="font-oswald text-xl font-bold text-white tracking-wide">TodoF1</span>
                     <span class="hidden sm:block text-xs text-white/40 font-inter font-normal">v2</span>
                 </a>
@@ -43,7 +43,7 @@
                             Standings
                             <svg class="w-3 h-3 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </button>
-                        <div x-show="open" x-transition class="absolute top-full left-0 mt-1 w-44 rounded-lg bg-f1-card border border-white/10 shadow-2xl py-1">
+                        <div x-show="open" x-transition class="absolute top-full left-0 mt-1 w-48 rounded-md bg-f1-card border border-f1-border shadow-2xl py-1">
                             <a href="{{ route('standings.drivers') }}" class="dropdown-item">Drivers Championship</a>
                             <a href="{{ route('standings.teams') }}" class="dropdown-item">Constructors Championship</a>
                         </div>
@@ -63,7 +63,7 @@
                                     <span class="px-1.5 py-0.5 text-xs rounded bg-f1-red/20 text-f1-red font-medium">Admin</span>
                                 @endif
                             </button>
-                            <div x-show="open" x-transition class="absolute right-0 top-full mt-2 w-44 rounded-lg bg-f1-card border border-white/10 shadow-2xl py-1">
+                            <div x-show="open" x-transition class="absolute right-0 top-full mt-2 w-48 rounded-md bg-f1-card border border-f1-border shadow-2xl py-1">
                                 <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
                                 <a href="{{ route('profile.edit') }}" class="dropdown-item">Profile</a>
                                 <div class="border-t border-white/10 my-1"></div>
@@ -75,7 +75,7 @@
                         </div>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-white/60 hover:text-white transition-colors">Login</a>
-                        <a href="{{ route('register') }}" class="px-4 py-2 text-sm font-medium rounded-lg bg-f1-red hover:bg-red-600 text-white transition-colors">Register</a>
+                        <a href="{{ route('register') }}" class="btn-primary text-sm px-4 py-2">Register</a>
                     @endauth
                 </div>
 
@@ -90,7 +90,7 @@
         </div>
 
         <!-- Mobile menu -->
-        <div x-show="mobileOpen" x-transition class="md:hidden bg-f1-card border-t border-white/5">
+        <div x-show="mobileOpen" x-transition class="md:hidden bg-f1-black border-t border-f1-border">
             <div class="px-4 py-3 space-y-1">
                 <a href="{{ route('drivers.index') }}" class="mobile-nav-link">Drivers</a>
                 <a href="{{ route('teams.index') }}" class="mobile-nav-link">Teams</a>
@@ -135,7 +135,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 mt-20 py-10">
+    <footer class="border-t border-f1-border mt-20 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white/30 text-sm">
             <div class="flex items-center justify-center gap-2 mb-2">
                 <span class="flex items-center justify-center w-6 h-6 rounded bg-f1-red font-oswald font-bold text-white text-xs">F1</span>

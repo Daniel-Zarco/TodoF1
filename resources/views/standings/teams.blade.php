@@ -27,29 +27,29 @@
     {{-- Championship leader highlight --}}
     @if($standings->isNotEmpty())
         @php $leader = $standings->first(); @endphp
-        <div class="card p-6 mb-8 border-yellow-500/20 bg-yellow-500/3 flex flex-col sm:flex-row gap-5 items-center">
-            <div class="font-oswald text-7xl font-bold text-yellow-400/30 select-none">1</div>
+        <div class="card p-6 mb-8 border-f1-red/20 bg-f1-red/5 flex flex-col sm:flex-row gap-5 items-center">
+            <div class="font-oswald text-7xl font-bold text-f1-red/20 select-none">1</div>
 
             @if($leader->logo_url)
                 <div class="w-24 h-16 flex items-center justify-center flex-shrink-0">
                     <img src="{{ $leader->logo_url }}" alt="{{ $leader->name }}" class="max-w-full max-h-full object-contain">
                 </div>
             @else
-                <div class="w-20 h-20 rounded-lg bg-yellow-500/20 flex items-center justify-center font-oswald text-2xl font-bold text-yellow-400 flex-shrink-0">
+                <div class="w-20 h-20 rounded-lg bg-f1-red/20 flex items-center justify-center font-oswald text-2xl font-bold text-f1-red flex-shrink-0">
                     {{ strtoupper(substr($leader->name, 0, 3)) }}
                 </div>
             @endif
 
             <div class="flex-1 text-center sm:text-left">
-                <div class="text-xs text-yellow-400/60 uppercase tracking-widest font-semibold mb-1">Championship Leader</div>
-                <a href="{{ route('teams.show', $leader) }}" class="font-oswald text-3xl font-bold text-white hover:text-yellow-400 transition-colors">
+                <div class="text-xs text-f1-red/80 uppercase tracking-widest font-semibold mb-1">Championship Leader</div>
+                <a href="{{ route('teams.show', $leader) }}" class="font-oswald text-3xl font-bold text-white hover:text-f1-red transition-colors">
                     {{ $leader->name }}
                 </a>
                 <p class="text-white/40 text-sm mt-1">{{ $leader->country }} · {{ $leader->power_unit ?? '—' }}</p>
             </div>
 
             <div class="text-center">
-                <div class="font-oswald text-5xl font-bold text-yellow-400">{{ number_format($leader->season_points ?? 0, 1) }}</div>
+                <div class="font-oswald text-5xl font-bold text-f1-red">{{ number_format($leader->season_points ?? 0, 1) }}</div>
                 <div class="text-xs text-white/30 uppercase tracking-widest mt-1">Points</div>
             </div>
         </div>
@@ -72,10 +72,10 @@
                 <tbody>
                     @forelse($standings as $i => $team)
                         @php $pos = $i + 1; @endphp
-                        <tr class="{{ $pos <= 3 ? 'bg-yellow-500/3' : '' }}">
+                        <tr class="{{ $pos === 1 ? 'bg-white/5' : '' }}">
                             <td class="text-center">
                                 <span class="font-oswald text-xl font-bold
-                                    {{ $pos === 1 ? 'text-yellow-400' : ($pos === 2 ? 'text-slate-400' : ($pos === 3 ? 'text-orange-500' : 'text-white/20')) }}">
+                                    {{ $pos === 1 ? 'text-f1-red' : ($pos <= 3 ? 'text-white' : 'text-white/20') }}">
                                     {{ $pos }}
                                 </span>
                             </td>

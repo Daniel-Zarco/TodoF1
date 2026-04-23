@@ -6,8 +6,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row gap-6 items-start">
             @if($team->logo_url)
-                <div class="w-24 h-16 flex items-center justify-center flex-shrink-0">
-                    <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="max-w-full max-h-full object-contain">
+                <div class="w-32 h-24 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden shadow-[0_0_30px_-10px_rgba(225,6,0,0.1)]">
+                    <div class="absolute inset-0 bg-f1-red/10 blur-2xl"></div>
+                    <img src="{{ $team->logo_url }}" alt="{{ $team->name }}" class="max-w-[80%] max-h-[80%] object-contain relative z-10">
+                </div>
+            @else
+                <div class="w-32 h-24 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex items-center justify-center flex-shrink-0 relative overflow-hidden shadow-[0_0_30px_-10px_rgba(225,6,0,0.05)]">
+                    <div class="absolute inset-0 bg-f1-red/5 blur-xl"></div>
+                    <div class="relative z-10 font-oswald text-3xl font-bold text-f1-red/50 tracking-widest">{{ strtoupper(substr($team->name, 0, 3)) }}</div>
                 </div>
             @endif
             <div class="flex-1">
@@ -44,11 +50,11 @@
                 <h2 class="font-oswald text-lg font-bold text-white uppercase mb-4">Season Stats</h2>
                 <div class="grid grid-cols-2 gap-3">
                     <div class="bg-white/3 rounded-lg p-3 text-center">
-                        <div class="font-oswald text-3xl font-bold text-f1-red">{{ $team->constructor_points }}</div>
+                        <div class="font-oswald text-3xl font-bold text-f1-red">{{ $team->totalPoints() }}</div>
                         <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Points</div>
                     </div>
                     <div class="bg-white/3 rounded-lg p-3 text-center">
-                        <div class="font-oswald text-3xl font-bold text-yellow-400">{{ $wins }}</div>
+                        <div class="font-oswald text-3xl font-bold text-white">{{ $wins }}</div>
                         <div class="text-xs text-white/40 uppercase tracking-widest mt-1">Wins</div>
                     </div>
                 </div>
@@ -58,11 +64,11 @@
         <div class="lg:col-span-2 space-y-5">
             <div class="card p-6">
                 <h2 class="font-oswald text-lg font-bold text-white uppercase mb-4">Drivers</h2>
-                @if($team->drivers->isEmpty())
+                @if($team->seasonEntries->isEmpty())
                     <p class="text-white/30 text-sm">No drivers assigned.</p>
                 @else
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        @foreach($team->drivers as $driver)
+                        @foreach($team->seasonEntries->pluck('driver')->unique('id') as $driver)
                             <a href="{{ route('drivers.show', $driver) }}" class="flex items-center gap-3 p-3 rounded-xl bg-white/3 hover:bg-white/5 transition-colors group">
                                 @if($driver->photo_url)
                                     <img src="{{ $driver->photo_url }}" alt="{{ $driver->name }}" class="w-10 h-10 rounded-full object-cover object-top">
