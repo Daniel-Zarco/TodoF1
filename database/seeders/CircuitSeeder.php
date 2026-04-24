@@ -9,6 +9,8 @@ class CircuitSeeder extends Seeder
 {
     public function run(): void
     {
+        $base = 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/';
+
         $circuits = [
             [
                 'name' => 'Circuito de Bahrain',
@@ -18,7 +20,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 57,
                 'lap_record' => '1:31.447',
                 'lap_record_driver' => 'Pedro de la Rosa (2005)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/bahrain.png',
+                'photo_url' => $base . 'circuits/photos/bahrain.png',
             ],
             [
                 'name' => 'Jeddah Corniche Circuit',
@@ -28,7 +30,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 50,
                 'lap_record' => '1:30.734',
                 'lap_record_driver' => 'Lewis Hamilton (2021)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/jeddah.png',
+                'photo_url' => $base . 'circuits/photos/jeddah.png',
             ],
             [
                 'name' => 'Albert Park Circuit',
@@ -38,7 +40,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 58,
                 'lap_record' => '1:20.235',
                 'lap_record_driver' => 'Charles Leclerc (2022)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/albert-park.png',
+                'photo_url' => $base . 'circuits/photos/albert-park.png',
             ],
             [
                 'name' => 'Circuit de Monaco',
@@ -48,7 +50,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 78,
                 'lap_record' => '1:12.909',
                 'lap_record_driver' => 'Rubens Barrichello (2004)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/monaco.png',
+                'photo_url' => $base . 'circuits/photos/monaco.png',
             ],
             [
                 'name' => 'Circuit de Spa-Francorchamps',
@@ -58,7 +60,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 44,
                 'lap_record' => '1:46.286',
                 'lap_record_driver' => 'Valtteri Bottas (2018)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/spa.png', // CORREGIDO
+                'photo_url' => $base . 'circuits/photos/spa.png',
             ],
             [
                 'name' => 'Silverstone Circuit',
@@ -68,7 +70,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 52,
                 'lap_record' => '1:27.097',
                 'lap_record_driver' => 'Max Verstappen (2020)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/silverstone.png',
+                'photo_url' => $base . 'circuits/photos/silverstone.png',
             ],
             [
                 'name' => 'Autodromo Nazionale Monza',
@@ -78,7 +80,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 53,
                 'lap_record' => '1:21.046',
                 'lap_record_driver' => 'Rubens Barrichello (2004)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/monza.png',
+                'photo_url' => $base . 'circuits/photos/monza.png',
             ],
             [
                 'name' => 'Circuit de Catalunya',
@@ -88,7 +90,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 66,
                 'lap_record' => '1:18.149',
                 'lap_record_driver' => 'Max Verstappen (2021)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/catalunya.png',
+                'photo_url' => $base . 'circuits/photos/catalunya.png',
             ],
             [
                 'name' => 'Suzuka International Racing Course',
@@ -98,7 +100,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 53,
                 'lap_record' => '1:30.983',
                 'lap_record_driver' => 'Lewis Hamilton (2019)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/suzuka.png',
+                'photo_url' => $base . 'circuits/photos/suzuka.png',
             ],
             [
                 'name' => 'Autódromo José Carlos Pace',
@@ -108,7 +110,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 71,
                 'lap_record' => '1:10.540',
                 'lap_record_driver' => 'Valtteri Bottas (2018)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/interlagos.png', // CORREGIDO
+                'photo_url' => $base . 'circuits/photos/interlagos.png',
             ],
             [
                 'name' => 'Las Vegas Strip Circuit',
@@ -118,7 +120,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 50,
                 'lap_record' => '1:35.490',
                 'lap_record_driver' => 'Oscar Piastri (2023)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/las-vegas.png',
+                'photo_url' => $base . 'circuits/photos/las-vegas.png',
             ],
             [
                 'name' => 'Yas Marina Circuit',
@@ -128,7 +130,7 @@ class CircuitSeeder extends Seeder
                 'lap_count' => 58,
                 'lap_record' => '1:26.103',
                 'lap_record_driver' => 'Max Verstappen (2021)',
-                'photo_url' => 'https://srpowxjflwomhwujzwzb.supabase.co/storage/v1/object/public/todo-f1-assets/circuits/yas-marina.png',
+                'photo_url' => $base . 'circuits/photos/yas-marina.png',
             ],
         ];
 
