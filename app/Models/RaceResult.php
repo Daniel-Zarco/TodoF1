@@ -26,27 +26,27 @@ class RaceResult extends Model
     protected function casts(): array
     {
         return [
-            'position'       => 'integer',
-            'points'         => 'decimal:1',
-            'fastest_lap'    => 'boolean',
-            'pole_position'  => 'boolean',
-            'dnf'            => 'boolean',
+            'position' => 'integer',
+            'points' => 'decimal:1',
+            'fastest_lap' => 'boolean',
+            'pole_position' => 'boolean',
+            'dnf' => 'boolean',
             'laps_completed' => 'integer',
         ];
     }
 
-    public function grandPrix(): BelongsTo
+    public function grandPrix()
     {
-        return $this->belongsTo(GrandPrix::class);
+        return $this->belongsTo(\App\Models\GrandPrix::class);
     }
 
-    public function driver(): BelongsTo
+    public function driver()
     {
-        return $this->belongsTo(Driver::class);
+        return $this->belongsTo(\App\Models\Driver::class);
     }
 
-    public function team(): BelongsTo
+    public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(\App\Models\Team::class);
     }
 }

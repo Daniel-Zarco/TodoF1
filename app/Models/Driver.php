@@ -26,8 +26,8 @@ class Driver extends Model
     {
         return [
             'date_of_birth' => 'date',
-            'is_active'     => 'boolean',
-            'number'        => 'integer',
+            'is_active' => 'boolean',
+            'number' => 'integer',
         ];
     }
 
@@ -55,7 +55,7 @@ class Driver extends Model
         return $this->seasonEntries()
             ->whereHas('season', fn($q) => $q->where('year', $seasonYear))
             ->first()
-            ?->team;
+                ?->team;
     }
 
     /**
@@ -66,9 +66,9 @@ class Driver extends Model
         return $this->teamForSeason(2024);
     }
 
-    public function raceResults(): HasMany
+    public function raceResults()
     {
-        return $this->hasMany(RaceResult::class);
+        return $this->hasMany(\App\Models\RaceResult::class);
     }
 
     /**

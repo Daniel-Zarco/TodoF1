@@ -23,7 +23,7 @@ class Team extends Model
     protected function casts(): array
     {
         return [
-            'founded_year'        => 'integer',
+            'founded_year' => 'integer',
         ];
     }
 
@@ -32,9 +32,9 @@ class Team extends Model
         return $this->hasMany(SeasonEntry::class);
     }
 
-    public function raceResults(): HasMany
+    public function raceResults()
     {
-        return $this->hasMany(RaceResult::class);
+        return $this->hasMany(\App\Models\RaceResult::class);
     }
 
     /**
