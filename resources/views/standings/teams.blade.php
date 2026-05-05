@@ -82,8 +82,14 @@
                             <td>
                                 <div class="flex items-center gap-3">
                                     <div class="w-14 h-8 flex items-center justify-center flex-shrink-0">
-                                        <img src="{{ $team->logo_url }}" alt="{{ $team->name }}"
-                                             class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                                        @if($team->logo_url)
+                                            <img src="{{ $team->logo_url }}" alt="{{ $team->name }}"
+                                                 class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+                                        @else
+                                            <div class="w-full h-full bg-white/5 rounded flex items-center justify-center text-white/30 text-xs font-bold font-oswald tracking-wider">
+                                                {{ strtoupper(substr($team->name, 0, 3)) }}
+                                            </div>
+                                        @endif
                                     </div>
                                     <a href="{{ route('teams.show', $team) }}"
                                        class="font-medium text-white hover:text-f1-red transition-colors text-sm">
@@ -95,7 +101,7 @@
                             <td class="hidden md:table-cell text-white/40 text-sm">{{ $team->power_unit ?? '—' }}</td>
                             <td class="hidden lg:table-cell text-center">
                                 <div class="flex justify-center -space-x-2">
-                                    @foreach($team->drivers->take(2) as $driver)
+                                    @foreach($team->seasonEntries->map->driver->filter()->unique('id')->take(2) as $driver)
                                         @if($driver->photo_url)
                                             <img src="{{ $driver->photo_url }}" alt="{{ $driver->name }}"
                                                  class="w-7 h-7 rounded-full object-cover object-top ring-1 ring-f1-dark"
