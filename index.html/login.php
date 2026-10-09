@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Conexión a BBDD (ajusta con tus datos)
-    $conn = new mysqli("localhost", "root", "", "todof1");
+    // Conexión a BBDD (resuelta por api/db.php en local y en producción)
+    require_once __DIR__ . '/../api/db.php';
     if ($conn->connect_error) {
         die("Conexión fallida: " . $conn->connect_error);
     }

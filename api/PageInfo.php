@@ -1,11 +1,6 @@
 <?php
-// Conexión a la base de datos
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "todof1";
-
-$conn = new mysqli($host, $user, $pass, $dbname);
+// Conexión a la base de datos (resuelta por api/db.php en local y en producción)
+require_once __DIR__ . '/db.php';
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);

@@ -1,12 +1,12 @@
 <?php
-// Datos de conexión a la base de datos 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "todof1";
+// Script administrativo: solo ejecutable por línea de comandos (neutraliza el acceso web).
+if (PHP_SAPI !== 'cli') {
+    http_response_code(403);
+    exit('Acceso restringido: ejecutar por línea de comandos.');
+}
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Conexión a la base de datos (resuelta por api/db.php en local y en producción)
+require_once __DIR__ . '/db.php';
 
 // Revisar conexión
 if ($conn->connect_error) {

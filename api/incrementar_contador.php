@@ -1,14 +1,8 @@
 <?php
 header('Content-Type: application/json');
 
-// Configuración base de datos
-$servername = "localhost";
-$username = "tu_usuario";
-$password = "tu_contraseña";
-$dbname = "todof1";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Conexión a la base de datos (resuelta por api/db.php en local y en producción)
+require_once __DIR__ . '/db.php';
 if ($conn->connect_error) {
   http_response_code(500);
   echo json_encode(["error" => "Error de conexión a la base de datos"]);
