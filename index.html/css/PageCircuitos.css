@@ -1,106 +1,91 @@
-body {
-  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-  font-family: 'Urbanist', sans-serif;
-  color: white;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
+/* TodoF1 — Circuitos (ajustes de página) */
 
-.navbar+header {
-  padding-left: 60px;
-  padding-top: 50px;
-  padding-bottom: 0px;
-}
-
-header {
-  padding: 20px 40px;
-  background-color: #111;
+.tf-circuit-card {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-  z-index: 10;
-}
-
-header h1 {
-  color: #fff;
-  text-shadow: 0 0 10px red;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
-}
-
-.card {
-  background: #1a1a1a;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
-}
-
-.card h2 {
-  font-size: 1.3rem;
-  color: #ff4b4b;
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #ccc;
-}
-
-/* Estilo del botón de retroceso */
-.back-button {
-  position: fixed;
-  top: 150px;
-  left: 50px;
-  z-index: 1000;
-
-  background: #000;
-  color: #fff;
-  border: 2px solid #e10600;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  font-family: 'Urbanist', sans-serif;
-  text-transform: uppercase;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
   overflow: hidden;
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
 }
 
-.back-button::before {
-  content: '';
+.tf-circuit-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--c-red-line);
+  box-shadow: var(--shadow-2);
+}
+
+.tf-circuit-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.tf-circuit-card__round {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--c-red-2);
+}
+
+.tf-circuit-card__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.tf-circuit-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  font-size: 0.82rem;
+  color: var(--c-dim);
+}
+
+.tf-circuit-card__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tf-circuit-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--c-line);
+  font-size: 0.8rem;
+}
+
+.tf-circuit-card__date {
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+.tf-circuit-card__cta {
+  font-weight: 600;
+  color: var(--c-red-2);
+}
+
+.tf-circuit-card.is-upcoming {
+  opacity: 0.85;
+}
+
+.tf-circuit-card.is-upcoming::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-  transform: skewX(-20deg);
-  transition: left 0.5s ease;
-}
-
-.back-button:hover::before {
-  left: 100%;
-}
-
-.back-button:hover {
-  background-color: #e10600;
-  color: white;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+  inset: 0;
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255, 255, 255, 0.015) 14px 28px);
+  pointer-events: none;
 }

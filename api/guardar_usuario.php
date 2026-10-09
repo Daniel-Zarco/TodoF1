@@ -34,7 +34,7 @@ $stmt->bind_param("ssi", $gender, $country, $age);
 // Ejecutar la consulta y verificar
 if ($stmt->execute()) {
     // Redirigir a la página principal después de guardar
-    header("Location: /TodoF1/todoF1/index.html/PagePrincipal.php");
+    header("Location: /index.html/PagePrincipal.php");
     exit();
 } else {
     echo "Error al guardar los datos: " . $stmt->error;

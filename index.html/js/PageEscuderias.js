@@ -1,96 +1,128 @@
-const params = new URLSearchParams(window.location.search);
-    const year = params.get("year") || 2025;
+/* TodoF1 — Escuderías */
+(function () {
+  'use strict';
 
-    // 1. Diccionario de colores por escudería
-    const coloresPorEscuderia = {
-      "ferrari": "#e10600",
-      "mercedes": "#00d2be",
-      "red bull": "#0600ef",
-      "mclaren": "#ff8700",
-      "alpine": "#0090ff",
-      "aston martin": "#006f62",
-      "williams": "#005aff",
-      "sauber": "#39FF14",
-      "haas": "#F74955",
-      "rb f1 team": "#ffffff"
-    };
+  var API = 'https://api.jolpi.ca/ergast/f1';
+  var params = new URLSearchParams(window.location.search);
+  var year = parseInt(params.get('year') || '2026', 10);
 
-    fetch(`https://api.jolpi.ca/ergast/f1/${year}/results.json?limit=1000`)
-      .then(response => response.json())
-      .then(data => {
-        const races = data.MRData.RaceTable.Races;
-        const escuderiasUnicas = new Map();
+  var container = document.getElementById('escuderias-container');
+  var search = document.getElementById('search');
+  var badge = document.getElementById('count-badge');
 
-        races.forEach(race => {
-          race.Results.forEach(result => {
-            const constructor = result.Constructor;
-            if (!escuderiasUnicas.has(constructor.constructorId)) {
-              escuderiasUnicas.set(constructor.constructorId, {
-                nombre: constructor.name,
-                nacionalidad: constructor.nationality
-              });
-            }
-          });
-        });
+  document.getElementById('year-label').textContent = year;
+  document.getElementById('btn-volver').href = '/index.html/PagePrincipal.php?year=' + year;
 
-        const container = document.getElementById('escuderias-container');
+  var colorByTeam = {
+    'ferrari': '#E10600',
+    'mercedes': '#00D2BE',
+    'red bull': '#1E41FF',
+    'mclaren': '#FF8700',
+    'alpine': '#0090FF',
+    'aston martin': '#006F62',
+    'williams': '#1E7FE0',
+    'sauber': '#52E252',
+    'haas': '#B6BABD',
+    'rb': '#6692FF',
+    'racing bulls': '#6692FF',
+    'lotus': '#FFB800',
+    'renault': '#FFF500',
+    'toro rosso': '#4E7C9B',
+    'force india': '#F480B5',
+    'brawn': '#B6FF00',
+    'toyota': '#CC0000',
+    'bmw': '#293C6E',
+    'jordan': '#FFD700',
+    'benetton': '#00A551',
+    'brabham': '#FFCC00',
+    'tyrrell': '#003399'
+  };
 
-        // Convertir el Map a un array y ordenarlo alfabéticamente
-        const escuderiasOrdenadas = Array.from(escuderiasUnicas.values())
-          .sort((a, b) => a.nombre.localeCompare(b.nombre));
+  var teams = [];
 
-        escuderiasOrdenadas.forEach(escuderia => {
-          const card = document.createElement('div');
-          card.classList.add('card');
-          card.innerHTML = `
-          <h2>${escuderia.nombre}</h2>
-          <p><strong>Nacionalidad:</strong> ${escuderia.nacionalidad}</p>
-        `;
+  function esc(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
 
-          // 2. Normalizar el nombre para comparar con el diccionario
-          const nombreNormalizado = escuderia.nombre.toLowerCase().replace(/[^a-z0-9]/gi, '').trim();
-          let colorBorde = "#000000"; // valor por defecto si no se encuentra
+  function teamColor(name) {
+    var normalized = String(name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    for (var key in colorByTeam) {
+      if (normalized.indexOf(key.replace(/[^a-z0-9]/g, '')) !== -1) {
+        return colorByTeam[key];
+      }
+    }
+    return '#55555E';
+  }
 
-          // 3. Buscar coincidencia en el diccionario de colores
-          for (const equipo in coloresPorEscuderia) {
-            if (nombreNormalizado.includes(equipo.replace(/[^a-z0-9]/gi, ''))) {
-              colorBorde = coloresPorEscuderia[equipo];
-              break;
-            }
-          }
+  function render() {
+    var term = (search.value || '').trim().toLowerCase();
+    var filtered = teams.filter(function (t) {
+      return !term || t.name.toLowerCase().indexOf(term) !== -1;
+    });
 
-          // 4. Aplicar el borde de color
-          card.style.border = `2px solid ${colorBorde}`;
-          card.addEventListener('mouseenter', () => {
-            card.style.boxShadow = `0 0 15px ${colorBorde}`;
-          });
+    badge.textContent = filtered.length + (filtered.length === 1 ? ' escudería' : ' escuderías');
 
-          card.addEventListener('mouseleave', () => {
-            card.style.boxShadow = ''; // Lo removemos cuando no hay hover
-          });
+    if (!filtered.length) {
+      container.innerHTML = '<div class="tf-empty" style="grid-column:1/-1;">No se encontraron escuderías con ese nombre.</div>';
+      return;
+    }
 
+    var fragment = document.createDocumentFragment();
+    filtered.forEach(function (t) {
+      var card = document.createElement('a');
+      card.className = 'tf-team-card';
+      card.href = 'PageStatsEscuderia.php?escuderia=' + encodeURIComponent(t.name) + '&year=' + year;
+      card.style.setProperty('--team', teamColor(t.name));
+      card.innerHTML =
+        '<div class="tf-team-card__top">' +
+        '<span class="tf-team-card__rank">P' + esc(t.position) + '</span>' +
+        '<span class="tf-team-card__swatch"></span>' +
+        '</div>' +
+        '<h2 class="tf-team-card__name">' + esc(t.name) + '</h2>' +
+        '<div class="tf-team-card__meta">' + esc(t.nationality || 'Nacionalidad N/D') + '</div>' +
+        '<div class="tf-team-card__foot">' +
+        '<div class="tf-team-card__points">' + esc(t.points) + '<small>Puntos</small></div>' +
+        '<span class="tf-team-card__cta">Ver detalles →</span>' +
+        '</div>';
+      fragment.appendChild(card);
+    });
 
-          // Evento click para redirigir
-          card.addEventListener('click', () => {
-            window.location.href = `PageStatsEscuderia.php?escuderia=${encodeURIComponent(escuderia.nombre)}&year=${year}`;
-          });
+    container.innerHTML = '';
+    container.appendChild(fragment);
+  }
 
-          container.appendChild(card);
-        });
-      })
-      .catch(error => {
-        console.error(error);
-        document.getElementById('escuderias-container').innerHTML = '<p>Error al cargar escuderías desde la API.</p>';
+  fetch(API + '/' + year + '/constructorStandings.json')
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      var list = data.MRData && data.MRData.StandingsTable &&
+        data.MRData.StandingsTable.StandingsLists &&
+        data.MRData.StandingsTable.StandingsLists[0];
+      var standings = list ? (list.ConstructorStandings || []) : [];
+
+      if (!standings.length) {
+        container.innerHTML = '<div class="tf-empty" style="grid-column:1/-1;">No hay escuderías registradas para la temporada ' + esc(year) + '.</div>';
+        badge.textContent = '0 escuderías';
+        return;
+      }
+
+      teams = standings.map(function (entry) {
+        return {
+          position: entry.position,
+          name: entry.Constructor.name,
+          nationality: entry.Constructor.nationality,
+          points: entry.points
+        };
       });
 
-    // Botón de retroceso
-    document.getElementById('btn-volver').addEventListener('click', function() {
-      const params = new URLSearchParams(window.location.search);
-      const year = params.get('year');
-
-      let url = '/TodoF1/todoF1/index.html/PagePrincipal.php';
-      if (year) {
-        url += `?year=${year}`;
-      }
-      window.location.href = url;
+      render();
+    })
+    .catch(function (error) {
+      console.error(error);
+      container.innerHTML = '<div class="tf-error" style="grid-column:1/-1;">Error al cargar las escuderías.</div>';
+      badge.textContent = 'Error';
     });
+
+  search.addEventListener('input', render);
+})();

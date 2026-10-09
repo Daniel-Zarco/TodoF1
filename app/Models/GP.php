@@ -17,7 +17,8 @@ class GP extends Model
         'circuito',
         'pais',
         'fecha',
-        'temporada'
+        'temporada',
+        'ronda',
     ];
 
     public function statsCarrera()

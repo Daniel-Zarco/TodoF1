@@ -1,9 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
-    header("Location: /TodoF1/todof1/index.html/login.php");
+    header("Location: /index.html/login.php");
     exit();
 }
+
+// Valores por defecto si la página se abre directamente (el flujo normal los inyecta desde ../api/PageInfo.php)
+$generos_json = $generos_json ?? '{}';
+$paises_json = $paises_json ?? '{}';
+$edades_json = $edades_json ?? '[]';
+$totalUsuarios_json = $totalUsuarios_json ?? '0';
 
 ?>
 
@@ -12,37 +18,53 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
 
 <head>
     <meta charset="UTF-8" />
-    <title>Datos Registrados - Estilo F1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de datos &mdash; TodoF1</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="/TodoF1/todoF1/index.html/css/PageInfo.css" />
+    <link rel="stylesheet" href="css/todof1.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/PageInfo.css" />
 </head>
 
 <body>
+    <?php include __DIR__ . '/../api/navbar.php'; ?>
 
-    <a href="../index.html/PagePrincipal.php" class="back-button">← Volver</a>
+    <main class="tf-main">
+        <div class="tf-container">
 
-    <h1>Datos Registrados</h1>
-    <div class="total-users">
-        <h2>Total de Usuarios: <span id="totalUsuarios"></span></h2>
-    </div>
+            <div class="tf-section__head">
+                <div>
+                    <span class="tf-eyebrow">Administraci&oacute;n</span>
+                    <h1 class="tf-section__title tf-page-title">Datos registrados</h1>
+                    <p class="tf-section__sub">Estad&iacute;sticas agregadas de los usuarios de la plataforma.</p>
+                </div>
+                <a class="tf-back" href="/index.html/PagePrincipal.php">Volver</a>
+            </div>
 
+            <div class="tf-kpi tf-info-total">
+                <span class="tf-kpi__label">Total de usuarios</span>
+                <div class="tf-kpi__value tf-num" id="totalUsuarios">—</div>
+                <div class="tf-kpi__meta">Registros en la base de datos</div>
+            </div>
 
-    <div class="charts-container">
-        <div class="chart-box">
-            <h2>Distribución de Género</h2>
-            <canvas id="genderChart"></canvas>
+            <div class="tf-grid tf-grid--3 tf-mt-5">
+                <div class="tf-panel tf-chart-box">
+                    <h2 class="tf-chart-box__title">Distribuci&oacute;n de g&eacute;nero</h2>
+                    <div class="tf-chart-box__canvas"><canvas id="genderChart"></canvas></div>
+                </div>
+                <div class="tf-panel tf-chart-box">
+                    <h2 class="tf-chart-box__title">Distribuci&oacute;n de pa&iacute;ses</h2>
+                    <div class="tf-chart-box__canvas"><canvas id="countryChart"></canvas></div>
+                </div>
+                <div class="tf-panel tf-chart-box">
+                    <h2 class="tf-chart-box__title">Distribuci&oacute;n de edades</h2>
+                    <div class="tf-chart-box__canvas"><canvas id="ageChart"></canvas></div>
+                </div>
+            </div>
+
         </div>
-        <div class="chart-box">
-            <h2>Distribución de Países</h2>
-            <canvas id="countryChart"></canvas>
-        </div>
-        <div class="chart-box">
-            <h2>Distribución de Edades</h2>
-            <canvas id="ageChart"></canvas>
-        </div>
-    </div>
+    </main>
 
     <script>
         // Datos PHP inyectados en JS
@@ -51,30 +73,47 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
         const edades = <?= $edades_json ?>;
         const totalUsuarios = <?= $totalUsuarios_json ?>;
 
-        // Muestra el total de usuarios
+        const PALETTE = {
+            red: '#E10600',
+            redSoft: 'rgba(225, 6, 0, 0.75)',
+            grid: 'rgba(255, 255, 255, 0.08)',
+            text: '#A1A1AA',
+            white: '#F5F5F5'
+        };
+
+        const pieColors = ['#E10600', '#FF6B57', '#A1A1AA', '#34D399', '#5B8DEF'];
+
+        Chart.defaults.color = PALETTE.text;
+        Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+        Chart.defaults.borderColor = PALETTE.grid;
+
         document.getElementById('totalUsuarios').textContent = totalUsuarios;
 
         // Gráfico de Género (Pie chart)
         const ctxGen = document.getElementById('genderChart').getContext('2d');
         new Chart(ctxGen, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
                 labels: Object.keys(generos),
                 datasets: [{
                     data: Object.values(generos),
-                    backgroundColor: ['#ff0000', '#0050ff', '#ffb400', '#00ff94', '#aa00ff']
+                    backgroundColor: pieColors,
+                    borderColor: '#161619',
+                    borderWidth: 3
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
+                cutout: '62%',
                 plugins: {
                     legend: {
                         position: 'bottom',
                         labels: {
-                            color: '#ff3b3b',
-                            font: {
-                                weight: 'bold'
-                            }
+                            color: PALETTE.text,
+                            usePointStyle: true,
+                            padding: 16,
+                            font: { size: 12, weight: '600' }
                         }
                     }
                 }
@@ -88,38 +127,29 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
             data: {
                 labels: Object.keys(paises),
                 datasets: [{
-                    label: 'Número de personas',
+                    label: 'Usuarios',
                     data: Object.values(paises),
-                    backgroundColor: '#e10600'
+                    backgroundColor: PALETTE.redSoft,
+                    borderRadius: 6,
+                    maxBarThickness: 34
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,
                         precision: 0,
-                        ticks: {
-                            color: '#ff3b3b',
-                            font: {
-                                weight: 'bold'
-                            }
-                        }
+                        ticks: { color: PALETTE.text },
+                        grid: { color: PALETTE.grid }
                     },
                     x: {
-                        ticks: {
-                            color: '#ff3b3b',
-                            font: {
-                                weight: 'bold'
-                            }
-                        }
+                        ticks: { color: PALETTE.text, autoSkip: false, maxRotation: 60, minRotation: 45 },
+                        grid: { display: false }
                     }
                 },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
+                plugins: { legend: { display: false } }
             }
         });
 
@@ -142,38 +172,29 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
             data: {
                 labels: Object.keys(edadesAgrupadas),
                 datasets: [{
-                    label: 'Número de personas',
+                    label: 'Usuarios',
                     data: Object.values(edadesAgrupadas),
-                    backgroundColor: '#ff3b3b'
+                    backgroundColor: PALETTE.redSoft,
+                    borderRadius: 6,
+                    maxBarThickness: 34
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,
                         precision: 0,
-                        ticks: {
-                            color: '#ff3b3b',
-                            font: {
-                                weight: 'bold'
-                            }
-                        }
+                        ticks: { color: PALETTE.text },
+                        grid: { color: PALETTE.grid }
                     },
                     x: {
-                        ticks: {
-                            color: '#ff3b3b',
-                            font: {
-                                weight: 'bold'
-                            }
-                        }
+                        ticks: { color: PALETTE.text },
+                        grid: { display: false }
                     }
                 },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
+                plugins: { legend: { display: false } }
             }
         });
     </script>

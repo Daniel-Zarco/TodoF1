@@ -6,7 +6,6 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
-
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,33 +56,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8" />
-    <title>Login Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acceso administrador &mdash; TodoF1</title>
+    <link rel="stylesheet" href="css/todof1.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="js/login.js" defer></script>
-
 </head>
 
-<body>
+<body class="tf-auth">
     <video id="background-video" autoplay loop muted playsinline>
-        <source src="/TodoF1/todoF1/Images/InitSes.mp4" type="video/mp4" />
+        <source src="/Images/InitSes.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
     </video>
-    <button onclick="window.history.back()" class="back-button">
-        Volver
-    </button>
-    <div class="login-container">
-        <h2>Login Admin</h2>
-        <form method="POST" action="">
-            <input type="text" name="username" placeholder="Usuario" required />
-            <div class="password-container">
-                <input type="password" name="password" placeholder="Contraseña" id="password" required />
-                <button id="ojo" type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+    <div class="tf-auth__scrim"></div>
+
+    <main class="tf-auth__card">
+        <a class="tf-brand tf-brand--auth" href="/index.html/index.html">
+            <span class="tf-brand__mark" aria-hidden="true">F1</span>
+            <span class="tf-brand__name">Todo<span>F1</span></span>
+        </a>
+
+        <span class="tf-eyebrow">Acceso administrador</span>
+        <h1 class="tf-auth__title">Iniciar sesión</h1>
+        <p class="tf-auth__sub">Accede al panel de administraci&oacute;n y a los datos registrados.</p>
+
+        <form method="POST" action="" class="tf-auth__form">
+            <div class="tf-field">
+                <label class="tf-field__label" for="username">Usuario</label>
+                <input type="text" id="username" name="username" class="tf-input" placeholder="Tu usuario" autocomplete="username" required />
             </div>
-            <button type="submit">Entrar</button>
+
+            <div class="tf-field">
+                <label class="tf-field__label" for="password">Contrase&ntilde;a</label>
+                <div class="tf-input-group">
+                    <input type="password" name="password" id="password" class="tf-input" placeholder="Tu contrase&ntilde;a" autocomplete="current-password" required />
+                    <button id="ojo" type="button" class="toggle-password" onclick="togglePassword()" aria-label="Mostrar u ocultar contrase&ntilde;a">&#128065;</button>
+                </div>
+            </div>
+
+            <button type="submit" class="tf-btn tf-btn--primary tf-btn--block tf-mt-4">Entrar</button>
         </form>
+
         <?php if ($error): ?>
-            <div class="error"><?= htmlspecialchars($error) ?></div>
+            <div class="tf-auth__error" role="alert"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
-    </div>
+
+        <a class="tf-back tf-auth__back" href="/index.html/InitSes.html">Volver al inicio de sesi&oacute;n</a>
+    </main>
 </body>
 </html>

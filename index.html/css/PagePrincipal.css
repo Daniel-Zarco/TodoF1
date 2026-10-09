@@ -1,346 +1,77 @@
-* {
-    box-sizing: border-box;
+/* TodoF1 — Dashboard principal (ajustes de página) */
+
+.tf-hero__content {
+  flex: 1 1 420px;
 }
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(-45deg,
-            #000000,
-            #1a1a1a,
-            #2a0000,
-            #000000);
-    background-size: 400% 400%;
-    animation: movimientoFondo 15s ease infinite;
-    color: white;
-    height: 100vh;
+.tf-hero__aside {
+  flex: 0 0 auto;
+  width: 170px;
 }
 
-@keyframes movimientoFondo {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+.tf-hero__aside .tf-select {
+  min-width: 100%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
 }
 
-header {
-    text-align: center;
-    padding: 60px 20px 20px;
+#resumen-year {
+  font-weight: 800;
 }
 
-#title {
-    font-size: 4em;
-    font-weight: bold;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 15px #e10600;
-    transition: all 0.3s ease-in-out;
-    letter-spacing: 2px;
+/* El dashboard ya integra su propio selector en el hero */
+.tf-nav__season {
+  display: none;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 1%;
-    max-width: 1200px;
-    margin: auto;
+/* La clasificación no necesita scroll interno */
+.tf-standings .tf-loading,
+.tf-standings .tf-empty,
+.tf-standings .tf-error {
+  padding: var(--sp-5) var(--sp-4);
+  border-style: solid;
 }
 
-.card {
-    position: relative;
-    background: linear-gradient(135deg,
-            rgba(255, 0, 0, 0.1) 0%,
-            rgba(0, 0, 0, 0.5) 100%);
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    border-radius: 16px;
-    padding: 25px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2),
-        0 0 40px rgba(255, 0, 0, 0.1);
-    backdrop-filter: blur(6px);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    margin: 20px;
+/* Columnas de clasificación: más anchas para que el título y el botón quepan en una línea */
+.tf-classif {
+  grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
 }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4),
-        0 0 60px rgba(255, 0, 0, 0.2);
-    border-color: #e10600;
+/* Cabeceras de clasificación: el botón «Ver completa» siempre alineado a la derecha
+   y el título en una sola línea (p. ej. "Clasificación de constructores"). */
+.tf-panel .tf-section__title {
+  font-size: clamp(1.1rem, 0.9rem + 0.7vw, 1.35rem);
+  white-space: nowrap;
 }
 
-.card::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle,
-            rgba(255, 0, 0, 0.2) 0%,
-            transparent 70%);
-    animation: pulse 4s infinite;
-    z-index: 0;
-    opacity: 0.2;
-    pointer-events: none;
+.tf-panel .tf-section__head {
+  flex-wrap: nowrap;
+  align-items: flex-end;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.2;
-    }
-
-    50% {
-        transform: scale(1.5);
-        opacity: 0.3;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 0.2;
-    }
+.tf-panel .tf-section__head>div:first-child {
+  min-width: 0;
 }
 
-.card * {
-    position: relative;
-    z-index: 1;
+.tf-panel .tf-section__head>.tf-btn {
+  flex: 0 0 auto;
+  margin-left: auto;
 }
 
-.card h2 {
-    margin-bottom: 10px;
-    font-size: 1.8em;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
-}
-
-.card p {
-    font-size: 1em;
-    color: #ddd;
-}
-
-.card a {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: linear-gradient(to right, #e10600, #900000);
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card a:hover {
-    background: linear-gradient(to right, #900000, #e10600);
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
-
-.info-container {
-    position: fixed;
-    top: 70px;
-    right: 50px;
-    z-index: 1000;
-}
-
-.info-btn {
-    background-color: transparent;
-    color: white;
-    border: 2px solid red;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-}
-
-.info-btn:hover {
-    background-color: red;
-    color: white;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-}
-
-/*PARA EL INPUT DE AÑOS*/
-
-#anioInput {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.year-selector {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 0, 0, 0.4);
-    padding: 20px 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-    backdrop-filter: blur(4px);
-    color: white;
-    font-family: "Segoe UI", sans-serif;
-    transition: transform 0.3s ease;
-}
-
-.year-selector:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
-}
-
-.year-selector label {
-    font-size: 1.3em;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
-}
-
-.year-selector select {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #e10600;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 1em;
-    outline: none;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.year-selector select:hover,
-.year-selector select:focus {
-    border-color: #ff1a1a;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-}
-
-
-.ranking-container {
+@media (max-width: 620px) {
+  .tf-hero__aside {
     width: 100%;
-    max-width: 1200px;
-    margin: 10px auto;
-    padding: 0.8%; 
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #e10600;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-    text-align: center;
-    backdrop-filter: blur(5px);
+  }
 }
 
-.ranking-container h2 {
-    font-size: 1.8rem;
-    color: #ff4b4b;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
-}
+/* En móvil el título puede ocupar dos líneas si es necesario para no desbordar */
+@media (max-width: 560px) {
+  .tf-panel .tf-section__head {
+    flex-wrap: wrap;
+  }
 
-.ranking-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    justify-content: center;
-}
-
-.ranking-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 0, 0, 0.3);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ranking-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-}
-
-.ranking-card h3 {
-    font-size: 1.4rem;
-    color: #ffffff;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
-}
-
-.ranking-card ol {
-    list-style: decimal inside;
-    color: #ddd;
-    padding-left: 0;
-}
-
-.ranking-card li {
-    margin: 6px 0;
-    font-size: 1rem;
-    color: #ccc;
-}
-
-.ranking-card li span {
-    color: #ff4b4b;
-    font-weight: bold;
-}
-
-#ranking-lists {
-    display: none;
-}
-
-.logout-container {
-    position: fixed;
-    top: 70px;
-    left: 50px;
-    z-index: 1000;
-}
-
-.logout-button {
-    background-color: transparent;
-    color: white;
-    border: 2px solid red;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-}
-
-.logout-button:hover {
-    background-color: red;
-    color: white;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
-}
-
-.logout-form {
-    margin: 0;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #111;
-    padding: 10px 70px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-    position: fixed;
-    /* Cambiado de sticky a fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    /* Asegura que esté por encima de otros elementos */
-}
-
-
-.navbar-user {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
+  .tf-panel .tf-section__title {
+    white-space: normal;
+  }
 }

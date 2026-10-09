@@ -1,141 +1,36 @@
-/* Estilos básicos */
-body {
-    background: #000;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* TodoF1 — Acceso administrador (específicos) */
+
+.tf-brand--auth {
+  display: inline-flex;
 }
 
-#background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(0.3);
+.tf-input-group {
+  position: relative;
 }
 
-.login-container {
-    background: rgba(0, 0, 0, 0.75);
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.2);
-    width: 300px;
-    text-align: center;
-    animation: entrada 1s ease forwards;
-    border: 3px solid rgba(255, 0, 0, 0.3);
-}
-
-input[type=text],
-input[type=password] {
-    width: 93%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-}
-
-.password-container+button {
-    margin-top: 20px;
-    background: #e10600;
-    border: none;
-    color: white;
-    padding: 10px;
-    width: 100%;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.password-container+button:hover {
-    background: #ff3b3b;
-}
-
-.error {
-    margin-top: 15px;
-    color: #ff4b4b;
-    font-weight: bold;
-}
-
-.back-button {
-    position: fixed;
-    top: 100px;
-    left: 100px;
-    z-index: 1000;
-    width: 150px;
-    background: #000;
-    color: #fff;
-    border: 2px solid #e10600;
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    font-family: 'Urbanist', sans-serif;
-    text-transform: uppercase;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-.back-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-    transform: skewX(-20deg);
-    transition: left 0.5s ease;
-}
-
-.back-button:hover::before {
-    left: 100%;
-}
-
-.back-button:hover {
-    background-color: #e10600;
-    color: white;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-}
-
-.password-container {
-    position: relative;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.password-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    padding-right: 40px;
-    /* espacio a la derecha para el ojo */
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-    box-sizing: border-box;
-    /* importante para que el padding se respete */
+.tf-input-group .tf-input {
+  padding-right: 46px;
 }
 
 .toggle-password {
-    position: absolute;
-    top: 60%;
-    right: 10px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    line-height: 1;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--c-dim);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--t-fast), background var(--t-fast);
+}
+
+.toggle-password:hover {
+  color: var(--c-text);
+  background: var(--c-surface-3);
 }

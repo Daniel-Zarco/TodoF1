@@ -3,39 +3,86 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Estadísticas del Piloto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/PageStatsPiloto.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estad&iacute;sticas del Piloto &mdash; TodoF1</title>
+  <link rel="stylesheet" href="css/todof1.css">
   <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/PageStatsPiloto.css">
   <script src="js/PageStatsPiloto.js" defer></script>
 </head>
 
 <body>
-  <?php include '../api/navbar.php'; ?>
-  <h1 id="titulo">Estadísticas del Piloto</h1>
+  <?php include __DIR__ . '/../api/navbar.php'; ?>
 
-  <!-- Bloque de la foto -->
-  <div class="foto-block">
-    <span class="label">Foto del Piloto:</span>
-    <img id="piloto-foto" src="" alt="Foto del piloto">
-  </div>
+  <main class="tf-main">
+    <div class="tf-container">
 
-  <div class="grid-container">
-    <div class="info-block"><span class="label">Edad:</span><span class="value" id="edad">Cargando...</span></div>
-    <div class="info-block"><span class="label">Nacionalidad:</span><span class="value" id="nacionalidad">Cargando...</span></div>
-    <div class="info-block"><span class="label">Inicio en F1:</span><span class="value" id="inicio">Cargando...</span></div>
-    <div class="info-block"><span class="label">Escuderías:</span><span class="value" id="escuderias">Cargando...</span></div>
-    <div class="info-block"><span class="label">Carreras ganadas:</span><span class="value" id="victorias">Cargando...</span></div>
-    <div class="info-block"><span class="label">Podios:</span><span class="value" id="podios">Cargando...</span></div>
-    <div class="info-block"><span class="label">Mejor resultado:</span><span class="value" id="mejor-resultado">Cargando...</span></div>
-    <div class="info-block"><span class="label">Temporadas:</span><span class="value" id="temporadas">Cargando...</span></div>
-    <div class="info-block wiki-block">
-      <span class="label">Wikipedia:</span>
-      <a id="wiki" href="#" target="_blank" class="value" style="color:#fff; text-decoration:underline;">Ver más</a>
+      <a class="tf-back" id="btn-volver" href="/index.html/PagePilotos.php">Volver a Pilotos</a>
+
+      <section class="tf-profile tf-mt-4">
+        <div class="tf-profile__media">
+          <img id="piloto-foto" src="../Images/SinPerfil.jpg" alt="Foto del piloto">
+        </div>
+        <div class="tf-profile__body">
+          <span class="tf-eyebrow">Piloto de F&oacute;rmula 1</span>
+          <h1 class="tf-profile__name" id="titulo">Estad&iacute;sticas del Piloto</h1>
+          <div class="tf-profile__meta">
+            <span class="tf-badge" id="nacionalidad">Cargando&hellip;</span>
+            <span class="tf-badge tf-badge--red" id="perfil-temporadas">Cargando&hellip;</span>
+          </div>
+        </div>
+        <a id="wiki" href="#" target="_blank" rel="noopener" class="tf-btn tf-btn--ghost tf-profile__action">Ver en Wikipedia</a>
+      </section>
+
+      <section class="tf-section">
+        <div class="tf-section__head">
+          <div>
+            <h2 class="tf-section__title">Trayectoria en F1</h2>
+            <p class="tf-section__sub">Resumen de la carrera del piloto con datos hist&oacute;ricos.</p>
+          </div>
+        </div>
+
+        <div class="tf-grid tf-grid--3">
+          <div class="tf-kpi">
+            <span class="tf-kpi__label">Edad</span>
+            <div class="tf-kpi__value tf-num" id="edad">Cargando&hellip;</div>
+            <div class="tf-kpi__meta">Calculada desde la fecha de nacimiento</div>
+          </div>
+          <div class="tf-kpi">
+            <span class="tf-kpi__label">Temporadas</span>
+            <div class="tf-kpi__value tf-num" id="temporadas">Cargando&hellip;</div>
+            <div class="tf-kpi__meta">A&ntilde;os en el campeonato</div>
+          </div>
+          <div class="tf-kpi">
+            <span class="tf-kpi__label">Carreras ganadas</span>
+            <div class="tf-kpi__value tf-num" id="victorias">Cargando&hellip;</div>
+            <div class="tf-kpi__meta">Primeros puestos</div>
+          </div>
+          <div class="tf-kpi">
+            <span class="tf-kpi__label">Podios</span>
+            <div class="tf-kpi__value tf-num" id="podios">Cargando&hellip;</div>
+            <div class="tf-kpi__meta">Top 3 en carrera</div>
+          </div>
+          <div class="tf-kpi">
+            <span class="tf-kpi__label">Mejor resultado</span>
+            <div class="tf-kpi__value tf-num" id="mejor-resultado">Cargando&hellip;</div>
+            <div class="tf-kpi__meta">Mejor posici&oacute;n en carrera</div>
+          </div>
+          <div class="tf-kpi">
+            <span class="tf-kpi__label">Debut</span>
+            <div class="tf-kpi__value tf-num" id="inicio">Cargando&hellip;</div>
+            <div class="tf-kpi__meta">Primera temporada</div>
+          </div>
+        </div>
+
+        <div class="tf-panel tf-mt-5">
+          <span class="tf-kpi__label">Escuder&iacute;as</span>
+          <div class="tf-pilot-teams" id="escuderias">Cargando&hellip;</div>
+        </div>
+      </section>
+
     </div>
-  </div>
-
-  <a href="#" id="btn-volver" class="back-button">← Volver a Pilotos</a>
+  </main>
 </body>
 
 </html>

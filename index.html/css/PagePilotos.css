@@ -1,156 +1,39 @@
-/* CSS Mantenido exactamente como lo pediste */
-* {
-  box-sizing: border-box;
+/* TodoF1 — Pilotos (ajustes de página) */
+
+#pilotos-tbody tr.is-clickable:hover {
+  background: var(--c-surface-2);
 }
 
-body {
-  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-  font-family: 'Urbanist', sans-serif;
-  color: white;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar+header {
-  padding-left: 60px;
-  padding-top: 50px;
-  padding-bottom: 0px;
-}
-
-header {
-  padding: 20px 40px;
-  background-color: #111;
-  display: flex;
-  justify-content: space-between;
+.tf-pilot-name {
+  display: inline-flex;
   align-items: center;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-  z-index: 10;
+  gap: 10px;
+  font-weight: 600;
 }
 
-header h1 {
-  color: #fff;
-  text-shadow: 0 0 10px red;
+.tf-pilot-name .tf-dot {
+  background: var(--c-red);
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: auto;
+.tf-team-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-dim);
 }
 
-.card {
-  position: relative;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2), 0 0 40px rgba(255, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  margin: 20px;
-}
-
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4), 0 0 60px rgba(255, 0, 0, 0.2);
-  border-color: #e10600;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
-  animation: pulse 4s infinite;
-  z-index: 0;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
+@media (max-width: 720px) {
+  .tf-toolbar {
+    align-items: stretch;
   }
 
-  50% {
-    transform: scale(1.5);
-    opacity: 0.3;
+  .tf-toolbar__group {
+    width: 100%;
   }
 
-  100% {
-    transform: scale(1);
-    opacity: 0.2;
+  .tf-search,
+  #filter-team {
+    width: 100%;
+    flex: 1 1 100%;
   }
-}
-
-.card * {
-  position: relative;
-  z-index: 1;
-}
-
-.card h2 {
-  margin-bottom: 10px;
-  font-size: 1.8em;
-  color: #ffffff;
-  text-shadow: 0 0 5px rgba(255, 0, 0, 0.4);
-}
-
-.card p {
-  font-size: 1em;
-  color: #ddd;
-}
-
-.back-button {
-  position: fixed;
-  top: 150px;
-  left: 50px;
-  z-index: 1000;
-
-  background: #000;
-  color: #fff;
-  border: 2px solid #e10600;
-  padding: 10px 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  font-family: 'Urbanist', sans-serif;
-  text-transform: uppercase;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.back-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-  transform: skewX(-20deg);
-  transition: left 0.5s ease;
-}
-
-.back-button:hover::before {
-  left: 100%;
-}
-
-.back-button:hover {
-  background-color: #e10600;
-  color: white;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
 }

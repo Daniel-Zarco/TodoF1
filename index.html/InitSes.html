@@ -4,73 +4,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicio de Sesión</title>
+  <title>Inicio de Sesi&oacute;n &mdash; TodoF1</title>
+  <link rel="stylesheet" href="css/todof1.css">
   <link rel="stylesheet" href="css/InitSes.css">
 </head>
 
-<body>
+<body class="tf-auth">
 
   <!-- VIDEO de fondo -->
   <video id="background-video" autoplay loop muted playsinline>
-    <source src="/TodoF1/todoF1/Images/InitSes.mp4" type="video/mp4" />
+    <source src="/Images/InitSes.mp4" type="video/mp4" />
     Tu navegador no soporta video HTML5.
   </video>
+  <div class="tf-auth__scrim"></div>
 
-  <!-- Botón Regreso -->
-  <button onclick="window.location.href='/TodoF1/todoF1/index.html/index.html'" class="back-button">
-    Volver
-  </button>
+  <header class="tf-auth__bar">
+    <a class="tf-brand" href="/index.html/index.html">
+      <span class="tf-brand__mark" aria-hidden="true">F1</span>
+      <span class="tf-brand__name">Todo<span>F1</span></span>
+    </a>
+    <a class="tf-btn tf-btn--ghost tf-btn--sm" href="/index.html/login.php">Acceso admin</a>
+  </header>
 
-  <!-- Botón para ir a login.php -->
-  <button onclick="window.location.href='/TodoF1/todoF1/index.html/login.php'" class="login-admin-button">
-    Login Admin
-  </button>
+  <main class="tf-auth__card">
+    <span class="tf-eyebrow">Bienvenido a TodoF1</span>
+    <h1 class="tf-auth__title">Iniciar sesi&oacute;n</h1>
+    <p class="tf-auth__sub">Cu&eacute;ntanos un poco sobre ti para personalizar tu experiencia. Es r&aacute;pido y gratuito.</p>
 
+    <form method="POST" action="/api/guardar_usuario.php" class="tf-auth__form">
+      <div class="tf-field">
+        <label class="tf-field__label" for="gender">G&eacute;nero</label>
+        <select name="gender" id="gender" class="tf-select" required>
+          <option value="" disabled selected>Selecciona tu g&eacute;nero</option>
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
 
+      <div class="tf-field">
+        <label class="tf-field__label" for="country">Pa&iacute;s</label>
+        <select name="country" id="country" class="tf-select" required>
+          <option value="" disabled selected>Selecciona tu pa&iacute;s</option>
+        </select>
+      </div>
 
-  <!-- Formulario -->
-  <div class="login-box">
-    <h2>Iniciar Sesión</h2>
+      <div class="tf-field">
+        <label class="tf-field__label" for="age">Edad</label>
+        <input type="number" name="age" id="age" class="tf-input" min="1" max="120" placeholder="Tu edad" required>
+      </div>
 
-    <form method="POST" action="/TodoF1/todoF1/api/guardar_usuario.php">
-      <label for="gender">Género:</label>
-      <select name="gender" id="gender" required>
-        <option value="" disabled selected>Selecciona tu género</option>
-        <option value="hombre">Hombre</option>
-        <option value="mujer">Mujer</option>
-        <option value="otro">Otro</option>
-      </select>
-
-      <label for="country">País:</label>
-      <select name="country" id="country" required>
-        <option value="" disabled selected>Selecciona tu país</option>
-      </select>
-
-      <label for="age">Edad:</label>
-      <input type="number" name="age" id="age" min="1" max="120" placeholder="Tu edad" required>
-
-      <button type="submit">Entrar</button>
+      <button type="submit" class="tf-btn tf-btn--primary tf-btn--block tf-mt-4">Entrar</button>
     </form>
 
-    <p id="error" style="color: #ff3b3b;"></p>
-  </div>
+    <p id="error" class="tf-auth__error" role="alert" hidden></p>
+
+    <a class="tf-back tf-auth__back" href="/index.html/index.html">Volver</a>
+  </main>
+
+  <script>
+    const paises = [
+      "Argentina", "Bolivia", "Chile", "Colombia", "Costa Rica", "Cuba",
+      "Ecuador", "El Salvador", "España", "Guatemala", "Honduras", "México",
+      "Nicaragua", "Panamá", "Paraguay", "Perú", "Puerto Rico",
+      "República Dominicana", "Uruguay", "Venezuela"
+    ];
+
+    const select = document.getElementById('country');
+    paises.forEach(pais => {
+      const option = document.createElement('option');
+      option.value = pais;
+      option.textContent = pais;
+      select.appendChild(option);
+    });
+  </script>
 </body>
-<script>
-  const paises = [
-    "Argentina", "Bolivia", "Chile", "Colombia", "Costa Rica", "Cuba",
-    "Ecuador", "El Salvador", "España", "Guatemala", "Honduras", "México",
-    "Nicaragua", "Panamá", "Paraguay", "Perú", "Puerto Rico",
-    "República Dominicana", "Uruguay", "Venezuela"
-  ];
-
-  const select = document.getElementById('country');
-
-  paises.forEach(pais => {
-    const option = document.createElement('option');
-    option.value = pais;
-    option.textContent = pais;
-    select.appendChild(option);
-  });
-</script>
 
 </html>

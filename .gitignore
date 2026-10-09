@@ -21,3 +21,16 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Copias de seguridad locales
+/backups/
+/api_backup/
+/index.html_backup/
+/database/migrations_backup/
+*.sql
+*.sql.gz
+*.zip
+
+# Archivos locales del sistema
+.DS_Store
+Thumbs.db

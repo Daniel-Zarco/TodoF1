@@ -13,9 +13,10 @@ class Escuderia extends Model
     protected $table = 'z_escuderias';
 
     protected $fillable = [
+        'constructor_id',
         'nombre',
         'pais',
-        'año_fundacion'
+        'año_fundacion',
     ];
 
     public function statsCarrera()

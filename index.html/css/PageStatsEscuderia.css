@@ -1,71 +1,32 @@
-.navbar+h1 {
-  margin-top: 55px;
+/* TodoF1 — Estadísticas de la escudería (ajustes de página) */
+
+.tf-profile__media--team {
+  background: var(--c-surface-3);
+  border: 1px solid var(--c-line);
 }
 
-body {
-  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-  font-family: 'Urbanist', sans-serif;
-  color: white;
-  min-height: 100%;
-  margin: 0;
-  padding: 20px;
+.tf-profile__media--team span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+  color: var(--c-red-2);
 }
 
-h1 {
-  color: #e10600;
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-  text-align: center;
-  margin-bottom: 30px;
+.tf-profile__body {
+  flex: 1 1 300px;
+  min-width: 0;
 }
 
-.info-block {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 0, 0, 0.3);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
-  margin: 10px auto;
-  max-width: 600px;
-  text-align: center;
-  backdrop-filter: blur(5px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-block:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
-}
-
-.info-block .label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff4b4b;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.info-block .value {
-  font-size: 1rem;
-  color: #ddd;
-}
-
-.back-button {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: 2px solid #e10600;
-  padding: 8px 16px;
-  margin: 20px auto;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
+.tf-pilot-teams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  color: var(--c-dim);
   font-size: 0.9rem;
-  display: block;
-  max-width: 200px;
-  text-align: center;
 }
 
-.back-button:hover {
-  background-color: #e10600;
+.tf-pilot-teams .tf-badge {
+  background: var(--c-surface-2);
 }

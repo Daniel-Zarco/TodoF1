@@ -13,9 +13,10 @@ class Piloto extends Model
     protected $table = 'z_pilotos';
 
     protected $fillable = [
+        'driver_id',
         'nombre',
         'nacionalidad',
-        'fecha_nacimiento'
+        'fecha_nacimiento',
     ];
 
     // Relación con estadísticas de carrera

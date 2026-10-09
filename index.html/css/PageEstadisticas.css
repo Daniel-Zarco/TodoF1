@@ -1,0 +1,30 @@
+/* TodoF1 — Estadísticas (ajustes de página) */
+
+#standings-pilotos tr,
+#standings-escuderias tr {
+  cursor: pointer;
+}
+
+#standings-pilotos tr:focus-visible,
+#standings-escuderias tr:focus-visible {
+  outline: 2px solid var(--c-red-2);
+  outline-offset: -2px;
+}
+
+.tf-leader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tf-leader__medal {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-sm);
+  background: var(--c-surface-3);
+  color: var(--c-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
