@@ -14,6 +14,9 @@
  *        - <proyecto>/private/db.php              (desarrollo local)
  *        - <proyecto>/todof1-app/private/db.php   (alwaysdata: www/api -> todof1-app/private)
  *        - variantes equivalentes
+ *      Si un archivo privado EXISTE pero no aporta una conexión $conn válida de
+ *      tipo mysqli (o falla al cargarse), se detiene la ejecución con un error
+ *      genérico; no se continúa hacia el fallback local.
  *   3. Si NO hay configuración privada, el fallback inseguro de desarrollo
  *      (localhost / root / sin contraseña) solo se permite si el entorno está
  *      declarado EXPLÍCITAMENTE como desarrollo:
@@ -35,6 +38,16 @@ if (isset($conn) && $conn instanceof mysqli) {
     return;
 }
 
+// Fallo seguro y genérico: sin credenciales ni detalles internos.
+$tf_db_fail = static function (): void {
+    if (PHP_SAPI === 'cli') {
+        fwrite(STDERR, "Error de configuración de base de datos.\n");
+        exit(1);
+    }
+    http_response_code(500);
+    exit('Error de configuración de base de datos.');
+};
+
 // --- 1) Localizar la configuración privada ---------------------------------
 $tf_db_candidates = [];
 
@@ -49,12 +62,24 @@ $tf_db_candidates[] = __DIR__ . '/../todof1-app/private/db.php';    // variante 
 $tf_db_candidates[] = __DIR__ . '/../../private/db.php';            // variante de layout
 
 foreach ($tf_db_candidates as $tf_db_file) {
-    if (is_file($tf_db_file)) {
-        require $tf_db_file;
-        if (isset($conn) && $conn instanceof mysqli) {
-            return;
-        }
+    if (!is_file($tf_db_file)) {
+        continue;
     }
+
+    try {
+        require $tf_db_file;
+    } catch (\Throwable $e) {
+        // El archivo privado existe pero no pudo cargarse correctamente.
+        $tf_db_fail();
+    }
+
+    if (isset($conn) && $conn instanceof mysqli) {
+        return;
+    }
+
+    // El archivo privado existe pero no definió una conexión mysqli válida:
+    // se detiene el proceso y NO se continúa hacia el fallback local.
+    $tf_db_fail();
 }
 
 // --- 2) Sin configuración privada: decidir si se permite el fallback local --
@@ -80,10 +105,4 @@ if ($tf_is_development) {
 }
 
 // --- 3) Producción/entorno no declarado sin configuración: fallo seguro ----
-if (PHP_SAPI === 'cli') {
-    fwrite(STDERR, "Error de configuración de base de datos.\n");
-    exit(1);
-}
-
-http_response_code(500);
-exit('Error de configuración de base de datos.');
+$tf_db_fail();

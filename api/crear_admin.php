@@ -14,8 +14,14 @@ if ($conn->connect_error) {
 /**
  * Lee un dato secreto sin mostrarlo por pantalla:
  *   1) Variable de entorno (recomendado; no se imprime ni se registra).
- *   2) Prompt oculto en sistemas tipo Unix (stty -echo).
- * En Windows sin variable de entorno no se lee de forma segura y devuelve ''.
+ *   2) Prompt oculto en terminal interactiva tipo Unix (stty -echo).
+ *
+ * El eco del terminal se restaura SIEMPRE: en 'finally' (errores/excepciones),
+ * al finalizar el script (register_shutdown_function) y, si pcntl está
+ * disponible, ante interrupciones (SIGINT/SIGTERM).
+ *
+ * Si no se puede garantizar una lectura segura (no es una TTY, no hay 'stty' o
+ * no se puede desactivar el eco), devuelve '' para que el llamador aborte.
  */
 function tf_read_secret(string $prompt, string $envName): string
 {
@@ -24,16 +30,63 @@ function tf_read_secret(string $prompt, string $envName): string
         return $env;
     }
 
-    if (PHP_OS_FAMILY !== 'Windows' && function_exists('shell_exec')) {
-        fwrite(STDOUT, $prompt);
-        shell_exec('stty -echo');
-        $value = fgets(STDIN);
-        shell_exec('stty echo');
-        fwrite(STDOUT, PHP_EOL);
-        return trim((string) $value);
+    // Solo Unix, con shell_exec y entrada interactiva (TTY).
+    if (PHP_OS_FAMILY === 'Windows' || !function_exists('shell_exec')) {
+        return '';
+    }
+    if (!defined('STDIN') || !function_exists('stream_isatty') || !@stream_isatty(STDIN)) {
+        return '';
     }
 
-    return '';
+    $stty = trim((string) @shell_exec('command -v stty 2>/dev/null'));
+    if ($stty === '') {
+        return '';
+    }
+    $sttyCmd = escapeshellarg($stty);
+
+    // Restaura el eco (idempotente): en 'finally' y al finalizar el script.
+    $restoreEcho = static function () use ($sttyCmd): void {
+        @exec($sttyCmd . ' echo 2>/dev/null');
+    };
+    register_shutdown_function($restoreEcho);
+
+    // Restaurar también ante interrupciones, si pcntl está disponible.
+    if (function_exists('pcntl_signal') && function_exists('pcntl_async_signals')) {
+        pcntl_async_signals(true);
+        $onSignal = static function () use ($restoreEcho): void {
+            $restoreEcho();
+            fwrite(STDERR, PHP_EOL . "Operación cancelada.\n");
+            exit(1);
+        };
+        if (defined('SIGINT')) {
+            pcntl_signal(SIGINT, $onSignal);
+        }
+        if (defined('SIGTERM')) {
+            pcntl_signal(SIGTERM, $onSignal);
+        }
+    }
+
+    // Desactivar el eco. Si no se consigue, NO se lee (evita mostrar el secreto).
+    $rc = 0;
+    @exec($sttyCmd . ' -echo 2>/dev/null', $unused, $rc);
+    if ($rc !== 0) {
+        return '';
+    }
+
+    fwrite(STDOUT, $prompt);
+
+    $value = '';
+    try {
+        $line = fgets(STDIN);
+        if ($line !== false) {
+            $value = trim($line);
+        }
+    } finally {
+        $restoreEcho();
+        fwrite(STDOUT, PHP_EOL);
+    }
+
+    return $value;
 }
 
 // Usuario administrador: variable de entorno o prompt visible (no es un secreto).
@@ -48,7 +101,7 @@ $newAdminUser = trim($newAdminUser);
 $newAdminPass = tf_read_secret('Contraseña (no se mostrará): ', 'TODOF1_ADMIN_PASS');
 
 if ($newAdminUser === '' || $newAdminPass === '') {
-    fwrite(STDERR, "Datos incompletos. Define TODOF1_ADMIN_USER y TODOF1_ADMIN_PASS, o ejecútalo en una terminal tipo Unix para el prompt oculto.\n");
+    fwrite(STDERR, "No se pudo obtener la contraseña de forma segura. Define TODOF1_ADMIN_USER y TODOF1_ADMIN_PASS, o ejecútalo en una terminal interactiva (Unix) para el prompt oculto.\n");
     exit(1);
 }
 
