@@ -92,8 +92,9 @@
   --team-primary-line: rgba(225, 6, 0, 0.38);
   --team-on-primary: #FFFFFF;
 
-  /* Línea inferior del navbar (Gradient Flow): se sobreescribe desde JS */
-  --team-stripe: linear-gradient(90deg, #E10600 0%, #FF2B1F 50%, #E10600 100%);
+  /* Línea inferior del navbar (Gradient Flow): se sobreescribe desde JS.
+     TodoF1 original usa los 3 colores de su tarjeta: rojo, negro y blanco. */
+  --team-stripe: linear-gradient(90deg, #E10600 0%, #0B0B0D 33.333%, #F5F5F5 66.667%, #E10600 100%);
 }
 
 /* ------------------------------------------------------------
