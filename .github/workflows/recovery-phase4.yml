@@ -1,0 +1,316 @@
+name: Recuperacion Fase 4 - finalizar sincronizacion y desplegar
+
+# WORKFLOW MANUAL (solo workflow_dispatch). No se ejecuta en push.
+# FASE 4 (final):
+#   1) Verificar estado esperado y hacer backup de los archivos versionados que
+#      vayan a cambiarse o eliminarse (incluidos InitSes.html e InitSes.css).
+#   2) Sincronizar Git con origin/main (git fetch + reset --hard, SIN git clean;
+#      no elimina archivos privados ni no versionados).
+#   3) Verificar HEAD == origin/main == GitHub, arbol versionado limpio y fsck=0.
+#   4) Ejecutar deploy.sh SOLO si todas las verificaciones pasan.
+#   5) Verificar que el despliegue elimina InitSes.html/InitSes.css del publico.
+# Antes de tocar nada: comprueba que reset --hard no sobrescribira archivos no
+# versionados; si hay conflicto, aborta sin modificar. Backup del .git, de los
+# archivos afectados (incluidos InitSes.html/InitSes.css aunque no esten
+# versionados) y del directorio publico (www) para rollback.
+# Rollback automatico e idempotente (trap ERR + EXIT + INT/TERM) ante cualquier
+# fallo, incluido un fallo parcial de deploy.sh: restaura repositorio y www.
+# NO ejecuta migraciones. No toca .env, private/, MariaDB ni backups existentes.
+# Override opcional (pruebas): TODOF1_DEPLOY_SCRIPT (def: <repo>/deploy/deploy.sh).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Mismo grupo que el despliegue: evita acceder a .git a la vez (serializa).
+concurrency:
+  group: todof1-production
+  cancel-in-progress: false
+
+jobs:
+  recovery-phase4:
+    name: Fase 4 (manual)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Ejecutar Fase 4 por SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$SSH_USER@$SSH_HOST" 'bash -s' <<'REMOTE_SCRIPT'
+          #!/usr/bin/env bash
+          set -u
+          set -e
+          export GIT_TERMINAL_PROMPT=0
+
+          REPO_DIR="${TODOF1_REPO_DIR:-/home/todof1/todof1-app}"
+          WWW_DIR="${TODOF1_WWW_DIR:-/home/todof1/www}"
+          BRANCH="${TODOF1_BRANCH:-main}"
+          REMOTE="${TODOF1_REMOTE:-origin}"
+          REMOTE_URL="${TODOF1_REMOTE_URL:-https://github.com/Daniel-Zarco/TodoF1.git}"
+          EXPECTED_BEFORE_HEAD="${TODOF1_EXPECTED_BEFORE_HEAD:-ed51b94}"
+          DEPLOY_SCRIPT="${TODOF1_DEPLOY_SCRIPT:-$REPO_DIR/deploy/deploy.sh}"
+          BACKUP_ROOT="${TODOF1_RECOVERY_DIR:-/home/todof1/todof1-recovery}"
+          TS="$(date +%Y%m%d-%H%M%S)"
+          BACKUP_DIR="$BACKUP_ROOT/$TS"
+          GIT_TAR="$BACKUP_DIR/git-before-sync-$TS.tar.gz"
+          FILES_TAR="$BACKUP_DIR/archivos-antes-$TS.tar.gz"
+          WWW_TAR="$BACKUP_DIR/www-antes-$TS.tar.gz"
+          LIST="$BACKUP_DIR/archivos-a-backup.txt"
+          ADDED_LIST="$BACKUP_DIR/archivos-anadidos.txt"
+          WWW_MANIFEST="$BACKUP_DIR/www-backup-manifest.txt"
+          UNTRACKED_BEFORE="$BACKUP_DIR/untracked-antes.txt"
+          UNTRACKED_AFTER="$BACKUP_DIR/untracked-despues.txt"
+          BEFORE_HEAD=""
+          ORIGIN_MAIN=""
+          MUTATED=0
+          WWW_STAGE=0
+          WWW_BACKED=0
+          DEPLOY_OK=0
+          ROLLBACK_DONE=0
+          INITSES="index.html/InitSes.html index.html/css/InitSes.css"
+
+          log() { printf '[FASE4] %s\n' "$*"; }
+
+          restore_repo() {
+            log "ROLLBACK: restaurando repositorio (git + archivos)"
+            if [ -f "$GIT_TAR" ]; then
+              rm -rf "$REPO_DIR/.git"
+              tar -xzf "$GIT_TAR" -C "$REPO_DIR"
+            fi
+            if [ -f "$FILES_TAR" ]; then
+              tar -xzf "$FILES_TAR" -C "$REPO_DIR"
+            fi
+            if [ -s "$ADDED_LIST" ]; then
+              while IFS= read -r p; do
+                if [ -n "$p" ]; then rm -f "$REPO_DIR/$p"; fi
+              done < "$ADDED_LIST"
+            fi
+          }
+
+          restore_www() {
+            log "ROLLBACK: restaurando directorio publico (www)"
+            if [ "$WWW_BACKED" -eq 1 ]; then
+              while IFS= read -r d; do
+                if [ -n "$d" ]; then rm -rf "$WWW_DIR/$d"; fi
+              done < "$WWW_MANIFEST"
+              tar -xzf "$WWW_TAR" -C "$WWW_DIR"
+            else
+              for d in "index.html" "Images" "api"; do rm -rf "$WWW_DIR/$d"; done
+            fi
+          }
+
+          rollback() {
+            if [ "$ROLLBACK_DONE" -eq 1 ]; then return 0; fi
+            if [ "$DEPLOY_OK" -eq 1 ]; then return 0; fi
+            if [ "$WWW_STAGE" -eq 1 ]; then restore_www; fi
+            if [ "$MUTATED" -eq 1 ]; then restore_repo; fi
+            if [ "$WWW_STAGE" -eq 1 ] || [ "$MUTATED" -eq 1 ]; then
+              ROLLBACK_DONE=1
+              log "Rollback completado."
+            fi
+          }
+
+          on_err() { c=$?; rollback; exit "$c"; }
+          fail() { printf '[FASE4][ERROR] %s\n' "$*" >&2; rollback; exit 1; }
+
+          trap 'on_err' ERR
+          trap 'rollback' EXIT
+          trap 'rollback; exit 1' INT TERM
+
+          log "===== INICIO FASE 4 ($(date '+%Y-%m-%d %H:%M:%S')) ====="
+
+          command -v git >/dev/null 2>&1 || fail "No se encontro 'git'."
+          command -v tar >/dev/null 2>&1 || fail "No se encontro 'tar'."
+          command -v sha256sum >/dev/null 2>&1 || fail "No se encontro 'sha256sum'."
+
+          # 1) Verificar estado esperado
+          [ -d "$REPO_DIR/.git" ] || fail "No existe $REPO_DIR/.git"
+          git -C "$REPO_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "No es un repositorio git."
+
+          cur_branch="$(git -C "$REPO_DIR" rev-parse --abbrev-ref HEAD 2>&1)"
+          log "Rama actual: $cur_branch (esperada: $BRANCH)"
+          [ "$cur_branch" = "$BRANCH" ] || fail "Rama inesperada: '$cur_branch'."
+
+          url="$(git -C "$REPO_DIR" remote get-url "$REMOTE" 2>/dev/null || true)"
+          log "Remoto '$REMOTE': ${url:-<ausente>}"
+          [ "$url" = "$REMOTE_URL" ] || fail "El remoto '$REMOTE' no apunta a $REMOTE_URL (actual: '${url:-<ausente>}')."
+
+          BEFORE_HEAD="$(git -C "$REPO_DIR" rev-parse HEAD 2>&1)"
+          log "HEAD antes de sincronizar: $BEFORE_HEAD"
+          case "$BEFORE_HEAD" in
+            "$EXPECTED_BEFORE_HEAD"*) : ;;
+            *) fail "El HEAD actual ($BEFORE_HEAD) no empieza por $EXPECTED_BEFORE_HEAD." ;;
+          esac
+
+          echo "--- fsck --full (antes) ---"
+          if git -C "$REPO_DIR" fsck --full 2>&1; then pre_fsck=0; else pre_fsck=$?; fi
+          echo "[pre_fsck_exit=$pre_fsck]"
+          [ "$pre_fsck" -eq 0 ] || fail "El .git actual no pasa fsck --full (exit=$pre_fsck)."
+
+          echo "--- git status --short (antes) ---"; git -C "$REPO_DIR" status --short 2>&1 | head -50 || true
+
+          # traer refs (no toca el arbol de trabajo)
+          git -C "$REPO_DIR" fetch --prune "$REMOTE" "$BRANCH" 2>&1 || fail "git fetch fallo."
+          ORIGIN_MAIN="$(git -C "$REPO_DIR" rev-parse "$REMOTE/$BRANCH" 2>&1)"
+          log "origin/$BRANCH = $ORIGIN_MAIN"
+
+          # 2) Comprobar que reset --hard no sobrescribira archivos NO versionados
+          log "Comprobando conflictos con archivos no versionados antes de modificar nada"
+          TMPD="$(mktemp -d)"
+          git -C "$REPO_DIR" ls-files --others > "$TMPD/untracked.txt" 2>/dev/null || true
+          git -C "$REPO_DIR" ls-tree -r --name-only "$ORIGIN_MAIN" > "$TMPD/tree.txt" 2>&1 || true
+          comm -12 <(sort -u "$TMPD/untracked.txt") <(sort -u "$TMPD/tree.txt") > "$TMPD/conflict.txt"
+          if [ -s "$TMPD/conflict.txt" ]; then
+            echo "Archivos NO versionados que reset --hard sobrescribiria:"
+            sed 's/^/  /' "$TMPD/conflict.txt" >&2
+            rm -rf "$TMPD"
+            fail "Conflicto: hay archivos no versionados que se sobrescribirian; se aborta SIN modificar nada."
+          fi
+          rm -rf "$TMPD"
+          log "Sin conflictos: reset --hard solo afectara a archivos versionados."
+
+          # 3) Backups (sin sobrescribir) - se ejecuta solo tras descartar conflictos
+          log "Creando backups en $BACKUP_DIR"
+          if [ -e "$BACKUP_DIR" ]; then fail "El destino de backup ya existe (no se sobrescribe): $BACKUP_DIR"; fi
+          mkdir -p "$BACKUP_DIR" || fail "No se pudo crear $BACKUP_DIR"
+
+          tar -czf "$GIT_TAR" -C "$REPO_DIR" .git || fail "El backup (tar) del .git fallo."
+          [ -f "$GIT_TAR" ] || fail "No se genero el tar del .git."
+          sha256sum "$GIT_TAR" > "$GIT_TAR.sha256" || fail "No se pudo calcular el SHA-256 del .git."
+          sha256sum -c "$GIT_TAR.sha256" || fail "El SHA-256 del backup de .git no es valido."
+          log "Backup de .git verificado."
+
+          # archivos versionados que cambian/se eliminan + obsoletos NO versionados conocidos
+          : > "$LIST"
+          git -C "$REPO_DIR" diff --name-only "$ORIGIN_MAIN" -- . 2>/dev/null | while IFS= read -r p; do
+            if [ -e "$REPO_DIR/$p" ]; then printf '%s\n' "$p" >> "$LIST"; fi
+          done
+          for extra in $INITSES; do
+            if [ -e "$REPO_DIR/$extra" ]; then printf '%s\n' "$extra" >> "$LIST"; fi
+          done
+          sort -u "$LIST" -o "$LIST"
+          if [ -s "$LIST" ]; then
+            log "Archivos a respaldar (versionados que cambian + InitSes no versionados):"
+            sed 's/^/  /' "$LIST"
+          else
+            log "No hay archivos que respaldar ademas del .git."
+          fi
+          if [ -s "$LIST" ]; then
+            tar -czf "$FILES_TAR" -C "$REPO_DIR" -T "$LIST" || fail "El backup (tar) de archivos fallo."
+            [ -f "$FILES_TAR" ] || fail "No se genero el tar de archivos."
+            sha256sum "$FILES_TAR" > "$FILES_TAR.sha256" || fail "No se pudo calcular el SHA-256 de archivos."
+            sha256sum -c "$FILES_TAR.sha256" || fail "El SHA-256 del backup de archivos no es valido."
+            log "Backup de archivos verificado (incluye InitSes.html/InitSes.css)."
+          fi
+
+          git -C "$REPO_DIR" diff --name-only --diff-filter=A "$BEFORE_HEAD" "$ORIGIN_MAIN" > "$ADDED_LIST" 2>/dev/null || true
+          {
+            echo "before_head: $BEFORE_HEAD"
+            echo "origin_main: $ORIGIN_MAIN"
+            echo "repo_dir: $REPO_DIR"
+            echo "www_dir: $WWW_DIR"
+          } > "$BACKUP_DIR/estado-fase4.txt" 2>&1
+
+          # 4) Sincronizar Git con origin/main
+          MUTATED=1
+          log "Eliminando archivos obsoletos conocidos del proyecto (InitSes.html/InitSes.css)"
+          for f in $INITSES; do rm -f "$REPO_DIR/$f" || true; done
+
+          git -C "$REPO_DIR" ls-files --others > "$UNTRACKED_BEFORE" 2>/dev/null || true
+
+          log "Sincronizando: git reset --hard $REMOTE/$BRANCH"
+          git -C "$REPO_DIR" reset --hard "$REMOTE/$BRANCH" 2>&1 || fail "reset --hard fallo."
+
+          echo "--- fsck --full (despues) ---"
+          if git -C "$REPO_DIR" fsck --full 2>&1; then post_fsck=0; else post_fsck=$?; fi
+          echo "[post_fsck_exit=$post_fsck]"
+          [ "$post_fsck" -eq 0 ] || fail "El .git no pasa fsck --full tras sincronizar (exit=$post_fsck)."
+
+          head_after="$(git -C "$REPO_DIR" rev-parse HEAD 2>&1)"
+          log "HEAD tras sincronizar: $head_after"
+          [ "$head_after" = "$ORIGIN_MAIN" ] || fail "HEAD ($head_after) no coincide con $REMOTE/$BRANCH ($ORIGIN_MAIN)."
+
+          remote_live="$(git -C "$REPO_DIR" ls-remote "$REMOTE_URL" "refs/heads/$BRANCH" 2>/dev/null | awk '{print $1}')"
+          log "GitHub $BRANCH: $remote_live"
+          [ -n "$remote_live" ] || fail "No se pudo leer GitHub (ls-remote)."
+          [ "$head_after" = "$remote_live" ] || fail "HEAD ($head_after) no coincide con GitHub ($remote_live)."
+
+          wt_dirty="$(git -C "$REPO_DIR" status --porcelain --untracked-files=no 2>/dev/null)"
+          [ -z "$wt_dirty" ] || fail "El arbol de trabajo versionado no quedo limpio."
+
+          git -C "$REPO_DIR" ls-files --others > "$UNTRACKED_AFTER" 2>/dev/null || true
+          if ! diff -q "$UNTRACKED_BEFORE" "$UNTRACKED_AFTER" >/dev/null 2>&1; then
+            diff "$UNTRACKED_BEFORE" "$UNTRACKED_AFTER" >&2 || true
+            fail "reset --hard altero archivos no versionados."
+          fi
+          log "Archivos no versionados intactos (no sobrescritos por reset --hard)."
+
+          for f in $INITSES; do
+            if [ -e "$REPO_DIR/$f" ]; then fail "El archivo obsoleto sigue en el proyecto: $REPO_DIR/$f"; fi
+          done
+          log "Sincronizacion verificada: HEAD=$head_after, fsck=0, versionado limpio, InitSes ausentes, no versionados intactos."
+
+          SYNC_OK=1
+
+          # 5) Backup del directorio publico que el despliegue puede cambiar (para rollback)
+          WWW_STAGE=1
+          : > "$WWW_MANIFEST"
+          for d in "index.html" "Images" "api"; do
+            if [ -d "$WWW_DIR/$d" ]; then printf '%s\n' "$d" >> "$WWW_MANIFEST"; fi
+          done
+          if [ -s "$WWW_MANIFEST" ]; then
+            tar -czf "$WWW_TAR" -C "$WWW_DIR" -T "$WWW_MANIFEST" || fail "El backup (tar) del publico fallo."
+            [ -f "$WWW_TAR" ] || fail "No se genero el tar del publico."
+            sha256sum "$WWW_TAR" > "$WWW_TAR.sha256" || fail "No se pudo calcular el SHA-256 del publico."
+            sha256sum -c "$WWW_TAR.sha256" || fail "El SHA-256 del backup del publico no es valido."
+            WWW_BACKED=1
+            log "Backup del directorio publico verificado (para rollback)."
+          else
+            log "No habia directorios publicos previos (nada que respaldar)."
+          fi
+
+          # 6) deploy.sh (solo si todas las verificaciones pasan)
+          log "Ejecutando despliegue: $DEPLOY_SCRIPT"
+          [ -f "$DEPLOY_SCRIPT" ] || fail "No existe el script de despliegue: $DEPLOY_SCRIPT"
+          if TODOF1_REPO_DIR="$REPO_DIR" TODOF1_WWW_DIR="$WWW_DIR" TODOF1_BRANCH="$BRANCH" \
+             TODOF1_REMOTE="$REMOTE" TODOF1_REMOTE_URL="$REMOTE_URL" \
+             bash "$DEPLOY_SCRIPT" 2>&1; then dep_exit=0; else dep_exit=$?; fi
+          echo "[deploy_exit=$dep_exit]"
+          [ "$dep_exit" -eq 0 ] || fail "El despliegue fallo (exit=$dep_exit)."
+          log "deploy.sh finalizo correctamente."
+
+          # 7) Verificar el despliegue en el directorio publico
+          for f in $INITSES; do
+            if [ -e "$WWW_DIR/$f" ]; then fail "El despliegue no elimino del publico: $WWW_DIR/$f"; fi
+          done
+          [ -e "$WWW_DIR/index.html/index.html" ] || fail "No se encuentra $WWW_DIR/index.html/index.html tras el despliegue."
+          log "Despliegue verificado en $WWW_DIR (InitSes.html e InitSes.css ausentes)."
+
+          DEPLOY_OK=1
+
+          log "RESULTADO FASE 4: HEAD=$head_after; backups en $BACKUP_DIR"
+          log "===== FIN FASE 4 ====="
+          exit 0
+          REMOTE_SCRIPT
