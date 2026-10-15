@@ -44,4 +44,4 @@ jobs:
             -o BatchMode=yes \
             -o StrictHostKeyChecking=yes \
             "$SSH_USER@$SSH_HOST" \
-            "cd /home/todof1/todof1-app && if git remote get-url origin >/dev/null 2>&1; then git remote set-url origin https://github.com/Daniel-Zarco/TodoF1.git; else git remote add origin https://github.com/Daniel-Zarco/TodoF1.git; fi && bash deploy/deploy.sh"
+            'cd /home/todof1/todof1-app || exit 1; if git remote get-url origin >/dev/null 2>&1; then git remote set-url origin https://github.com/Daniel-Zarco/TodoF1.git; else git remote add origin https://github.com/Daniel-Zarco/TodoF1.git; fi; echo "===== DIAGNOSTICO TODO F1 (TEMPORAL): INICIO ====="; echo "--- git status --short ---"; git status --short 2>&1; echo "[exit=$?]"; echo "--- git log -1 --oneline ---"; git log -1 --oneline 2>&1; echo "[exit=$?]"; echo "--- git remote -v ---"; git remote -v 2>&1; echo "[exit=$?]"; echo "--- git fsck --full ---"; git fsck --full 2>&1; echo "[exit=$?]"; echo "--- df -h ---"; df -h 2>&1; echo "[exit=$?]"; echo "===== DIAGNOSTICO TODO F1 (TEMPORAL): FIN ====="; bash deploy/deploy.sh'
