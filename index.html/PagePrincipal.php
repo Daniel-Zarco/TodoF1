@@ -37,163 +37,162 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <main class="tf-main">
         <div class="tf-container">
 
-            <!-- Hero / Cockpit -->
-            <section class="tf-hero tf-hero--racing">
-                <span class="tf-hero__glow" aria-hidden="true"></span>
-                <span class="tf-hero__scan" aria-hidden="true"></span>
+            <!-- ================= HERO ================= -->
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero__media" aria-hidden="true">
+                    <img src="/Images/hero-f1.jpg"
+                         alt="Monoplazas de Fórmula 1 de distintas escuderías compitiendo en la salida de un Gran Premio"
+                         fetchpriority="high" decoding="async" width="1280" height="851">
+                    <span class="hero__scrim"></span>
+                    <span class="hero__grid"></span>
+                    <span class="hero__stripe"></span>
+                </div>
 
-                <div class="tf-hero__inner">
-                    <div class="tf-hero__content">
-                        <div class="tf-hero__top">
-                            <span class="tf-eyebrow">Racing Intelligence</span>
-                            <span class="tf-live"><span class="tf-live__dot" aria-hidden="true"></span>Datos en vivo</span>
-                        </div>
-
-                        <h1 class="tf-hero__title">El archivo completo de la <span>F&oacute;rmula 1</span></h1>
-                        <p class="tf-hero__sub">
-                            Consulta temporadas, pilotos, escuder&iacute;as y circuitos con datos actualizados.
-                            Elige una temporada para explorar las clasificaciones y estad&iacute;sticas.
-                        </p>
-
-                        <div class="tf-hero__lights" aria-hidden="true">
-                            <span></span><span></span><span></span><span></span><span></span>
-                        </div>
-
-                        <div class="tf-hero__chips">
-                            <span class="tf-chip">1950 &mdash; 2026</span>
-                            <span class="tf-chip">Telemetr&iacute;a hist&oacute;rica</span>
-                            <span class="tf-chip">Acceso libre</span>
-                        </div>
+                <div class="hero__body">
+                    <span class="tf-eyebrow">Temporada <b id="hero-year">&mdash;</b></span>
+                    <h1 class="hero__title" id="hero-title">El mundo de la <span>F&oacute;rmula 1</span></h1>
+                    <p class="hero__sub">Pilotos. Escuder&iacute;as. Circuitos. Resultados. Toda la informaci&oacute;n de la F1, en un solo lugar.</p>
+                    <div class="hero__cta">
+                        <a class="tf-btn tf-btn--primary hero__btn" id="hero-cta" href="/index.html/PagePilotos.php">
+                            Explorar TodoF1 <span aria-hidden="true">&#8594;</span>
+                        </a>
                     </div>
+                </div>
 
-                    <div class="tf-hero__aside">
-                        <div class="tf-control">
-                            <label class="tf-field__label" for="anio">Temporada</label>
-                            <select id="anio" class="tf-select" name="anio" aria-label="Seleccionar temporada"></select>
-                            <div class="tf-control__bars" aria-hidden="true">
-                                <span style="--w:82%"></span>
-                                <span style="--w:54%"></span>
-                                <span style="--w:68%"></span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hero__bar">
+                    <span class="hero__brandline" aria-hidden="true">Racing Intelligence</span>
+                    <label class="hero__season">
+                        <span class="hero__season-label">Temporada</span>
+                        <select id="anio" class="tf-select hero__select" name="anio" aria-label="Seleccionar temporada"></select>
+                    </label>
+                    <span class="hero__credit">Foto: Bassfish22 &middot; CC BY-SA 4.0</span>
                 </div>
             </section>
 
-            <!-- Resumen de temporada -->
-            <section class="tf-section tf-reveal" aria-labelledby="resumen-title">
-                <div class="tf-section__head">
+            <!-- ================= ESTADÍSTICAS ================= -->
+            <section class="tf-section" aria-labelledby="stats-title">
+                <h2 class="sr-only" id="stats-title">Estad&iacute;sticas de la temporada</h2>
+                <div class="stats">
+                    <a class="stat" id="stat-gp" href="/index.html/PageCircuitos.php">
+                        <span class="stat__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"></path><path d="M5 4l14 2-2.2 5L19 16 5 18"></path></svg>
+                        </span>
+                        <span class="stat__num tf-num" id="kpi-gp">&mdash;</span>
+                        <span class="stat__label">Grandes Premios</span>
+                        <span class="stat__meta">Calendario</span>
+                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                    </a>
+                    <a class="stat" id="stat-pilotos" href="/index.html/PagePilotos.php">
+                        <span class="stat__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path></svg>
+                        </span>
+                        <span class="stat__num tf-num" id="kpi-pilotos">&mdash;</span>
+                        <span class="stat__label">Pilotos</span>
+                        <span class="stat__meta">Participantes</span>
+                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                    </a>
+                    <a class="stat" id="stat-escuderias" href="/index.html/PageEscuderias.php">
+                        <span class="stat__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M15 19a4.6 4.6 0 0 1 6.2-4.3"></path></svg>
+                        </span>
+                        <span class="stat__num tf-num" id="kpi-escuderias">&mdash;</span>
+                        <span class="stat__label">Escuder&iacute;as</span>
+                        <span class="stat__meta">Constructores</span>
+                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                    </a>
+                    <a class="stat" id="stat-resultados" href="/index.html/PageEstadisticas.php">
+                        <span class="stat__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11"></path><path d="M9 20V4"></path><path d="M14 20v-7"></path><path d="M19 20V7"></path></svg>
+                        </span>
+                        <span class="stat__num tf-num" id="kpi-resultados">&mdash;</span>
+                        <span class="stat__label">Resultados</span>
+                        <span class="stat__meta">Registros de carrera</span>
+                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ================= ACCESO RÁPIDO ================= -->
+            <section class="tf-section" aria-labelledby="explore-title">
+                <div class="head">
                     <div>
-                        <h2 class="tf-section__title" id="resumen-title">Resumen de temporada <span class="tf-text-red" id="resumen-year"></span></h2>
-                        <p class="tf-section__sub">Datos globales de la temporada seleccionada.</p>
+                        <span class="tf-eyebrow">Explorar</span>
+                        <h2 class="head__title" id="explore-title">Acceso r&aacute;pido</h2>
                     </div>
+                    <span class="head__tag">Todo lo que necesitas de la F1</span>
                 </div>
 
-                <div class="tf-grid tf-grid--4">
-                    <div class="tf-kpi tf-kpi--tech">
-                        <div class="tf-kpi__head">
-                            <span class="tf-kpi__label">Grandes Premios</span>
-                            <span class="tf-kpi__icon" aria-hidden="true">&#127937;</span>
-                        </div>
-                        <div class="tf-kpi__value tf-num" id="kpi-gp">&mdash;</div>
-                        <div class="tf-kpi__meta">Carreras en el calendario</div>
-                        <div class="tf-kpi__bar" aria-hidden="true"><span></span></div>
-                    </div>
-                    <div class="tf-kpi tf-kpi--tech">
-                        <div class="tf-kpi__head">
-                            <span class="tf-kpi__label">Pilotos</span>
-                            <span class="tf-kpi__icon" aria-hidden="true">&#128100;</span>
-                        </div>
-                        <div class="tf-kpi__value tf-num" id="kpi-pilotos">&mdash;</div>
-                        <div class="tf-kpi__meta">Participantes en la temporada</div>
-                        <div class="tf-kpi__bar" aria-hidden="true"><span></span></div>
-                    </div>
-                    <div class="tf-kpi tf-kpi--tech">
-                        <div class="tf-kpi__head">
-                            <span class="tf-kpi__label">Escuder&iacute;as</span>
-                            <span class="tf-kpi__icon" aria-hidden="true">&#127937;</span>
-                        </div>
-                        <div class="tf-kpi__value tf-num" id="kpi-escuderias">&mdash;</div>
-                        <div class="tf-kpi__meta">Constructores en pista</div>
-                        <div class="tf-kpi__bar" aria-hidden="true"><span></span></div>
-                    </div>
-                    <div class="tf-kpi tf-kpi--tech">
-                        <div class="tf-kpi__head">
-                            <span class="tf-kpi__label">Resultados</span>
-                            <span class="tf-kpi__icon" aria-hidden="true">&#128202;</span>
-                        </div>
-                        <div class="tf-kpi__value tf-num" id="kpi-resultados">&mdash;</div>
-                        <div class="tf-kpi__meta">Registros de carrera</div>
-                        <div class="tf-kpi__bar" aria-hidden="true"><span></span></div>
-                    </div>
+                <div class="qa-grid">
+                    <a class="qa" id="access-pilotos" href="/index.html/PagePilotos.php">
+                        <span class="qa__media qa__media--pilotos" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path></svg>
+                        </span>
+                        <span class="qa__label">Pilotos <span aria-hidden="true">&#8594;</span></span>
+                    </a>
+                    <a class="qa" id="access-escuderias" href="/index.html/PageEscuderias.php">
+                        <span class="qa__media qa__media--escuderias" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M15 19a4.6 4.6 0 0 1 6.2-4.3"></path></svg>
+                        </span>
+                        <span class="qa__label">Escuder&iacute;as <span aria-hidden="true">&#8594;</span></span>
+                    </a>
+                    <a class="qa" id="access-circuitos" href="/index.html/PageCircuitos.php">
+                        <span class="qa__media qa__media--circuitos" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17c0-6 15-7 15-1 0 4-6 4-8 1-2-3-7-2-7-5"></path><circle cx="7" cy="8" r="1.4"></circle><circle cx="18" cy="14" r="1.4"></circle></svg>
+                        </span>
+                        <span class="qa__label">Circuitos <span aria-hidden="true">&#8594;</span></span>
+                    </a>
+                    <a class="qa" id="access-resultados" href="/index.html/PageEstadisticas.php">
+                        <span class="qa__media qa__media--resultados" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11"></path><path d="M9 20V4"></path><path d="M14 20v-7"></path><path d="M19 20V7"></path></svg>
+                        </span>
+                        <span class="qa__label">Resultados <span aria-hidden="true">&#8594;</span></span>
+                    </a>
                 </div>
             </section>
 
-            <!-- Clasificaciones -->
-            <section class="tf-section tf-reveal">
-                <div class="tf-grid tf-grid--2 tf-classif">
-
-                    <div class="tf-panel tf-panel--tech">
-                        <div class="tf-section__head">
+            <!-- ================= PRÓXIMA CARRERA + PILOTOS ================= -->
+            <section class="tf-section">
+                <div class="two-col">
+                    <div class="panel panel--race" aria-labelledby="race-title">
+                        <div class="head head--tight">
                             <div>
-                                <h2 class="tf-section__title">Clasificaci&oacute;n de pilotos</h2>
-                                <p class="tf-section__sub">Campeonato de pilotos</p>
+                                <span class="tf-eyebrow" id="race-kicker">Pr&oacute;xima carrera</span>
+                                <h2 class="head__title" id="race-title">Gran Premio</h2>
                             </div>
-                            <a id="link-pilotos-full" class="tf-btn tf-btn--ghost tf-btn--sm" href="/index.html/PagePilotos.php">
-                                Ver completa
-                            </a>
+                        </div>
+                        <div id="next-race" aria-live="polite">
+                            <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando&hellip;</span></div>
+                        </div>
+                    </div>
+
+                    <div class="panel" aria-labelledby="standings-title">
+                        <div class="head head--tight">
+                            <div>
+                                <span class="tf-eyebrow">Clasificaci&oacute;n</span>
+                                <h2 class="head__title" id="standings-title">Pilotos</h2>
+                            </div>
+                            <a id="link-pilotos-full" class="head__link" href="/index.html/PagePilotos.php">Ver completa &#8594;</a>
                         </div>
                         <div class="tf-standings" id="standings-pilotos" aria-live="polite">
                             <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando clasificaci&oacute;n&hellip;</span></div>
                         </div>
                     </div>
-
-                    <div class="tf-panel tf-panel--tech">
-                        <div class="tf-section__head">
-                            <div>
-                                <h2 class="tf-section__title">Clasificaci&oacute;n de constructores</h2>
-                                <p class="tf-section__sub">Copa de constructores</p>
-                            </div>
-                            <a id="link-escuderias-full" class="tf-btn tf-btn--ghost tf-btn--sm" href="/index.html/PageEstadisticas.php">
-                                Ver completa
-                            </a>
-                        </div>
-                        <div class="tf-standings" id="standings-escuderias" aria-live="polite">
-                            <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando clasificaci&oacute;n&hellip;</span></div>
-                        </div>
-                    </div>
-
                 </div>
             </section>
 
-            <!-- Accesos rápidos -->
-            <section class="tf-section tf-reveal">
-                <div class="tf-section__head">
-                    <div>
-                        <h2 class="tf-section__title">Explorar</h2>
-                        <p class="tf-section__sub">Accesos directos a la temporada seleccionada.</p>
+            <!-- ================= CLASIFICACIÓN CONSTRUCTORES ================= -->
+            <section class="tf-section">
+                <div class="panel" aria-labelledby="constructors-title">
+                    <div class="head head--tight">
+                        <div>
+                            <span class="tf-eyebrow">Clasificaci&oacute;n</span>
+                            <h2 class="head__title" id="constructors-title">Constructores</h2>
+                        </div>
+                        <a id="link-escuderias-full" class="head__link" href="/index.html/PageEstadisticas.php">Ver completa &#8594;</a>
                     </div>
-                </div>
-
-                <div class="tf-grid tf-grid--3">
-                    <a class="tf-access tf-access--tech" id="access-pilotos" href="/index.html/PagePilotos.php">
-                        <span class="tf-access__icon" aria-hidden="true">&#128100;</span>
-                        <span class="tf-access__title">Pilotos</span>
-                        <p class="tf-access__desc">Plantilla, nacionalidades y clasificaci&oacute;n de la temporada.</p>
-                        <span class="tf-access__arrow">Explorar pilotos &rarr;</span>
-                    </a>
-                    <a class="tf-access tf-access--tech" id="access-escuderias" href="/index.html/PageEscuderias.php">
-                        <span class="tf-access__icon" aria-hidden="true">&#127937;</span>
-                        <span class="tf-access__title">Escuder&iacute;as</span>
-                        <p class="tf-access__desc">Equipos, puntos y pilotos que compiten este a&ntilde;o.</p>
-                        <span class="tf-access__arrow">Explorar escuder&iacute;as &rarr;</span>
-                    </a>
-                    <a class="tf-access tf-access--tech" id="access-circuitos" href="/index.html/PageCircuitos.php">
-                        <span class="tf-access__icon" aria-hidden="true">&#127937;</span>
-                        <span class="tf-access__title">Circuitos</span>
-                        <p class="tf-access__desc">Calendario de Grandes Premios y sedes de la temporada.</p>
-                        <span class="tf-access__arrow">Explorar circuitos &rarr;</span>
-                    </a>
+                    <div class="tf-standings" id="standings-escuderias" aria-live="polite">
+                        <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando clasificaci&oacute;n&hellip;</span></div>
+                    </div>
                 </div>
             </section>
 

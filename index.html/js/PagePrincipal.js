@@ -5,19 +5,11 @@
   var API = 'https://api.jolpi.ca/ergast/f1';
   var YEAR_MIN = 1950;
   var YEAR_MAX = 2026;
+  var MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
   var params = new URLSearchParams(window.location.search);
   var year = parseInt(params.get('year') || '', 10);
   if (!year || year < YEAR_MIN || year > YEAR_MAX) year = YEAR_MAX;
-
-  var select = document.getElementById('anio');
-  for (var y = YEAR_MAX; y >= YEAR_MIN; y--) {
-    var opt = document.createElement('option');
-    opt.value = y;
-    opt.textContent = y;
-    select.appendChild(opt);
-  }
-  select.value = year;
 
   function $(id) { return document.getElementById(id); }
 
@@ -32,6 +24,11 @@
     if (el) el.textContent = value;
   }
 
+  function setHref(id, url) {
+    var el = $(id);
+    if (el) el.href = url;
+  }
+
   function loadingState(el) {
     if (el) el.innerHTML = '<div class="tf-loading"><span class="tf-spinner"></span><span>Cargando…</span></div>';
   }
@@ -41,13 +38,35 @@
     el.innerHTML = '<div class="tf-' + (type || 'empty') + '">' + esc(message) + '</div>';
   }
 
+  function fmtDate(iso) {
+    if (!iso) return '';
+    var p = String(iso).split('-');
+    if (p.length < 3) return iso;
+    var d = parseInt(p[2], 10);
+    var m = parseInt(p[1], 10) - 1;
+    return d + ' de ' + (MONTHS[m] || '') + ' de ' + p[0];
+  }
+
+  function todayISO() {
+    var d = new Date();
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+  }
+
   function setLinks(value) {
-    var q = '?year=' + value;
-    $('link-pilotos-full').href = '/index.html/PagePilotos.php' + q;
-    $('link-escuderias-full').href = '/index.html/PageEstadisticas.php' + q;
-    $('access-pilotos').href = '/index.html/PagePilotos.php' + q;
-    $('access-escuderias').href = '/index.html/PageEscuderias.php' + q;
-    $('access-circuitos').href = '/index.html/PageCircuitos.php' + q;
+    var q = '?year=' + encodeURIComponent(value);
+    setHref('hero-cta', '/index.html/PagePilotos.php' + q);
+    setHref('stat-gp', '/index.html/PageCircuitos.php' + q);
+    setHref('stat-pilotos', '/index.html/PagePilotos.php' + q);
+    setHref('stat-escuderias', '/index.html/PageEscuderias.php' + q);
+    setHref('stat-resultados', '/index.html/PageEstadisticas.php' + q);
+    setHref('access-pilotos', '/index.html/PagePilotos.php' + q);
+    setHref('access-escuderias', '/index.html/PageEscuderias.php' + q);
+    setHref('access-circuitos', '/index.html/PageCircuitos.php' + q);
+    setHref('access-resultados', '/index.html/PageEstadisticas.php' + q);
+    setHref('link-pilotos-full', '/index.html/PagePilotos.php' + q);
+    setHref('link-escuderias-full', '/index.html/PageEstadisticas.php' + q);
   }
 
   function standingRow(position, name, team, points) {
@@ -63,6 +82,7 @@
   }
 
   function renderStandings(el, settled, mapper, limit) {
+    if (!el) return;
     if (settled.status !== 'fulfilled') {
       messageState(el, 'No se pudo cargar la clasificación.', 'error');
       return;
@@ -78,7 +98,6 @@
       return;
     }
 
-    // limit: número máximo de filas. Si no se indica, se muestran todas.
     var visible = typeof limit === 'number' ? rows.slice(0, limit) : rows;
 
     var fragment = document.createDocumentFragment();
@@ -100,18 +119,62 @@
     return rows.length;
   }
 
+  var TRACK_SVG =
+    '<svg class="race__track" viewBox="0 0 220 110" fill="none" stroke="currentColor" ' +
+    'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+    '<path d="M22 82c-6-22 10-38 34-40s40 10 56 4 22-24 44-22 40 20 36 42-28 30-52 26-30-20-52-16-24 26-46 30-16-8-20-24Z"/>' +
+    '</svg>';
+
+  function renderNextRace(calendarRes, value) {
+    var el = $('next-race');
+    if (!el) return;
+    if (calendarRes.status !== 'fulfilled') {
+      messageState(el, 'No se pudo cargar el calendario.', 'error');
+      return;
+    }
+    var races = (calendarRes.value.MRData && calendarRes.value.MRData.RaceTable && calendarRes.value.MRData.RaceTable.Races) || [];
+    if (!races.length) {
+      messageState(el, 'Sin calendario para esta temporada.', 'empty');
+      return;
+    }
+
+    var today = todayISO();
+    var next = null;
+    for (var i = 0; i < races.length; i++) {
+      if (races[i].date >= today) { next = races[i]; break; }
+    }
+    var past = false;
+    if (!next) { next = races[races.length - 1]; past = true; }
+
+    var kicker = $('race-kicker');
+    if (kicker) kicker.textContent = past ? 'Última prueba' : 'Próxima carrera';
+
+    var circuit = next.Circuit || {};
+    var loc = circuit.Location || {};
+    var place = [circuit.circuitName, loc.country].filter(Boolean).join(' · ');
+
+    el.innerHTML =
+      '<span class="race__round">Ronda ' + esc(next.round) + '</span>' +
+      '<h3 class="race__name">' + esc(next.raceName) + '</h3>' +
+      '<p class="race__date">' + esc(fmtDate(next.date)) + '</p>' +
+      '<p class="race__circuit">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+      '<path d="M12 21s7-5.6 7-11a7 7 0 0 0-14 0c0 5.4 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.6"></circle></svg> ' +
+      esc(place) + '</p>' +
+      TRACK_SVG +
+      '<a class="tf-btn tf-btn--primary race__link" href="/index.html/PageCircuitos.php?year=' + encodeURIComponent(value) + '">Ver detalles ' + '&#8594;</a>';
+  }
+
   async function loadSeason(value) {
-    setText('resumen-year', value);
+    setText('hero-year', value);
     setLinks(value);
     ['kpi-gp', 'kpi-pilotos', 'kpi-escuderias', 'kpi-resultados'].forEach(function (id) {
       setText(id, '—');
     });
+    loadingState($('next-race'));
     loadingState($('standings-pilotos'));
     loadingState($('standings-escuderias'));
 
-    // Nota: Jolpica capa "limit" a 100, por lo que los recuentos NO se obtienen
-    // paginando resultados, sino del calendario, del total de la API y de las
-    // clasificaciones (que ya incluyen a todos los participantes de la temporada).
     var settled = await Promise.allSettled([
       fetch(API + '/' + value + '.json').then(function (r) { return r.json(); }),
       fetch(API + '/' + value + '/results.json?limit=1').then(function (r) { return r.json(); }),
@@ -136,6 +199,8 @@
     setText('kpi-escuderias', standingsCount(constructorsRes, 'ConstructorStandings'));
     setText('kpi-resultados', isNaN(totalResults) ? 'N/D' : totalResults.toLocaleString('es-ES'));
 
+    renderNextRace(calendarRes, value);
+
     // Pilotos: solo los 10 primeros
     renderStandings($('standings-pilotos'), driversRes, {
       list: function (l) { return l.DriverStandings; },
@@ -147,9 +212,9 @@
           points: entry.points
         };
       }
-    }, 10);
+    }, 5);
 
-    // Constructores: todos los equipos de la temporada (sin límite)
+    // Constructores: todos los equipos de la temporada
     renderStandings($('standings-escuderias'), constructorsRes, {
       list: function (l) { return l.ConstructorStandings; },
       row: function (entry) {
@@ -162,6 +227,15 @@
       }
     });
   }
+
+  var select = $('anio');
+  for (var y = YEAR_MAX; y >= YEAR_MIN; y--) {
+    var opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    select.appendChild(opt);
+  }
+  select.value = year;
 
   select.addEventListener('change', function () {
     var value = parseInt(this.value, 10);
