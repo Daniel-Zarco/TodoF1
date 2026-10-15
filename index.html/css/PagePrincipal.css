@@ -85,12 +85,6 @@
   --hero-scrim-b: rgba(11, 11, 13, 0.88);
 }
 
-html[data-theme="light"] .hero {
-  --hero-scrim-l: rgba(255, 255, 255, 0.97);
-  --hero-scrim-m: rgba(255, 255, 255, 0.72);
-  --hero-scrim-b: rgba(255, 255, 255, 0.82);
-}
-
 .hero__media {
   position: absolute;
   inset: 0;
@@ -104,11 +98,7 @@ html[data-theme="light"] .hero {
   object-position: 76% 42%;
 }
 
-html[data-theme="light"] .hero__media img {
-  filter: saturate(1.05) brightness(1.03) contrast(1.02);
-}
-
-html[data-theme="dark"] .hero__media img {
+.hero__media img {
   filter: saturate(0.95) brightness(0.88) contrast(1.05);
 }
 
@@ -200,10 +190,6 @@ html[data-theme="dark"] .hero__media img {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   flex-wrap: wrap;
-}
-
-html[data-theme="light"] .hero__bar {
-  --c-scrim-bar: 255, 255, 255;
 }
 
 .hero__brandline {
@@ -402,10 +388,6 @@ html[data-theme="light"] .hero__bar {
   color: rgba(255, 255, 255, 0.14);
 }
 
-html[data-theme="light"] .qa__media--escuderias {
-  color: rgba(17, 24, 39, 0.1);
-}
-
 .qa:hover .qa__media {
   transform: scale(1.06);
   opacity: 0.3;
@@ -417,10 +399,6 @@ html[data-theme="light"] .qa__media--escuderias {
   inset: 0;
   background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.35) 100%);
   pointer-events: none;
-}
-
-html[data-theme="light"] .qa::after {
-  background: linear-gradient(180deg, transparent 45%, rgba(255, 255, 255, 0.55) 100%);
 }
 
 .qa__label {

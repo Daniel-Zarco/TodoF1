@@ -1,7 +1,5 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['username']);
-$username = $isLoggedIn ? $_SESSION['username'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -10,20 +8,13 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="color-scheme" content="dark" />
     <title>TodoF1 — Estad&iacute;sticas de F&oacute;rmula 1</title>
     <script>
-        /* Anti-parpadeo: aplica el tema y los colores del equipo antes de pintar. */
+        /* Anti-parpadeo: aplica los colores del tema elegido antes de pintar. */
         (function () {
             try {
-                var t = localStorage.getItem('todof1:theme');
-                if (t !== 'light' && t !== 'dark') {
-                    t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
-                }
-                document.documentElement.setAttribute('data-theme', t);
-                document.documentElement.style.colorScheme = t;
-
-                /* Personalización por escudería: usa los colores cacheados del equipo principal. */
+                /* Personalización por escudería: usa los colores cacheados del tema activo. */
                 var y = parseInt(new URLSearchParams(location.search).get('year'), 10);
                 if (!y || y < 1950 || y > 2026) {
                     try { y = parseInt(sessionStorage.getItem('todof1:year'), 10); } catch (e1) { y = NaN; }

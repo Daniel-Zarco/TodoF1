@@ -3,10 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-$isLoggedIn = isset($_SESSION['username']);
-$username   = $isLoggedIn ? $_SESSION['username'] : '';
-$isAdmin    = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
-
 $current = basename($_SERVER['SCRIPT_NAME'] ?? ($_SERVER['PHP_SELF'] ?? ''));
 
 // El año por defecto lo resuelve el cliente (sessionStorage o última temporada).
@@ -68,23 +64,6 @@ $items = [
                     </select>
                 </label>
 
-                <button class="tf-theme-toggle" id="tf-theme-toggle" type="button"
-                        aria-pressed="false" aria-label="Activar tema claro" title="Tema claro">
-                    <span class="tf-theme-toggle__icon tf-theme-toggle__icon--sun" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                             stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                            <circle cx="12" cy="12" r="4.2"></circle>
-                            <path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12h2.6M18.9 12h2.6M4.2 19.8L6 18M18 6l1.8-1.8"></path>
-                        </svg>
-                    </span>
-                    <span class="tf-theme-toggle__icon tf-theme-toggle__icon--moon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                             stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                            <path d="M20 14.5A8.2 8.2 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"></path>
-                        </svg>
-                    </span>
-                </button>
-
                 <button class="tf-theme-picker" id="tf-theme-picker" type="button"
                         aria-haspopup="dialog" aria-expanded="false" aria-label="Elegir tema visual">
                     <span class="tf-theme-picker__icon" aria-hidden="true">
@@ -98,29 +77,10 @@ $items = [
                     </span>
                     <span class="tf-theme-picker__label">Elegir tema</span>
                 </button>
-
-                <?php if ($isAdmin): ?>
-                    <a class="tf-nav__ghost" href="/api/PageInfo.php">Panel</a>
-                <?php endif; ?>
-
-                <?php if ($isLoggedIn): ?>
-                    <div class="tf-nav__user">
-                        <span class="tf-nav__user-name" title="<?= htmlspecialchars($username) ?>">
-                            <span aria-hidden="true">&#128100;</span>
-                            <?= htmlspecialchars($username) ?>
-                        </span>
-                        <form action="/api/logout.php" method="POST">
-                            <button type="submit" class="tf-btn tf-btn--ghost tf-btn--sm">Salir</button>
-                        </form>
-                    </div>
-                <?php else: ?>
-                    <a class="tf-btn tf-btn--ghost tf-btn--sm" href="/index.html/login.php" data-no-transition>Acceso</a>
-                <?php endif; ?>
             </div>
         </nav>
     </div>
 </header>
-<script src="/index.html/js/theme.js"></script>
 <script src="/index.html/js/session.js"></script>
 <script src="/index.html/js/teams.js"></script>
 <script src="/index.html/js/navbar.js" defer></script>

@@ -21,14 +21,7 @@
   inset: auto 0 -1px 0;
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg,
-      var(--team-primary) 0 33.333%,
-      var(--team-secondary) 33.333% 66.666%,
-      var(--team-accent) 66.666% 100%);
-}
-
-html[data-theme="light"] .tf-nav {
-  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03), 0 10px 30px rgba(17, 24, 39, 0.08);
+  background: var(--team-stripe);
 }
 
 .tf-nav__inner {
@@ -145,107 +138,6 @@ html[data-theme="light"] .tf-nav {
   background-color: transparent;
 }
 
-/* Selector de tema (sol / luna) --------------------------- */
-.tf-theme-toggle {
-  position: relative;
-  display: inline-grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  flex: 0 0 auto;
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-pill);
-  background: var(--c-surface);
-  color: var(--c-dim);
-  cursor: pointer;
-  overflow: hidden;
-  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
-}
-
-.tf-theme-toggle:hover {
-  color: var(--c-text);
-  border-color: var(--team-primary-line);
-  box-shadow: 0 0 0 3px var(--team-primary-dim);
-  transform: translateY(-1px);
-}
-
-.tf-theme-toggle:active {
-  transform: translateY(0);
-}
-
-.tf-theme-toggle__icon {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  transition: opacity var(--t), transform var(--t);
-}
-
-.tf-theme-toggle__icon svg {
-  width: 19px;
-  height: 19px;
-}
-
-/* Oscuro por defecto: mostrar sol (acción -> claro) */
-.tf-theme-toggle__icon--sun {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-
-.tf-theme-toggle__icon--moon {
-  opacity: 0;
-  transform: rotate(-40deg) scale(0.6);
-}
-
-html[data-theme="light"] .tf-theme-toggle__icon--sun {
-  opacity: 0;
-  transform: rotate(40deg) scale(0.6);
-}
-
-html[data-theme="light"] .tf-theme-toggle__icon--moon {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-
-.tf-nav__ghost {
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--c-dim);
-  padding: 8px 10px;
-  border-radius: var(--r-sm);
-  transition: color var(--t-fast), background var(--t-fast);
-}
-
-.tf-nav__ghost:hover {
-  color: var(--c-text);
-  background: var(--c-surface-2);
-}
-
-.tf-nav__user {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-2);
-  padding-left: var(--sp-3);
-  border-left: 1px solid var(--c-line);
-}
-
-.tf-nav__user form {
-  margin: 0;
-}
-
-.tf-nav__user-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  max-width: 140px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--c-dim);
-}
-
 /* Toggle móvil -------------------------------------------- */
 .tf-nav__toggle {
   display: none;
@@ -344,11 +236,6 @@ html[data-theme="light"] .tf-theme-toggle__icon--moon {
     border-top: 1px solid var(--c-line);
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-
-  .tf-nav__user {
-    border-left: 0;
-    padding-left: 0;
   }
 }
 

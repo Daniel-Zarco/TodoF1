@@ -6,24 +6,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
 
 :root {
+  color-scheme: dark;
+
   /* Marca */
   --c-red: #E10600;
   --c-red-2: #FF2B1F;
   --c-red-dim: rgba(225, 6, 0, 0.14);
   --c-red-line: rgba(225, 6, 0, 0.35);
 
-  /* Superficies */
-  --c-bg: #0B0B0D;
-  --c-surface: #161619;
-  --c-surface-2: #1B1B1F;
-  --c-surface-3: #212126;
-  --c-line: #242428;
-  --c-line-2: rgba(255, 255, 255, 0.07);
+  /* Superficies (tema único gris oscuro) */
+  --c-bg: #1A1C21;
+  --c-surface: #252830;
+  --c-surface-2: #2D3038;
+  --c-surface-3: #343843;
+  --c-line: #34373F;
+  --c-line-2: rgba(255, 255, 255, 0.08);
 
   /* Texto */
   --c-text: #F5F5F5;
-  --c-dim: #A1A1AA;
-  --c-mute: #6E6E77;
+  --c-dim: #AEB4BF;
+  --c-mute: #7E858F;
 
   /* Estados / metales */
   --c-gold: #E8C15A;
@@ -71,12 +73,12 @@
   --nav-h: 66px;
 
   /* Tema (extras Racing Tech) */
-  --c-nav-bg: rgba(11, 11, 13, 0.72);
-  --c-pop: #17171b;
-  --c-pop-glass: rgba(22, 22, 25, 0.92);
+  --c-nav-bg: #15171B;
+  --c-pop: #2D3038;
+  --c-pop-glass: rgba(37, 40, 48, 0.96);
   --c-bg-grad-a: rgba(225, 6, 0, 0.10);
   --c-bg-grad-b: rgba(255, 255, 255, 0.035);
-  --c-grid: rgba(255, 255, 255, 0.035);
+  --c-grid: rgba(255, 255, 255, 0.04);
   --c-shimmer: rgba(255, 255, 255, 0.05);
   --c-glass: rgba(255, 255, 255, 0.04);
   --c-glow: rgba(225, 6, 0, 0.55);
@@ -89,6 +91,9 @@
   --team-primary-dim: rgba(225, 6, 0, 0.14);
   --team-primary-line: rgba(225, 6, 0, 0.38);
   --team-on-primary: #FFFFFF;
+
+  /* Línea inferior del navbar: se sobreescribe desde JS con los colores del tema */
+  --team-stripe: linear-gradient(90deg, #E10600 0%, #E10600 44%, #FF2B1F 56%, #FF2B1F 100%);
 }
 
 /* ------------------------------------------------------------
@@ -1153,71 +1158,3 @@ button {
     transform: none;
   }
 }
-
-/* ============================================================
-   Racing Tech Light — tema claro
-   Fondos claros, tarjetas blancas, textos oscuros y acentos rojos.
-   No es una versión oscura con fondo blanco: sombras suaves,
-   bordes claros y jerarquía pensada para luz.
-   ============================================================ */
-html[data-theme="light"] {
-  --c-red: #E10600;
-  --c-red-2: #C30000;
-  --c-red-dim: rgba(225, 6, 0, 0.10);
-  --c-red-line: rgba(225, 6, 0, 0.30);
-
-  --c-bg: #EDF0F4;
-  --c-surface: #FFFFFF;
-  --c-surface-2: #F7F8FA;
-  --c-surface-3: #EDF1F6;
-  --c-line: #E2E6EC;
-  --c-line-2: rgba(17, 24, 39, 0.08);
-
-  --c-text: #11151B;
-  --c-dim: #4A5260;
-  --c-mute: #79818E;
-
-  --c-gold: #B8860B;
-  --c-silver: #8A9099;
-  --c-bronze: #A96A2E;
-  --c-green: #1F9D67;
-  --c-yellow: #B8860B;
-  --c-error: #C0392B;
-
-  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.06);
-  --shadow-2: 0 16px 40px rgba(16, 24, 40, 0.14);
-  --shadow-red: 0 12px 30px rgba(225, 6, 0, 0.22);
-
-  --c-nav-bg: rgba(255, 255, 255, 0.72);
-  --c-pop: #FFFFFF;
-  --c-pop-glass: rgba(255, 255, 255, 0.94);
-  --c-bg-grad-a: rgba(225, 6, 0, 0.06);
-  --c-bg-grad-b: rgba(17, 24, 39, 0.03);
-  --c-grid: rgba(17, 24, 39, 0.05);
-  --c-shimmer: rgba(17, 24, 39, 0.05);
-  --c-glass: rgba(17, 24, 39, 0.02);
-  --c-glow: rgba(225, 6, 0, 0.35);
-}
-
-html[data-theme="light"] ::selection {
-  background: #E10600;
-  color: #fff;
-}
-
-html[data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: #C7CCD4;
-  border-color: var(--c-bg);
-}
-
-html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: #AEB4BE;
-}
-
-html[data-theme="light"] .tf-kpi {
-  background: linear-gradient(180deg, #FFFFFF, #F6F8FB);
-}
-
-html[data-theme="light"] .tf-skeleton {
-  background: var(--c-surface-3);
-}
-

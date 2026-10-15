@@ -17,7 +17,7 @@
   var KEY_THEME = 'todof1:teams:';     // preferencia (compat) por temporada
   var KEY_ACTIVE = 'todof1:teams-active';
   var TEAM_VARS = ['--team-primary', '--team-secondary', '--team-accent', '--team-glow',
-    '--team-primary-dim', '--team-primary-line', '--team-on-primary'];
+    '--team-primary-dim', '--team-primary-line', '--team-on-primary', '--team-stripe'];
 
   // Identidad visual por constructorId. Sin entrada => tema original.
   var TEAMS = {
@@ -113,6 +113,32 @@
     return { id: id, primary: t.p, secondary: t.s || t.p, accent: t.a || t.s || t.p };
   }
 
+  // Colores únicos del tema, manteniendo el orden original (sin repetir).
+  function uniqueColors(team) {
+    var order = [team.primary, team.secondary, team.accent];
+    var out = [], seen = {};
+    order.forEach(function (c) {
+      if (!c) return;
+      var k = String(c).toLowerCase();
+      if (!seen[k]) { seen[k] = 1; out.push(c); }
+    });
+    return out;
+  }
+
+  // Degradado con transiciones suaves: 1, 2 o 3 colores (cada uno ~ su parte).
+  function stripeGradient(team) {
+    if (!team) return null;
+    var c = uniqueColors(team);
+    if (c.length <= 1) return 'linear-gradient(90deg, ' + c[0] + ', ' + c[0] + ')';
+    if (c.length === 2) {
+      return 'linear-gradient(90deg, ' + c[0] + ' 0%, ' + c[0] + ' 44%, ' + c[1] + ' 56%, ' + c[1] + ' 100%)';
+    }
+    return 'linear-gradient(90deg, '
+      + c[0] + ' 0%, ' + c[0] + ' 28%, '
+      + c[1] + ' 39%, ' + c[1] + ' 61%, '
+      + c[2] + ' 72%, ' + c[2] + ' 100%)';
+  }
+
   function varsFor(team) {
     if (!team) return null;
     return {
@@ -122,7 +148,8 @@
       '--team-glow': rgba(team.primary, 0.4),
       '--team-primary-dim': rgba(team.primary, 0.14),
       '--team-primary-line': rgba(team.primary, 0.38),
-      '--team-on-primary': onColor(team.primary)
+      '--team-on-primary': onColor(team.primary),
+      '--team-stripe': stripeGradient(team)
     };
   }
 
@@ -409,7 +436,7 @@
     state: function (y) { return readState(y || currentYear()); },
     apply: applyFromState,
     open: function () { openDrawer(); },
-    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, TEAMS: TEAMS }
+    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, TEAMS: TEAMS }
   };
 
   if (document.readyState === 'loading') {
