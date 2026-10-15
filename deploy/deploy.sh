@@ -22,6 +22,7 @@ WWW_DIR="${TODOF1_WWW_DIR:-/home/todof1/www}"
 BACKUP_DIR="${TODOF1_BACKUP_DIR:-/home/todof1/deploy-backups}"
 BRANCH="${TODOF1_BRANCH:-main}"
 REMOTE="${TODOF1_REMOTE:-origin}"
+REMOTE_URL="${TODOF1_REMOTE_URL:-https://github.com/Daniel-Zarco/TodoF1.git}"
 LOCK_FILE="${TODOF1_LOCK_FILE:-${TMPDIR:-/tmp}/todof1-deploy.lock}"
 
 # Archivos de api/ que SÍ se publican. Lista explícita y cerrada:
@@ -54,6 +55,7 @@ Variables de entorno opcionales:
   TODOF1_BACKUP_DIR  Directorio de copias      (def: /home/todof1/deploy-backups)
   TODOF1_BRANCH      Rama a desplegar          (def: main)
   TODOF1_REMOTE      Remoto git                (def: origin)
+  TODOF1_REMOTE_URL  URL del remoto git        (def: https://github.com/Daniel-Zarco/TodoF1.git)
   TODOF1_LOCK_FILE   Fichero de bloqueo        (def: ${TMPDIR:-/tmp}/todof1-deploy.lock)
 EOF
 }
@@ -109,6 +111,14 @@ if [[ "$DRY_RUN" -eq 1 ]]; then
   log "MODO SIMULACIÓN: se omite la actualización de git (no se modifica el repositorio)."
 else
   log "Actualizando el repositorio $REPO_DIR (rama $BRANCH)…"
+  # Garantiza que el remoto existe y apunta al repositorio correcto (idempotente):
+  # repara un 'origin' ausente o con URL equivocada que rompería el fetch.
+  if git -C "$REPO_DIR" remote get-url "$REMOTE" >/dev/null 2>&1; then
+    git -C "$REPO_DIR" remote set-url "$REMOTE" "$REMOTE_URL"
+  else
+    log "El remoto '$REMOTE' no existe: se configura con $REMOTE_URL"
+    git -C "$REPO_DIR" remote add "$REMOTE" "$REMOTE_URL"
+  fi
   git -C "$REPO_DIR" fetch --prune "$REMOTE" "$BRANCH"
   # Actualización segura: solo avance rápido. Nunca 'git reset --hard' ni 'git clean'.
   git -C "$REPO_DIR" merge --ff-only "$REMOTE/$BRANCH" \

@@ -44,4 +44,4 @@ jobs:
             -o BatchMode=yes \
             -o StrictHostKeyChecking=yes \
             "$SSH_USER@$SSH_HOST" \
-            "cd /home/todof1/todof1-app && bash deploy/deploy.sh"
+            "cd /home/todof1/todof1-app && if git remote get-url origin >/dev/null 2>&1; then git remote set-url origin https://github.com/Daniel-Zarco/TodoF1.git; else git remote add origin https://github.com/Daniel-Zarco/TodoF1.git; fi && bash deploy/deploy.sh"
