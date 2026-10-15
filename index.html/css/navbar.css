@@ -365,24 +365,23 @@ html[data-theme="light"] .tf-theme-toggle__icon--moon {
 }
 
 /* ============================================================
-   Transición entre páginas — "burnout"
-   Neumático slick girando a gran velocidad + humo que revela
-   la nueva página. Ligero, sin dependencias, respeta reduced-motion.
+   Transición entre páginas — "neon sweep"
+   Línea roja neón que atraviesa la pantalla + estela sutil de
+   velocidad y un fade suave que revela la nueva página.
+   Minimalista, sin dependencias, respeta reduced-motion.
    ============================================================ */
 :root {
-  --pt-dur-out: 240ms;
-  --pt-dur-in: 280ms;
-  --pt-fog-a: 226, 229, 234;
-  --pt-fog-b: 178, 183, 192;
-  --pt-smoke: 236, 238, 242;
-  --pt-skid: 10, 10, 12;
+  --pt-out: 170ms;
+  --pt-in: 200ms;
+  --pt-line: #E10600;
+  --pt-glow: rgba(225, 6, 0, 0.72);
+  --pt-veil: 11, 11, 13;
+  --pt-streak: 255, 255, 255;
 }
 
 html[data-theme="light"] {
-  --pt-fog-a: 205, 209, 216;
-  --pt-fog-b: 150, 156, 166;
-  --pt-smoke: 172, 178, 188;
-  --pt-skid: 34, 38, 44;
+  --pt-veil: 255, 255, 255;
+  --pt-streak: 108, 114, 126;
 }
 
 .tf-transition {
@@ -405,299 +404,141 @@ html[data-pt="out"] .tf-transition {
   pointer-events: auto;
 }
 
-/* Humo base que cubre y revela ----------------------------- */
-.tf-transition__fog {
+/* Velo sutil (fade suave, nunca negro pleno) ---------------- */
+.tf-transition__veil {
   position: absolute;
-  inset: -20%;
-  background:
-    radial-gradient(55% 55% at 50% 58%, rgba(var(--pt-fog-a), 0.96), rgba(var(--pt-fog-a), 0) 70%),
-    radial-gradient(85% 75% at 50% 62%, rgba(var(--pt-fog-b), 0.82), rgba(var(--pt-fog-b), 0) 76%);
+  inset: 0;
+  background: rgb(var(--pt-veil));
   opacity: 0;
-  transform: scale(0.35);
+}
+
+html[data-pt="out"] .tf-transition__veil {
+  animation: tf-pt-veil-in var(--pt-out) var(--ease) forwards;
+}
+
+html[data-pt="in"] .tf-transition__veil {
+  animation: tf-pt-veil-out var(--pt-in) var(--ease) forwards;
+}
+
+@keyframes tf-pt-veil-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.12;
+  }
+}
+
+@keyframes tf-pt-veil-out {
+  from {
+    opacity: 0.12;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Estela de velocidad (muy sutil) --------------------------- */
+.tf-transition__speed {
+  position: absolute;
+  inset: 0;
+}
+
+.tf-transition__speed span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--pt-streak), 0.5), transparent);
+  opacity: 0;
   will-change: transform, opacity;
 }
 
-html[data-pt="out"] .tf-transition__fog {
-  animation: tf-pt-fog-cover var(--pt-dur-out) var(--ease) forwards;
+.tf-transition__speed span:nth-child(1) {
+  top: 32%;
+  animation-delay: 0ms;
 }
 
-html[data-pt="in"] .tf-transition__fog {
-  animation: tf-pt-fog-reveal var(--pt-dur-in) var(--ease) forwards;
+.tf-transition__speed span:nth-child(2) {
+  top: 50%;
+  animation-delay: 28ms;
 }
 
-@keyframes tf-pt-fog-cover {
-  from {
+.tf-transition__speed span:nth-child(3) {
+  top: 68%;
+  animation-delay: 14ms;
+}
+
+html[data-pt="out"] .tf-transition__speed span {
+  animation: tf-pt-streak var(--pt-out) linear forwards;
+}
+
+html[data-pt="in"] .tf-transition__speed span {
+  animation: tf-pt-streak var(--pt-in) linear forwards;
+}
+
+@keyframes tf-pt-streak {
+  0% {
+    transform: translateX(-55%);
     opacity: 0;
-    transform: scale(0.35);
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes tf-pt-fog-reveal {
-  from {
-    opacity: 1;
-    transform: scale(1);
+  22% {
+    opacity: 0.7;
   }
 
-  to {
+  100% {
+    transform: translateX(55%);
     opacity: 0;
-    transform: scale(1.5);
   }
 }
 
-/* Derrape (skid) ------------------------------------------- */
-.tf-transition__skid {
+/* Línea roja neón ------------------------------------------- */
+.tf-transition__line {
   position: absolute;
-  left: 50%;
-  top: 56%;
-  width: 340px;
-  height: 44px;
-  margin: -22px 0 0 -170px;
-  border-radius: 50%;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
   background: linear-gradient(90deg,
       transparent,
-      rgba(var(--pt-skid), 0.42) 28%,
-      rgba(var(--pt-skid), 0.34) 60%,
+      var(--pt-line) 18%,
+      #ff6b5e 50%,
+      var(--pt-line) 82%,
       transparent);
-  filter: blur(8px);
+  box-shadow: 0 0 12px var(--pt-glow), 0 0 36px var(--pt-glow);
   opacity: 0;
-}
-
-html[data-pt="out"] .tf-transition__skid {
-  animation: tf-pt-skid 300ms var(--ease) forwards;
-}
-
-@keyframes tf-pt-skid {
-  0% {
-    opacity: 0;
-    transform: scaleX(0.4) translateX(30px);
-  }
-
-  40% {
-    opacity: 0.9;
-  }
-
-  100% {
-    opacity: 0;
-    transform: scaleX(1.15) translateX(-24px);
-  }
-}
-
-/* Neumático slick ----------------------------------------- */
-.tf-tire {
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  width: 136px;
-  height: 136px;
-  margin: -68px 0 0 -68px;
-  border-radius: 50%;
-  opacity: 0;
-  transform: translate(10px, 0) scale(1);
-  background:
-    radial-gradient(circle at 50% 42%, #26262c 0 18%, #0d0d10 42%, #050506 64%, #111114 100%);
-  box-shadow:
-    inset 0 0 0 5px #08080a,
-    inset 0 0 30px rgba(0, 0, 0, 0.95),
-    0 28px 54px rgba(0, 0, 0, 0.42);
   will-change: transform, opacity;
 }
 
-html[data-pt="out"] .tf-tire {
-  animation: tf-tire-in 170ms var(--ease) forwards;
+html[data-pt="out"] .tf-transition__line {
+  animation: tf-pt-line var(--pt-out) cubic-bezier(0.55, 0.05, 0.2, 1) forwards;
 }
 
-html[data-pt="in"] .tf-tire {
-  animation: tf-tire-out 220ms var(--ease) forwards;
+html[data-pt="in"] .tf-transition__line {
+  animation: tf-pt-line var(--pt-in) cubic-bezier(0.55, 0.05, 0.2, 1) forwards;
 }
 
-@keyframes tf-tire-in {
-  from {
-    opacity: 0;
-    transform: translate(26px, 8px) scale(0.72);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(10px, 0) scale(1);
-  }
-}
-
-@keyframes tf-tire-out {
-  from {
-    opacity: 1;
-    transform: translate(10px, 0) scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: translate(-30px, -10px) scale(0.9);
-  }
-}
-
-.tf-tire__wheel {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  animation: tf-tire-spin 0.13s linear infinite;
-}
-
-@keyframes tf-tire-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Estelas de velocidad (motion blur sutil) */
-.tf-tire__blur {
-  position: absolute;
-  inset: -7%;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg,
-      transparent 0 18deg,
-      rgba(255, 255, 255, 0.07) 24deg,
-      transparent 30deg,
-      rgba(255, 255, 255, 0.06) 66deg,
-      transparent 72deg,
-      rgba(255, 255, 255, 0.07) 120deg,
-      transparent 128deg,
-      rgba(255, 255, 255, 0.05) 200deg,
-      transparent 210deg);
-  filter: blur(2.5px);
-}
-
-.tf-tire__rim {
-  position: absolute;
-  inset: 27%;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #cfd3da, #7f858f, #e8eaee, #9096a0, #c7cbd2, #7f858f, #e8eaee, #9096a0, #cfd3da);
-  box-shadow: inset 0 0 0 2px #22232a, inset 0 0 10px rgba(0, 0, 0, 0.6), 0 0 16px rgba(0, 0, 0, 0.5);
-}
-
-.tf-tire__rim::after {
-  content: "";
-  position: absolute;
-  inset: 16%;
-  border-radius: 50%;
-  background: repeating-conic-gradient(#15151a 0 15deg, transparent 15deg 45deg);
-  opacity: 0.9;
-}
-
-.tf-tire__hub {
-  position: absolute;
-  inset: 34%;
-  z-index: 2;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 34%, #f2f3f5, #9aa0aa 58%, #5c626c);
-  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5);
-}
-
-.tf-tire__mark {
-  position: absolute;
-  left: 50%;
-  top: 7%;
-  width: 5px;
-  height: 24%;
-  margin-left: -2.5px;
-  border-radius: 3px;
-  background: linear-gradient(180deg, var(--c-red), transparent);
-  filter: drop-shadow(0 0 6px var(--c-glow));
-}
-
-/* Puffs de humo ------------------------------------------- */
-.tf-transition__smoke {
-  position: absolute;
-  inset: 0;
-}
-
-.tf-transition__smoke span {
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  width: 96px;
-  height: 96px;
-  margin: -48px 0 0 -48px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 50%, rgba(var(--pt-smoke), 0.92), rgba(var(--pt-smoke), 0) 68%);
-  opacity: 0;
-  filter: blur(2px);
-  will-change: transform, opacity;
-}
-
-.tf-transition__smoke span:nth-child(1) {
-  --dx: -78px;
-  --dy: -34px;
-  --d: 30ms;
-}
-
-.tf-transition__smoke span:nth-child(2) {
-  --dx: 64px;
-  --dy: -46px;
-  --d: 70ms;
-}
-
-.tf-transition__smoke span:nth-child(3) {
-  --dx: -34px;
-  --dy: -74px;
-  --d: 110ms;
-}
-
-.tf-transition__smoke span:nth-child(4) {
-  --dx: 88px;
-  --dy: -12px;
-  --d: 50ms;
-}
-
-.tf-transition__smoke span:nth-child(5) {
-  --dx: -96px;
-  --dy: 18px;
-  --d: 90ms;
-}
-
-.tf-transition__smoke span:nth-child(6) {
-  --dx: 20px;
-  --dy: -92px;
-  --d: 20ms;
-}
-
-html[data-pt="out"] .tf-transition__smoke span {
-  animation: tf-puff-out 320ms var(--ease) forwards;
-  animation-delay: var(--d, 0ms);
-}
-
-html[data-pt="in"] .tf-transition__smoke span {
-  animation: tf-puff-fade 260ms var(--ease) forwards;
-}
-
-@keyframes tf-puff-out {
+@keyframes tf-pt-line {
   0% {
+    transform: translateX(-115%);
     opacity: 0;
-    transform: translate(0, 0) scale(0.4);
   }
 
-  28% {
-    opacity: 0.95;
+  14% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 1;
   }
 
   100% {
+    transform: translateX(115%);
     opacity: 0;
-    transform: translate(var(--dx), var(--dy)) scale(1.9);
-  }
-}
-
-@keyframes tf-puff-fade {
-  from {
-    opacity: 0.55;
-    transform: translate(var(--dx), var(--dy)) scale(1.6);
-  }
-
-  to {
-    opacity: 0;
-    transform: translate(calc(var(--dx) * 1.35), calc(var(--dy) * 1.35)) scale(2.1);
   }
 }
 
@@ -710,4 +551,3 @@ html[data-pt="in"] .tf-transition__smoke span {
     display: none !important;
   }
 }
-

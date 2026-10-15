@@ -1,16 +1,17 @@
 /* ============================================================
-   TodoF1 — Transición entre páginas (burnout)
-   Intercepta enlaces internos y muestra el neumático + humo
-   antes de navegar. No actúa con prefers-reduced-motion, ni en
-   filtros/temporadas/temas (no son enlaces), ni en enlaces
-   externos, hash, nueva pestaña o con modificadores.
+   TodoF1 — Transición entre páginas (neon sweep)
+   Intercepta enlaces internos y traza una línea roja neón con
+   estela de velocidad antes de navegar. No actúa con
+   prefers-reduced-motion, ni en filtros/temporadas/temas (no son
+   enlaces), ni en enlaces externos, hash, nueva pestaña o con
+   modificadores.
    ============================================================ */
 (function () {
   'use strict';
 
   var FLAG = 'todof1:pt';
-  var DUR_OUT = 235;   // ~= --pt-dur-out
-  var DUR_IN_MAX = 420; // limpieza de seguridad del estado "in"
+  var DUR_OUT = 168;    // ~= --pt-out (170ms), navega justo antes de completar
+  var DUR_IN_MAX = 320; // limpieza de seguridad del estado "in"
   var root = document.documentElement;
 
   function reduced() {
@@ -81,10 +82,10 @@
   // Estado entrante: el script inline (navbar) ya puso data-pt="in".
   function finishIn() {
     if (root.getAttribute('data-pt') !== 'in') return;
-    var fog = document.querySelector('.tf-transition__fog');
+    var veil = document.querySelector('.tf-transition__veil');
     var done = function () { root.removeAttribute('data-pt'); };
-    if (fog && fog.addEventListener) {
-      fog.addEventListener('animationend', done, { once: true });
+    if (veil && veil.addEventListener) {
+      veil.addEventListener('animationend', done, { once: true });
     }
     window.setTimeout(done, DUR_IN_MAX);
   }

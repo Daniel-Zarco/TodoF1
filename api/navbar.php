@@ -35,20 +35,11 @@ $items = [
     ['href' => '/index.html/PageEstadisticas.php' . $yearQuery, 'label' => 'Estad&iacute;sticas', 'match' => ['PageEstadisticas.php']],
 ];
 ?>
-<!-- Transición entre páginas (burnout): debe ser lo primero del body -->
+<!-- Transición entre páginas (neon sweep): debe ser lo primero del body -->
 <div class="tf-transition" id="tf-transition" aria-hidden="true">
-    <span class="tf-transition__fog"></span>
-    <span class="tf-transition__skid"></span>
-    <span class="tf-tire">
-        <span class="tf-tire__wheel">
-            <span class="tf-tire__blur"></span>
-            <span class="tf-tire__rim"><span class="tf-tire__hub"></span></span>
-            <span class="tf-tire__mark"></span>
-        </span>
-    </span>
-    <span class="tf-transition__smoke">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-    </span>
+    <span class="tf-transition__veil"></span>
+    <span class="tf-transition__speed"><span></span><span></span><span></span></span>
+    <span class="tf-transition__line"></span>
 </div>
 <script>
     /* Anti-parpadeo: activa el estado entrante antes de pintar la página. */
