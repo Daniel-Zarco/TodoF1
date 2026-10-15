@@ -552,8 +552,30 @@ html[data-drawer="open"] .tf-drawer__panel {
   padding-top: var(--sp-3);
 }
 
-/* Opción tema original ------------------------------------- */
-.team-original {
+/* Grupos del panel ----------------------------------------- */
+.tf-drawer__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.tf-drawer__group-title {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-dim);
+}
+
+/* Selector de tema de la web -------------------------------- */
+.theme-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-2);
+}
+
+.theme-opt {
   display: flex;
   align-items: center;
   gap: var(--sp-3);
@@ -568,20 +590,20 @@ html[data-drawer="open"] .tf-drawer__panel {
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
 }
 
-.team-original:hover {
+.theme-opt:hover {
   border-color: var(--team-primary-line);
 }
 
-.team-original.is-active {
+.theme-opt.is-active {
   border-color: var(--team-primary);
   box-shadow: 0 0 0 3px var(--team-primary-dim);
 }
 
-.team-original__swatches {
+.theme-opt__swatches {
   display: inline-flex;
 }
 
-.team-original__swatches i {
+.theme-opt__swatches i {
   width: 16px;
   height: 22px;
   border-radius: 4px;
@@ -589,34 +611,34 @@ html[data-drawer="open"] .tf-drawer__panel {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-.team-original__swatches i:first-child {
+.theme-opt__swatches i:first-child {
   margin-left: 0;
 }
 
-.team-original__text {
+.theme-opt__text {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
   min-width: 0;
 }
 
-.team-original__text b {
+.theme-opt__text b {
   font-size: 0.9rem;
   font-weight: 700;
 }
 
-.team-original__text small {
+.theme-opt__text small {
   color: var(--c-mute);
   font-size: 0.76rem;
 }
 
-.team-original__check {
+.theme-opt__check {
   color: var(--team-primary);
   font-weight: 800;
   opacity: 0;
 }
 
-.team-original.is-active .team-original__check {
+.theme-opt.is-active .theme-opt__check {
   opacity: 1;
 }
 
@@ -647,11 +669,6 @@ html[data-drawer="open"] .tf-drawer__panel {
   border-color: var(--team-primary-line);
 }
 
-.team-card.is-main {
-  border-color: var(--team-primary);
-  box-shadow: 0 0 0 3px var(--team-primary-dim);
-}
-
 .team-card__fav {
   display: flex;
   flex-direction: column;
@@ -659,7 +676,6 @@ html[data-drawer="open"] .tf-drawer__panel {
   gap: 8px;
   width: 100%;
   padding: var(--sp-3);
-  padding-right: 40px;
   background: transparent;
   border: 0;
   color: var(--c-text);
@@ -688,47 +704,9 @@ html[data-drawer="open"] .tf-drawer__panel {
   font-weight: 600;
 }
 
-.team-card.is-main .team-card__name::after {
-  content: " · Principal";
-  color: var(--team-primary);
-  font-size: 0.72rem;
-  font-weight: 700;
-}
-
 .team-card__hint {
   font-size: 0.68rem;
   color: var(--c-mute);
-}
-
-.team-card__main {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--r-pill);
-  border: 1px solid var(--c-line);
-  background: var(--c-surface);
-  color: var(--c-mute);
-  cursor: pointer;
-  font-size: 0.85rem;
-  line-height: 1;
-  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast);
-}
-
-.team-card__main:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.team-card.is-fav .team-card__main {
-  color: var(--c-dim);
-}
-
-.team-card__main[aria-pressed="true"] {
-  color: var(--c-gold);
-  border-color: rgba(232, 193, 90, 0.5);
-  background: rgba(232, 193, 90, 0.12);
 }
 
 @media (max-width: 420px) {

@@ -65,16 +65,22 @@
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* sin almacenamiento */ }
   }
 
+  // Estado por temporada: { theme: idTema|null, favs: [ids] }.
+  // 'theme' = tema visual activo (independiente de los favoritos).
+  // Compatibilidad: las preferencias antiguas usaban { main, favs }.
   function readState(year) {
     var v = readJSON(KEY_PREFS + year);
     if (v && typeof v === 'object') {
-      return { main: v.main || null, favs: Array.isArray(v.favs) ? v.favs.slice() : [] };
+      var favs = Array.isArray(v.favs) ? v.favs.slice() : [];
+      var theme = (v.theme !== undefined) ? v.theme : (v.main || null);
+      if (theme && favs.indexOf(theme) === -1) favs.push(theme);
+      return { theme: theme || null, favs: favs };
     }
-    return { main: null, favs: [] };
+    return { theme: null, favs: [] };
   }
 
   function saveState(year, state) {
-    writeJSON(KEY_PREFS + year, { main: state.main || null, favs: state.favs || [] });
+    writeJSON(KEY_PREFS + year, { theme: state.theme || null, favs: state.favs || [] });
   }
 
   // ---------------------------------------------------------- Color
@@ -141,7 +147,7 @@
   function applyFromState() {
     var year = currentYear();
     var state = readState(year);
-    applyTeam(state.main ? resolveTeam(state.main) : null);
+    applyTeam(state.theme ? resolveTeam(state.theme) : null);
     applyHero();
     try { document.dispatchEvent(new CustomEvent('todof1:teams-changed')); } catch (e) { /* sin CustomEvent */ }
   }
@@ -149,7 +155,7 @@
   // ---------------------------------------------------------- Hero (preparado)
   function heroCandidates(state) {
     var list = [];
-    if (state.main && TEAM_IMAGES[state.main]) list = list.concat(TEAM_IMAGES[state.main]);
+    if (state.theme && TEAM_IMAGES[state.theme]) list = list.concat(TEAM_IMAGES[state.theme]);
     state.favs.forEach(function (id) {
       if (TEAM_IMAGES[id]) list = list.concat(TEAM_IMAGES[id]);
     });
@@ -191,7 +197,7 @@
   }
 
   // ---------------------------------------------------------- Modal (drawer)
-  var panel = null, backdrop = null, grid = null, statusEl = null, originalBtn = null;
+  var panel = null, backdrop = null, grid = null, statusEl = null, themeGrid = null;
   var listCache = {};
   var pending = {};
   var openToken = 0;
@@ -219,7 +225,7 @@
     var head = el('div', 'tf-drawer__head');
     var titles = el('div');
     titles.appendChild(el('h2', 'tf-drawer__title', 'Mis equipos'));
-    titles.appendChild(el('p', 'tf-drawer__sub', 'Personaliza TodoF1 con tus escuder&iacute;as favoritas.'));
+    titles.appendChild(el('p', 'tf-drawer__sub', 'Elige tus escuder&iacute;as favoritas y el tema visual de TodoF1.'));
     head.appendChild(titles);
     var closeBtn = el('button', 'tf-drawer__close', '&times;');
     closeBtn.setAttribute('type', 'button');
@@ -228,32 +234,35 @@
     head.appendChild(closeBtn);
     panel.appendChild(head);
 
-    originalBtn = el('button', 'team-original');
-    originalBtn.setAttribute('type', 'button');
-    originalBtn.innerHTML =
-      '<span class="team-original__swatches"><i style="background:#E10600"></i><i style="background:#0B0B0D"></i><i style="background:#F5F5F5"></i></span>' +
-      '<span class="team-original__text"><b>Tema TodoF1 original</b><small>Rojo y negro, sin personalizaci&oacute;n</small></span>' +
-      '<span class="team-original__check" aria-hidden="true">&#10003;</span>';
-    originalBtn.addEventListener('click', function () {
-      var year = currentYear();
-      var st = readState(year);
-      st.main = null;
-      saveState(year, st);
-      applyFromState();
-      renderStates();
-    });
-    panel.appendChild(originalBtn);
-
     var seasonLine = el('p', 'tf-drawer__season');
-    seasonLine.innerHTML = 'Temporada <b id="tf-drawer-year">—</b> · escuder&iacute;as de los datos reales';
+    seasonLine.innerHTML = 'Temporada <b id="tf-drawer-year">—</b> · datos reales';
     panel.appendChild(seasonLine);
 
+    // --- Tema de la web (opción única) ---
+    var themeGroup = el('section', 'tf-drawer__group');
+    themeGroup.setAttribute('aria-labelledby', 'tf-theme-title');
+    var themeTitle = el('h3', 'tf-drawer__group-title', 'Tema de la web');
+    themeTitle.id = 'tf-theme-title';
+    themeGroup.appendChild(themeTitle);
+    themeGrid = el('div', 'theme-grid');
+    themeGrid.setAttribute('role', 'group');
+    themeGrid.setAttribute('aria-label', 'Tema visual de la web');
+    themeGroup.appendChild(themeGrid);
+    panel.appendChild(themeGroup);
+
+    // --- Escuderías favoritas (selección múltiple) ---
+    var favGroup = el('section', 'tf-drawer__group');
+    favGroup.setAttribute('aria-labelledby', 'tf-fav-title');
+    var favTitle = el('h3', 'tf-drawer__group-title', 'Escuder&iacute;as favoritas');
+    favTitle.id = 'tf-fav-title';
+    favGroup.appendChild(favTitle);
     statusEl = el('div', 'tf-drawer__status');
     grid = el('div', 'team-grid');
-    panel.appendChild(statusEl);
-    panel.appendChild(grid);
+    favGroup.appendChild(statusEl);
+    favGroup.appendChild(grid);
+    panel.appendChild(favGroup);
 
-    var foot = el('p', 'tf-drawer__foot', 'El equipo principal define los colores. Los favoritos se destacan en las clasificaciones.');
+    var foot = el('p', 'tf-drawer__foot', 'Marca varias favoritas. El tema visual solo cambia cuando lo seleccionas.');
     panel.appendChild(foot);
 
     document.body.appendChild(backdrop);
@@ -362,6 +371,8 @@
     if (!list || !list.length) {
       grid.innerHTML = '';
       showStatus('<span class="tf-drawer__msg">Esta temporada no tiene escuder&iacute;as con identidad visual. Se usar&aacute; el tema original.</span>');
+      renderThemeOptions(year);
+      renderStates();
       return;
     }
     // Guarda id -> nombre para destacar favoritos en las clasificaciones.
@@ -374,6 +385,7 @@
     list.forEach(function (c) {
       grid.appendChild(buildCard(year, c));
     });
+    renderThemeOptions(year);
     renderStates();
   }
 
@@ -395,19 +407,60 @@
     }
     fav.appendChild(sw);
     fav.appendChild(el('span', 'team-card__name', escHtml(ctor.name)));
-    fav.appendChild(el('span', 'team-card__hint', team ? '' : 'Tema original'));
-
-    var main = el('button', 'team-card__main', '&#9733;');
-    main.setAttribute('type', 'button');
-    main.setAttribute('aria-pressed', 'false');
-    main.setAttribute('aria-label', 'Establecer ' + ctor.name + ' como equipo principal');
+    if (!team) fav.appendChild(el('span', 'team-card__hint', 'Sin tema'));
 
     fav.addEventListener('click', function () { toggleFav(year, ctor.constructorId); });
-    main.addEventListener('click', function () { toggleMain(year, ctor.constructorId); });
 
     card.appendChild(fav);
-    card.appendChild(main);
     return card;
+  }
+
+  // ---------------------------------------------------------- Tema de la web
+  function renderThemeOptions(year) {
+    if (!themeGrid) return;
+    var st = readState(year);
+    var map = readJSON(KEY_MAP + year) || {};
+    themeGrid.innerHTML = '';
+    themeGrid.appendChild(buildOriginalOption(year));
+    st.favs.forEach(function (id) {
+      var team = resolveTeam(id);
+      if (!team) return;
+      themeGrid.appendChild(buildThemeOption(year, id, map[id] || id, team));
+    });
+  }
+
+  function buildOriginalOption(year) {
+    var btn = el('button', 'theme-opt');
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('data-theme-id', '');
+    btn.setAttribute('aria-pressed', 'false');
+    btn.innerHTML =
+      '<span class="theme-opt__swatches"><i style="background:#E10600"></i><i style="background:#0B0B0D"></i><i style="background:#F5F5F5"></i></span>' +
+      '<span class="theme-opt__text"><b>TodoF1 original</b><small>Rojo y negro</small></span>' +
+      '<span class="theme-opt__check" aria-hidden="true">&#10003;</span>';
+    btn.addEventListener('click', function () { setTheme(year, null); });
+    return btn;
+  }
+
+  function buildThemeOption(year, id, name, team) {
+    var btn = el('button', 'theme-opt');
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('data-theme-id', id);
+    btn.setAttribute('aria-pressed', 'false');
+    btn.innerHTML =
+      '<span class="theme-opt__swatches"><i style="background:' + team.primary + '"></i><i style="background:' + team.secondary + '"></i><i style="background:' + team.accent + '"></i></span>' +
+      '<span class="theme-opt__text"><b>' + escHtml(name) + '</b><small>Tema activo</small></span>' +
+      '<span class="theme-opt__check" aria-hidden="true">&#10003;</span>';
+    btn.addEventListener('click', function () { setTheme(year, id); });
+    return btn;
+  }
+
+  function setTheme(year, id) {
+    var st = readState(year);
+    st.theme = id || null;
+    saveState(year, st);
+    applyFromState();
+    renderStates();
   }
 
   function escHtml(v) {
@@ -419,22 +472,15 @@
   function toggleFav(year, id) {
     var st = readState(year);
     var i = st.favs.indexOf(id);
-    if (i === -1) { st.favs.push(id); }
-    else {
+    if (i === -1) {
+      st.favs.push(id);
+    } else {
       st.favs.splice(i, 1);
-      if (st.main === id) st.main = null;
+      if (st.theme === id) st.theme = null; // si el tema activo deja de ser favorito -> original
     }
     saveState(year, st);
     applyFromState();
-    renderStates();
-  }
-
-  function toggleMain(year, id) {
-    var st = readState(year);
-    if (st.favs.indexOf(id) === -1) st.favs.push(id);
-    st.main = (st.main === id) ? null : id;
-    saveState(year, st);
-    applyFromState();
+    renderThemeOptions(year);
     renderStates();
   }
 
@@ -442,22 +488,24 @@
     if (!grid) return;
     var year = currentYear();
     var st = readState(year);
-    originalBtn.classList.toggle('is-active', !st.main);
+
+    if (themeGrid) {
+      var opts = themeGrid.querySelectorAll('.theme-opt');
+      Array.prototype.forEach.call(opts, function (opt) {
+        var tid = opt.getAttribute('data-theme-id') || '';
+        var active = (tid === '') ? !st.theme : (st.theme === tid);
+        opt.classList.toggle('is-active', active);
+        opt.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    }
 
     var cards = grid.querySelectorAll('.team-card');
     Array.prototype.forEach.call(cards, function (card) {
       var id = card.getAttribute('data-id');
       var isFav = st.favs.indexOf(id) !== -1;
-      var isMain = st.main === id;
       card.classList.toggle('is-fav', isFav);
-      card.classList.toggle('is-main', isMain);
       var fav = card.querySelector('.team-card__fav');
-      var main = card.querySelector('.team-card__main');
       if (fav) fav.setAttribute('aria-pressed', isFav ? 'true' : 'false');
-      if (main) {
-        main.setAttribute('aria-pressed', isMain ? 'true' : 'false');
-        main.disabled = !isFav;
-      }
     });
   }
 
