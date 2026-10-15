@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Circuitos &mdash; TodoF1</title>
-  <link rel="stylesheet" href="css/todof1.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/PageCircuitos.css">
-  <script src="js/PageCircuitos.js" defer></script>
+  <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
+  <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
+  <link rel="stylesheet" href="css/PageCircuitos.css?v=<?= @filemtime(__DIR__ . '/css/PageCircuitos.css') ?: '1' ?>">
+  <script src="js/PageCircuitos.js?v=<?= @filemtime(__DIR__ . '/js/PageCircuitos.js') ?: '1' ?>" defer></script>
 </head>
 
 <body>

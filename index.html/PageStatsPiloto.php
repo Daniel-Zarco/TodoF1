@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Estad&iacute;sticas del Piloto &mdash; TodoF1</title>
-  <link rel="stylesheet" href="css/todof1.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/PageStatsPiloto.css">
-  <script src="js/PageStatsPiloto.js" defer></script>
+  <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
+  <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
+  <link rel="stylesheet" href="css/PageStatsPiloto.css?v=<?= @filemtime(__DIR__ . '/css/PageStatsPiloto.css') ?: '1' ?>">
+  <script src="js/PageStatsPiloto.js?v=<?= @filemtime(__DIR__ . '/js/PageStatsPiloto.js') ?: '1' ?>" defer></script>
 </head>
 
 <body>

@@ -29,10 +29,10 @@ session_start();
             } catch (e) { /* sin almacenamiento */ }
         })();
     </script>
-    <link rel="stylesheet" href="css/todof1.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/PagePrincipal.css">
-    <script src="js/PagePrincipal.js" defer></script>
+    <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
+    <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
+    <link rel="stylesheet" href="css/PagePrincipal.css?v=<?= @filemtime(__DIR__ . '/css/PagePrincipal.css') ?: '1' ?>">
+    <script src="js/PagePrincipal.js?v=<?= @filemtime(__DIR__ . '/js/PagePrincipal.js') ?: '1' ?>" defer></script>
 </head>
 
 <body class="tf-page-dashboard">
