@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="tf-auth__error" role="alert"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <a class="tf-back tf-auth__back" href="/index.html/InitSes.html">Volver al inicio de sesi&oacute;n</a>
+        <a class="tf-back tf-auth__back" href="/index.html/index.html">Volver al inicio</a>
     </main>
 </body>
 </html>
