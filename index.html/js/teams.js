@@ -125,18 +125,19 @@
     return out;
   }
 
-  // Degradado con transiciones suaves: 1, 2 o 3 colores (cada uno ~ su parte).
+  // Degradado cíclico (empieza y termina con el primer color) para que el
+  // "Gradient Flow" del navbar se repita sin saltos. 1, 2 o 3 colores.
   function stripeGradient(team) {
     if (!team) return null;
     var c = uniqueColors(team);
-    if (c.length <= 1) return 'linear-gradient(90deg, ' + c[0] + ', ' + c[0] + ')';
-    if (c.length === 2) {
-      return 'linear-gradient(90deg, ' + c[0] + ' 0%, ' + c[0] + ' 44%, ' + c[1] + ' 56%, ' + c[1] + ' 100%)';
+    var n = c.length;
+    if (n <= 1) return 'linear-gradient(90deg, ' + c[0] + ', ' + c[0] + ')';
+    var stops = [c[0] + ' 0%'];
+    for (var i = 1; i < n; i++) {
+      stops.push(c[i] + ' ' + ((i * 100 / n).toFixed(3)) + '%');
     }
-    return 'linear-gradient(90deg, '
-      + c[0] + ' 0%, ' + c[0] + ' 28%, '
-      + c[1] + ' 39%, ' + c[1] + ' 61%, '
-      + c[2] + ' 72%, ' + c[2] + ' 100%)';
+    stops.push(c[0] + ' 100%');
+    return 'linear-gradient(90deg, ' + stops.join(', ') + ')';
   }
 
   function varsFor(team) {
@@ -153,17 +154,23 @@
     };
   }
 
+  function stripeMode(team) {
+    return (team && uniqueColors(team).length > 1) ? 'flow' : 'static';
+  }
+
   function applyTeam(team) {
     var vars = varsFor(team);
     if (!vars) {
       TEAM_VARS.forEach(function (k) { root.style.removeProperty(k); });
       root.removeAttribute('data-team');
+      root.removeAttribute('data-team-stripe');
       writeJSON(KEY_ACTIVE, null);
       return;
     }
     Object.keys(vars).forEach(function (k) { root.style.setProperty(k, vars[k]); });
     root.setAttribute('data-team', team.id);
-    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars });
+    root.setAttribute('data-team-stripe', stripeMode(team));
+    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars, stripe: stripeMode(team) });
   }
 
   function applyFromState() {
