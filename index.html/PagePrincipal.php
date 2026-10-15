@@ -13,7 +13,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
     <meta name="color-scheme" content="dark light" />
     <title>TodoF1 — Estad&iacute;sticas de F&oacute;rmula 1</title>
     <script>
-        /* Anti-parpadeo: aplica el tema antes de pintar. */
+        /* Anti-parpadeo: aplica el tema y los colores del equipo antes de pintar. */
         (function () {
             try {
                 var t = localStorage.getItem('todof1:theme');
@@ -22,6 +22,19 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
                 }
                 document.documentElement.setAttribute('data-theme', t);
                 document.documentElement.style.colorScheme = t;
+
+                /* Personalización por escudería: usa los colores cacheados del equipo principal. */
+                var y = parseInt(new URLSearchParams(location.search).get('year'), 10);
+                if (!y || y < 1950 || y > 2026) {
+                    try { y = parseInt(sessionStorage.getItem('todof1:year'), 10); } catch (e1) { y = NaN; }
+                }
+                if (!y || y < 1950 || y > 2026) y = 2026;
+                var act = JSON.parse(localStorage.getItem('todof1:teams-active') || 'null');
+                if (act && act.vars && String(act.year) === String(y)) {
+                    for (var k in act.vars) {
+                        if (act.vars.hasOwnProperty(k)) document.documentElement.style.setProperty(k, act.vars[k]);
+                    }
+                }
             } catch (e) { /* sin almacenamiento */ }
         })();
     </script>
@@ -40,7 +53,7 @@ $username = $isLoggedIn ? $_SESSION['username'] : '';
             <!-- ================= HERO ================= -->
             <section class="hero" aria-labelledby="hero-title">
                 <div class="hero__media" aria-hidden="true">
-                    <img src="/Images/hero-f1.jpg"
+                    <img id="hero-img" src="/Images/hero-f1.jpg" data-general="/Images/hero-f1.jpg"
                          alt="Monoplazas de Fórmula 1 de distintas escuderías compitiendo en la salida de un Gran Premio"
                          fetchpriority="high" decoding="async" width="1280" height="851">
                     <span class="hero__scrim"></span>

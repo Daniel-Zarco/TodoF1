@@ -80,6 +80,15 @@
   --c-shimmer: rgba(255, 255, 255, 0.05);
   --c-glass: rgba(255, 255, 255, 0.04);
   --c-glow: rgba(225, 6, 0, 0.55);
+
+  /* Personalización por escudería (por defecto: identidad TodoF1) */
+  --team-primary: var(--c-red);
+  --team-secondary: var(--c-red-2);
+  --team-accent: var(--c-red-2);
+  --team-glow: rgba(225, 6, 0, 0.38);
+  --team-primary-dim: rgba(225, 6, 0, 0.14);
+  --team-primary-line: rgba(225, 6, 0, 0.38);
+  --team-on-primary: #FFFFFF;
 }
 
 /* ------------------------------------------------------------
@@ -128,7 +137,7 @@ button {
 }
 
 ::selection {
-  background: var(--c-red);
+  background: var(--team-primary);
   color: #fff;
 }
 
@@ -152,7 +161,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--c-red-2);
+  outline: 2px solid var(--team-primary);
   outline-offset: 2px;
   border-radius: var(--r-xs);
 }
@@ -235,14 +244,14 @@ button {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .tf-eyebrow::before {
   content: "";
   width: 18px;
   height: 2px;
-  background: var(--c-red);
+  background: var(--team-primary);
   border-radius: 2px;
 }
 
@@ -326,14 +335,14 @@ button {
 }
 
 .tf-btn--primary {
-  --btn-bg: var(--c-red);
-  --btn-fg: #fff;
+  --btn-bg: var(--team-primary);
+  --btn-fg: var(--team-on-primary);
   --btn-line: transparent;
-  box-shadow: var(--shadow-red);
+  box-shadow: 0 12px 32px var(--team-glow);
 }
 
 .tf-btn--primary:hover {
-  --btn-bg: var(--c-red-2);
+  filter: brightness(1.08);
 }
 
 .tf-btn--ghost {
@@ -497,7 +506,7 @@ button {
   position: absolute;
   inset: auto 0 0 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--c-red), transparent 70%);
+  background: linear-gradient(90deg, var(--team-primary), transparent 70%);
   opacity: 0.55;
 }
 
@@ -536,7 +545,7 @@ button {
 .tf-bar__fill {
   position: absolute;
   inset: 0 auto 0 0;
-  background: linear-gradient(90deg, var(--c-red), var(--c-red-2));
+  background: linear-gradient(90deg, var(--team-primary), var(--team-secondary));
   border-radius: var(--r-pill);
   transition: width var(--t-slow);
 }
@@ -735,8 +744,8 @@ button {
 }
 
 .tf-chip.is-active {
-  background: var(--c-red-dim);
-  border-color: var(--c-red-line);
+  background: var(--team-primary-dim);
+  border-color: var(--team-primary-line);
   color: var(--c-text);
 }
 
@@ -787,8 +796,8 @@ button {
 .tf-input:focus,
 .tf-select:focus {
   outline: none;
-  border-color: var(--c-red);
-  box-shadow: 0 0 0 3px var(--c-red-dim);
+  border-color: var(--team-primary);
+  box-shadow: 0 0 0 3px var(--team-primary-dim);
   background: var(--c-surface-3);
 }
 
@@ -880,7 +889,7 @@ button {
   height: 26px;
   border-radius: 50%;
   border: 3px solid var(--c-line);
-  border-top-color: var(--c-red);
+  border-top-color: var(--team-primary);
   animation: tf-spin 0.8s linear infinite;
 }
 

@@ -91,6 +91,17 @@ $items = [
                     </span>
                 </button>
 
+                <button class="tf-teams-btn" id="tf-teams-btn" type="button"
+                        aria-haspopup="dialog" aria-expanded="false" aria-label="Mis equipos favoritos">
+                    <span class="tf-teams-btn__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            <path d="M12 20.5S4 15 4 9.2A4.2 4.2 0 0 1 12 6.6a4.2 4.2 0 0 1 8 2.6C20 15 12 20.5 12 20.5Z"></path>
+                        </svg>
+                    </span>
+                    <span class="tf-teams-btn__label">Mis equipos</span>
+                </button>
+
                 <?php if ($isAdmin): ?>
                     <a class="tf-nav__ghost" href="/api/PageInfo.php">Panel</a>
                 <?php endif; ?>
@@ -114,4 +125,5 @@ $items = [
 </header>
 <script src="/index.html/js/theme.js"></script>
 <script src="/index.html/js/session.js"></script>
+<script src="/index.html/js/teams.js"></script>
 <script src="/index.html/js/navbar.js" defer></script>

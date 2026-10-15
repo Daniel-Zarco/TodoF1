@@ -55,7 +55,7 @@
 }
 
 .head__link:hover {
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .head__tag {
@@ -138,7 +138,7 @@ html[data-theme="dark"] .hero__media img {
   width: 46%;
   height: 120px;
   transform: rotate(-16deg);
-  background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.16) 40%, transparent 90%);
+  background: linear-gradient(90deg, transparent, var(--team-primary-dim) 40%, transparent 90%);
   filter: blur(2px);
 }
 
@@ -160,7 +160,7 @@ html[data-theme="dark"] .hero__media img {
 }
 
 .hero__title span {
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .hero__sub {
@@ -223,7 +223,7 @@ html[data-theme="light"] .hero__bar {
   top: 50%;
   width: 30px;
   height: 2px;
-  background: linear-gradient(90deg, var(--c-red), transparent);
+  background: linear-gradient(90deg, var(--team-primary), transparent);
 }
 
 .hero__season {
@@ -287,14 +287,14 @@ html[data-theme="light"] .hero__bar {
   inset: 0 auto auto 0;
   width: 44px;
   height: 3px;
-  background: linear-gradient(90deg, var(--c-red), transparent);
+  background: linear-gradient(90deg, var(--team-primary), transparent);
   opacity: 0.7;
 }
 
 .stat:hover {
   transform: translateY(-3px);
-  border-color: var(--c-red-line);
-  box-shadow: 0 16px 36px rgba(225, 6, 0, 0.12);
+  border-color: var(--team-primary-line);
+  box-shadow: 0 16px 36px var(--team-glow);
 }
 
 .stat__icon {
@@ -303,8 +303,8 @@ html[data-theme="light"] .hero__bar {
   width: 42px;
   height: 42px;
   border-radius: var(--r-sm);
-  background: var(--c-red-dim);
-  color: var(--c-red-2);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
   margin-bottom: var(--sp-2);
 }
 
@@ -348,8 +348,8 @@ html[data-theme="light"] .hero__bar {
 }
 
 .stat:hover .stat__arrow {
-  color: var(--c-red-2);
-  border-color: var(--c-red-line);
+  color: var(--team-primary);
+  border-color: var(--team-primary-line);
   transform: translateX(3px);
 }
 
@@ -377,8 +377,8 @@ html[data-theme="light"] .hero__bar {
 
 .qa:hover {
   transform: translateY(-3px);
-  border-color: var(--c-red-line);
-  box-shadow: 0 18px 40px rgba(225, 6, 0, 0.14);
+  border-color: var(--team-primary-line);
+  box-shadow: 0 18px 40px var(--team-glow);
 }
 
 .qa__media {
@@ -386,7 +386,8 @@ html[data-theme="light"] .hero__bar {
   inset: 0;
   display: grid;
   place-items: center;
-  color: rgba(225, 6, 0, 0.22);
+  color: var(--team-primary);
+  opacity: 0.2;
   transition: transform var(--t), color var(--t);
 }
 
@@ -407,7 +408,7 @@ html[data-theme="light"] .qa__media--escuderias {
 
 .qa:hover .qa__media {
   transform: scale(1.06);
-  color: rgba(225, 6, 0, 0.3);
+  opacity: 0.3;
 }
 
 .qa::after {
@@ -435,7 +436,7 @@ html[data-theme="light"] .qa::after {
 }
 
 .qa__label span {
-  color: var(--c-red-2);
+  color: var(--team-primary);
   transition: transform var(--t-fast);
 }
 
@@ -468,8 +469,8 @@ html[data-theme="light"] .qa::after {
   gap: 6px;
   padding: 4px 10px;
   border-radius: var(--r-pill);
-  background: var(--c-red);
-  color: #fff;
+  background: var(--team-primary);
+  color: var(--team-on-primary);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -503,7 +504,7 @@ html[data-theme="light"] .qa::after {
   width: 15px;
   height: 15px;
   flex: 0 0 auto;
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .race__track {
@@ -588,6 +589,23 @@ html[data-theme="light"] .qa::after {
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--c-mute);
+}
+
+/* Escudería favorita destacada en las clasificaciones */
+.tf-standing {
+  position: relative;
+}
+
+.tf-standing.is-fav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--fav, var(--team-primary));
+  box-shadow: 0 0 10px var(--fav, var(--team-primary));
 }
 
 /* ============================================================
