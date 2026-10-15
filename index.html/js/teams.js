@@ -65,12 +65,16 @@
   };
 
   // Imágenes del carrusel del tema «TodoF1 original», en orden por nombre.
-  var DEFAULT_IMAGES = [
-    '/Images/heroes/default/a.jpg',
-    '/Images/heroes/default/b.jpg',
-    '/Images/heroes/default/c.jpg',
-    '/Images/heroes/default/d.jpg',
-    '/Images/heroes/default/e.jpg'
+  // Se toman TODAS las imágenes válidas de /Images/heroes/default (lista del servidor);
+  // si no está disponible, se usa esta lista por defecto.
+  var DEFAULT_IMAGES = (window.TodoF1DefaultImages && window.TodoF1DefaultImages.length)
+    ? window.TodoF1DefaultImages.slice()
+    : [
+      '/Images/heroes/default/a.jpg',
+      '/Images/heroes/default/b.jpg',
+      '/Images/heroes/default/c.jpg',
+      '/Images/heroes/default/d.jpg',
+      '/Images/heroes/default/e.jpg'
   ];
 
   // Imagen de respaldo si alguna falla (una imagen válida de default).

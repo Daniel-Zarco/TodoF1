@@ -35,21 +35,28 @@ session_start();
     <link rel="stylesheet" href="css/PagePrincipal.css?v=<?= @filemtime(__DIR__ . '/css/PagePrincipal.css') ?: '1' ?>">
     <script src="js/PagePrincipal.js?v=<?= @filemtime(__DIR__ . '/js/PagePrincipal.js') ?: '1' ?>" defer></script>
     <?php
-    /* Versión de cada fotografía del hero (fecha de modificación) para cache busting. */
+    /* Versiones (fecha de modificación) y lista de imágenes del hero. */
     $tf_hero_versions = [];
+    $tf_default_images = [];
     foreach (['default', 'escuderias'] as $tf_dir) {
         $tf_files = glob(__DIR__ . '/../Images/heroes/' . $tf_dir . '/*');
         if (!is_array($tf_files)) {
             continue;
         }
+        sort($tf_files, SORT_NATURAL | SORT_FLAG_CASE);
         foreach ($tf_files as $tf_file) {
             if (!is_file($tf_file)) {
                 continue;
             }
-            $tf_hero_versions['/Images/heroes/' . $tf_dir . '/' . basename($tf_file)] = (string) @filemtime($tf_file);
+            $tf_web = '/Images/heroes/' . $tf_dir . '/' . basename($tf_file);
+            $tf_hero_versions[$tf_web] = (string) @filemtime($tf_file);
+            if ($tf_dir === 'default') {
+                $tf_default_images[] = $tf_web;
+            }
         }
     }
     ?>
+    <script>window.TodoF1DefaultImages = <?= json_encode($tf_default_images) ?>;</script>
     <script>window.TodoF1HeroVersions = <?= json_encode($tf_hero_versions) ?>;</script>
 </head>
 

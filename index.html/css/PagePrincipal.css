@@ -159,7 +159,7 @@
   border-radius: var(--r-sm);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .hero[data-hero-carousel="on"] .hero__nav {
     display: none;
   }
@@ -707,7 +707,26 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 767px) {
+  /* ---------- Layout y espaciado de la home ---------- */
+  .tf-container {
+    padding: 0 var(--sp-4);
+  }
+
+  .tf-main {
+    padding-bottom: var(--sp-6);
+  }
+
+  .tf-section {
+    margin-top: var(--sp-6);
+  }
+
+  /* ---------- Navbar ---------- */
+  .tf-nav__inner {
+    padding: 0 var(--sp-4);
+  }
+
+  /* ---------- Hero ---------- */
   .hero {
     min-height: 0;
   }
@@ -724,16 +743,92 @@
 
   .hero__body {
     max-width: none;
+    padding: clamp(22px, 6vw, 30px) clamp(18px, 5vw, 24px) clamp(18px, 5vw, 24px);
   }
 
   .hero__bar {
     justify-content: flex-start;
+    padding: 10px clamp(18px, 5vw, 24px);
+  }
+
+  .hero__select {
+    min-height: 40px;
+    height: 40px;
+  }
+
+  /* ---------- Paneles: evita que el grid fuerce desbordamiento ---------- */
+  .two-col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .panel {
+    min-width: 0;
+    padding: var(--sp-4);
+  }
+
+  /* ---------- Tarjetas estadísticas y acceso rápido ---------- */
+  .stats,
+  .qa-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3);
+  }
+
+  .stat {
+    padding: var(--sp-4);
+  }
+
+  .stat__icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: var(--sp-1);
+  }
+
+  .stat__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .stat__num {
+    font-size: clamp(1.7rem, 1.4rem + 2.4vw, 2.2rem);
+  }
+
+  .stat__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .stat__meta {
+    font-size: 0.74rem;
+  }
+
+  .stat__arrow {
+    top: var(--sp-3);
+    right: var(--sp-3);
+    bottom: auto;
+    width: 28px;
+    height: 28px;
+  }
+
+  .qa {
+    min-height: 124px;
+    padding: var(--sp-3);
+  }
+
+  /* ---------- Créditos ---------- */
+  .tf-credits {
+    margin-top: var(--sp-6);
+    padding-top: var(--sp-5);
   }
 }
 
-@media (max-width: 520px) {
+/* ---------- Móviles estrechos (≤359px): una sola columna ---------- */
+@media (max-width: 359px) {
   .stats,
   .qa-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stat__num {
+    font-size: 1.9rem;
   }
 }
