@@ -15,12 +15,12 @@
   --c-red-line: rgba(225, 6, 0, 0.35);
 
   /* Superficies (tema único gris oscuro) */
-  --c-bg: #1A1C21;
-  --c-surface: #252830;
-  --c-surface-2: #2D3038;
-  --c-surface-3: #343843;
-  --c-line: #34373F;
-  --c-line-2: rgba(255, 255, 255, 0.08);
+  --c-bg: #222326;
+  --c-surface: #2C2D31;
+  --c-surface-2: #34353A;
+  --c-surface-3: #3C3D42;
+  --c-line: #3A3B41;
+  --c-line-2: rgba(255, 255, 255, 0.09);
 
   /* Texto */
   --c-text: #F5F5F5;
@@ -73,9 +73,9 @@
   --nav-h: 66px;
 
   /* Tema (extras Racing Tech) */
-  --c-nav-bg: #15171B;
-  --c-pop: #2D3038;
-  --c-pop-glass: rgba(37, 40, 48, 0.96);
+  --c-nav-bg: #191A1D;
+  --c-pop: #34353A;
+  --c-pop-glass: rgba(44, 45, 49, 0.96);
   --c-bg-grad-a: rgba(225, 6, 0, 0.10);
   --c-bg-grad-b: rgba(255, 255, 255, 0.035);
   --c-grid: rgba(255, 255, 255, 0.04);
@@ -1001,7 +1001,7 @@ button {
   z-index: -1;
   background:
     radial-gradient(900px 500px at 70% 0%, rgba(225, 6, 0, 0.16), transparent 60%),
-    linear-gradient(180deg, rgba(11, 11, 13, 0.65), rgba(11, 11, 13, 0.92));
+    linear-gradient(180deg, rgba(34, 35, 38, 0.65), rgba(34, 35, 38, 0.92));
 }
 
 .tf-auth__card {

@@ -28,7 +28,7 @@
     aston_martin: { p: '#00665E', s: '#CEDC00', a: '#CEDC00' },
     alpine: { p: '#2293D1', s: '#F2466E', a: '#F2466E' },
     williams: { p: '#0091C7', s: '#64C4FF', a: '#64C4FF' },
-    rb: { p: '#1B2D6B', s: '#E10600', a: '#C8102E' },
+    rb: { p: '#F2F5FA', s: '#1B2D6B', a: '#1B2D6B' },
     sauber: { p: '#00953A', s: '#52E252', a: '#52E252' },
     haas: { p: '#C8102E', s: '#B6BABD', a: '#E6002B' },
     audi: { p: '#B0052A', s: '#D0D0D0', a: '#E6002B' },

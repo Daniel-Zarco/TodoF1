@@ -80,9 +80,9 @@
   border-radius: var(--r-xl);
   overflow: hidden;
   background: var(--c-surface);
-  --hero-scrim-l: rgba(11, 11, 13, 0.96);
-  --hero-scrim-m: rgba(11, 11, 13, 0.74);
-  --hero-scrim-b: rgba(11, 11, 13, 0.88);
+  --hero-scrim-l: rgba(34, 35, 38, 0.96);
+  --hero-scrim-m: rgba(34, 35, 38, 0.74);
+  --hero-scrim-b: rgba(34, 35, 38, 0.88);
 }
 
 .hero__media {
@@ -186,7 +186,7 @@
   gap: var(--sp-4);
   padding: 12px clamp(22px, 4vw, 56px);
   border-top: 1px solid var(--c-line);
-  background: rgba(var(--c-scrim-bar, 11, 11, 13), 0.5);
+  background: rgba(var(--c-scrim-bar, 34, 35, 38), 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   flex-wrap: wrap;
@@ -261,26 +261,21 @@
   padding: var(--sp-5);
   padding-bottom: calc(var(--sp-5) + 6px);
   border: 1px solid var(--c-line);
+  border-top-color: transparent;
   border-radius: var(--r-lg);
-  background: var(--c-surface);
+  /* Línea superior del color del tema: 100% del ancho y siguiendo el border-radius */
+  background:
+    linear-gradient(var(--team-primary), var(--team-primary)) left top / 100% 3px no-repeat,
+    var(--c-surface);
   overflow: hidden;
   transition: transform var(--t), border-color var(--t), box-shadow var(--t);
-}
-
-.stat::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--team-primary);
 }
 
 .stat:hover {
   transform: translateY(-3px);
   border-color: var(--team-primary-line);
-  box-shadow: 0 16px 36px var(--team-glow);
+  border-top-color: transparent;
+  box-shadow: 0 16px 36px rgba(225, 6, 0, 0.12);
 }
 
 .stat__icon {

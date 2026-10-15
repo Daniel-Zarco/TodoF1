@@ -25,7 +25,7 @@
   justify-content: space-between;
   gap: var(--sp-4);
   padding: var(--sp-4) var(--sp-6);
-  background: rgba(11, 11, 13, 0.72);
+  background: var(--c-nav-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--c-line);
