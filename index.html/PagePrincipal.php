@@ -45,13 +45,32 @@ session_start();
             <!-- ================= HERO ================= -->
             <section class="hero" aria-labelledby="hero-title">
                 <div class="hero__media" aria-hidden="true">
-                    <img id="hero-img" src="/Images/hero-f1.jpg" data-general="/Images/hero-f1.jpg"
+                    <img id="hero-img" class="hero__img" src="/Images/hero-f1.jpg" data-general="/Images/hero-f1.jpg"
                          alt="Monoplazas de Fórmula 1 de distintas escuderías compitiendo en la salida de un Gran Premio"
                          fetchpriority="high" decoding="async" width="1280" height="851">
+                    <img id="hero-img-next" class="hero__img hero__img--next" alt="" aria-hidden="true" decoding="async" width="1280" height="851">
                     <span class="hero__scrim"></span>
                     <span class="hero__grid"></span>
                     <span class="hero__stripe"></span>
                 </div>
+                <script>
+                    /* Anti-parpadeo del hero: aplica la imagen del tema guardado antes de pintar. */
+                    (function () {
+                        try {
+                            var im = document.getElementById('hero-img');
+                            if (!im) return;
+                            var general = im.getAttribute('data-general') || im.getAttribute('src');
+                            im.onerror = function () { im.onerror = null; im.setAttribute('src', general); };
+                            var y = parseInt(new URLSearchParams(location.search).get('year'), 10);
+                            if (!y || y < 1950 || y > 2026) {
+                                try { y = parseInt(sessionStorage.getItem('todof1:year'), 10); } catch (e1) { y = NaN; }
+                            }
+                            if (!y || y < 1950 || y > 2026) y = 2026;
+                            var act = JSON.parse(localStorage.getItem('todof1:teams-active') || 'null');
+                            if (act && act.hero && String(act.year) === String(y)) im.setAttribute('src', act.hero);
+                        } catch (e) { /* sin almacenamiento */ }
+                    })();
+                </script>
 
                 <div class="hero__body">
                     <span class="tf-eyebrow">Temporada <b id="hero-year">&mdash;</b></span>
@@ -65,12 +84,10 @@ session_start();
                 </div>
 
                 <div class="hero__bar">
-                    <span class="hero__brandline" aria-hidden="true">Racing Intelligence</span>
                     <label class="hero__season">
                         <span class="hero__season-label">Temporada</span>
                         <select id="anio" class="tf-select hero__select" name="anio" aria-label="Seleccionar temporada"></select>
                     </label>
-                    <span class="hero__credit">Foto: Bassfish22 &middot; CC BY-SA 4.0</span>
                 </div>
             </section>
 
@@ -203,6 +220,17 @@ session_start();
 
         </div>
     </main>
+
+    <footer class="tf-credits">
+        <div class="tf-container">
+            <h2 class="tf-credits__title">Créditos fotográficos</h2>
+            <p class="tf-credits__line">
+                Imagen general del hero: <b>Bassfish22</b>
+                &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>
+            </p>
+            <ul class="tf-credits__list" id="photo-credits" aria-label="Créditos de imágenes por escudería" hidden></ul>
+        </div>
+    </footer>
 </body>
 
 </html>

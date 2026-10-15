@@ -46,8 +46,23 @@
     jordan: { p: '#D6B400', s: '#2B2B2B', a: '#FFD800' }
   };
 
-  // Imágenes por equipo (pendiente de assets con permisos). Vacío => general.
-  var TEAM_IMAGES = {};
+  // Imágenes del hero por escudería, usando los constructorId reales.
+  // Coloca los ficheros (optimizados, preferible WebP) en /Images/heroes/.
+  // Si el archivo no existe o falla la carga, se usa la imagen general del hero.
+  // `credit` es opcional: { label, author, license, licenseUrl, source }.
+  var TEAM_IMAGES = {
+    ferrari: { src: '/Images/heroes/ferrari.webp' },
+    mclaren: { src: '/Images/heroes/mclaren.webp' },
+    mercedes: { src: '/Images/heroes/mercedes.webp' },
+    red_bull: { src: '/Images/heroes/red_bull.webp' },
+    rb: { src: '/Images/heroes/rb.webp' },
+    aston_martin: { src: '/Images/heroes/aston_martin.webp' },
+    alpine: { src: '/Images/heroes/alpine.webp' },
+    williams: { src: '/Images/heroes/williams.webp' },
+    haas: { src: '/Images/heroes/haas.webp' },
+    audi: { src: '/Images/heroes/audi.webp' },
+    cadillac: { src: '/Images/heroes/cadillac.webp' }
+  };
 
   // ---------------------------------------------------------- Estado
   function currentYear() {
@@ -170,24 +185,82 @@
     Object.keys(vars).forEach(function (k) { root.style.setProperty(k, vars[k]); });
     root.setAttribute('data-team', team.id);
     root.setAttribute('data-team-stripe', stripeMode(team));
-    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars, stripe: stripeMode(team) });
+    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars, stripe: stripeMode(team), hero: teamHeroSrc(team.id) });
   }
 
-  function applyFromState() {
+  function applyFromState(animate) {
     var state = readState(currentYear());
     applyTeam(state.theme ? resolveTeam(state.theme) : null);
-    applyHero();
+    applyHero(animate);
   }
 
-  // ---------------------------------------------------------- Hero (preparado)
-  function applyHero() {
+  // ---------------------------------------------------------- Hero (imagen por tema)
+  var HERO_FADE_MS = 500;
+  var heroShown = null;
+  var heroToken = 0;
+
+  function teamHeroSrc(id) {
+    var entry = id ? TEAM_IMAGES[id] : null;
+    return (entry && entry.src) ? entry.src : null;
+  }
+
+  function prefersReducedMotion() {
+    try {
+      return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    } catch (e) { return false; }
+  }
+
+  function preloadImage(src) {
+    return new Promise(function (resolve) {
+      var im = new Image();
+      im.onload = function () { resolve(true); };
+      im.onerror = function () { resolve(false); };
+      im.src = src;
+    });
+  }
+
+  // Aplica la imagen del hero del tema activo. `animate` activa el fundido cruzado.
+  function applyHero(animate) {
     var img = document.getElementById('hero-img');
     if (!img) return;
-    var state = readState(currentYear());
+    var token = ++heroToken;
     var general = img.getAttribute('data-general') || img.getAttribute('src');
-    var candidates = (state.theme && TEAM_IMAGES[state.theme]) ? TEAM_IMAGES[state.theme] : [];
-    var src = candidates.length ? candidates[0] : general;
-    if (src && img.getAttribute('src') !== src) img.setAttribute('src', src);
+    var state = readState(currentYear());
+    var target = teamHeroSrc(state.theme) || general;
+    if (heroShown === null) heroShown = img.getAttribute('src') || general;
+    if (target === heroShown) return;
+
+    if (!animate || prefersReducedMotion()) {
+      preloadImage(target).then(function (ok) {
+        if (token !== heroToken) return;
+        var finalSrc = ok ? target : general;
+        img.setAttribute('src', finalSrc);
+        heroShown = finalSrc;
+      });
+      return;
+    }
+
+    var next = document.getElementById('hero-img-next');
+    preloadImage(target).then(function (ok) {
+      if (token !== heroToken) return;
+      var finalSrc = ok ? target : general;
+      if (finalSrc === heroShown) return;
+      if (!next) { img.setAttribute('src', finalSrc); heroShown = finalSrc; return; }
+
+      var settled = false;
+      function commit() {
+        if (settled || token !== heroToken) return;
+        settled = true;
+        next.removeEventListener('transitionend', commit);
+        img.setAttribute('src', finalSrc);
+        heroShown = finalSrc;
+        next.classList.remove('is-visible');
+      }
+      next.setAttribute('src', finalSrc);
+      requestAnimationFrame(function () { if (token === heroToken) next.classList.add('is-visible'); });
+      next.addEventListener('transitionend', commit);
+      setTimeout(commit, HERO_FADE_MS + 400);
+    });
   }
 
   // ---------------------------------------------------------- Panel (drawer)
@@ -411,7 +484,7 @@
     var st = readState(year);
     st.theme = id || null;
     saveState(year, st);
-    applyFromState();
+    applyFromState(true);
     renderStates();
   }
 
@@ -427,6 +500,31 @@
     });
   }
 
+  // ---------------------------------------------------------- Créditos fotográficos
+  function renderCredits() {
+    var list = document.getElementById('photo-credits');
+    if (!list) return;
+    var html = '';
+    Object.keys(TEAM_IMAGES).forEach(function (id) {
+      var entry = TEAM_IMAGES[id];
+      var credit = entry && entry.credit;
+      if (!credit || !credit.author) return;
+      var label = credit.label || id;
+      var part = escHtml(label) + ' \u2014 ' + escHtml(credit.author);
+      if (credit.license) {
+        part += credit.licenseUrl
+          ? ' \u00b7 <a href="' + escHtml(credit.licenseUrl) + '" target="_blank" rel="noopener license">' + escHtml(credit.license) + '</a>'
+          : ' \u00b7 ' + escHtml(credit.license);
+      }
+      if (credit.source) {
+        part += ' \u00b7 <a href="' + escHtml(credit.source) + '" target="_blank" rel="noopener">Fuente</a>';
+      }
+      html += '<li>' + part + '</li>';
+    });
+    list.innerHTML = html;
+    list.hidden = !html;
+  }
+
   // ---------------------------------------------------------- Init
   function init() {
     var btn = document.getElementById('tf-theme-picker');
@@ -436,6 +534,7 @@
       btn.setAttribute('aria-haspopup', 'dialog');
     }
     applyFromState();
+    renderCredits();
   }
 
   window.TodoF1Teams = {
@@ -443,7 +542,7 @@
     state: function (y) { return readState(y || currentYear()); },
     apply: applyFromState,
     open: function () { openDrawer(); },
-    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, TEAMS: TEAMS }
+    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, teamHeroSrc: teamHeroSrc, TEAMS: TEAMS, TEAM_IMAGES: TEAM_IMAGES }
   };
 
   if (document.readyState === 'loading') {

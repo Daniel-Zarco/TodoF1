@@ -107,7 +107,7 @@ html[data-team-stripe="static"] .tf-nav::after {
   bottom: -1px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--team-primary), var(--team-secondary));
+  background: var(--team-primary);
   box-shadow: 0 0 12px var(--team-glow);
 }
 
