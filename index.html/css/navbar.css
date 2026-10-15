@@ -511,10 +511,37 @@ html[data-drawer="open"] .tf-drawer__panel {
 
 .tf-drawer__status {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   font-size: 0.86rem;
   color: var(--c-dim);
+}
+
+/* El atributo [hidden] debe ganar al display: flex de arriba */
+.tf-drawer__status[hidden] {
+  display: none;
+}
+
+.tf-drawer__msg {
+  display: block;
+}
+
+.tf-drawer__retry {
+  margin-top: var(--sp-2);
+  padding: 7px 14px;
+  border: 1px solid var(--team-primary-line);
+  border-radius: var(--r-sm);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter var(--t-fast), color var(--t-fast);
+}
+
+.tf-drawer__retry:hover {
+  filter: brightness(1.06);
 }
 
 .tf-drawer__foot {

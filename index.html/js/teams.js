@@ -193,6 +193,8 @@
   // ---------------------------------------------------------- Modal (drawer)
   var panel = null, backdrop = null, grid = null, statusEl = null, originalBtn = null;
   var listCache = {};
+  var pending = {};
+  var openToken = 0;
   var lastFocused = null;
 
   function el(tag, cls, html) {
@@ -271,6 +273,39 @@
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 
+  function showStatus(html) {
+    statusEl.hidden = false;
+    statusEl.style.display = '';
+    statusEl.innerHTML = html;
+  }
+
+  function hideStatus() {
+    statusEl.innerHTML = '';
+    statusEl.hidden = true;
+    statusEl.style.display = 'none';
+  }
+
+  function ensureTeams(year) {
+    if (listCache[year]) return Promise.resolve(listCache[year]);
+    if (pending[year]) return pending[year];
+    var request = fetch(API + '/' + year + '/constructors.json')
+      .then(function (r) {
+        if (r && r.ok === false) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var list = (data.MRData && data.MRData.ConstructorTable && data.MRData.ConstructorTable.Constructors) || [];
+        listCache[year] = list;
+        delete pending[year];
+        return list;
+      }, function (err) {
+        delete pending[year];
+        throw err;
+      });
+    pending[year] = request;
+    return request;
+  }
+
   function openDrawer() {
     buildDrawer();
     lastFocused = document.activeElement;
@@ -279,29 +314,44 @@
     if (yearEl) yearEl.textContent = year;
 
     root.setAttribute('data-drawer', 'open');
-    if (listCache[year]) {
-      renderTeams(year, listCache[year]);
-    } else {
-      statusEl.innerHTML = '<span class="tf-spinner" aria-hidden="true"></span> Cargando escuder&iacute;as…';
-      statusEl.hidden = false;
-      grid.innerHTML = '';
-      fetch(API + '/' + year + '/constructors.json')
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          var list = (data.MRData && data.MRData.ConstructorTable && data.MRData.ConstructorTable.Constructors) || [];
-          listCache[year] = list;
-          renderTeams(year, list);
-        }, function () {
-          statusEl.textContent = 'No se pudieron cargar las escuderías de esta temporada.';
-        });
-    }
+    var token = ++openToken;
+    loadYear(year, token);
 
     var openBtn = document.getElementById('tf-teams-btn');
     if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
     panel.focus();
   }
 
+  function loadYear(year, token) {
+    if (listCache[year]) {
+      renderTeams(year, listCache[year]);
+      return;
+    }
+    grid.innerHTML = '';
+    showStatus('<span class="tf-spinner" aria-hidden="true"></span><span class="tf-drawer__msg">Cargando escuder&iacute;as…</span>');
+    ensureTeams(year).then(function (list) {
+      if (token !== openToken) return; // panel cerrado o temporada cambiada
+      renderTeams(year, list);
+    }, function () {
+      if (token !== openToken) return;
+      showError(year, token);
+    });
+  }
+
+  function showError(year, token) {
+    grid.innerHTML = '';
+    showStatus('<span class="tf-drawer__msg">No se pudieron cargar las escuder&iacute;as de esta temporada.</span>');
+    var retry = el('button', 'tf-drawer__retry', 'Reintentar');
+    retry.setAttribute('type', 'button');
+    retry.addEventListener('click', function () {
+      delete listCache[year];
+      loadYear(year, openToken);
+    });
+    statusEl.appendChild(retry);
+  }
+
   function closeDrawer() {
+    openToken++;
     root.removeAttribute('data-drawer');
     var openBtn = document.getElementById('tf-teams-btn');
     if (openBtn) { openBtn.setAttribute('aria-expanded', 'false'); openBtn.focus(); }
@@ -309,10 +359,9 @@
   }
 
   function renderTeams(year, list) {
-    if (!list.length) {
-      statusEl.textContent = 'Esta temporada no tiene escuderías con identidad visual. Se usará el tema original.';
-      statusEl.hidden = false;
+    if (!list || !list.length) {
       grid.innerHTML = '';
+      showStatus('<span class="tf-drawer__msg">Esta temporada no tiene escuder&iacute;as con identidad visual. Se usar&aacute; el tema original.</span>');
       return;
     }
     // Guarda id -> nombre para destacar favoritos en las clasificaciones.
@@ -320,7 +369,7 @@
     list.forEach(function (c) { map[c.constructorId] = c.name; });
     writeJSON(KEY_MAP + year, map);
 
-    statusEl.hidden = true;
+    hideStatus();
     grid.innerHTML = '';
     list.forEach(function (c) {
       grid.appendChild(buildCard(year, c));
