@@ -91,9 +91,6 @@
   --team-primary-dim: rgba(225, 6, 0, 0.14);
   --team-primary-line: rgba(225, 6, 0, 0.38);
   --team-on-primary: #FFFFFF;
-
-  /* Línea inferior del navbar: se sobreescribe desde JS con los colores del tema */
-  --team-stripe: linear-gradient(90deg, #E10600 0%, #FF2B1F 50%, #E10600 100%);
 }
 
 /* ------------------------------------------------------------

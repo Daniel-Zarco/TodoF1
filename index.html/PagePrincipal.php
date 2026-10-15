@@ -25,7 +25,6 @@ session_start();
                     for (var k in act.vars) {
                         if (act.vars.hasOwnProperty(k)) document.documentElement.style.setProperty(k, act.vars[k]);
                     }
-                    if (act.stripe) document.documentElement.setAttribute('data-team-stripe', act.stripe);
                 }
             } catch (e) { /* sin almacenamiento */ }
         })();
