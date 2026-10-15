@@ -121,6 +121,50 @@
   filter: saturate(0.95) brightness(0.88) contrast(1.05);
 }
 
+/* Zonas de navegación del carrusel: invisibles y accesibles.
+   Quedan por debajo del contenido, así que no tapan el título, el CTA
+   ni el selector de temporada (que están en capas superiores). */
+.hero__nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 76px;
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero[data-hero-carousel="on"] .hero__nav {
+  display: block;
+}
+
+.hero__nav--prev {
+  left: 0;
+}
+
+.hero__nav--next {
+  right: 0;
+}
+
+.hero__nav:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: -4px;
+  border-radius: var(--r-sm);
+}
+
+@media (max-width: 720px) {
+  .hero[data-hero-carousel="on"] .hero__nav {
+    display: none;
+  }
+}
+
 .hero__scrim {
   position: absolute;
   inset: 0;

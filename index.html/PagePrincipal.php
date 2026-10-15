@@ -34,6 +34,23 @@ session_start();
     <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
     <link rel="stylesheet" href="css/PagePrincipal.css?v=<?= @filemtime(__DIR__ . '/css/PagePrincipal.css') ?: '1' ?>">
     <script src="js/PagePrincipal.js?v=<?= @filemtime(__DIR__ . '/js/PagePrincipal.js') ?: '1' ?>" defer></script>
+    <?php
+    /* Versión de cada fotografía del hero (fecha de modificación) para cache busting. */
+    $tf_hero_versions = [];
+    foreach (['default', 'escuderias'] as $tf_dir) {
+        $tf_files = glob(__DIR__ . '/../Images/heroes/' . $tf_dir . '/*');
+        if (!is_array($tf_files)) {
+            continue;
+        }
+        foreach ($tf_files as $tf_file) {
+            if (!is_file($tf_file)) {
+                continue;
+            }
+            $tf_hero_versions['/Images/heroes/' . $tf_dir . '/' . basename($tf_file)] = (string) @filemtime($tf_file);
+        }
+    }
+    ?>
+    <script>window.TodoF1HeroVersions = <?= json_encode($tf_hero_versions) ?>;</script>
 </head>
 
 <body class="tf-page-dashboard">
@@ -43,9 +60,9 @@ session_start();
         <div class="tf-container">
 
             <!-- ================= HERO ================= -->
-            <section class="hero" aria-labelledby="hero-title">
+            <section class="hero" id="hero" aria-labelledby="hero-title">
                 <div class="hero__media" aria-hidden="true">
-                    <img id="hero-img" class="hero__img" src="/Images/heroes/default/a.jpg" data-general="/Images/heroes/default/a.jpg"
+                    <img id="hero-img" class="hero__img" src="/Images/heroes/default/a.jpg?v=<?= @filemtime(__DIR__ . '/../Images/heroes/default/a.jpg') ?: '1' ?>" data-general="/Images/heroes/default/a.jpg"
                          alt="Monoplazas de Fórmula 1 de distintas escuderías compitiendo en la salida de un Gran Premio"
                          fetchpriority="high" decoding="async" width="1280" height="851">
                     <img id="hero-img-next" class="hero__img hero__img--next" alt="" aria-hidden="true" decoding="async" width="1280" height="851">
@@ -59,18 +76,26 @@ session_start();
                         try {
                             var im = document.getElementById('hero-img');
                             if (!im) return;
+                            var versions = window.TodoF1HeroVersions || {};
+                            function withVersion(src) {
+                                var v = versions[src];
+                                return src + (v ? (src.indexOf('?') >= 0 ? '&' : '?') + 'v=' + v : '');
+                            }
                             var general = im.getAttribute('data-general') || im.getAttribute('src');
-                            im.onerror = function () { im.onerror = null; im.setAttribute('src', general); };
+                            im.onerror = function () { im.onerror = null; im.setAttribute('src', withVersion(general)); };
                             var y = parseInt(new URLSearchParams(location.search).get('year'), 10);
                             if (!y || y < 1950 || y > 2026) {
                                 try { y = parseInt(sessionStorage.getItem('todof1:year'), 10); } catch (e1) { y = NaN; }
                             }
                             if (!y || y < 1950 || y > 2026) y = 2026;
                             var act = JSON.parse(localStorage.getItem('todof1:teams-active') || 'null');
-                            if (act && act.hero && String(act.year) === String(y)) im.setAttribute('src', act.hero);
+                            if (act && act.hero && String(act.year) === String(y)) im.setAttribute('src', withVersion(act.hero));
                         } catch (e) { /* sin almacenamiento */ }
                     })();
                 </script>
+
+                <button class="hero__nav hero__nav--prev" type="button" aria-label="Fotografía anterior"></button>
+                <button class="hero__nav hero__nav--next" type="button" aria-label="Fotografía siguiente"></button>
 
                 <div class="hero__body">
                     <span class="tf-eyebrow">Temporada <b id="hero-year">&mdash;</b></span>

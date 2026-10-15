@@ -212,10 +212,11 @@
   // ---------------------------------------------------------- Hero (imagen por tema)
   var HERO_FADE_MS = 700;       // fundido cruzado
   var CAROUSEL_MS = 8000;       // carrusel del tema original
-  var heroShown = null;         // src actualmente visible (capa base)
+  var heroShown = null;         // src actualmente visible (capa base, ya versionado)
   var heroToken = 0;            // invalida operaciones async al cambiar de tema
   var carouselTimer = null;     // temporizador del carrusel
   var carouselIndex = 0;        // índice actual dentro de DEFAULT_IMAGES
+  var carouselActive = false;   // carrusel (tema original) activo
 
   function teamHeroSrc(id) {
     var entry = id ? TEAM_IMAGES[id] : null;
@@ -228,12 +229,22 @@
     } catch (e) { return false; }
   }
 
+  // Cache busting de imágenes: añade ?v=<fecha de modificación> (mapa del servidor).
+  function versionedSrc(src) {
+    if (!src) return src;
+    var versions = window.TodoF1HeroVersions;
+    if (!versions) return src;
+    var v = versions[src];
+    if (v == null || v === '') return src;
+    return src + (src.indexOf('?') >= 0 ? '&' : '?') + 'v=' + v;
+  }
+
   function preloadImage(src) {
     return new Promise(function (resolve) {
       var im = new Image();
       im.onload = function () { resolve(true); };
       im.onerror = function () { resolve(false); };
-      im.src = src;
+      im.src = versionedSrc(src);
     });
   }
 
@@ -244,24 +255,26 @@
     }
   }
 
-  // Precarga la siguiente imagen del carrusel para evitar parpadeos.
-  function preloadNext() {
+  // Precarga las imágenes adyacentes del carrusel para evitar parpadeos.
+  function preloadAround() {
     if (DEFAULT_IMAGES.length < 2 || prefersReducedMotion()) return;
-    var nxt = DEFAULT_IMAGES[(carouselIndex + 1) % DEFAULT_IMAGES.length];
-    preloadImage(nxt);
+    var len = DEFAULT_IMAGES.length;
+    preloadImage(DEFAULT_IMAGES[(carouselIndex + 1) % len]);
+    preloadImage(DEFAULT_IMAGES[(carouselIndex - 1 + len) % len]);
   }
 
   // Muestra `src` en el hero (con fundido si `animate`). Cae a FALLBACK_IMAGE si falla.
   function setHeroImage(src, animate, token) {
     var img = document.getElementById('hero-img');
     if (!img) return;
-    if (src === heroShown) return;
+    var full = versionedSrc(src);
+    if (full === heroShown) return;
     var next = document.getElementById('hero-img-next');
     var fade = animate && !prefersReducedMotion() && next;
 
     preloadImage(src).then(function (ok) {
       if (token !== heroToken) return;
-      var finalSrc = ok ? src : FALLBACK_IMAGE;
+      var finalSrc = ok ? full : versionedSrc(FALLBACK_IMAGE);
       if (finalSrc === heroShown) return;
 
       if (!fade) {
@@ -288,13 +301,69 @@
 
   function startCarousel() {
     stopCarousel();
-    if (DEFAULT_IMAGES.length < 2 || prefersReducedMotion()) return;
-    preloadNext();
+    if (!carouselActive || DEFAULT_IMAGES.length < 2 || prefersReducedMotion()) return;
+    preloadAround();
     carouselTimer = setInterval(function () {
       carouselIndex = (carouselIndex + 1) % DEFAULT_IMAGES.length;
       setHeroImage(DEFAULT_IMAGES[carouselIndex], true, heroToken);
-      preloadNext();
+      preloadAround();
     }, CAROUSEL_MS);
+  }
+
+  // Reinicia el contador de 8 s tras una interacción manual.
+  function restartCarousel() {
+    if (carouselActive) startCarousel();
+  }
+
+  // Navegación manual del carrusel (solo tema original). `delta` = +1 / -1.
+  function goToImage(delta) {
+    if (!carouselActive || DEFAULT_IMAGES.length < 2) return;
+    var len = DEFAULT_IMAGES.length;
+    carouselIndex = ((carouselIndex + delta) % len + len) % len;
+    var token = ++heroToken;   // cancela fundidos en curso (clics rápidos)
+    setHeroImage(DEFAULT_IMAGES[carouselIndex], true, token);
+    preloadAround();
+    restartCarousel();
+  }
+
+  function nextImage() { goToImage(1); }
+  function prevImage() { goToImage(-1); }
+
+  function setCarouselActive(on) {
+    carouselActive = !!on;
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    if (carouselActive) hero.setAttribute('data-hero-carousel', 'on');
+    else hero.removeAttribute('data-hero-carousel');
+  }
+
+  function initHeroNav() {
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+
+    var prev = hero.querySelector('.hero__nav--prev');
+    var next = hero.querySelector('.hero__nav--next');
+    if (prev) prev.addEventListener('click', function () { prevImage(); });
+    if (next) next.addEventListener('click', function () { nextImage(); });
+
+    // Deslizar en móvil (usa touchend; no intercepta el scroll vertical).
+    var startX = null, startY = null;
+    hero.addEventListener('touchstart', function (e) {
+      if (!carouselActive || e.touches.length !== 1) { startX = null; return; }
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    hero.addEventListener('touchend', function (e) {
+      if (startX === null || !carouselActive) return;
+      var t = e.changedTouches && e.changedTouches[0];
+      if (!t) return;
+      var dx = t.clientX - startX;
+      var dy = t.clientY - startY;
+      startX = null; startY = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        if (dx < 0) nextImage(); else prevImage();
+      }
+    }, { passive: true });
   }
 
   // Aplica la imagen del hero del tema activo. `animate` activa el fundido cruzado.
@@ -303,15 +372,17 @@
     if (!img) return;
     var token = ++heroToken;
     stopCarousel();
-    if (heroShown === null) heroShown = img.getAttribute('src') || FALLBACK_IMAGE;
+    if (heroShown === null) heroShown = img.getAttribute('src') || versionedSrc(FALLBACK_IMAGE);
 
     var state = readState(currentYear());
     if (state.theme) {
+      setCarouselActive(false);
       setHeroImage(teamHeroSrc(state.theme) || FALLBACK_IMAGE, animate, token);
       return;
     }
 
     // Tema original: carrusel, empezando por la primera imagen.
+    setCarouselActive(true);
     carouselIndex = 0;
     setHeroImage(DEFAULT_IMAGES[0] || FALLBACK_IMAGE, animate, token);
     startCarousel();
@@ -600,6 +671,7 @@
     }
     applyFromState();
     renderCredits();
+    initHeroNav();
   }
 
   window.TodoF1Teams = {
@@ -607,7 +679,7 @@
     state: function (y) { return readState(y || currentYear()); },
     apply: applyFromState,
     open: function () { openDrawer(); },
-    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, teamHeroSrc: teamHeroSrc, TEAMS: TEAMS, TEAM_IMAGES: TEAM_IMAGES, DEFAULT_IMAGES: DEFAULT_IMAGES, FALLBACK_IMAGE: FALLBACK_IMAGE }
+    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, teamHeroSrc: teamHeroSrc, versionedSrc: versionedSrc, TEAMS: TEAMS, TEAM_IMAGES: TEAM_IMAGES, DEFAULT_IMAGES: DEFAULT_IMAGES, FALLBACK_IMAGE: FALLBACK_IMAGE }
   };
 
   if (document.readyState === 'loading') {
