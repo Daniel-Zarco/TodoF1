@@ -1,0 +1,194 @@
+name: Recuperacion Fase 3 - sustituir metadatos .git
+
+# WORKFLOW MANUAL (solo workflow_dispatch). No se ejecuta en push.
+# FASE 3 (sustituye SOLO los metadatos Git; no toca archivos de trabajo):
+#   1) Verificar el clon, su integridad y el commit esperado.
+#   2) Verificar que el original sigue en aaed63d y sin cambios versionados.
+#   3) Backup adicional del .git original (tar + sha256 verificado), sin sobrescribir.
+#   4) Conservar el .git original renombrandolo FUERA del proyecto.
+#   5) Copiar el .git del clon verificado al repositorio original.
+#   6) Comprobar integridad del nuevo .git y mostrar el estado resultante.
+#   7) NO ejecuta deploy.sh ni modifica los archivos de trabajo.
+# NOTA: tras sustituir, el nuevo .git estara en ed51b94 y los archivos de
+# trabajo seguiran en aaed63d; el working tree NO queda limpio (esperado).
+# Rollback automatico e idempotente ante cualquier fallo posterior al
+# renombrado (trap ERR + EXIT + INT/TERM).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Mismo grupo que el despliegue: evita acceder a .git a la vez (serializa).
+concurrency:
+  group: todof1-production
+  cancel-in-progress: false
+
+jobs:
+  recovery-phase3:
+    name: Fase 3 (manual)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Ejecutar Fase 3 por SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$SSH_USER@$SSH_HOST" 'bash -s' <<'REMOTE_SCRIPT'
+          set -u
+          set -e
+          export GIT_TERMINAL_PROMPT=0
+
+          REPO_DIR="${TODOF1_REPO_DIR:-/home/todof1/todof1-app}"
+          CLONE_DIR="${TODOF1_CLONE_DIR:-/home/todof1/todof1-clone-20261015-095443}"
+          BRANCH="${TODOF1_BRANCH:-main}"
+          REMOTE_URL="${TODOF1_REMOTE_URL:-https://github.com/Daniel-Zarco/TodoF1.git}"
+          EXPECTED_CLONE_COMMIT="${TODOF1_EXPECTED_CLONE_COMMIT:-ed51b943899f3ac99cd05ad3dcf685bb9ecfbe66}"
+          EXPECTED_ORIGINAL="${TODOF1_EXPECTED_ORIGINAL:-aaed63d}"
+          BACKUP_ROOT="${TODOF1_RECOVERY_DIR:-/home/todof1/todof1-recovery}"
+          TS="$(date +%Y%m%d-%H%M%S)"
+          BACKUP_DIR="$BACKUP_ROOT/$TS"
+          OLD_GIT="$BACKUP_DIR/git-original"
+          RENAME_DONE=0
+          PHASE3_OK=0
+          ROLLBACK_DONE=0
+
+          log() { printf '[FASE3] %s\n' "$*"; }
+
+          rollback() {
+            if [ "$RENAME_DONE" -ne 1 ]; then return 0; fi
+            if [ "$PHASE3_OK" -eq 1 ]; then return 0; fi
+            if [ "$ROLLBACK_DONE" -eq 1 ]; then return 0; fi
+            ROLLBACK_DONE=1
+            log "ROLLBACK: restaurando el .git original desde $OLD_GIT"
+            if rm -rf "$REPO_DIR/.git" && mv "$OLD_GIT" "$REPO_DIR/.git"; then
+              log "Rollback completado: .git original restaurado."
+            else
+              log "ROLLBACK FALLIDO: restaura manualmente con: mv '$OLD_GIT' '$REPO_DIR/.git'"
+            fi
+          }
+
+          on_err() { c=$?; rollback; exit "$c"; }
+          fail() { printf '[FASE3][ERROR] %s\n' "$*" >&2; rollback; exit 1; }
+
+          trap 'on_err' ERR
+          trap 'rollback' EXIT
+          trap 'rollback; exit 1' INT TERM
+
+          log "===== INICIO FASE 3 ($(date '+%Y-%m-%d %H:%M:%S')) ====="
+
+          command -v git >/dev/null 2>&1 || fail "No se encontro 'git'."
+          command -v tar >/dev/null 2>&1 || fail "No se encontro 'tar'."
+          command -v sha256sum >/dev/null 2>&1 || fail "No se encontro 'sha256sum'."
+
+          # 1) Verificar el clon
+          [ -d "$CLONE_DIR/.git" ] || fail "No existe $CLONE_DIR/.git"
+          git -C "$CLONE_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "El clon no es un repositorio git."
+          echo "--- clon: git fsck --full ---"
+          if git -C "$CLONE_DIR" fsck --full 2>&1; then clone_fsck=0; else clone_fsck=$?; fi
+          echo "[clone_fsck_exit=$clone_fsck]"
+          [ "$clone_fsck" -eq 0 ] || fail "El clon no pasa fsck --full (exit=$clone_fsck)."
+
+          git -C "$CLONE_DIR" show-ref --verify --quiet "refs/heads/$BRANCH" || fail "El clon no contiene la rama '$BRANCH'."
+          if clone_dirty="$(git -C "$CLONE_DIR" status --porcelain 2>/dev/null)"; then :; else fail "No se pudo comprobar el estado del clon."; fi
+          [ -z "$clone_dirty" ] || fail "El clon tiene cambios en el arbol de trabajo."
+
+          clone_head="$(git -C "$CLONE_DIR" rev-parse "refs/heads/$BRANCH" 2>&1)"
+          clone_origin="$(git -C "$CLONE_DIR" rev-parse "refs/remotes/origin/$BRANCH" 2>&1)"
+          log "Commit clon        ($BRANCH): $clone_head"
+          log "Commit origin/clon ($BRANCH): $clone_origin"
+          [ "$clone_head" = "$EXPECTED_CLONE_COMMIT" ] || fail "El clon no esta en $EXPECTED_CLONE_COMMIT (esta en $clone_head)."
+          [ "$clone_origin" = "$EXPECTED_CLONE_COMMIT" ] || fail "origin/$BRANCH del clon no coincide con $EXPECTED_CLONE_COMMIT."
+          log "Clon verificado e integro en $EXPECTED_CLONE_COMMIT."
+
+          # 2) Verificar el repositorio original
+          [ -d "$REPO_DIR/.git" ] || fail "No existe $REPO_DIR/.git"
+          git -C "$REPO_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "El original no es un repositorio git."
+
+          orig_branch="$(git -C "$REPO_DIR" rev-parse --abbrev-ref HEAD 2>&1)"
+          log "Rama original: $orig_branch (esperada: $BRANCH)"
+          [ "$orig_branch" = "$BRANCH" ] || fail "El original no esta en la rama '$BRANCH'."
+
+          orig_head="$(git -C "$REPO_DIR" rev-parse HEAD 2>&1)"
+          log "HEAD original: $orig_head"
+          case "$orig_head" in
+            "$EXPECTED_ORIGINAL"*) : ;;
+            *) fail "El HEAD del original ($orig_head) no empieza por $EXPECTED_ORIGINAL." ;;
+          esac
+
+          if dirty="$(git -C "$REPO_DIR" status --porcelain --untracked-files=no 2>/dev/null)"; then st=0; else st=$?; fi
+          [ "$st" -eq 0 ] || fail "No se pudo comprobar el estado del original (git status exit=$st)."
+          if [ -n "$dirty" ]; then printf '%s\n' "$dirty" >&2; fail "El original tiene cambios versionados; se detiene."; fi
+          log "Original verificado: rama $BRANCH, HEAD $orig_head, sin cambios versionados."
+
+          # 3) Backup adicional del .git original + verificacion (sin sobrescribir)
+          log "Creando backup adicional del .git original en $BACKUP_DIR"
+          if [ -e "$BACKUP_DIR" ]; then fail "El destino de backup ya existe (no se sobrescribe): $BACKUP_DIR"; fi
+          mkdir -p "$BACKUP_DIR" || fail "No se pudo crear $BACKUP_DIR"
+          tar -czf "$BACKUP_DIR/git-original-$TS.tar.gz" -C "$REPO_DIR" .git || fail "El backup (tar) del .git original fallo."
+          [ -f "$BACKUP_DIR/git-original-$TS.tar.gz" ] || fail "No se genero el tar del backup."
+          sha256sum "$BACKUP_DIR/git-original-$TS.tar.gz" > "$BACKUP_DIR/git-original-$TS.tar.gz.sha256" || fail "No se pudo calcular el SHA-256."
+          sha256sum -c "$BACKUP_DIR/git-original-$TS.tar.gz.sha256" || fail "El SHA-256 del backup no es valido."
+          log "Backup del .git original verificado."
+
+          # 4) Conservar el .git original renombrandolo fuera del proyecto
+          if [ -e "$OLD_GIT" ]; then fail "El destino del .git original ya existe (no se sobrescribe): $OLD_GIT"; fi
+          log "Renombrando .git original -> $OLD_GIT"
+          mv "$REPO_DIR/.git" "$OLD_GIT" || fail "No se pudo renombrar el .git original."
+          [ ! -e "$REPO_DIR/.git" ] || fail "El .git original sigue en su sitio tras el renombrado."
+          [ -d "$OLD_GIT" ] || fail "No se encuentra el .git original renombrado en $OLD_GIT."
+          [ -f "$OLD_GIT/HEAD" ] || fail "El .git original conservado no parece valido (sin HEAD)."
+          RENAME_DONE=1
+          log "Original preservado en $OLD_GIT (rollback disponible)."
+
+          # 5) Copiar el .git del clon verificado al repositorio original
+          log "Copiando .git del clon -> $REPO_DIR/.git"
+          cp -a "$CLONE_DIR/.git" "$REPO_DIR/.git" || fail "Fallo al copiar el .git del clon; se restaura el original."
+          [ -d "$REPO_DIR/.git" ] || fail "El nuevo .git no se creo correctamente."
+
+          # 6) Integridad del nuevo .git y estado resultante
+          echo "===== git fsck --full (nuevo .git) ====="
+          if git -C "$REPO_DIR" fsck --full 2>&1; then new_fsck=0; else new_fsck=$?; fi
+          echo "[new_fsck_exit=$new_fsck]"
+          [ "$new_fsck" -eq 0 ] || fail "El nuevo .git no pasa fsck --full (exit=$new_fsck)."
+
+          new_head="$(git -C "$REPO_DIR" rev-parse HEAD 2>&1)"
+          log "Nuevo HEAD: $new_head (esperado $EXPECTED_CLONE_COMMIT)"
+          [ "$new_head" = "$EXPECTED_CLONE_COMMIT" ] || fail "El nuevo HEAD ($new_head) no es $EXPECTED_CLONE_COMMIT."
+
+          echo "--- git log -1 --oneline ---"; git -C "$REPO_DIR" log -1 --oneline 2>&1 || true
+          echo "--- git remote -v ---"; git -C "$REPO_DIR" remote -v 2>&1 || true
+          echo "--- git status --short (difiere del HEAD: archivos siguen en $EXPECTED_ORIGINAL) ---"
+          git -C "$REPO_DIR" status --short 2>&1 | head -50 || true
+          echo "[fin resumen status]"
+
+          PHASE3_OK=1
+
+          # 7) Exito (sin deploy.sh, sin modificar archivos de trabajo)
+          log "RESULTADO FASE 3: nuevo .git en $new_head; original preservado en $OLD_GIT"
+          log "Backup adicional: $BACKUP_DIR/git-original-$TS.tar.gz (+ .sha256)"
+          log "Rollback manual: rm -rf '$REPO_DIR/.git' && mv '$OLD_GIT' '$REPO_DIR/.git'"
+          log "===== FIN FASE 3 ====="
+          log "deploy.sh NO ejecutado. Archivos de trabajo NO modificados (siguen en $EXPECTED_ORIGINAL)."
+          exit 0
+          REMOTE_SCRIPT
