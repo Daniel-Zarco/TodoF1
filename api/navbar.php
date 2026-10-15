@@ -35,6 +35,34 @@ $items = [
     ['href' => '/index.html/PageEstadisticas.php' . $yearQuery, 'label' => 'Estad&iacute;sticas', 'match' => ['PageEstadisticas.php']],
 ];
 ?>
+<!-- Transición entre páginas (burnout): debe ser lo primero del body -->
+<div class="tf-transition" id="tf-transition" aria-hidden="true">
+    <span class="tf-transition__fog"></span>
+    <span class="tf-transition__skid"></span>
+    <span class="tf-tire">
+        <span class="tf-tire__wheel">
+            <span class="tf-tire__blur"></span>
+            <span class="tf-tire__rim"><span class="tf-tire__hub"></span></span>
+            <span class="tf-tire__mark"></span>
+        </span>
+    </span>
+    <span class="tf-transition__smoke">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </span>
+</div>
+<script>
+    /* Anti-parpadeo: activa el estado entrante antes de pintar la página. */
+    (function () {
+        try {
+            var v = sessionStorage.getItem('todof1:pt');
+            if (v && (Date.now() - parseInt(v, 10)) < 2500) {
+                document.documentElement.setAttribute('data-pt', 'in');
+            }
+            sessionStorage.removeItem('todof1:pt');
+        } catch (e) { /* sin almacenamiento */ }
+    })();
+</script>
+
 <header class="tf-nav" id="tf-nav">
     <div class="tf-nav__inner">
         <a class="tf-brand" href="/index.html/PagePrincipal.php" aria-label="TodoF1, ir al inicio">
@@ -106,7 +134,7 @@ $items = [
                         </form>
                     </div>
                 <?php else: ?>
-                    <a class="tf-btn tf-btn--ghost tf-btn--sm" href="/index.html/login.php">Acceso</a>
+                    <a class="tf-btn tf-btn--ghost tf-btn--sm" href="/index.html/login.php" data-no-transition>Acceso</a>
                 <?php endif; ?>
             </div>
         </nav>
@@ -114,4 +142,5 @@ $items = [
 </header>
 <script src="/index.html/js/theme.js"></script>
 <script src="/index.html/js/session.js"></script>
+<script src="/index.html/js/transition.js" defer></script>
 <script src="/index.html/js/navbar.js" defer></script>
