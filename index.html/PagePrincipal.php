@@ -45,7 +45,7 @@ session_start();
             <!-- ================= HERO ================= -->
             <section class="hero" aria-labelledby="hero-title">
                 <div class="hero__media" aria-hidden="true">
-                    <img id="hero-img" class="hero__img" src="/Images/hero-f1.jpg" data-general="/Images/hero-f1.jpg"
+                    <img id="hero-img" class="hero__img" src="/Images/heroes/default/a.jpg" data-general="/Images/heroes/default/a.jpg"
                          alt="Monoplazas de Fórmula 1 de distintas escuderías compitiendo en la salida de un Gran Premio"
                          fetchpriority="high" decoding="async" width="1280" height="851">
                     <img id="hero-img-next" class="hero__img hero__img--next" alt="" aria-hidden="true" decoding="async" width="1280" height="851">
@@ -224,11 +224,8 @@ session_start();
     <footer class="tf-credits">
         <div class="tf-container">
             <h2 class="tf-credits__title">Créditos fotográficos</h2>
-            <p class="tf-credits__line">
-                Imagen general del hero: <b>Bassfish22</b>
-                &middot; <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>
-            </p>
-            <ul class="tf-credits__list" id="photo-credits" aria-label="Créditos de imágenes por escudería" hidden></ul>
+            <p class="tf-credits__pending" id="photo-credits-pending">Atribuciones y licencias de las fotografías del hero pendientes de confirmar.</p>
+            <ul class="tf-credits__list" id="photo-credits" aria-label="Créditos de las imágenes del hero" hidden></ul>
         </div>
     </footer>
 </body>

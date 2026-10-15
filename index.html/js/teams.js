@@ -46,23 +46,38 @@
     jordan: { p: '#D6B400', s: '#2B2B2B', a: '#FFD800' }
   };
 
-  // Imágenes del hero por escudería, usando los constructorId reales.
-  // Coloca los ficheros (optimizados, preferible WebP) en /Images/heroes/.
-  // Si el archivo no existe o falla la carga, se usa la imagen general del hero.
+  // Imágenes del hero por escudería, usando los constructorId reales y las
+  // rutas/formatos REALES de /Images/heroes/escuderias (formatos mixtos).
+  // Si el archivo falla, se usa una imagen válida de /Images/heroes/default.
   // `credit` es opcional: { label, author, license, licenseUrl, source }.
   var TEAM_IMAGES = {
-    ferrari: { src: '/Images/heroes/ferrari.webp' },
-    mclaren: { src: '/Images/heroes/mclaren.webp' },
-    mercedes: { src: '/Images/heroes/mercedes.webp' },
-    red_bull: { src: '/Images/heroes/red_bull.webp' },
-    rb: { src: '/Images/heroes/rb.webp' },
-    aston_martin: { src: '/Images/heroes/aston_martin.webp' },
-    alpine: { src: '/Images/heroes/alpine.webp' },
-    williams: { src: '/Images/heroes/williams.webp' },
-    haas: { src: '/Images/heroes/haas.webp' },
-    audi: { src: '/Images/heroes/audi.webp' },
-    cadillac: { src: '/Images/heroes/cadillac.webp' }
+    ferrari: { src: '/Images/heroes/escuderias/ferrari.png' },
+    mclaren: { src: '/Images/heroes/escuderias/mclaren.jpg' },
+    mercedes: { src: '/Images/heroes/escuderias/mercedes.avif' },
+    red_bull: { src: '/Images/heroes/escuderias/red_bull.avif' },
+    rb: { src: '/Images/heroes/escuderias/rb.webp' },
+    aston_martin: { src: '/Images/heroes/escuderias/aston_martin.webp' },
+    alpine: { src: '/Images/heroes/escuderias/alpine.webp' },
+    williams: { src: '/Images/heroes/escuderias/williams.avif' },
+    haas: { src: '/Images/heroes/escuderias/haas.avif' },
+    audi: { src: '/Images/heroes/escuderias/audi.jpg' },
+    cadillac: { src: '/Images/heroes/escuderias/cadillac.jpg' }
   };
+
+  // Imágenes del carrusel del tema «TodoF1 original», en orden por nombre.
+  var DEFAULT_IMAGES = [
+    '/Images/heroes/default/a.jpg',
+    '/Images/heroes/default/b.jpg',
+    '/Images/heroes/default/c.jpg',
+    '/Images/heroes/default/d.jpg',
+    '/Images/heroes/default/e.jpg'
+  ];
+
+  // Imagen de respaldo si alguna falla (una imagen válida de default).
+  var FALLBACK_IMAGE = DEFAULT_IMAGES[0];
+
+  // Créditos de las imágenes de default (sin datos de autoría => pendiente).
+  var DEFAULT_CREDITS = [];
 
   // ---------------------------------------------------------- Estado
   function currentYear() {
@@ -195,9 +210,12 @@
   }
 
   // ---------------------------------------------------------- Hero (imagen por tema)
-  var HERO_FADE_MS = 500;
-  var heroShown = null;
-  var heroToken = 0;
+  var HERO_FADE_MS = 700;       // fundido cruzado
+  var CAROUSEL_MS = 8000;       // carrusel del tema original
+  var heroShown = null;         // src actualmente visible (capa base)
+  var heroToken = 0;            // invalida operaciones async al cambiar de tema
+  var carouselTimer = null;     // temporizador del carrusel
+  var carouselIndex = 0;        // índice actual dentro de DEFAULT_IMAGES
 
   function teamHeroSrc(id) {
     var entry = id ? TEAM_IMAGES[id] : null;
@@ -219,33 +237,38 @@
     });
   }
 
-  // Aplica la imagen del hero del tema activo. `animate` activa el fundido cruzado.
-  function applyHero(animate) {
+  function stopCarousel() {
+    if (carouselTimer) {
+      clearInterval(carouselTimer);
+      carouselTimer = null;
+    }
+  }
+
+  // Precarga la siguiente imagen del carrusel para evitar parpadeos.
+  function preloadNext() {
+    if (DEFAULT_IMAGES.length < 2 || prefersReducedMotion()) return;
+    var nxt = DEFAULT_IMAGES[(carouselIndex + 1) % DEFAULT_IMAGES.length];
+    preloadImage(nxt);
+  }
+
+  // Muestra `src` en el hero (con fundido si `animate`). Cae a FALLBACK_IMAGE si falla.
+  function setHeroImage(src, animate, token) {
     var img = document.getElementById('hero-img');
     if (!img) return;
-    var token = ++heroToken;
-    var general = img.getAttribute('data-general') || img.getAttribute('src');
-    var state = readState(currentYear());
-    var target = teamHeroSrc(state.theme) || general;
-    if (heroShown === null) heroShown = img.getAttribute('src') || general;
-    if (target === heroShown) return;
+    if (src === heroShown) return;
+    var next = document.getElementById('hero-img-next');
+    var fade = animate && !prefersReducedMotion() && next;
 
-    if (!animate || prefersReducedMotion()) {
-      preloadImage(target).then(function (ok) {
-        if (token !== heroToken) return;
-        var finalSrc = ok ? target : general;
+    preloadImage(src).then(function (ok) {
+      if (token !== heroToken) return;
+      var finalSrc = ok ? src : FALLBACK_IMAGE;
+      if (finalSrc === heroShown) return;
+
+      if (!fade) {
         img.setAttribute('src', finalSrc);
         heroShown = finalSrc;
-      });
-      return;
-    }
-
-    var next = document.getElementById('hero-img-next');
-    preloadImage(target).then(function (ok) {
-      if (token !== heroToken) return;
-      var finalSrc = ok ? target : general;
-      if (finalSrc === heroShown) return;
-      if (!next) { img.setAttribute('src', finalSrc); heroShown = finalSrc; return; }
+        return;
+      }
 
       var settled = false;
       function commit() {
@@ -261,6 +284,37 @@
       next.addEventListener('transitionend', commit);
       setTimeout(commit, HERO_FADE_MS + 400);
     });
+  }
+
+  function startCarousel() {
+    stopCarousel();
+    if (DEFAULT_IMAGES.length < 2 || prefersReducedMotion()) return;
+    preloadNext();
+    carouselTimer = setInterval(function () {
+      carouselIndex = (carouselIndex + 1) % DEFAULT_IMAGES.length;
+      setHeroImage(DEFAULT_IMAGES[carouselIndex], true, heroToken);
+      preloadNext();
+    }, CAROUSEL_MS);
+  }
+
+  // Aplica la imagen del hero del tema activo. `animate` activa el fundido cruzado.
+  function applyHero(animate) {
+    var img = document.getElementById('hero-img');
+    if (!img) return;
+    var token = ++heroToken;
+    stopCarousel();
+    if (heroShown === null) heroShown = img.getAttribute('src') || FALLBACK_IMAGE;
+
+    var state = readState(currentYear());
+    if (state.theme) {
+      setHeroImage(teamHeroSrc(state.theme) || FALLBACK_IMAGE, animate, token);
+      return;
+    }
+
+    // Tema original: carrusel, empezando por la primera imagen.
+    carouselIndex = 0;
+    setHeroImage(DEFAULT_IMAGES[0] || FALLBACK_IMAGE, animate, token);
+    startCarousel();
   }
 
   // ---------------------------------------------------------- Panel (drawer)
@@ -503,14 +557,21 @@
   // ---------------------------------------------------------- Créditos fotográficos
   function renderCredits() {
     var list = document.getElementById('photo-credits');
-    if (!list) return;
-    var html = '';
+    var pending = document.getElementById('photo-credits-pending');
+    if (!list && !pending) return;
+
+    var items = [];
+    DEFAULT_CREDITS.forEach(function (credit) {
+      if (credit && credit.author) items.push(credit);
+    });
     Object.keys(TEAM_IMAGES).forEach(function (id) {
       var entry = TEAM_IMAGES[id];
-      var credit = entry && entry.credit;
-      if (!credit || !credit.author) return;
-      var label = credit.label || id;
-      var part = escHtml(label) + ' \u2014 ' + escHtml(credit.author);
+      if (entry && entry.credit && entry.credit.author) items.push(entry.credit);
+    });
+
+    var html = items.map(function (credit) {
+      var part = credit.label ? escHtml(credit.label) + ' \u2014 ' : '';
+      part += escHtml(credit.author);
       if (credit.license) {
         part += credit.licenseUrl
           ? ' \u00b7 <a href="' + escHtml(credit.licenseUrl) + '" target="_blank" rel="noopener license">' + escHtml(credit.license) + '</a>'
@@ -519,10 +580,14 @@
       if (credit.source) {
         part += ' \u00b7 <a href="' + escHtml(credit.source) + '" target="_blank" rel="noopener">Fuente</a>';
       }
-      html += '<li>' + part + '</li>';
-    });
-    list.innerHTML = html;
-    list.hidden = !html;
+      return '<li>' + part + '</li>';
+    }).join('');
+
+    if (list) {
+      list.innerHTML = html;
+      list.hidden = !html;
+    }
+    if (pending) pending.hidden = !!html;
   }
 
   // ---------------------------------------------------------- Init
@@ -542,7 +607,7 @@
     state: function (y) { return readState(y || currentYear()); },
     apply: applyFromState,
     open: function () { openDrawer(); },
-    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, teamHeroSrc: teamHeroSrc, TEAMS: TEAMS, TEAM_IMAGES: TEAM_IMAGES }
+    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, teamHeroSrc: teamHeroSrc, TEAMS: TEAMS, TEAM_IMAGES: TEAM_IMAGES, DEFAULT_IMAGES: DEFAULT_IMAGES, FALLBACK_IMAGE: FALLBACK_IMAGE }
   };
 
   if (document.readyState === 'loading') {
