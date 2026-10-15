@@ -170,6 +170,20 @@ button {
 .tf-main {
   padding-top: calc(var(--nav-h) + var(--sp-7));
   padding-bottom: var(--sp-8);
+  animation: tf-page-enter 220ms var(--ease) both;
+}
+
+/* Entrada de página: fade-in suave + desplazamiento vertical sutil */
+@keyframes tf-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .tf-main--flush {
@@ -1235,6 +1249,12 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .tf-main {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
 
