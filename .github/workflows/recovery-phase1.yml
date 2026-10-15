@@ -1,0 +1,167 @@
+name: Recuperacion Fase 1 - ref origin/backup-github
+
+# WORKFLOW MANUAL (solo workflow_dispatch). No se ejecuta en push.
+# Objetivo (FASE 1, no destructiva):
+#   1) Comprobar repositorio, working tree y que origin apunta al repo esperado.
+#   2) Copiar (backup) la referencia rota y .git/packed-refs fuera de .git.
+#   3) Eliminar EXCLUSIVAMENTE refs/remotes/origin/backup-github (git update-ref -d).
+#   4) git fetch --prune origin main y despues git fsck --full.
+#   5) Mostrar resultados y codigos de salida.
+# NO ejecuta deploy.sh, ni reset --hard, ni reconstruye .git, ni toca
+# .env, private/, www/, MariaDB u otras referencias.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: todof1-recovery
+  cancel-in-progress: false
+
+jobs:
+  recovery-phase1:
+    name: Fase 1 (manual)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Ejecutar Fase 1 por SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$SSH_USER@$SSH_HOST" 'bash -s' <<'REMOTE_SCRIPT'
+          set -u
+          export GIT_TERMINAL_PROMPT=0
+
+          REPO_DIR="${TODOF1_REPO_DIR:-/home/todof1/todof1-app}"
+          BRANCH="${TODOF1_BRANCH:-main}"
+          REMOTE="${TODOF1_REMOTE:-origin}"
+          REMOTE_URL="${TODOF1_REMOTE_URL:-https://github.com/Daniel-Zarco/TodoF1.git}"
+          BROKEN_REF="refs/remotes/origin/backup-github"
+          SAFE_ROOT="${TODOF1_RECOVERY_DIR:-/home/todof1/todof1-recovery}"
+          SAFE_DIR="$SAFE_ROOT/$(date +%Y%m%d-%H%M%S)"
+
+          log()  { printf '[FASE1] %s\n' "$*"; }
+          fail() { printf '[FASE1][ERROR] %s\n' "$*" >&2; exit 1; }
+
+          log "===== INICIO FASE 1 ($(date '+%Y-%m-%d %H:%M:%S')) ====="
+
+          # 1) Comprobaciones previas
+          [ -d "$REPO_DIR/.git" ] || fail "No existe $REPO_DIR/.git"
+          cd "$REPO_DIR" || fail "No se puede entrar en $REPO_DIR"
+          git rev-parse --is-inside-work-tree >/dev/null 2>&1 || fail "No es un repositorio git"
+
+          current_branch="$(git rev-parse --abbrev-ref HEAD 2>&1)"
+          log "Rama actual: $current_branch (esperada: $BRANCH)"
+          [ "$current_branch" = "$BRANCH" ] || fail "Rama inesperada: '$current_branch'"
+
+          echo "--- git log -1 --oneline ---"
+          git log -1 --oneline 2>&1; echo "[exit=$?]"
+
+          echo "--- git status --porcelain (versionados) ---"
+          dirty="$(git status --porcelain --untracked-files=no 2>&1)"; echo "$dirty"; echo "[exit=$?]"
+          [ -z "$dirty" ] || fail "Cambios locales versionados presentes; se detiene."
+          log "Working tree limpio en archivos versionados."
+
+          current_url="$(git remote get-url "$REMOTE" 2>/dev/null || true)"
+          log "Remoto '$REMOTE': ${current_url:-<ausente>}"
+          if [ "$current_url" != "$REMOTE_URL" ]; then
+            fail "El remoto '$REMOTE' no apunta a $REMOTE_URL (actual: '${current_url:-<ausente>}'). Se detiene."
+          fi
+          log "Remoto '$REMOTE' verificado: apunta a $REMOTE_URL"
+
+          loose_ref=".git/$BROKEN_REF"
+          echo "--- referencia rota ANTES ---"
+          git for-each-ref --format="%(refname) %(objectname)" "$BROKEN_REF" 2>&1; echo "[exit=$?]"
+          if [ -f "$loose_ref" ]; then echo "loose: $loose_ref"; cat "$loose_ref" 2>&1; else echo "loose: no existe"; fi
+          echo "--- packed-refs (backup-github) ---"
+          grep -n "backup-github" .git/packed-refs 2>&1; echo "[grep_exit=$?]"
+
+          # 2) Backups fuera de .git
+          log "Creando backups en $SAFE_DIR"
+          mkdir -p "$SAFE_DIR" || fail "No se pudo crear $SAFE_DIR"
+          if [ -f ".git/packed-refs" ]; then
+            cp -a ".git/packed-refs" "$SAFE_DIR/packed-refs.bak"
+            log "Backup packed-refs -> $SAFE_DIR/packed-refs.bak"
+          else
+            log "Sin .git/packed-refs (nada que copiar)"
+          fi
+          if [ -f "$loose_ref" ]; then
+            mkdir -p "$SAFE_DIR/refs/remotes/origin"
+            cp -a "$loose_ref" "$SAFE_DIR/refs/remotes/origin/backup-github.bak"
+            log "Backup ref suelta -> $SAFE_DIR/refs/remotes/origin/backup-github.bak"
+          else
+            log "Sin referencia suelta $loose_ref (nada que copiar)"
+          fi
+          {
+            echo "ref: $BROKEN_REF"
+            echo "for-each-ref:"
+            git for-each-ref --format="%(refname) %(objectname)" "$BROKEN_REF" 2>&1
+            echo "packed-refs match:"
+            grep "backup-github" .git/packed-refs 2>&1
+          } > "$SAFE_DIR/registro-ref.txt" 2>&1
+          log "Registro -> $SAFE_DIR/registro-ref.txt"
+
+          # 3) Eliminar EXCLUSIVAMENTE la referencia rota
+          present=0
+          [ -f "$loose_ref" ] && present=1
+          grep -q "backup-github" .git/packed-refs 2>/dev/null && present=1
+          git show-ref --verify --quiet "$BROKEN_REF" 2>/dev/null && present=1
+
+          if [ "$present" -eq 0 ]; then
+            log "La referencia '$BROKEN_REF' no existe; nada que eliminar."
+          else
+            log "Eliminando '$BROKEN_REF' (git update-ref -d)"
+            git update-ref -d "$BROKEN_REF" 2>&1; rc=$?
+            echo "[update_ref_exit=$rc]"
+            [ "$rc" -eq 0 ] || fail "git update-ref -d fallo (exit=$rc); se detiene sin continuar."
+          fi
+
+          gone=1
+          [ -f "$loose_ref" ] && gone=0
+          grep -q "backup-github" .git/packed-refs 2>/dev/null && gone=0
+          git show-ref --verify --quiet "$BROKEN_REF" 2>/dev/null && gone=0
+          [ "$gone" -eq 1 ] || fail "La referencia '$BROKEN_REF' sigue existiendo; se detiene."
+          log "Referencia '$BROKEN_REF' eliminada y verificada."
+
+          # 4) fetch --prune + fsck --full
+          echo "===== git fetch --prune $REMOTE $BRANCH ====="
+          git fetch --prune "$REMOTE" "$BRANCH" 2>&1; fetch_exit=$?
+          echo "[fetch_exit=$fetch_exit]"
+
+          echo "===== git fsck --full ====="
+          git fsck --full 2>&1; fsck_exit=$?
+          echo "[fsck_exit=$fsck_exit]"
+
+          echo "--- git for-each-ref (remotos) ---"; git for-each-ref --format="%(refname) %(objectname)" refs/remotes 2>&1; echo "[exit=$?]"
+          echo "--- git log -1 --oneline ---"; git log -1 --oneline 2>&1; echo "[exit=$?]"
+          echo "--- git status --short ---"; git status --short 2>&1; echo "[exit=$?]"
+
+          log "RESULTADO FASE 1: fetch=$fetch_exit fsck=$fsck_exit backups=$SAFE_DIR"
+          if [ "$fetch_exit" -ne 0 ] || [ "$fsck_exit" -ne 0 ]; then
+            log "Quedan problemas pendientes; revisar arriba. deploy.sh NO ejecutado."
+            exit 1
+          fi
+          log "Sin errores de fetch/fsck. deploy.sh NO ejecutado."
+          exit 0
+          REMOTE_SCRIPT
