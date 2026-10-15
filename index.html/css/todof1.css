@@ -91,6 +91,9 @@
   --team-primary-dim: rgba(225, 6, 0, 0.14);
   --team-primary-line: rgba(225, 6, 0, 0.38);
   --team-on-primary: #FFFFFF;
+
+  /* Línea inferior del navbar (Gradient Flow): se sobreescribe desde JS */
+  --team-stripe: linear-gradient(90deg, #E10600 0%, #FF2B1F 50%, #E10600 100%);
 }
 
 /* ------------------------------------------------------------

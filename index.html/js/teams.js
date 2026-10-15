@@ -17,7 +17,7 @@
   var KEY_THEME = 'todof1:teams:';     // preferencia (compat) por temporada
   var KEY_ACTIVE = 'todof1:teams-active';
   var TEAM_VARS = ['--team-primary', '--team-secondary', '--team-accent', '--team-glow',
-    '--team-primary-dim', '--team-primary-line', '--team-on-primary'];
+    '--team-primary-dim', '--team-primary-line', '--team-on-primary', '--team-stripe'];
 
   // Identidad visual por constructorId. Sin entrada => tema original.
   var TEAMS = {
@@ -113,6 +113,33 @@
     return { id: id, primary: t.p, secondary: t.s || t.p, accent: t.a || t.s || t.p };
   }
 
+  // Colores únicos del tema, manteniendo el orden original (sin repetir).
+  function uniqueColors(team) {
+    var order = [team.primary, team.secondary, team.accent];
+    var out = [], seen = {};
+    order.forEach(function (c) {
+      if (!c) return;
+      var k = String(c).toLowerCase();
+      if (!seen[k]) { seen[k] = 1; out.push(c); }
+    });
+    return out;
+  }
+
+  // Degradado cíclico (empieza y termina con el primer color) para que el
+  // "Gradient Flow" del navbar se repita sin saltos. 1, 2 o 3 colores.
+  function stripeGradient(team) {
+    if (!team) return null;
+    var c = uniqueColors(team);
+    var n = c.length;
+    if (n <= 1) return 'linear-gradient(90deg, ' + c[0] + ', ' + c[0] + ')';
+    var stops = [c[0] + ' 0%'];
+    for (var i = 1; i < n; i++) {
+      stops.push(c[i] + ' ' + ((i * 100 / n).toFixed(3)) + '%');
+    }
+    stops.push(c[0] + ' 100%');
+    return 'linear-gradient(90deg, ' + stops.join(', ') + ')';
+  }
+
   function varsFor(team) {
     if (!team) return null;
     return {
@@ -122,8 +149,13 @@
       '--team-glow': rgba(team.primary, 0.4),
       '--team-primary-dim': rgba(team.primary, 0.14),
       '--team-primary-line': rgba(team.primary, 0.38),
-      '--team-on-primary': onColor(team.primary)
+      '--team-on-primary': onColor(team.primary),
+      '--team-stripe': stripeGradient(team)
     };
+  }
+
+  function stripeMode(team) {
+    return (team && uniqueColors(team).length > 1) ? 'flow' : 'static';
   }
 
   function applyTeam(team) {
@@ -131,12 +163,14 @@
     if (!vars) {
       TEAM_VARS.forEach(function (k) { root.style.removeProperty(k); });
       root.removeAttribute('data-team');
+      root.removeAttribute('data-team-stripe');
       writeJSON(KEY_ACTIVE, null);
       return;
     }
     Object.keys(vars).forEach(function (k) { root.style.setProperty(k, vars[k]); });
     root.setAttribute('data-team', team.id);
-    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars });
+    root.setAttribute('data-team-stripe', stripeMode(team));
+    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars, stripe: stripeMode(team) });
   }
 
   function applyFromState() {
@@ -409,7 +443,7 @@
     state: function (y) { return readState(y || currentYear()); },
     apply: applyFromState,
     open: function () { openDrawer(); },
-    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, TEAMS: TEAMS }
+    _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, TEAMS: TEAMS }
   };
 
   if (document.readyState === 'loading') {

@@ -14,14 +14,37 @@
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02), 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* Línea inferior: color sólido del tema */
+/* Línea inferior: "Gradient Flow" (se desplaza en horizontal, sin saltos) */
 .tf-nav::after {
   content: "";
   position: absolute;
   inset: auto 0 -1px 0;
   height: 2px;
   width: 100%;
-  background: var(--team-primary);
+  background-image: var(--team-stripe);
+  background-size: 50% 100%;
+  background-repeat: repeat-x;
+  animation: tf-nav-flow 7s linear infinite;
+}
+
+html[data-team-stripe="static"] .tf-nav::after {
+  animation: none;
+}
+
+@keyframes tf-nav-flow {
+  from {
+    background-position-x: 0%;
+  }
+
+  to {
+    background-position-x: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tf-nav::after {
+    animation: none;
+  }
 }
 
 .tf-nav__inner {
@@ -84,7 +107,7 @@
   bottom: -1px;
   height: 2px;
   border-radius: 2px;
-  background: var(--team-primary);
+  background: linear-gradient(90deg, var(--team-primary), var(--team-secondary));
   box-shadow: 0 0 12px var(--team-glow);
 }
 
