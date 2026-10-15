@@ -69,6 +69,17 @@
   /* Layout */
   --container: 1180px;
   --nav-h: 66px;
+
+  /* Tema (extras Racing Tech) */
+  --c-nav-bg: rgba(11, 11, 13, 0.72);
+  --c-pop: #17171b;
+  --c-pop-glass: rgba(22, 22, 25, 0.92);
+  --c-bg-grad-a: rgba(225, 6, 0, 0.10);
+  --c-bg-grad-b: rgba(255, 255, 255, 0.035);
+  --c-grid: rgba(255, 255, 255, 0.035);
+  --c-shimmer: rgba(255, 255, 255, 0.05);
+  --c-glass: rgba(255, 255, 255, 0.04);
+  --c-glow: rgba(225, 6, 0, 0.55);
 }
 
 /* ------------------------------------------------------------
@@ -94,11 +105,12 @@ body {
   color: var(--c-text);
   background-color: var(--c-bg);
   background-image:
-    radial-gradient(1100px 520px at 82% -12%, rgba(225, 6, 0, 0.10), transparent 62%),
-    radial-gradient(900px 500px at -10% 8%, rgba(255, 255, 255, 0.035), transparent 60%);
+    radial-gradient(1100px 520px at 82% -12%, var(--c-bg-grad-a), transparent 62%),
+    radial-gradient(900px 500px at -10% 8%, var(--c-bg-grad-b), transparent 60%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--t), color var(--t);
 }
 
 img {
@@ -777,7 +789,7 @@ button {
 }
 
 .tf-select option {
-  background: #17171b;
+  background: var(--c-pop);
   color: var(--c-text);
 }
 
@@ -876,7 +888,7 @@ button {
   position: absolute;
   inset: 0;
   transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  background: linear-gradient(90deg, transparent, var(--c-shimmer), transparent);
   animation: tf-shimmer 1.4s infinite;
 }
 
@@ -905,8 +917,8 @@ button {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(var(--c-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(120% 100% at 85% 0%, #000, transparent 70%);
   -webkit-mask-image: radial-gradient(120% 100% at 85% 0%, #000, transparent 70%);
@@ -1079,7 +1091,7 @@ button {
 
 .tf-auth__card {
   width: min(420px, 100%);
-  background: rgba(22, 22, 25, 0.92);
+  background: var(--c-pop-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--c-line);
@@ -1225,3 +1237,77 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   Racing Tech Light — tema claro
+   Fondos claros, tarjetas blancas, textos oscuros y acentos rojos.
+   No es una versión oscura con fondo blanco: sombras suaves,
+   bordes claros y jerarquía pensada para luz.
+   ============================================================ */
+html[data-theme="light"] {
+  --c-red: #E10600;
+  --c-red-2: #C30000;
+  --c-red-dim: rgba(225, 6, 0, 0.10);
+  --c-red-line: rgba(225, 6, 0, 0.30);
+
+  --c-bg: #EDF0F4;
+  --c-surface: #FFFFFF;
+  --c-surface-2: #F7F8FA;
+  --c-surface-3: #EDF1F6;
+  --c-line: #E2E6EC;
+  --c-line-2: rgba(17, 24, 39, 0.08);
+
+  --c-text: #11151B;
+  --c-dim: #4A5260;
+  --c-mute: #79818E;
+
+  --c-gold: #B8860B;
+  --c-silver: #8A9099;
+  --c-bronze: #A96A2E;
+  --c-green: #1F9D67;
+  --c-yellow: #B8860B;
+  --c-error: #C0392B;
+
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-2: 0 16px 40px rgba(16, 24, 40, 0.14);
+  --shadow-red: 0 12px 30px rgba(225, 6, 0, 0.22);
+
+  --c-nav-bg: rgba(255, 255, 255, 0.72);
+  --c-pop: #FFFFFF;
+  --c-pop-glass: rgba(255, 255, 255, 0.94);
+  --c-bg-grad-a: rgba(225, 6, 0, 0.06);
+  --c-bg-grad-b: rgba(17, 24, 39, 0.03);
+  --c-grid: rgba(17, 24, 39, 0.05);
+  --c-shimmer: rgba(17, 24, 39, 0.05);
+  --c-glass: rgba(17, 24, 39, 0.02);
+  --c-glow: rgba(225, 6, 0, 0.35);
+}
+
+html[data-theme="light"] ::selection {
+  background: #E10600;
+  color: #fff;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #C7CCD4;
+  border-color: var(--c-bg);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #AEB4BE;
+}
+
+html[data-theme="light"] .tf-kpi {
+  background: linear-gradient(180deg, #FFFFFF, #F6F8FB);
+}
+
+html[data-theme="light"] .tf-hero {
+  background:
+    linear-gradient(120deg, rgba(225, 6, 0, 0.07), transparent 48%),
+    linear-gradient(180deg, #FFFFFF, #F1F4F8);
+}
+
+html[data-theme="light"] .tf-skeleton {
+  background: var(--c-surface-3);
+}
+

@@ -40,6 +40,7 @@ $items = [
         <a class="tf-brand" href="/index.html/PagePrincipal.php" aria-label="TodoF1, ir al inicio">
             <span class="tf-brand__mark" aria-hidden="true">F1</span>
             <span class="tf-brand__name">Todo<span>F1</span></span>
+            <span class="tf-nav__tag" aria-hidden="true">Racing Intelligence</span>
         </a>
 
         <button class="tf-nav__toggle" id="tf-nav-toggle" type="button"
@@ -73,6 +74,23 @@ $items = [
                     </select>
                 </label>
 
+                <button class="tf-theme-toggle" id="tf-theme-toggle" type="button"
+                        aria-pressed="false" aria-label="Activar tema claro" title="Tema claro">
+                    <span class="tf-theme-toggle__icon tf-theme-toggle__icon--sun" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            <circle cx="12" cy="12" r="4.2"></circle>
+                            <path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12h2.6M18.9 12h2.6M4.2 19.8L6 18M18 6l1.8-1.8"></path>
+                        </svg>
+                    </span>
+                    <span class="tf-theme-toggle__icon tf-theme-toggle__icon--moon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                            <path d="M20 14.5A8.2 8.2 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"></path>
+                        </svg>
+                    </span>
+                </button>
+
                 <?php if ($isAdmin): ?>
                     <a class="tf-nav__ghost" href="/api/PageInfo.php">Panel</a>
                 <?php endif; ?>
@@ -94,5 +112,6 @@ $items = [
         </nav>
     </div>
 </header>
+<script src="/index.html/js/theme.js"></script>
 <script src="/index.html/js/session.js"></script>
 <script src="/index.html/js/navbar.js" defer></script>

@@ -1,23 +1,31 @@
 /* ============================================================
-   TodoF1 — Navegación principal
+   TodoF1 — Racing Intelligence · Navegación principal
+   Glassmorphism, acentos racing y selector de tema sol/luna.
    ============================================================ */
 .tf-nav {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 1000;
   height: var(--nav-h);
-  background: rgba(11, 11, 13, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--c-nav-bg);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
   border-bottom: 1px solid var(--c-line);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02), 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
+/* Línea racing inferior */
 .tf-nav::after {
   content: "";
   position: absolute;
   inset: auto 0 -1px 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--c-red) 0%, rgba(225, 6, 0, 0.25) 22%, transparent 55%);
+  background: linear-gradient(90deg, var(--c-red) 0%, var(--c-red-2) 14%, rgba(225, 6, 0, 0.25) 30%, transparent 60%);
+  opacity: 0.9;
+}
+
+html[data-theme="light"] .tf-nav {
+  box-shadow: 0 1px 0 rgba(17, 24, 39, 0.03), 0 10px 30px rgba(17, 24, 39, 0.08);
 }
 
 .tf-nav__inner {
@@ -38,6 +46,19 @@
   gap: var(--sp-5);
   flex: 1 1 auto;
   min-width: 0;
+}
+
+/* Etiqueta de identidad junto a la marca ------------------- */
+.tf-nav__tag {
+  margin-left: 2px;
+  padding-left: 12px;
+  border-left: 1px solid var(--c-line);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+  white-space: nowrap;
 }
 
 /* Enlaces -------------------------------------------------- */
@@ -63,7 +84,7 @@
 
 .tf-nav__link:hover {
   color: var(--c-text);
-  background: var(--c-surface-2);
+  background: var(--c-line-2);
 }
 
 .tf-nav__link.is-active {
@@ -78,7 +99,8 @@
   bottom: -1px;
   height: 2px;
   border-radius: 2px;
-  background: var(--c-red);
+  background: linear-gradient(90deg, var(--c-red), var(--c-red-2));
+  box-shadow: 0 0 12px rgba(225, 6, 0, 0.6);
 }
 
 /* Herramientas -------------------------------------------- */
@@ -127,6 +149,68 @@
   box-shadow: none;
   border: 0;
   background-color: transparent;
+}
+
+/* Selector de tema (sol / luna) --------------------------- */
+.tf-theme-toggle {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+  color: var(--c-dim);
+  cursor: pointer;
+  overflow: hidden;
+  transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+}
+
+.tf-theme-toggle:hover {
+  color: var(--c-text);
+  border-color: var(--c-red-line);
+  box-shadow: 0 0 0 3px var(--c-red-dim);
+  transform: translateY(-1px);
+}
+
+.tf-theme-toggle:active {
+  transform: translateY(0);
+}
+
+.tf-theme-toggle__icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transition: opacity var(--t), transform var(--t);
+}
+
+.tf-theme-toggle__icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* Oscuro por defecto: mostrar sol (acción -> claro) */
+.tf-theme-toggle__icon--sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+.tf-theme-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(-40deg) scale(0.6);
+}
+
+html[data-theme="light"] .tf-theme-toggle__icon--sun {
+  opacity: 0;
+  transform: rotate(40deg) scale(0.6);
+}
+
+html[data-theme="light"] .tf-theme-toggle__icon--moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 .tf-nav__ghost {
@@ -205,6 +289,12 @@
 }
 
 /* Responsive ---------------------------------------------- */
+@media (max-width: 1080px) {
+  .tf-nav__tag {
+    display: none;
+  }
+}
+
 @media (max-width: 980px) {
   .tf-nav__toggle {
     display: flex;
