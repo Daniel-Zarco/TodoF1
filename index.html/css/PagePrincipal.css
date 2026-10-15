@@ -591,23 +591,6 @@ html[data-theme="light"] .qa::after {
   color: var(--c-mute);
 }
 
-/* Escudería favorita destacada en las clasificaciones */
-.tf-standing {
-  position: relative;
-}
-
-.tf-standing.is-fav::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 6px;
-  bottom: 6px;
-  width: 3px;
-  border-radius: 3px;
-  background: var(--fav, var(--team-primary));
-  box-shadow: 0 0 10px var(--fav, var(--team-primary));
-}
-
 /* ============================================================
    RESPONSIVE
    ============================================================ */

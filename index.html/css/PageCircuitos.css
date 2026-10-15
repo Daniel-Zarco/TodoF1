@@ -15,7 +15,7 @@
 
 .tf-circuit-card:hover {
   transform: translateY(-3px);
-  border-color: var(--c-red-line);
+  border-color: var(--team-primary-line);
   box-shadow: var(--shadow-2);
 }
 
@@ -31,7 +31,7 @@
   font-weight: 700;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .tf-circuit-card__name {
@@ -75,7 +75,7 @@
 
 .tf-circuit-card__cta {
   font-weight: 600;
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .tf-circuit-card.is-upcoming {

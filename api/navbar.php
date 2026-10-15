@@ -39,8 +39,6 @@ $items = [
     <div class="tf-nav__inner">
         <a class="tf-brand" href="/index.html/PagePrincipal.php" aria-label="TodoF1, ir al inicio">
             <span class="tf-brand__mark" aria-hidden="true">F1</span>
-            <span class="tf-brand__name">Todo<span>F1</span></span>
-            <span class="tf-nav__tag" aria-hidden="true">Racing Intelligence</span>
         </a>
 
         <button class="tf-nav__toggle" id="tf-nav-toggle" type="button"
@@ -91,15 +89,18 @@ $items = [
                     </span>
                 </button>
 
-                <button class="tf-teams-btn" id="tf-teams-btn" type="button"
-                        aria-haspopup="dialog" aria-expanded="false" aria-label="Mis equipos favoritos">
-                    <span class="tf-teams-btn__icon" aria-hidden="true">
+                <button class="tf-theme-picker" id="tf-theme-picker" type="button"
+                        aria-haspopup="dialog" aria-expanded="false" aria-label="Elegir tema visual">
+                    <span class="tf-theme-picker__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                              stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                            <path d="M12 20.5S4 15 4 9.2A4.2 4.2 0 0 1 12 6.6a4.2 4.2 0 0 1 8 2.6C20 15 12 20.5 12 20.5Z"></path>
+                            <path d="M12 21a9 9 0 1 1 9-9c0 2-1.4 3.2-3.2 3.2H16a2 2 0 0 0 0 4h.6A1.4 1.4 0 0 1 18 21H12Z"></path>
+                            <circle cx="7.6" cy="12" r="1.1"></circle>
+                            <circle cx="10.4" cy="7.8" r="1.1"></circle>
+                            <circle cx="15" cy="8.2" r="1.1"></circle>
                         </svg>
                     </span>
-                    <span class="tf-teams-btn__label">Mis equipos</span>
+                    <span class="tf-theme-picker__label">Elegir tema</span>
                 </button>
 
                 <?php if ($isAdmin): ?>

@@ -10,7 +10,7 @@
   font-weight: 800;
   font-size: 2rem;
   letter-spacing: -0.03em;
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .tf-profile__body {

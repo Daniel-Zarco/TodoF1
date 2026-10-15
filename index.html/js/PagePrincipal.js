@@ -38,27 +38,6 @@
     el.innerHTML = '<div class="tf-' + (type || 'empty') + '">' + esc(message) + '</div>';
   }
 
-  // Destaca en las clasificaciones las escuderías favoritas del visitante.
-  function markFavorites(el) {
-    if (!el || !window.TodoF1Teams || !window.TodoF1Teams.colorForName) return;
-    var rows = el.querySelectorAll('.tf-standing');
-    Array.prototype.forEach.call(rows, function (row) {
-      var nameEl = row.querySelector('.tf-standing__name');
-      var teamEl = row.querySelector('.tf-standing__team');
-      var candidates = [];
-      if (nameEl) candidates.push(String(nameEl.textContent).trim());
-      if (teamEl) candidates.push(String(teamEl.textContent).trim());
-      var team = null;
-      for (var i = 0; i < candidates.length && !team; i++) {
-        if (candidates[i]) team = window.TodoF1Teams.colorForName(candidates[i]);
-      }
-      if (team) {
-        row.classList.add('is-fav');
-        row.style.setProperty('--fav', team.primary);
-      }
-    });
-  }
-
   function fmtDate(iso) {
     if (!iso) return '';
     var p = String(iso).split('-');
@@ -128,7 +107,6 @@
     });
     el.innerHTML = '';
     el.appendChild(fragment);
-    markFavorites(el);
   }
 
   function standingsCount(settled, key) {
@@ -269,9 +247,4 @@
   });
 
   loadSeason(year);
-
-  document.addEventListener('todof1:teams-changed', function () {
-    markFavorites($('standings-pilotos'));
-    markFavorites($('standings-escuderias'));
-  });
 })();

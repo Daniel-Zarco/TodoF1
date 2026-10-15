@@ -365,9 +365,9 @@ html[data-theme="light"] .tf-theme-toggle__icon--moon {
 }
 
 /* ============================================================
-   Mis equipos — botón, panel lateral y tarjetas de escudería
+   Elegir tema — botón, panel lateral y selector de temas
    ============================================================ */
-.tf-teams-btn {
+.tf-theme-picker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -383,41 +383,41 @@ html[data-theme="light"] .tf-theme-toggle__icon--moon {
   transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
 }
 
-.tf-teams-btn:hover {
+.tf-theme-picker:hover {
   color: var(--c-text);
   border-color: var(--team-primary-line);
   box-shadow: 0 0 0 3px var(--team-primary-dim);
   transform: translateY(-1px);
 }
 
-.tf-teams-btn__icon {
+.tf-theme-picker__icon {
   display: inline-grid;
   place-items: center;
   color: var(--team-primary);
   transition: transform var(--t-fast);
 }
 
-.tf-teams-btn__icon svg {
+.tf-theme-picker__icon svg {
   width: 18px;
   height: 18px;
   display: block;
 }
 
-.tf-teams-btn:hover .tf-teams-btn__icon {
+.tf-theme-picker:hover .tf-theme-picker__icon {
   transform: scale(1.1);
 }
 
-.tf-teams-btn[aria-expanded="true"] {
+.tf-theme-picker[aria-expanded="true"] {
   color: var(--c-text);
   border-color: var(--team-primary-line);
 }
 
 @media (max-width: 1180px) {
-  .tf-teams-btn__label {
+  .tf-theme-picker__label {
     display: none;
   }
 
-  .tf-teams-btn {
+  .tf-theme-picker {
     padding: 0 10px;
   }
 }
@@ -640,77 +640,4 @@ html[data-drawer="open"] .tf-drawer__panel {
 
 .theme-opt.is-active .theme-opt__check {
   opacity: 1;
-}
-
-/* Tarjetas de escudería ------------------------------------ */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--sp-3);
-}
-
-.team-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-md);
-  background: var(--c-surface-2);
-  overflow: hidden;
-  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
-}
-
-.team-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--c-line-2);
-}
-
-.team-card.is-fav {
-  border-color: var(--team-primary-line);
-}
-
-.team-card__fav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  width: 100%;
-  padding: var(--sp-3);
-  background: transparent;
-  border: 0;
-  color: var(--c-text);
-  cursor: pointer;
-  text-align: left;
-}
-
-.team-card__swatches {
-  display: inline-flex;
-}
-
-.team-card__swatches i {
-  width: 18px;
-  height: 24px;
-  border-radius: 4px;
-  margin-left: -7px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-}
-
-.team-card__swatches i:first-child {
-  margin-left: 0;
-}
-
-.team-card__name {
-  font-size: 0.88rem;
-  font-weight: 600;
-}
-
-.team-card__hint {
-  font-size: 0.68rem;
-  color: var(--c-mute);
-}
-
-@media (max-width: 420px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
 }

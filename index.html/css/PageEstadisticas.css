@@ -7,7 +7,7 @@
 
 #standings-pilotos tr:focus-visible,
 #standings-escuderias tr:focus-visible {
-  outline: 2px solid var(--c-red-2);
+  outline: 2px solid var(--team-primary);
   outline-offset: -2px;
 }
 

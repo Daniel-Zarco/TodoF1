@@ -18,7 +18,7 @@
   position: absolute;
   inset: 0 auto 0 0;
   width: 3px;
-  background: var(--team, var(--c-red));
+  background: var(--team, var(--team-primary));
 }
 
 .tf-team-card:hover {
@@ -49,7 +49,7 @@
   width: 22px;
   height: 6px;
   border-radius: var(--r-pill);
-  background: var(--team, var(--c-red));
+  background: var(--team, var(--team-primary));
 }
 
 .tf-team-card__name {
@@ -97,5 +97,5 @@
 .tf-team-card__cta {
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }

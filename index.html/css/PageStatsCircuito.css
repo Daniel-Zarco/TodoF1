@@ -34,8 +34,8 @@
   width: 40px;
   height: 40px;
   border-radius: var(--r-sm);
-  background: var(--c-red-dim);
-  color: var(--c-red-2);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
   font-size: 1.1rem;
 }
 

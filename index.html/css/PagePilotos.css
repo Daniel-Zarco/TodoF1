@@ -12,7 +12,7 @@
 }
 
 .tf-pilot-name .tf-dot {
-  background: var(--c-red);
+  background: var(--team-primary);
 }
 
 .tf-team-cell {

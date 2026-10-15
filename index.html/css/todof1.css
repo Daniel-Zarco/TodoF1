@@ -269,7 +269,7 @@ button {
 }
 
 .tf-text-red {
-  color: var(--c-red-2);
+  color: var(--team-primary);
 }
 
 .tf-rank {
@@ -712,9 +712,9 @@ button {
 }
 
 .tf-badge--red {
-  background: var(--c-red-dim);
-  color: var(--c-red-2);
-  border-color: var(--c-red-line);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+  border-color: var(--team-primary-line);
 }
 
 .tf-badge--live {
