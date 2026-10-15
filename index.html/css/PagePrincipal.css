@@ -355,14 +355,26 @@
   background-origin: border-box;
   background-clip: border-box;
   overflow: hidden;
-  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t), background-color var(--t);
 }
 
-.stat:hover {
+.stat:hover,
+.stat:focus-visible {
   transform: translateY(-3px);
   border-color: var(--team-primary-line);
   border-top-color: transparent;
-  box-shadow: 0 16px 36px rgba(225, 6, 0, 0.12);
+  /* Se aclara ligeramente el fondo (misma línea superior del tema) */
+  background:
+    linear-gradient(var(--team-primary), var(--team-primary)) left top / 100% 3px no-repeat,
+    var(--c-surface-2);
+  background-origin: border-box;
+  background-clip: border-box;
+  box-shadow: 0 16px 36px var(--team-primary-dim);
+}
+
+.stat:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: 2px;
 }
 
 .stat__icon {
@@ -412,13 +424,43 @@
   border: 1px solid var(--c-line);
   border-radius: var(--r-pill);
   color: var(--c-dim);
-  transition: transform var(--t-fast), color var(--t-fast), border-color var(--t-fast);
+  background: transparent;
+  transition: background-color 250ms var(--ease), color 250ms var(--ease), border-color 250ms var(--ease);
 }
 
-.stat:hover .stat__arrow {
-  color: var(--team-primary);
-  border-color: var(--team-primary-line);
-  transform: translateX(3px);
+.stat__arrow svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 250ms var(--ease);
+}
+
+.stat:hover .stat__arrow,
+.stat:focus-visible .stat__arrow {
+  background: var(--team-primary);
+  border-color: var(--team-primary);
+  color: var(--team-on-primary);
+}
+
+.stat:hover .stat__arrow svg,
+.stat:focus-visible .stat__arrow svg {
+  transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stat,
+  .stat__arrow,
+  .stat__arrow svg {
+    transition: none;
+  }
+
+  .stat:hover,
+  .stat:focus-visible {
+    transform: none;
+  }
 }
 
 /* ============================================================

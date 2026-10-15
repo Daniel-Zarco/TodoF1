@@ -127,7 +127,9 @@ session_start();
                         <span class="stat__num tf-num" id="kpi-gp">&mdash;</span>
                         <span class="stat__label">Grandes Premios</span>
                         <span class="stat__meta">Calendario</span>
-                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                        <span class="stat__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+                        </span>
                     </a>
                     <a class="stat" id="stat-pilotos" href="/index.html/PagePilotos.php">
                         <span class="stat__icon" aria-hidden="true">
@@ -136,7 +138,9 @@ session_start();
                         <span class="stat__num tf-num" id="kpi-pilotos">&mdash;</span>
                         <span class="stat__label">Pilotos</span>
                         <span class="stat__meta">Participantes</span>
-                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                        <span class="stat__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+                        </span>
                     </a>
                     <a class="stat" id="stat-escuderias" href="/index.html/PageEscuderias.php">
                         <span class="stat__icon" aria-hidden="true">
@@ -145,7 +149,9 @@ session_start();
                         <span class="stat__num tf-num" id="kpi-escuderias">&mdash;</span>
                         <span class="stat__label">Escuder&iacute;as</span>
                         <span class="stat__meta">Constructores</span>
-                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                        <span class="stat__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+                        </span>
                     </a>
                     <a class="stat" id="stat-resultados" href="/index.html/PageEstadisticas.php">
                         <span class="stat__icon" aria-hidden="true">
@@ -154,7 +160,9 @@ session_start();
                         <span class="stat__num tf-num" id="kpi-resultados">&mdash;</span>
                         <span class="stat__label">Resultados</span>
                         <span class="stat__meta">Registros de carrera</span>
-                        <span class="stat__arrow" aria-hidden="true">&#8594;</span>
+                        <span class="stat__arrow" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+                        </span>
                     </a>
                 </div>
             </section>
