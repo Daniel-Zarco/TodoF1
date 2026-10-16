@@ -1,36 +1,730 @@
-/* TodoF1 — Estadísticas del piloto (ajustes de página) */
+/* ============================================================
+   TodoF1 — Ficha individual del piloto
+   ------------------------------------------------------------
+   Dos sistemas de color, igual que en la página de Pilotos:
+     · Tema activo     → --team-*   (controles, foco, enlaces...)
+     · Escudería       → --pilot-*  (identidad del piloto y de sus
+                          equipos, según la temporada consultada)
+   ============================================================ */
 
-.tf-profile__body {
-  flex: 1 1 300px;
+.pilot-vh {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------
+   Cabecera
+   ------------------------------------------------------------ */
+.pilot-hero {
+  --pilot-color: #55555E;
+  --pilot-soft: rgba(85, 85, 94, 0.18);
+  --pilot-line: rgba(85, 85, 94, 0.42);
+  --pilot-glow: rgba(85, 85, 94, 0.30);
+  --pilot-on-color: #FFFFFF;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 268px) minmax(0, 1fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+  padding: var(--sp-5);
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+/* Filo superior con el color de la escudería */
+.pilot-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pilot-color), transparent 88%);
+}
+
+/* Halo suave del color del equipo */
+.pilot-hero::after {
+  content: "";
+  position: absolute;
+  inset: -40% 55% 40% -10%;
+  background: radial-gradient(closest-side, var(--pilot-soft), transparent);
+  pointer-events: none;
+}
+
+.pilot-hero__media {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background-color: var(--c-surface-3);
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
+    radial-gradient(120% 85% at 50% 0%, var(--pilot-soft), transparent 72%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+.pilot-hero__initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--pilot-color);
+  opacity: 0.55;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.pilot-hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+  opacity: 0;
+  transition: opacity 320ms var(--ease);
+}
+
+.pilot-hero__photo.is-loaded {
+  opacity: 1;
+}
+
+.pilot-hero__photo[hidden] {
+  display: none;
+}
+
+.pilot-hero__scrim {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 58%;
+  background: linear-gradient(180deg, transparent, rgba(12, 12, 14, 0.5) 48%, rgba(12, 12, 14, 0.9));
+  pointer-events: none;
+}
+
+.pilot-hero__num {
+  position: absolute;
+  left: var(--sp-3);
+  bottom: 2px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 7vw, 5.4rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--pilot-color);
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+}
+
+.pilot-hero__code {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  z-index: 2;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-pill);
+  background: rgba(12, 12, 14, 0.5);
+  color: var(--c-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pilot-hero__code[hidden] {
+  display: none;
+}
+
+.pilot-hero__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
   min-width: 0;
+  padding: var(--sp-2) 0;
 }
 
-.tf-profile__action {
-  margin-left: auto;
-  align-self: flex-start;
+.pilot-hero__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 1.1rem + 2.4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
 }
 
-.tf-pilot-teams {
+.pilot-hero__sub {
+  margin: 0;
+  color: var(--c-dim);
+  font-size: 0.95rem;
+}
+
+.pilot-hero__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-2);
-  margin-top: var(--sp-3);
+  margin: var(--sp-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pilot-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
   color: var(--c-dim);
-  font-size: 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
-.tf-pilot-teams .tf-badge {
-  background: var(--c-surface-2);
+.pilot-hero__tag .pilot-dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--pilot-color);
+  box-shadow: 0 0 10px var(--pilot-glow);
 }
 
-.tf-kpi__value.is-text {
-  font-size: 1.15rem;
-  line-height: 1.3;
+.pilot-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: auto;
+  padding-top: var(--sp-3);
 }
 
-@media (max-width: 720px) {
-  .tf-profile__action {
+.pilot-hero__actions .tf-btn[hidden] {
+  display: none;
+}
+
+.pilot-hero__season {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.pilot-hero__season b {
+  color: var(--c-text);
+}
+
+/* ------------------------------------------------------------
+   Tarjetas de estadísticas
+   ------------------------------------------------------------ */
+.pilot-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+.pilot-kpis > .tf-loading,
+.pilot-kpis > .tf-empty,
+.pilot-kpis > .tf-error {
+  grid-column: 1 / -1;
+}
+
+.pilot-kpi {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: var(--sp-5) var(--sp-5) calc(var(--sp-5) + 4px);
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+  transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+
+/* Acento inferior con el color de la escudería */
+.pilot-kpi::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pilot-color), transparent 78%);
+  opacity: 0.85;
+}
+
+.pilot-kpi--lead {
+  background: linear-gradient(180deg, var(--pilot-soft), var(--c-surface) 62%);
+  border-color: var(--pilot-line);
+}
+
+.pilot-kpi__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 2px;
+  border-radius: var(--r-sm);
+  background: var(--pilot-soft);
+  color: var(--pilot-color);
+}
+
+.pilot-kpi__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.pilot-kpi__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.pilot-kpi__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.3rem + 1.4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text);
+}
+
+.pilot-kpi__value.is-text {
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.pilot-kpi__note {
+  font-size: 0.78rem;
+  color: var(--c-mute);
+}
+
+/* Solo las tarjetas informativas: no deben parecer botones */
+@media (hover: hover) {
+
+  .pilot-kpi:hover {
+    transform: translateY(-3px);
+    border-color: var(--pilot-line);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ------------------------------------------------------------
+   Gráfico de evolución
+   ------------------------------------------------------------ */
+.pilot-switch {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+}
+
+.pilot-switch__btn {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--c-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.pilot-switch__btn:hover {
+  color: var(--c-text);
+}
+
+.pilot-switch__btn.is-active {
+  background: var(--team-primary-dim);
+  color: var(--c-text);
+  box-shadow: inset 0 0 0 1px var(--team-primary-line);
+}
+
+.pilot-switch__btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pilot-chart {
+  position: relative;
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+.pilot-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.pilot-chart__grid {
+  stroke: var(--c-line);
+  stroke-width: 1;
+}
+
+.pilot-chart__axis {
+  fill: var(--c-mute);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-chart__axis--title {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pilot-chart__segment {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pilot-chart__segment--gap {
+  stroke-dasharray: 5 5;
+  opacity: 0.65;
+}
+
+.pilot-chart__point {
+  stroke: var(--c-surface);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: r 160ms var(--ease);
+}
+
+.pilot-chart__point:focus {
+  outline: none;
+}
+
+.pilot-chart__point:focus-visible,
+.pilot-chart__point.is-active {
+  stroke: var(--c-text);
+  stroke-width: 3;
+}
+
+.pilot-chart__tip {
+  position: absolute;
+  z-index: 5;
+  min-width: 150px;
+  max-width: 240px;
+  padding: 10px var(--sp-3);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: var(--c-pop);
+  color: var(--c-text);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -108%);
+  transition: opacity 160ms var(--ease), visibility 160ms var(--ease);
+  pointer-events: none;
+}
+
+.pilot-chart__tip.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pilot-chart__tip b {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.pilot-chart__tip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.pilot-chart__tip-row span:first-child {
+  color: var(--c-mute);
+}
+
+/* ------------------------------------------------------------
+   Trayectoria por escuderías
+   ------------------------------------------------------------ */
+.pilot-stints {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 420px));
+  justify-content: start;
+  gap: var(--sp-3);
+}
+
+.pilot-stints > .tf-loading,
+.pilot-stints > .tf-empty,
+.pilot-stints > .tf-error {
+  grid-column: 1 / -1;
+}
+
+.pilot-stint {
+  --pilot-color: #55555E;
+  --pilot-soft: rgba(85, 85, 94, 0.18);
+  --pilot-line: rgba(85, 85, 94, 0.42);
+  --pilot-glow: rgba(85, 85, 94, 0.30);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: var(--sp-4) var(--sp-4) var(--sp-4) calc(var(--sp-4) + 6px);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+/* Marca temporal del equipo */
+.pilot-stint::before {
+  content: "";
+  position: absolute;
+  inset: var(--sp-3) auto var(--sp-3) 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--pilot-color);
+  box-shadow: 0 0 12px var(--pilot-glow);
+}
+
+.pilot-stint__order {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.pilot-stint__team {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pilot-stint__years {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--c-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-stint__meta {
+  font-size: 0.74rem;
+  color: var(--c-mute);
+}
+
+/* ------------------------------------------------------------
+   Tabla de resultados
+   ------------------------------------------------------------ */
+.pilot-table {
+  min-width: 720px;
+}
+
+.pilot-table th[aria-sort] {
+  padding: 0;
+}
+
+.pilot-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: var(--sp-4);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.pilot-table__sort:hover {
+  color: var(--c-text);
+}
+
+.pilot-table__sort:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: -2px;
+}
+
+.pilot-table__year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-table__teams {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  min-width: 0;
+}
+
+.pilot-table__team {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.pilot-dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--pilot-color, #55555E);
+}
+
+.pilot-table__dash {
+  color: var(--c-mute);
+}
+
+.pilot-table__pos {
+  display: inline-block;
+  min-width: 30px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pilot-table__row--current {
+  background: var(--team-primary-dim);
+}
+
+/* ------------------------------------------------------------
+   Notas y estados
+   ------------------------------------------------------------ */
+.pilot-note {
+  margin: var(--sp-3) 0 0;
+  font-size: 0.78rem;
+  color: var(--c-mute);
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 1023px) {
+  .pilot-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .pilot-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pilot-hero__media {
+    aspect-ratio: 16 / 11;
+  }
+
+  .pilot-hero__body {
+    padding: 0;
+  }
+}
+
+@media (max-width: 719px) {
+  .pilot-hero {
+    padding: var(--sp-4);
+    gap: var(--sp-4);
+  }
+
+  .pilot-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3);
+  }
+
+  .pilot-kpi {
+    padding: var(--sp-4) var(--sp-4) calc(var(--sp-4) + 4px);
+  }
+
+  .pilot-kpi__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .pilot-kpi__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pilot-kpi__value {
+    font-size: 1.75rem;
+  }
+
+  .pilot-hero__season {
     margin-left: 0;
+  }
+
+  .pilot-switch {
     width: 100%;
+  }
+
+  .pilot-switch__btn {
+    flex: 1 1 auto;
+  }
+
+  .pilot-chart {
+    padding: var(--sp-3) var(--sp-2);
+  }
+}
+
+@media (max-width: 419px) {
+  .pilot-kpis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ------------------------------------------------------------
+   Movimiento reducido
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+
+  .pilot-kpi,
+  .pilot-hero__photo,
+  .pilot-chart__point,
+  .pilot-chart__tip,
+  .pilot-switch__btn {
+    transition: none;
+  }
+
+  .pilot-kpi:hover {
+    transform: none;
   }
 }

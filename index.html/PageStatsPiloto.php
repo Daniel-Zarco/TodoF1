@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estad&iacute;sticas del Piloto &mdash; TodoF1</title>
+  <title>Ficha del piloto &mdash; TodoF1</title>
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageStatsPiloto.css?v=<?= @filemtime(__DIR__ . '/css/PageStatsPiloto.css') ?: '1' ?>">
@@ -19,66 +19,114 @@
 
       <a class="tf-back" id="btn-volver" href="/index.html/PagePilotos.php">Volver a Pilotos</a>
 
-      <section class="tf-profile tf-mt-4">
-        <div class="tf-profile__media">
-          <img id="piloto-foto" src="../Images/SinPerfil.jpg" alt="Foto del piloto">
+      <!-- ================= CABECERA ================= -->
+      <header class="pilot-hero" id="pilot-hero">
+        <div class="pilot-hero__media">
+          <span class="pilot-hero__initials" id="hero-initials" aria-hidden="true">&mdash;</span>
+          <img class="pilot-hero__photo" id="piloto-foto" alt="" decoding="async" hidden>
+          <span class="pilot-hero__scrim" aria-hidden="true"></span>
+          <span class="pilot-hero__num" id="hero-number" aria-hidden="true"></span>
+          <span class="pilot-hero__code" id="hero-code" hidden></span>
         </div>
-        <div class="tf-profile__body">
-          <span class="tf-eyebrow">Piloto de F&oacute;rmula 1</span>
-          <h1 class="tf-profile__name" id="titulo">Estad&iacute;sticas del Piloto</h1>
-          <div class="tf-profile__meta">
-            <span class="tf-badge" id="nacionalidad">Cargando&hellip;</span>
-            <span class="tf-badge tf-badge--red" id="perfil-temporadas">Cargando&hellip;</span>
+
+        <div class="pilot-hero__body">
+          <span class="tf-eyebrow" id="hero-eyebrow">Ficha del piloto</span>
+          <h1 class="pilot-hero__name" id="titulo">Cargando&hellip;</h1>
+          <p class="pilot-hero__sub" id="hero-sub">Cargando informaci&oacute;n del piloto&hellip;</p>
+          <ul class="pilot-hero__tags" id="hero-tags"></ul>
+          <div class="pilot-hero__actions">
+            <a class="tf-btn tf-btn--ghost tf-btn--sm" id="wiki" href="#" target="_blank" rel="noopener" hidden>Ver en Wikipedia</a>
+            <span class="pilot-hero__season">Temporada <b id="hero-season">&mdash;</b></span>
           </div>
         </div>
-        <a id="wiki" href="#" target="_blank" rel="noopener" class="tf-btn tf-btn--ghost tf-profile__action">Ver en Wikipedia</a>
-      </section>
+      </header>
 
-      <section class="tf-section">
+      <!-- ================= ESTADÍSTICAS ================= -->
+      <section class="tf-section" aria-labelledby="stats-title">
         <div class="tf-section__head">
           <div>
-            <h2 class="tf-section__title">Trayectoria en F1</h2>
-            <p class="tf-section__sub">Resumen de la carrera del piloto con datos hist&oacute;ricos.</p>
+            <h2 class="tf-section__title" id="stats-title">Estad&iacute;sticas deportivas</h2>
+            <p class="tf-section__sub" id="kpi-scope">Cargando trayectoria&hellip;</p>
+          </div>
+        </div>
+        <div class="pilot-kpis" id="pilot-kpis">
+          <div class="tf-loading"><span class="tf-spinner" aria-hidden="true"></span><span>Cargando estad&iacute;sticas&hellip;</span></div>
+        </div>
+      </section>
+
+      <!-- ================= EVOLUCIÓN ================= -->
+      <section class="tf-section" aria-labelledby="evolution-title">
+        <div class="tf-section__head">
+          <div>
+            <h2 class="tf-section__title" id="evolution-title">Evoluci&oacute;n en F&oacute;rmula 1</h2>
+            <p class="tf-section__sub" id="evolution-sub">Progresi&oacute;n temporada a temporada.</p>
+          </div>
+          <div class="pilot-switch" role="group" aria-label="M&eacute;trica del gr&aacute;fico">
+            <button type="button" class="pilot-switch__btn is-active" id="metric-points" aria-pressed="true">Puntos</button>
+            <button type="button" class="pilot-switch__btn" id="metric-position" aria-pressed="false">Posici&oacute;n</button>
           </div>
         </div>
 
-        <div class="tf-grid tf-grid--3">
-          <div class="tf-kpi">
-            <span class="tf-kpi__label">Edad</span>
-            <div class="tf-kpi__value tf-num" id="edad">Cargando&hellip;</div>
-            <div class="tf-kpi__meta">Calculada desde la fecha de nacimiento</div>
+        <div class="pilot-chart" id="pilot-chart">
+          <div class="tf-loading"><span class="tf-spinner" aria-hidden="true"></span><span>Cargando evoluci&oacute;n&hellip;</span></div>
+        </div>
+        <p class="pilot-note" id="evolution-note">
+          Puntos oficiales del campeonato de cada temporada. Los sistemas de puntuaci&oacute;n han cambiado a lo largo de la
+          historia de la F1, por lo que los valores de &eacute;pocas distintas no son comparables entre s&iacute;.
+        </p>
+      </section>
+
+      <!-- ================= TRAYECTORIA ================= -->
+      <section class="tf-section" aria-labelledby="stints-title">
+        <div class="tf-section__head">
+          <div>
+            <h2 class="tf-section__title" id="stints-title">Trayectoria por escuder&iacute;as</h2>
+            <p class="tf-section__sub" id="stints-sub">Equipos con los que ha competido, en orden cronol&oacute;gico.</p>
           </div>
-          <div class="tf-kpi">
-            <span class="tf-kpi__label">Temporadas</span>
-            <div class="tf-kpi__value tf-num" id="temporadas">Cargando&hellip;</div>
-            <div class="tf-kpi__meta">A&ntilde;os en el campeonato</div>
-          </div>
-          <div class="tf-kpi">
-            <span class="tf-kpi__label">Carreras ganadas</span>
-            <div class="tf-kpi__value tf-num" id="victorias">Cargando&hellip;</div>
-            <div class="tf-kpi__meta">Primeros puestos</div>
-          </div>
-          <div class="tf-kpi">
-            <span class="tf-kpi__label">Podios</span>
-            <div class="tf-kpi__value tf-num" id="podios">Cargando&hellip;</div>
-            <div class="tf-kpi__meta">Top 3 en carrera</div>
-          </div>
-          <div class="tf-kpi">
-            <span class="tf-kpi__label">Mejor resultado</span>
-            <div class="tf-kpi__value tf-num" id="mejor-resultado">Cargando&hellip;</div>
-            <div class="tf-kpi__meta">Mejor posici&oacute;n en carrera</div>
-          </div>
-          <div class="tf-kpi">
-            <span class="tf-kpi__label">Debut</span>
-            <div class="tf-kpi__value tf-num" id="inicio">Cargando&hellip;</div>
-            <div class="tf-kpi__meta">Primera temporada</div>
+        </div>
+        <div class="pilot-stints" id="pilot-stints">
+          <div class="tf-loading"><span class="tf-spinner" aria-hidden="true"></span><span>Cargando trayectoria&hellip;</span></div>
+        </div>
+      </section>
+
+      <!-- ================= RESULTADOS ================= -->
+      <section class="tf-section" aria-labelledby="results-title">
+        <div class="tf-section__head">
+          <div>
+            <h2 class="tf-section__title" id="results-title">Resultados por temporada</h2>
+            <p class="tf-section__sub" id="results-sub">Grandes Premios disputados, victorias, podios y puntos.</p>
           </div>
         </div>
 
-        <div class="tf-panel tf-mt-5">
-          <span class="tf-kpi__label">Escuder&iacute;as</span>
-          <div class="tf-pilot-teams" id="escuderias">Cargando&hellip;</div>
+        <div class="tf-table-wrap">
+          <table class="tf-table pilot-table">
+            <caption class="pilot-vh">Resultados del piloto por temporada</caption>
+            <thead>
+              <tr>
+                <th scope="col" id="th-year" aria-sort="descending">
+                  <button type="button" class="pilot-table__sort" id="sort-year" aria-label="Ordenar por temporada">
+                    Temporada <span aria-hidden="true">&#8595;</span>
+                  </button>
+                </th>
+                <th scope="col">Escuder&iacute;a</th>
+                <th scope="col" class="tf-td-right">GP</th>
+                <th scope="col" class="tf-td-right">Victorias</th>
+                <th scope="col" class="tf-td-right">Podios</th>
+                <th scope="col" class="tf-td-right">Puntos</th>
+                <th scope="col" class="tf-td-right">Posici&oacute;n</th>
+              </tr>
+            </thead>
+            <tbody id="pilot-results">
+              <tr class="tf-table__empty"><td colspan="7">Cargando resultados&hellip;</td></tr>
+            </tbody>
+          </table>
         </div>
+
+        <p class="pilot-note" id="results-note">
+          GP, victorias y podios corresponden a carreras de Gran Premio (sin sprints). Puntos y posici&oacute;n son los
+          oficiales del campeonato; un asterisco (*) indica puntos de carrera cuando la clasificaci&oacute;n oficial no
+          estaba disponible. El guion (&mdash;) indica dato no disponible.
+        </p>
       </section>
 
     </div>
