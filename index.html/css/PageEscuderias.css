@@ -1,101 +1,590 @@
-/* TodoF1 — Escuderías (ajustes de página) */
+/* ============================================================
+   TodoF1 — Escuderías · tarjetas con el monoplaza protagonista
+   ------------------------------------------------------------
+   Dos sistemas de color conviven sin interferirse:
+     · Tema activo  → --team-*      (controles, foco, spinners…)
+     · Escudería    → --team-color  (identidad de cada tarjeta:
+                       borde de acento, posición, punto de piloto)
+   ============================================================ */
 
-.tf-team-card {
-  position: relative;
+/* ------------------------------------------------------------
+   Controles: buscador, ordenación y contador
+   ------------------------------------------------------------ */
+.teams-controls {
   display: flex;
-  flex-direction: column;
-  gap: var(--sp-3);
-  padding: var(--sp-5);
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  margin-bottom: var(--sp-4);
+  border: 1px solid var(--c-line);
   border-radius: var(--r-lg);
   background: var(--c-surface);
-  border: 1px solid var(--c-line);
-  overflow: hidden;
-  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
 }
 
-.tf-team-card::before {
-  content: "";
+.teams-controls__search {
+  position: relative;
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+/* Espacio para el botón de limpiar dentro del campo */
+.teams-controls__search .tf-input {
+  padding-right: 46px;
+}
+
+.teams-controls__clear {
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: var(--team, var(--team-primary));
-}
-
-.tf-team-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--c-line-2);
-  box-shadow: var(--shadow-2);
-}
-
-.tf-team-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-3);
-}
-
-.tf-team-card__rank {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.82rem;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
   color: var(--c-dim);
-  padding: 3px 9px;
-  border-radius: var(--r-pill);
-  background: var(--c-surface-2);
-  border: 1px solid var(--c-line-2);
-}
-
-.tf-team-card__swatch {
-  width: 22px;
-  height: 6px;
-  border-radius: var(--r-pill);
-  background: var(--team, var(--team-primary));
-}
-
-.tf-team-card__name {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-.tf-team-card__meta {
-  font-size: 0.82rem;
-  color: var(--c-mute);
-}
-
-.tf-team-card__foot {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--sp-3);
-  margin-top: var(--sp-2);
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--c-line);
-}
-
-.tf-team-card__points {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.6rem;
+  font-size: 1.05rem;
   line-height: 1;
+  cursor: pointer;
+  transition: color var(--t-fast), background-color var(--t-fast);
 }
 
-.tf-team-card__points small {
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
+.teams-controls__clear:hover {
+  color: var(--c-text);
+  background: var(--c-line);
+}
+
+.teams-controls__clear[hidden] {
+  display: none;
+}
+
+.teams-controls__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.teams-controls__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 220px;
+  max-width: 300px;
+  min-width: 0;
+}
+
+.teams-controls__label {
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--c-mute);
-  margin-top: 3px;
 }
 
-.tf-team-card__cta {
+.teams-controls__count {
+  margin: 0 0 6px auto;
+  font-size: 0.86rem;
+  color: var(--c-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------
+   Notas de la temporada / de las fotografías
+   ------------------------------------------------------------ */
+.teams-note {
+  margin: 0 0 var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-left: 3px solid var(--team-primary-line);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+  color: var(--c-dim);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.teams-note--soft {
+  border-left-color: var(--c-line-2);
+  color: var(--c-mute);
+  font-size: 0.8rem;
+}
+
+.teams-note[hidden] {
+  display: none;
+}
+
+/* ------------------------------------------------------------
+   Cuadrícula: dos columnas amplias en escritorio
+   ------------------------------------------------------------ */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+  align-items: stretch;
+}
+
+.teams-grid > .tf-loading,
+.teams-grid > .tf-empty,
+.teams-grid > .tf-error {
+  grid-column: 1 / -1;
+}
+
+/* ------------------------------------------------------------
+   Tarjeta de escudería
+   ------------------------------------------------------------ */
+.team-card {
+  --team-color: #55555E;
+  --team-soft: rgba(85, 85, 94, 0.18);
+  --team-line: rgba(85, 85, 94, 0.45);
+  --team-ink: #FFFFFF;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-1);
+  color: var(--c-text);
+  transition: transform 260ms var(--ease), border-color 260ms var(--ease),
+    box-shadow 260ms var(--ease);
+}
+
+/* Filo superior con el color real de la escudería */
+.team-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 4;
+  height: 3px;
+  background: linear-gradient(90deg, var(--team-color), transparent 88%);
+  opacity: 0.9;
+  pointer-events: none;
+  transition: opacity 260ms var(--ease);
+}
+
+/* Enlace extendido: toda la tarjeta navega a la ficha de la escudería
+   (los pilotos mantienen su propio enlace por encima). */
+.team-card__link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+/* ------------------------------------------------------------
+   Media: el monoplaza como protagonista
+   ------------------------------------------------------------ */
+.team-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--c-surface-2);
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 16px),
+    radial-gradient(120% 90% at 50% 0%, var(--team-soft), transparent 74%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+/* Respaldo: silueta neutra + monograma, con el color del equipo */
+.team-card__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--team-color);
+  pointer-events: none;
+}
+
+.team-card__car {
+  width: min(76%, 380px);
+  height: auto;
+  opacity: 0.72;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.5));
+}
+
+.team-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 340ms var(--ease), transform 460ms var(--ease);
+}
+
+.team-card__photo.is-loaded {
+  opacity: 1;
+}
+
+.team-card__scrim {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 74%;
+  background: linear-gradient(180deg, transparent, rgba(12, 12, 14, 0.55) 48%, rgba(12, 12, 14, 0.9));
+  pointer-events: none;
+}
+
+/* Posición en el Mundial de Constructores */
+.team-card__pos {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  padding: 5px 11px;
+  border-radius: var(--r-pill);
+  background: var(--team-color);
+  color: var(--team-ink);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+/* Sin clasificación oficial (p. ej. 1950-1957): no se inventa posición */
+.team-card__pos--none {
+  background: rgba(12, 12, 14, 0.6);
+  border: 1px solid var(--c-line-2);
+  color: var(--c-dim);
+  box-shadow: none;
+}
+
+.team-card__arrow {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-pill);
+  background: rgba(12, 12, 14, 0.5);
+  color: var(--c-text);
+  font-size: 0.92rem;
+  line-height: 1;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+  transition: transform 260ms var(--ease), background-color 260ms var(--ease),
+    border-color 260ms var(--ease), color 260ms var(--ease);
+}
+
+.team-card__head {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-4);
+  pointer-events: none;
+}
+
+.team-card__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+.team-card__nat {
+  font-size: 0.78rem;
+  color: rgba(245, 245, 245, 0.72);
+}
+
+/* ------------------------------------------------------------
+   Cuerpo: estadísticas y pilotos
+   ------------------------------------------------------------ */
+.team-card__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  min-width: 0;
+}
+
+.team-card__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+
+.team-card__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.team-card__stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.team-card__stat-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.team-card__crews {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--c-line);
+  min-width: 0;
+}
+
+.team-card__crews-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.team-card__crews-count {
+  color: var(--c-dim);
+}
+
+.team-card__no-drivers {
+  font-size: 0.8rem;
+  color: var(--c-mute);
+}
+
+.team-card__drivers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+}
+
+.team-card__driver-item {
+  display: flex;
+  min-width: 0;
+}
+
+/* Los pilotos por encima del máximo visible se pliegan hasta "Ver los N pilotos" */
+.team-card__drivers:not(.is-expanded) .team-card__driver-item.is-extra {
+  display: none;
+}
+
+.team-card__driver {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  padding: 5px 10px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface-2);
+  color: var(--c-dim);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--team-primary);
+  transition: color var(--t-fast), border-color var(--t-fast), background-color var(--t-fast);
+}
+
+.team-card__driver:hover {
+  color: var(--c-text);
+  border-color: var(--team-line);
+  background: var(--c-surface-3);
+}
+
+.team-card__driver-dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--team-color);
+}
+
+.team-card__driver-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.team-card__driver-num {
+  flex: 0 0 auto;
+  color: var(--c-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.team-card__more {
+  position: relative;
+  z-index: 3;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--c-dim);
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.team-card__more:hover {
+  color: var(--c-text);
+  border-color: var(--team-line);
+}
+
+/* ------------------------------------------------------------
+   Microinteracciones (ratón y teclado)
+   ------------------------------------------------------------ */
+.team-card:hover,
+.team-card:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--team-line);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--team-soft);
+}
+
+.team-card:hover::before,
+.team-card:focus-within::before {
+  opacity: 1;
+}
+
+.team-card:hover .team-card__photo.is-loaded,
+.team-card:focus-within .team-card__photo.is-loaded {
+  transform: scale(1.04);
+}
+
+.team-card:hover .team-card__car,
+.team-card:focus-within .team-card__car {
+  opacity: 0.85;
+}
+
+.team-card:hover .team-card__arrow,
+.team-card:focus-within .team-card__arrow {
+  transform: translate(2px, -2px);
+  background: var(--team-color);
+  border-color: var(--team-color);
+  color: var(--team-ink);
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 1019px) {
+  .teams-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .teams-controls__count {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 719px) {
+  .teams-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-3);
+  }
+
+  .teams-controls__search {
+    flex: 1 1 auto;
+  }
+
+  .teams-controls__fields {
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+
+  .teams-controls__field {
+    flex: 1 1 auto;
+    max-width: none;
+    width: 100%;
+  }
+
+  .teams-controls__count {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 519px) {
+  /* En móvil las cuatro métricas pasan a dos columnas para no comprimirse */
+  .team-card__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3) var(--sp-4);
+  }
+
+  .team-card__media {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ------------------------------------------------------------
+   Movimiento reducido
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+
+  .team-card,
+  .team-card::before,
+  .team-card__photo,
+  .team-card__arrow,
+  .team-card__car,
+  .team-card__driver,
+  .team-card__more,
+  .teams-controls__clear {
+    transition: none;
+  }
+
+  .team-card:hover,
+  .team-card:focus-within {
+    transform: none;
+  }
+
+  .team-card:hover .team-card__photo.is-loaded,
+  .team-card:focus-within .team-card__photo.is-loaded {
+    transform: none;
+  }
+
+  .team-card:hover .team-card__arrow,
+  .team-card:focus-within .team-card__arrow {
+    transform: none;
+  }
 }

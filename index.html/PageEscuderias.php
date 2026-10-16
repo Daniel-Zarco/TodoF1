@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageEscuderias.css?v=<?= @filemtime(__DIR__ . '/css/PageEscuderias.css') ?: '1' ?>">
   <script src="js/PageEscuderias.js?v=<?= @filemtime(__DIR__ . '/js/PageEscuderias.js') ?: '1' ?>" defer></script>
+  <?php
+  /* Versiones (fecha de modificación) de las fotografías de escuderías, para
+     que el caché del navegador se refresque igual que en la página principal.
+     El mapa lo consume teams.js (versionedSrc) desde PageEscuderias.js. */
+  $tf_hero_versions = [];
+  $tf_escuderia_files = glob(__DIR__ . '/../Images/heroes/escuderias/*');
+  if (is_array($tf_escuderia_files)) {
+    foreach ($tf_escuderia_files as $tf_file) {
+      if (!is_file($tf_file)) {
+        continue;
+      }
+      $tf_hero_versions['/Images/heroes/escuderias/' . basename($tf_file)] = (string) @filemtime($tf_file);
+    }
+  }
+  ?>
+  <script>window.TodoF1HeroVersions = <?= json_encode($tf_hero_versions) ?>;</script>
 </head>
 
 <body>
@@ -19,27 +35,44 @@
 
       <div class="tf-section__head">
         <div>
-          <span class="tf-eyebrow">Temporada <span id="year-label">—</span></span>
+          <span class="tf-eyebrow">Temporada <span id="year-label">&mdash;</span></span>
           <h1 class="tf-section__title tf-page-title">Escuder&iacute;as</h1>
-          <p class="tf-section__sub">Constructores, nacionalidad y puntos de la temporada seleccionada.</p>
+          <p class="tf-section__sub" id="season-sub">Constructores, pilotos y estad&iacute;sticas de la temporada seleccionada.</p>
         </div>
         <a class="tf-back" id="btn-volver" href="/">P&aacute;gina principal</a>
       </div>
 
-      <div class="tf-toolbar">
-        <div class="tf-toolbar__group">
-          <div class="tf-input-icon tf-search">
-            <input type="search" id="search" class="tf-input" placeholder="Buscar escuder&iacute;a&hellip;"
-                   autocomplete="off" aria-label="Buscar escuder&iacute;a por nombre">
-          </div>
+      <!-- Buscador y ordenaci&oacute;n de la temporada activa -->
+      <section class="teams-controls" aria-label="Buscar y ordenar escuder&iacute;as">
+        <div class="teams-controls__search tf-input-icon">
+          <input type="search" id="search" class="tf-input" placeholder="Buscar escuder&iacute;a&hellip;"
+                 autocomplete="off" spellcheck="false" aria-label="Buscar escuder&iacute;a por nombre">
+          <button type="button" class="teams-controls__clear" id="search-clear" hidden
+                  aria-label="Limpiar b&uacute;squeda">&times;</button>
         </div>
-        <span class="tf-badge" id="count-badge">Cargando&hellip;</span>
-      </div>
 
-      <div class="tf-grid tf-grid--cards" id="escuderias-container" aria-live="polite">
-        <div class="tf-loading" style="grid-column:1/-1;">
-          <span class="tf-spinner"></span><span>Cargando escuder&iacute;as&hellip;</span>
+        <div class="teams-controls__fields">
+          <label class="teams-controls__field">
+            <span class="teams-controls__label">Ordenar por</span>
+            <select id="sort-by" class="tf-select" aria-label="Ordenar escuder&iacute;as">
+              <option value="championship">Clasificaci&oacute;n del campeonato</option>
+              <option value="name-asc">Nombre (A&ndash;Z)</option>
+              <option value="name-desc">Nombre (Z&ndash;A)</option>
+              <option value="wins-desc">M&aacute;s victorias</option>
+              <option value="points-desc">M&aacute;s puntos</option>
+            </select>
+          </label>
         </div>
+
+        <p class="teams-controls__count" id="count-badge" role="status" aria-live="polite">Cargando&hellip;</p>
+      </section>
+
+      <p class="teams-note" id="season-note" hidden></p>
+      <p class="teams-note teams-note--soft" id="photo-note" hidden></p>
+
+      <!-- Cuadr&iacute;cula de tarjetas: dos columnas en escritorio -->
+      <div class="teams-grid" id="teams-grid">
+        <div class="tf-loading"><span class="tf-spinner" aria-hidden="true"></span><span>Cargando escuder&iacute;as&hellip;</span></div>
       </div>
 
     </div>
