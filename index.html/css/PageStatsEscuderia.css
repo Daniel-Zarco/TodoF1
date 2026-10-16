@@ -1,32 +1,1025 @@
-/* TodoF1 — Estadísticas de la escudería (ajustes de página) */
+/* ============================================================
+   TodoF1 — Ficha individual de la escudería
+   ------------------------------------------------------------
+   Dos sistemas de color, igual que en el resto de la web:
+     · Tema activo  → --team-*      (interfaz: filo y halo de la
+                       cabecera, acentos de sección, KPIs, gráfico,
+                       controles, foco, tabla y tarjetas de pilotos)
+     · Escudería    → --team-color  (identidad del equipo: escudo,
+                       y elementos que identifican a un constructor)
+   El dorado de campeón es fijo y se mantiene con cualquier tema.
+   ============================================================ */
 
-.tf-profile__media--team {
-  background: var(--c-surface-3);
+.team-vh {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Acento decorativo de las cabeceras de sección (tema activo) */
+.team-head .tf-section__title::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--team-primary), transparent);
+}
+
+/* ------------------------------------------------------------
+   Cabecera: el escudo como protagonista
+   ------------------------------------------------------------ */
+.team-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 210px) minmax(0, 1fr) minmax(0, 250px);
+  align-items: center;
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+  padding: var(--sp-5);
+  overflow: hidden;
   border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
 }
 
-.tf-profile__media--team span {
+/* Filo superior: acento del tema activo */
+.team-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--team-primary), transparent 88%);
+}
+
+/* Halo suave del tema activo */
+.team-hero::after {
+  content: "";
+  position: absolute;
+  inset: -40% 52% 30% -12%;
+  background: radial-gradient(closest-side, var(--team-primary-dim), transparent);
+  pointer-events: none;
+}
+
+.team-hero__crest {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 210px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background-color: var(--c-surface-3);
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
+    radial-gradient(120% 85% at 50% 0%, var(--team-soft, rgba(85, 85, 94, 0.16)), transparent 74%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+.team-hero__mono {
   font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.6vw, 3.4rem);
   font-weight: 800;
-  font-size: 2rem;
-  letter-spacing: -0.03em;
-  color: var(--team-primary);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--team-color, #55555E);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.tf-profile__body {
-  flex: 1 1 300px;
+/* Logotipo verificado (si algún día se incorpora al mapa LOGO_IMAGES) */
+.team-hero__logo {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Marca inferior del escudo: identidad del equipo */
+.team-hero__crest-line {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--team-color, #55555E), transparent);
+}
+
+.team-hero__main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
   min-width: 0;
 }
 
-.tf-pilot-teams {
+.team-hero__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.1rem + 2.6vw, 3rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.team-hero__sub {
+  margin: 0;
+  color: var(--c-dim);
+  font-size: 0.95rem;
+}
+
+.team-hero__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-2);
-  margin-top: var(--sp-3);
-  color: var(--c-dim);
-  font-size: 0.9rem;
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.tf-pilot-teams .tf-badge {
-  background: var(--c-surface-2);
+.team-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
+  color: var(--c-dim);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.team-hero__side {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-left: var(--sp-4);
+  border-left: 1px solid var(--c-line);
+}
+
+.team-hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.team-hero__stat span {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.team-hero__stat b {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Posición provisional (temporada en curso): acento del tema */
+.team-hero__stat.is-provisional b {
+  color: var(--team-primary);
+}
+
+.team-hero__stat small {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--team-primary);
+}
+
+/* ------------------------------------------------------------
+   Tarjetas de estadísticas
+   ------------------------------------------------------------ */
+.team-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(156px, 1fr));
+  gap: var(--sp-4);
+}
+
+.team-kpis > .tf-loading,
+.team-kpis > .tf-empty,
+.team-kpis > .tf-error {
+  grid-column: 1 / -1;
+}
+
+.team-kpi {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: var(--sp-5) var(--sp-5) calc(var(--sp-5) + 4px);
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+  transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+
+/* Acento inferior: tema activo */
+.team-kpi::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--team-primary), transparent 78%);
+  opacity: 0.85;
+}
+
+.team-kpi--lead {
+  background: linear-gradient(180deg, var(--team-primary-dim), var(--c-surface) 62%);
+  border-color: var(--team-primary-line);
+}
+
+.team-kpi__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 2px;
+  border-radius: var(--r-sm);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+}
+
+.team-kpi__icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.team-kpi__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.team-kpi__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 1.3rem + 1.2vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text);
+}
+
+.team-kpi__value.is-text {
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.3rem);
+  line-height: 1.2;
+}
+
+.team-kpi__note {
+  font-size: 0.76rem;
+  color: var(--c-mute);
+}
+
+@media (hover: hover) {
+
+  .team-kpi:hover {
+    transform: translateY(-3px);
+    border-color: var(--team-primary-line);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* ------------------------------------------------------------
+   Gráfico de evolución
+   ------------------------------------------------------------ */
+.team-switch {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+}
+
+.team-switch__btn {
+  padding: 6px 14px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--c-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.team-switch__btn:hover {
+  color: var(--c-text);
+}
+
+.team-switch__btn.is-active {
+  background: var(--team-primary-dim);
+  color: var(--c-text);
+  box-shadow: inset 0 0 0 1px var(--team-primary-line);
+}
+
+.team-chart {
+  position: relative;
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+.team-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.team-chart__grid {
+  stroke: var(--c-line);
+  stroke-width: 1;
+}
+
+.team-chart__axis {
+  fill: var(--c-mute);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.team-chart__axis--title {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--team-primary);
+}
+
+/* Serie del constructor: color del tema activo */
+.team-chart__segment {
+  fill: none;
+  stroke: var(--team-primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Interrupción (temporadas sin participación): discontinua */
+.team-chart__segment--gap {
+  stroke-dasharray: 5 5;
+  opacity: 0.6;
+}
+
+.team-chart__point {
+  fill: var(--team-primary);
+  stroke: var(--c-surface);
+  stroke-width: 2;
+  cursor: pointer;
+  transition: r 160ms var(--ease);
+}
+
+.team-chart__point:focus {
+  outline: none;
+}
+
+.team-chart__point:focus-visible,
+.team-chart__point.is-active {
+  stroke: var(--c-text);
+  stroke-width: 3;
+}
+
+/* Temporadas campeonas: anillo dorado (independiente del tema) */
+.team-chart__point--champion {
+  stroke: var(--c-gold);
+  stroke-width: 2.5;
+}
+
+.team-chart__tip {
+  position: absolute;
+  z-index: 5;
+  min-width: 158px;
+  max-width: 250px;
+  padding: 10px var(--sp-3);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: var(--c-pop);
+  color: var(--c-text);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -108%);
+  transition: opacity 160ms var(--ease), visibility 160ms var(--ease);
+  pointer-events: none;
+}
+
+.team-chart__tip.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.team-chart__tip b {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.team-chart__tip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.team-chart__tip-row span:first-child {
+  color: var(--c-mute);
+}
+
+.team-chart__tip-row--gold b {
+  color: var(--c-gold);
+}
+
+/* ------------------------------------------------------------
+   Pilotos de la temporada
+   ------------------------------------------------------------ */
+.team-drivers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(196px, 240px));
+  justify-content: start;
+  gap: var(--sp-4);
+}
+
+.team-drivers > .tf-loading,
+.team-drivers > .tf-empty,
+.team-drivers > .tf-error {
+  grid-column: 1 / -1;
+}
+
+.team-driver {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  color: var(--c-text);
+  transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+
+/* Filo superior: acento del tema activo */
+.team-driver::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 3;
+  height: 3px;
+  background: linear-gradient(90deg, var(--team-primary), transparent 86%);
+  opacity: 0.85;
+}
+
+.team-driver__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--c-surface-2);
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
+    radial-gradient(120% 85% at 50% 0%, var(--team-primary-dim), transparent 72%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+.team-driver__initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--team-primary);
+  opacity: 0.5;
+}
+
+.team-driver__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+  opacity: 0;
+  transition: opacity 320ms var(--ease), transform 420ms var(--ease);
+}
+
+.team-driver__photo.is-loaded {
+  opacity: 1;
+}
+
+.team-driver__photo[hidden] {
+  display: none;
+}
+
+.team-driver__scrim {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 58%;
+  background: linear-gradient(180deg, transparent, rgba(12, 12, 14, 0.5) 48%, rgba(12, 12, 14, 0.88));
+  pointer-events: none;
+}
+
+.team-driver__num {
+  position: absolute;
+  left: var(--sp-3);
+  bottom: 2px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--team-primary);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.team-driver__code {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  z-index: 2;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-pill);
+  background: rgba(12, 12, 14, 0.5);
+  color: var(--c-text);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.team-driver__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  min-width: 0;
+}
+
+.team-driver__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-driver__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  font-size: 0.74rem;
+  color: var(--c-mute);
+}
+
+.team-driver__stat {
+  color: var(--c-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.team-driver__arrow {
+  position: absolute;
+  right: var(--sp-3);
+  bottom: var(--sp-3);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  color: var(--c-dim);
+  font-size: 0.82rem;
+  line-height: 1;
+  transition: transform 240ms var(--ease), background-color 240ms var(--ease),
+    border-color 240ms var(--ease), color 240ms var(--ease);
+}
+
+.team-driver:hover,
+.team-driver:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--team-primary-line);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
+}
+
+.team-driver:hover .team-driver__photo.is-loaded,
+.team-driver:focus-visible .team-driver__photo.is-loaded {
+  transform: scale(1.04);
+}
+
+.team-driver:hover .team-driver__arrow,
+.team-driver:focus-visible .team-driver__arrow {
+  transform: translateX(2px);
+  background: var(--team-primary);
+  border-color: var(--team-primary);
+  color: var(--team-on-primary);
+}
+
+/* ------------------------------------------------------------
+   Palmarés
+   ------------------------------------------------------------ */
+.team-honours__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--sp-4);
+}
+
+.team-honours > .tf-loading,
+.team-honours > .tf-empty,
+.team-honours > .tf-error {
+  grid-column: 1 / -1;
+}
+
+.team-honours__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-width: 0;
+  padding: var(--sp-5);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+.team-honours__card--titles {
+  border-color: rgba(232, 193, 90, 0.32);
+  background-image: linear-gradient(180deg, rgba(232, 193, 90, 0.07), transparent 62%);
+}
+
+.team-honours__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: rgba(232, 193, 90, 0.12);
+  color: var(--c-gold);
+}
+
+.team-honours__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.team-honours__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.team-honours__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.8rem + 2vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-gold);
+}
+
+.team-honours__note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--c-mute);
+}
+
+.team-honours__empty {
+  font-size: 0.82rem;
+  color: var(--c-dim);
+}
+
+.team-honours__years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-honours__year {
+  padding: 4px 11px;
+  border: 1px solid rgba(232, 193, 90, 0.35);
+  border-radius: var(--r-pill);
+  background: rgba(232, 193, 90, 0.09);
+  color: var(--c-gold);
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.team-honours__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+  margin: 0;
+}
+
+.team-honours__stats dt {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.team-honours__stats dd {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.8rem);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------
+   Tabla de resultados
+   ------------------------------------------------------------ */
+.team-table {
+  min-width: 760px;
+}
+
+.team-table thead th {
+  background-color: var(--c-surface-2);
+  background-image: linear-gradient(180deg, var(--team-primary-dim), transparent 78%);
+}
+
+.team-table th[aria-sort] {
+  padding: 0;
+}
+
+.team-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: var(--sp-4);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.team-table__sort:hover {
+  color: var(--team-primary);
+}
+
+.team-table__sort:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: -2px;
+}
+
+.team-table__year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.team-table__drivers {
+  display: inline-block;
+  min-width: 0;
+  color: var(--c-dim);
+}
+
+.team-table__more {
+  color: var(--c-mute);
+  font-weight: 700;
+}
+
+.team-table__dash {
+  color: var(--c-mute);
+}
+
+.team-table__pos {
+  display: inline-block;
+  min-width: 30px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fila de la temporada consultada (tema activo) y fila de temporada campeona
+   (dorado deportivo, independiente del tema). Pueden coexistir: una aporta
+   background-color y la otra background-image, así que ninguna anula a la otra. */
+.team-table tbody tr {
+  transition: background-color 200ms var(--ease), background-image 200ms var(--ease);
+}
+
+.team-table tbody tr:hover {
+  background-color: var(--c-surface-2);
+  background-image: none;
+}
+
+.team-table tbody tr.team-table__row--current {
+  background-color: var(--team-primary-dim);
+}
+
+.team-table tbody tr.team-table__row--current:hover {
+  background-color: var(--team-primary-dim);
+}
+
+.team-table tbody tr.team-table__row--current td:last-child {
+  box-shadow: inset -3px 0 0 var(--team-primary);
+}
+
+.team-table tbody tr.team-table__row--champion {
+  background-color: rgba(232, 193, 90, 0.05);
+  background-image: linear-gradient(90deg, rgba(232, 193, 90, 0.10), transparent 62%);
+}
+
+.team-table tbody tr.team-table__row--champion:hover {
+  background-color: rgba(232, 193, 90, 0.09);
+  background-image: linear-gradient(90deg, rgba(232, 193, 90, 0.16), transparent 62%);
+}
+
+.team-table tbody tr.team-table__row--current.team-table__row--champion {
+  background-color: var(--team-primary-dim);
+  background-image: linear-gradient(90deg, rgba(232, 193, 90, 0.12), transparent 62%);
+}
+
+.team-table tbody tr.team-table__row--current.team-table__row--champion:hover {
+  background-color: var(--team-primary-dim);
+  background-image: linear-gradient(90deg, rgba(232, 193, 90, 0.18), transparent 62%);
+}
+
+.team-table tbody tr.team-table__row--champion td:first-child {
+  box-shadow: inset 3px 0 0 rgba(232, 193, 90, 0.75);
+}
+
+.team-table__pos--champion {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  color: var(--c-gold);
+}
+
+.team-table__trophy {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+}
+
+/* ------------------------------------------------------------
+   Notas
+   ------------------------------------------------------------ */
+.team-note {
+  margin: var(--sp-3) 0 0;
+  font-size: 0.78rem;
+  color: var(--c-mute);
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 1023px) {
+  .team-hero {
+    grid-template-columns: minmax(0, 168px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .team-hero__side {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: var(--sp-6);
+    padding-left: 0;
+    padding-top: var(--sp-4);
+    border-left: 0;
+    border-top: 1px solid var(--c-line);
+  }
+
+  .team-honours__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 719px) {
+  .team-hero {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    padding: var(--sp-4);
+    gap: var(--sp-4);
+  }
+
+  .team-hero__crest {
+    max-width: 168px;
+  }
+
+  .team-hero__side {
+    gap: var(--sp-4);
+  }
+
+  .team-kpis {
+    gap: var(--sp-3);
+  }
+
+  .team-kpi {
+    padding: var(--sp-4) var(--sp-4) calc(var(--sp-4) + 4px);
+  }
+
+  .team-kpi__value {
+    font-size: 1.6rem;
+  }
+
+  .team-switch {
+    width: 100%;
+  }
+
+  .team-switch__btn {
+    flex: 1 1 auto;
+  }
+
+  .team-chart {
+    padding: var(--sp-3) var(--sp-2);
+  }
+
+  .team-honours__stats {
+    gap: var(--sp-3);
+  }
+
+  .team-honours__card {
+    padding: var(--sp-4);
+  }
+
+  .team-drivers {
+    grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+  }
+}
+
+@media (max-width: 419px) {
+  .team-drivers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team-driver__media {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ------------------------------------------------------------
+   Movimiento reducido
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+
+  .team-kpi,
+  .team-driver,
+  .team-driver__photo,
+  .team-driver__arrow,
+  .team-chart__point,
+  .team-chart__tip,
+  .team-switch__btn,
+  .team-table tbody tr {
+    transition: none;
+  }
+
+  .team-kpi:hover,
+  .team-driver:hover,
+  .team-driver:focus-visible {
+    transform: none;
+  }
+
+  .team-driver:hover .team-driver__photo.is-loaded,
+  .team-driver:focus-visible .team-driver__photo.is-loaded {
+    transform: none;
+  }
 }
