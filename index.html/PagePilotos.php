@@ -19,43 +19,48 @@
 
       <div class="tf-section__head">
         <div>
-          <span class="tf-eyebrow">Temporada <span id="year-label">—</span></span>
+          <span class="tf-eyebrow">Temporada <span id="year-label">&mdash;</span></span>
           <h1 class="tf-section__title tf-page-title">Pilotos</h1>
-          <p class="tf-section__sub">Clasificaci&oacute;n y plantilla de pilotos de la temporada seleccionada.</p>
+          <p class="tf-section__sub" id="season-sub">Plantilla y clasificaci&oacute;n de pilotos de la temporada seleccionada.</p>
         </div>
         <a class="tf-back" id="btn-volver" href="/">P&aacute;gina principal</a>
       </div>
 
-      <div class="tf-toolbar">
-        <div class="tf-toolbar__group">
-          <div class="tf-input-icon tf-search">
-            <input type="search" id="search" class="tf-input" placeholder="Buscar piloto&hellip;"
-                   autocomplete="off" aria-label="Buscar piloto por nombre">
-          </div>
-          <select id="filter-team" class="tf-select" aria-label="Filtrar por escuder&iacute;a">
-            <option value="">Todas las escuder&iacute;as</option>
-          </select>
+      <!-- Buscador, filtro por escuder&iacute;a y ordenaci&oacute;n de la temporada activa -->
+      <section class="pilots-controls" aria-label="Buscar, filtrar y ordenar pilotos">
+        <div class="pilots-controls__search tf-input-icon">
+          <input type="search" id="search" class="tf-input" placeholder="Buscar piloto&hellip;"
+                 autocomplete="off" spellcheck="false" aria-label="Buscar piloto por nombre o apellidos">
+          <button type="button" class="pilots-controls__clear" id="search-clear" hidden
+                  aria-label="Limpiar b&uacute;squeda">&times;</button>
         </div>
-        <span class="tf-badge" id="count-badge">Cargando&hellip;</span>
-      </div>
 
-      <div class="tf-table-wrap">
-        <table class="tf-table">
-          <thead>
-            <tr>
-              <th scope="col">Pos</th>
-              <th scope="col">Piloto</th>
-              <th scope="col">Nacionalidad</th>
-              <th scope="col">Escuder&iacute;a</th>
-              <th scope="col" class="tf-td-right">Puntos</th>
-            </tr>
-          </thead>
-          <tbody id="pilotos-tbody">
-            <tr class="tf-table__empty">
-              <td colspan="5">Cargando pilotos&hellip;</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="pilots-controls__fields">
+          <label class="pilots-controls__field">
+            <span class="pilots-controls__label">Escuder&iacute;a</span>
+            <select id="filter-team" class="tf-select" aria-label="Filtrar por escuder&iacute;a">
+              <option value="">Todas las escuder&iacute;as</option>
+            </select>
+          </label>
+
+          <label class="pilots-controls__field">
+            <span class="pilots-controls__label">Ordenar por</span>
+            <select id="sort-by" class="tf-select" aria-label="Ordenar pilotos">
+              <option value="championship">Clasificaci&oacute;n del campeonato</option>
+              <option value="name-asc">Apellido (A&ndash;Z)</option>
+              <option value="name-desc">Apellido (Z&ndash;A)</option>
+              <option value="number-asc">Dorsal (menor a mayor)</option>
+              <option value="number-desc">Dorsal (mayor a menor)</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="pilots-controls__count" id="count-badge" role="status" aria-live="polite">Cargando&hellip;</p>
+      </section>
+
+      <!-- Cuadr&iacute;cula de fichas -->
+      <div class="pilots-grid" id="pilots-grid">
+        <div class="tf-loading"><span class="tf-spinner" aria-hidden="true"></span><span>Cargando pilotos&hellip;</span></div>
       </div>
 
     </div>

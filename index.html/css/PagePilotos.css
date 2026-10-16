@@ -1,39 +1,461 @@
-/* TodoF1 — Pilotos (ajustes de página) */
+/* ============================================================
+   TodoF1 — Pilotos · fichas estilo F1
+   ------------------------------------------------------------
+   Dos sistemas de color conviven sin interferirse:
+     · Tema activo  → --team-*  (controles, foco, spinners...)
+     · Escudería    → --pilot-* (detalles de cada ficha, según la
+                      escudería del piloto en la temporada vista)
+   ============================================================ */
 
-#pilotos-tbody tr.is-clickable:hover {
-  background: var(--c-surface-2);
+/* ------------------------------------------------------------
+   Controles: buscador, filtro, ordenación y contador
+   ------------------------------------------------------------ */
+.pilots-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
 }
 
-.tf-pilot-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.pilots-controls__search {
+  position: relative;
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+/* Espacio para el botón de limpiar dentro del campo */
+.pilots-controls__search .tf-input {
+  padding-right: 46px;
+}
+
+.pilots-controls__clear {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
+  color: var(--c-dim);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--t-fast), background-color var(--t-fast);
+}
+
+.pilots-controls__clear:hover {
+  color: var(--c-text);
+  background: var(--c-line);
+}
+
+.pilots-controls__clear[hidden] {
+  display: none;
+}
+
+.pilots-controls__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pilots-controls__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 200px;
+  max-width: 280px;
+  min-width: 0;
+}
+
+.pilots-controls__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.pilots-controls__count {
+  margin: 0 0 6px auto;
+  font-size: 0.86rem;
+  color: var(--c-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------
+   Cuadrícula
+   ------------------------------------------------------------ */
+.pilots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-4);
+  align-items: stretch;
+}
+
+.pilots-grid > .tf-loading,
+.pilots-grid > .tf-empty,
+.pilots-grid > .tf-error {
+  grid-column: 1 / -1;
+}
+
+/* ------------------------------------------------------------
+   Ficha de piloto
+   ------------------------------------------------------------ */
+.pilot-card {
+  --pilot-color: #55555E;
+  --pilot-soft: rgba(85, 85, 94, 0.18);
+  --pilot-line: rgba(85, 85, 94, 0.42);
+  --pilot-glow: rgba(85, 85, 94, 0.30);
+  --pilot-on-color: #FFFFFF;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  box-shadow: var(--shadow-1);
+  color: var(--c-text);
+  transition: transform 260ms var(--ease), border-color 260ms var(--ease),
+    box-shadow 260ms var(--ease);
+}
+
+/* Filo superior con el color de la escudería */
+.pilot-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 3;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pilot-color), transparent 86%);
+  opacity: 0.85;
+  transition: opacity 260ms var(--ease);
+}
+
+/* Retícula diagonal: detalle de competición, muy sutil */
+.pilot-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--c-surface-2);
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
+    radial-gradient(120% 85% at 50% 0%, var(--pilot-soft), transparent 72%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+}
+
+/* Fallback visual: iniciales sobre el color de la escudería */
+.pilot-card__initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--pilot-color);
+  opacity: 0.55;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.pilot-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 16%;
+  opacity: 0;
+  transition: opacity 320ms var(--ease), transform 420ms var(--ease);
+}
+
+.pilot-card__photo.is-loaded {
+  opacity: 1;
+}
+
+.pilot-card__photo[hidden] {
+  display: none;
+}
+
+.pilot-card__scrim {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 62%;
+  background: linear-gradient(180deg, transparent, rgba(12, 12, 14, 0.5) 48%, rgba(12, 12, 14, 0.88));
+  pointer-events: none;
+}
+
+/* Dorsal: protagonista tipográfico (solo si la temporada lo registra) */
+.pilot-card__num {
+  position: absolute;
+  left: var(--sp-3);
+  bottom: 4px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--pilot-color);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.pilot-card__code {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  z-index: 2;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-pill);
+  background: rgba(12, 12, 14, 0.5);
+  color: var(--c-text);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pilot-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4);
+  min-width: 0;
+}
+
+.pilot-card__family {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pilot-card__given {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.84rem;
   font-weight: 600;
+  color: var(--c-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.tf-pilot-name .tf-dot {
-  background: var(--team-primary);
-}
-
-.tf-team-cell {
-  display: inline-flex;
+.pilot-card__meta {
+  display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  margin-top: 2px;
+  font-size: 0.78rem;
   color: var(--c-dim);
 }
 
-@media (max-width: 720px) {
-  .tf-toolbar {
+.pilot-card__dot {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--pilot-color);
+  box-shadow: 0 0 10px var(--pilot-glow);
+}
+
+.pilot-card__team {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pilot-card__nat {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--c-mute);
+}
+
+.pilot-card__foot {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding: var(--sp-3) var(--sp-4);
+  border-top: 1px solid var(--c-line);
+}
+
+.pilot-card__stat {
+  min-width: 0;
+  font-size: 0.74rem;
+  color: var(--c-mute);
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pilot-card__stat b {
+  color: var(--c-text);
+  font-weight: 700;
+}
+
+.pilot-card__arrow {
+  flex: 0 0 auto;
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  color: var(--c-dim);
+  font-size: 0.9rem;
+  line-height: 1;
+  transition: transform 260ms var(--ease), background-color 260ms var(--ease),
+    border-color 260ms var(--ease), color 260ms var(--ease);
+}
+
+/* ------------------------------------------------------------
+   Microinteracciones (toda la ficha, también con teclado)
+   ------------------------------------------------------------ */
+.pilot-card:hover,
+.pilot-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--pilot-line);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--pilot-soft);
+}
+
+.pilot-card:hover::before,
+.pilot-card:focus-visible::before {
+  opacity: 1;
+}
+
+.pilot-card:hover .pilot-card__photo.is-loaded,
+.pilot-card:focus-visible .pilot-card__photo.is-loaded {
+  transform: scale(1.04);
+}
+
+/* La flecha pasa de → a ↗ al pasar por cualquier zona de la ficha */
+.pilot-card:hover .pilot-card__arrow,
+.pilot-card:focus-visible .pilot-card__arrow {
+  transform: rotate(45deg);
+  background: var(--pilot-color);
+  border-color: var(--pilot-color);
+  color: var(--pilot-on-color);
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 1039px) {
+  .pilots-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .pilots-controls__count {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 779px) {
+  .pilots-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 719px) {
+  .pilots-controls {
+    flex-direction: column;
     align-items: stretch;
+    gap: var(--sp-3);
   }
 
-  .tf-toolbar__group {
+  .pilots-controls__search {
+    flex: 1 1 auto;
+  }
+
+  .pilots-controls__fields {
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+
+  .pilots-controls__field {
+    flex: 1 1 auto;
+    max-width: none;
     width: 100%;
   }
 
-  .tf-search,
-  #filter-team {
-    width: 100%;
-    flex: 1 1 100%;
+  .pilots-controls__count {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+@media (max-width: 519px) {
+  .pilots-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Una sola columna: la fotografía se recorta en horizontal para que la
+     ficha no resulte excesivamente alta. */
+  .pilot-card__media {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ------------------------------------------------------------
+   Movimiento reducido
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+
+  .pilot-card,
+  .pilot-card::before,
+  .pilot-card__photo,
+  .pilot-card__arrow,
+  .pilots-controls__clear {
+    transition: none;
+  }
+
+  .pilot-card:hover,
+  .pilot-card:focus-visible {
+    transform: none;
+  }
+
+  .pilot-card:hover .pilot-card__photo.is-loaded,
+  .pilot-card:focus-visible .pilot-card__photo.is-loaded {
+    transform: none;
+  }
+
+  .pilot-card:hover .pilot-card__arrow,
+  .pilot-card:focus-visible .pilot-card__arrow {
+    transform: none;
   }
 }
