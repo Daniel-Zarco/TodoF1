@@ -44,4 +44,76 @@ jobs:
             -o BatchMode=yes \
             -o StrictHostKeyChecking=yes \
             "$SSH_USER@$SSH_HOST" \
-            'cd /home/todof1/todof1-app || exit 1; echo "===== DIAGNOSTICO FSCK AMPLIADO (TEMPORAL): INICIO ====="; echo "--- git --version ---"; git --version 2>&1; echo "[exit=$?]"; echo "--- git status --short ---"; git status --short 2>&1; echo "[exit=$?]"; echo "--- git log -1 --oneline ---"; git log -1 --oneline 2>&1; echo "[exit=$?]"; echo "--- git remote -v ---"; git remote -v 2>&1; echo "[exit=$?]"; echo "--- git for-each-ref ---"; git for-each-ref --format="%(refname) %(objecttype) %(objectname)" 2>&1; echo "[exit=$?]"; echo "--- git show-ref ---"; git show-ref 2>&1; echo "[exit=$?]"; echo "--- refs y existencia de objetos (cat-file -e) ---"; for r in $(git for-each-ref --format="%(refname)"); do sha=$(git rev-parse --verify --quiet "$r" 2>/dev/null); if [ -z "$sha" ]; then echo "REF_ROTA $r"; elif git cat-file -e "$sha" 2>/dev/null; then echo "OK $r ($sha)"; else echo "OBJETO_FALTANTE $r ($sha)"; fi; done; echo "--- ref refs/remotes/origin/backup-github ---"; cat .git/refs/remotes/origin/backup-github 2>&1; echo "[cat_exit=$?]"; grep -n "backup-github" .git/packed-refs 2>&1; echo "[grep_exit=$?]"; git rev-parse --verify refs/remotes/origin/backup-github 2>&1; echo "[rev_parse_exit=$?]"; echo "--- git fsck --full ---"; git fsck --full 2>&1; echo "[fsck_exit=$?]"; echo "--- git fsck --full --strict ---"; git fsck --full --strict 2>&1; echo "[fsck_strict_exit=$?]"; echo "--- git fsck --full --unreachable --no-reflogs ---"; git fsck --full --unreachable --no-reflogs 2>&1; echo "[fsck_unreach_exit=$?]"; echo "--- git count-objects -v ---"; git count-objects -v 2>&1; echo "[exit=$?]"; echo "--- git reflog -10 ---"; git reflog -10 2>&1; echo "[exit=$?]"; echo "--- df -h (directorio del proyecto) ---"; df -h . 2>&1; echo "[exit=$?]"; echo "--- du -sh .git ---"; du -sh .git 2>&1; echo "[exit=$?]"; echo "===== DIAGNOSTICO FSCK AMPLIADO (TEMPORAL): FIN ====="; if git remote get-url origin >/dev/null 2>&1; then git remote set-url origin https://github.com/Daniel-Zarco/TodoF1.git; else git remote add origin https://github.com/Daniel-Zarco/TodoF1.git; fi; bash deploy/deploy.sh'
+            'cd /home/todof1/todof1-app || exit 1; echo "===== DIAGNOSTICO FSCK AMPLIADO (TEMPORAL): INICIO ====="; echo "--- git --version ---"; git --version 2>&1; echo "[exit=$?]"; echo "--- git status --short ---"; git status --short 2>&1; echo "[exit=$?]"; echo "--- git log -1 --oneline ---"; git log -1 --oneline 2>&1; echo "[exit=$?]"; echo "--- git remote -v ---"; git remote -v 2>&1; echo "[exit=$?]"; echo "--- git for-each-ref ---"; git for-each-ref --format="%(refname) %(objecttype) %(objectname)" 2>&1; echo "[exit=$?]"; echo "--- git show-ref ---"; git show-ref 2>&1; echo "[exit=$?]"; echo "--- refs y existencia de objetos (cat-file -e) ---"; for r in $(git for-each-ref --format="%(refname)"); do sha=$(git rev-parse --verify --quiet "$r" 2>/dev/null); if [ -z "$sha" ]; then echo "REF_ROTA $r"; elif git cat-file -e "$sha" 2>/dev/null; then echo "OK $r ($sha)"; else echo "OBJETO_FALTANTE $r ($sha)"; fi; done; echo "--- ref refs/remotes/origin/backup-github ---"; cat .git/refs/remotes/origin/backup-github 2>&1; echo "[cat_exit=$?]"; grep -n "backup-github" .git/packed-refs 2>&1; echo "[grep_exit=$?]"; git rev-parse --verify refs/remotes/origin/backup-github 2>&1; echo "[rev_parse_exit=$?]"; echo "--- git fsck --full ---"; git fsck --full 2>&1; echo "[fsck_exit=$?]"; echo "--- git fsck --full --strict ---"; git fsck --full --strict 2>&1; echo "[fsck_strict_exit=$?]"; echo "--- git fsck --full --unreachable --no-reflogs ---"; git fsck --full --unreachable --no-reflogs 2>&1; echo "[fsck_unreach_exit=$?]"; echo "--- git count-objects -v ---"; git count-objects -v 2>&1; echo "[exit=$?]"; echo "--- git reflog -10 ---"; git reflog -10 2>&1; echo "[exit=$?]"; echo "--- df -h (directorio del proyecto) ---"; df -h . 2>&1; echo "[exit=$?]"; echo "--- du -sh .git ---"; du -sh .git 2>&1; echo "[exit=$?]"; echo "===== DIAGNOSTICO FSCK AMPLIADO (TEMPORAL): FIN ====="; if git remote get-url origin >/dev/null 2>&1; then git remote set-url origin https://github.com/Daniel-Zarco/TodoF1.git; else git remote add origin https://github.com/Daniel-Zarco/TodoF1.git; fi; echo "--- Sincronizando el repositorio del servidor ANTES de ejecutar el despliegue ---"; git fetch --prune origin main || exit 1; git merge --ff-only origin/main || exit 1; git log -1 --oneline; bash deploy/deploy.sh'
+
+      # Verificacion REAL en produccion: el despliegue no puede darse por bueno
+      # si las URLs publicas no se comportan como deben.
+      - name: Verificar produccion (URLs reales)
+        run: |
+          set -u
+          BASE="https://todof1.alwaysdata.net"
+          BODY="$(mktemp)"
+          fail=0
+
+          probe() { # $1 = ruta -> "<codigo>|<location>"; el cuerpo queda en $BODY
+            curl -sS --max-time 25 --retry 3 --retry-delay 3 \
+              -H 'Cache-Control: no-cache' \
+              -o "$BODY" -w '%{http_code}|%{redirect_url}' "$BASE$1"
+          }
+
+          is_root() { [ "$1" = "$BASE/" ] || [ "$1" = "$BASE" ]; }
+
+          must_dashboard() { # 200 con la pagina principal, o 301 a la raiz
+            res="$(probe "$1")"; code="${res%%|*}"; loc="${res#*|}"
+            echo "$1 -> HTTP $code ${loc:+-> $loc}"
+            if [ "$code" = "200" ] && grep -q 'tf-page-dashboard' "$BODY"; then return 0; fi
+            if [ "$code" = "301" ] && is_root "$loc"; then return 0; fi
+            echo "::error::$1 no sirve la pagina principal (HTTP $code${loc:+ -> $loc})"
+            fail=1
+          }
+
+          old_url() { # 301 a la raiz, o 200 sin la portada antigua y redirigiendo a /
+            res="$(probe "$1")"; code="${res%%|*}"; loc="${res#*|}"
+            echo "$1 -> HTTP $code ${loc:+-> $loc}"
+            if [ "$code" = "301" ]; then
+              if is_root "$loc"; then return 0; fi
+              echo "::error::$1 redirige a $loc y no a /"; fail=1; return 0
+            fi
+            if [ "$code" = "200" ]; then
+              if grep -q 'tf-landing' "$BODY"; then
+                echo "::error::$1 sigue sirviendo la portada antigua"; fail=1
+              elif grep -q 'tf-page-dashboard' "$BODY" || grep -q "location.replace('/')" "$BODY"; then
+                return 0
+              else
+                echo "::error::$1 devuelve 200 pero no lleva a la pagina principal"; fail=1
+              fi
+              return 0
+            fi
+            echo "::error::$1 devuelve HTTP $code"; fail=1
+          }
+
+          page_ok() { # 200 y navbar presente
+            res="$(probe "$1")"; code="${res%%|*}"
+            echo "$1 -> HTTP $code"
+            if [ "$code" != "200" ] || ! grep -q 'tf-nav' "$BODY"; then
+              echo "::error::$1 no responde correctamente (HTTP $code)"; fail=1
+            fi
+          }
+
+          echo "== Pagina principal en la raiz =="
+          must_dashboard "/"
+          echo "== URLs antiguas =="
+          old_url "/index.html/index.html"
+          old_url "/index.html/PagePrincipal.php"
+          old_url "/index.php"
+          echo "== Resto de paginas =="
+          page_ok "/index.html/PagePilotos.php"
+          page_ok "/index.html/PageEscuderias.php"
+          page_ok "/index.html/PageCircuitos.php"
+          page_ok "/index.html/PageEstadisticas.php"
+
+          if [ "$fail" -ne 0 ]; then
+            echo "VERIFICACION DE PRODUCCION: FALLIDA"
+            exit 1
+          fi
+          echo "VERIFICACION DE PRODUCCION: OK"

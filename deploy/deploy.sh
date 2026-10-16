@@ -215,7 +215,9 @@ if [[ "$DRY_RUN" -eq 1 ]]; then
 else
   for f in "${ROOT_FILES[@]}"; do
     [[ -f "$WWW_DIR/$f" ]] || die "No se publicó el archivo de raíz esperado: $WWW_DIR/$f"
-    log "Verificado $WWW_DIR/$f (enrutamiento de / y 301 de las URLs antiguas)."
+    cmp -s "$REPO_DIR/deploy/root/$f" "$WWW_DIR/$f" \
+      || die "El archivo publicado en la raíz no coincide con el versionado: $WWW_DIR/$f"
+    log "Verificado $WWW_DIR/$f (idéntico a deploy/root/$f)."
   done
 fi
 
