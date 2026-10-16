@@ -47,6 +47,8 @@
   var CACHE_KEY = 'todof1:escuderias:v1:';
   var CACHE_TTL = 20 * 60 * 1000; // 20 minutos
   var DRIVERS_VISIBLE = 4;        // pilotos mostrados antes de "Ver todos"
+  var MIN_GAP = 260;              // separación mínima entre peticiones a la API
+  var RETRY_DELAYS = [1500, 3500, 7000]; // reintentos ante 429 / fallos de red
 
   /* Colores históricos ya definidos en el proyecto (PagePilotos.js).
      No se inventan colores: las escuderías sin correspondencia fiable
@@ -191,12 +193,43 @@
   }
 
   /* ---------------------------------------------------------------- datos */
-  function fetchStandings() {
-    return fetch(API + '/' + year + '/constructorStandings.json?limit=' + PAGE_LIMIT + '&offset=0')
-      .then(function (response) {
-        if (!response.ok) throw new Error('HTTP ' + response.status);
-        return response.json();
+  /* Puerta de espaciado + reintentos: Jolpica limita el ritmo y responde 429
+     o corta la conexión; sin esto, un corte a mitad de la paginación dejaba
+     la página sin pilotos ni victorias. */
+  var lastRequestAt = 0;
+  function apiFetch(url, attempt) {
+    attempt = attempt || 0;
+    var now = Date.now();
+    var wait = Math.max(0, lastRequestAt + MIN_GAP - now);
+    lastRequestAt = now + wait;
+
+    return new Promise(function (resolve) { window.setTimeout(resolve, wait); })
+      .then(function () {
+        return fetch(url).then(function (response) {
+          if (!response.ok) {
+            var error = new Error('HTTP ' + response.status);
+            error.status = response.status;
+            var retryAfter = parseInt(response.headers.get('Retry-After') || '', 10);
+            if (!isNaN(retryAfter)) error.retryAfter = retryAfter;
+            throw error;
+          }
+          return response.json();
+        });
       })
+      .catch(function (error) {
+        var retryable = !error.status || error.status === 429 || error.status >= 500;
+        if (retryable && attempt < RETRY_DELAYS.length) {
+          var backoff = error.retryAfter ? Math.min(error.retryAfter, 8) * 1000 : RETRY_DELAYS[attempt];
+          return new Promise(function (resolve) {
+            window.setTimeout(function () { resolve(apiFetch(url, attempt + 1)); }, backoff);
+          });
+        }
+        throw error;
+      });
+  }
+
+  function fetchStandings() {
+    return apiFetch(API + '/' + year + '/constructorStandings.json?limit=' + PAGE_LIMIT + '&offset=0')
       .then(function (data) {
         var meta = (data && data.MRData) || {};
         var list = meta.StandingsTable && meta.StandingsTable.StandingsLists && meta.StandingsTable.StandingsLists[0];
@@ -218,18 +251,15 @@
   /* Recorre todas las páginas de resultados. Jolpica pagina por RESULTADOS,
      así que una carrera puede quedar partida entre dos páginas: se agrupan los
      resultados por ronda en lugar de concatenar carreras. */
-  function fetchAllResults() {
+  function fetchAllResults(attempt) {
+    attempt = attempt || 0;
     var byRound = {};
     var offset = 0;
     var total = Infinity;
     var pages = 0;
 
     function step() {
-      return fetch(API + '/' + year + '/results.json?limit=' + PAGE_LIMIT + '&offset=' + offset)
-        .then(function (response) {
-          if (!response.ok) throw new Error('HTTP ' + response.status);
-          return response.json();
-        })
+      return apiFetch(API + '/' + year + '/results.json?limit=' + PAGE_LIMIT + '&offset=' + offset)
         .then(function (data) {
           var meta = (data && data.MRData) || {};
           var races = (meta.RaceTable && meta.RaceTable.Races) || [];
@@ -251,15 +281,20 @@
         });
     }
 
-    return step();
+    return step().catch(function (error) {
+      // Una pasada completa puede cortarse a mitad: se reintenta entera para no
+      // quedarnos sin pilotos, victorias ni podios por un corte puntual.
+      if (attempt >= 2) throw error;
+      return new Promise(function (resolve) { window.setTimeout(resolve, 3000); })
+        .then(function () { return fetchAllResults(attempt + 1); });
+    });
   }
 
   /* ¿La temporada está en curso? Solo puede serlo la última disponible; se
      comprueba con la fecha de la última prueba del calendario. */
   function checkProvisional() {
     if (year < LATEST_YEAR) return Promise.resolve(false);
-    return fetch(API + '/' + year + '.json')
-      .then(function (response) { return response.ok ? response.json() : null; })
+    return apiFetch(API + '/' + year + '.json')
       .then(function (data) {
         var races = (data && data.MRData && data.MRData.RaceTable && data.MRData.RaceTable.Races) || [];
         if (!races.length) return true;
