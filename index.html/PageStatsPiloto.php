@@ -43,7 +43,7 @@
 
       <!-- ================= ESTADÍSTICAS ================= -->
       <section class="tf-section" aria-labelledby="stats-title">
-        <div class="tf-section__head">
+        <div class="tf-section__head pilot-head">
           <div>
             <h2 class="tf-section__title" id="stats-title">Estad&iacute;sticas deportivas</h2>
             <p class="tf-section__sub" id="kpi-scope">Cargando trayectoria&hellip;</p>
@@ -56,7 +56,7 @@
 
       <!-- ================= EVOLUCIÓN ================= -->
       <section class="tf-section" aria-labelledby="evolution-title">
-        <div class="tf-section__head">
+        <div class="tf-section__head pilot-head">
           <div>
             <h2 class="tf-section__title" id="evolution-title">Evoluci&oacute;n en F&oacute;rmula 1</h2>
             <p class="tf-section__sub" id="evolution-sub">Progresi&oacute;n temporada a temporada.</p>
@@ -78,7 +78,7 @@
 
       <!-- ================= TRAYECTORIA ================= -->
       <section class="tf-section" aria-labelledby="stints-title">
-        <div class="tf-section__head">
+        <div class="tf-section__head pilot-head">
           <div>
             <h2 class="tf-section__title" id="stints-title">Trayectoria por escuder&iacute;as</h2>
             <p class="tf-section__sub" id="stints-sub">Equipos con los que ha competido, en orden cronol&oacute;gico.</p>
@@ -91,7 +91,7 @@
 
       <!-- ================= RESULTADOS ================= -->
       <section class="tf-section" aria-labelledby="results-title">
-        <div class="tf-section__head">
+        <div class="tf-section__head pilot-head">
           <div>
             <h2 class="tf-section__title" id="results-title">Resultados por temporada</h2>
             <p class="tf-section__sub" id="results-sub">Grandes Premios disputados, victorias, podios y puntos.</p>

@@ -83,6 +83,7 @@
     sortAsc: false,
     positions: {},     // { year: {position: n|null, points: string|null} | {unavailable:true} }
     positionsDone: false,
+    finished: {},      // { year: true|false } temporada ya finalizada (verificado)
     profile: null
   };
 
@@ -148,15 +149,9 @@
     return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + alpha + ')';
   }
 
-  function onColor(hex) {
-    var helper = window.TodoF1Teams && window.TodoF1Teams._internal && window.TodoF1Teams._internal.onColor;
-    if (typeof helper === 'function') return helper(hex);
-    var c = hexToRgb(hex);
-    function channel(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
-    var l = 0.2126 * channel(c.r) + 0.7152 * channel(c.g) + 0.0722 * channel(c.b);
-    return (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.05) ? '#FFFFFF' : '#0B0B0D';
-  }
-
+  /* Color de la escudería del piloto: solo para elementos que identifican a un
+     equipo concreto (puntos de color junto a los nombres y series del gráfico).
+     El resto de la interfaz usa las variables del tema activo (--team-*). */
   function teamColor(constructorId, teamName) {
     var resolve = window.TodoF1Teams && window.TodoF1Teams._internal && window.TodoF1Teams._internal.resolveTeam;
     if (typeof resolve === 'function') {
@@ -319,6 +314,11 @@
             cache[y] = data;
             writePositionsCache(cache);
           }
+          // Si la temporada en curso tiene al piloto 1º, se comprueba que la
+          // temporada haya terminado antes de considerarlo campeón.
+          if (data.position === 1 && y >= new Date().getFullYear() && state.finished[y] === undefined) {
+            checkSeasonFinished(y);
+          }
           renderTable();
           renderChart();
           window.setTimeout(next, POSITION_DELAY);
@@ -326,6 +326,37 @@
       }
       next();
     });
+  }
+
+  /* ¿La temporada ya ha terminado? Las anteriores al año en curso sí; para la
+     temporada en curso se consulta el calendario (fuente fiable) antes de
+     destacarla como campeona. */
+  function seasonFinished(y) {
+    if (y < new Date().getFullYear()) return true;
+    return state.finished[y] === true;
+  }
+
+  function checkSeasonFinished(y) {
+    if (state.finished[y] !== undefined) return Promise.resolve(state.finished[y]);
+    return fetchJson(API + '/' + y + '.json').then(function (data) {
+      var races = (data.MRData && data.MRData.RaceTable && data.MRData.RaceTable.Races) || [];
+      var last = races.length ? races[races.length - 1] : null;
+      state.finished[y] = !!(last && last.date && new Date(last.date + 'T23:59:59Z') < new Date());
+      renderTable();
+      return state.finished[y];
+    }).catch(function () {
+      // Sin calendario fiable no se destaca la temporada en curso.
+      state.finished[y] = false;
+      return false;
+    });
+  }
+
+  /* Campeón del mundo: exclusivamente por la clasificación final oficial del
+     Mundial de Pilotos (posición 1) y con la temporada ya finalizada. */
+  function isChampion(season) {
+    var data = state.positions[season.year];
+    if (!data || data.unavailable || data.position !== 1) return false;
+    return seasonFinished(season.year);
   }
 
   /* --------------------------------------------------------- perfil del piloto */
@@ -369,7 +400,6 @@
 
     seasons.forEach(function (s) {
       s.colors = s.teams.map(function (name, i) { return teamColor(s.teamIds[i] || '', name); });
-      s.onColor = onColor(s.colors[s.colors.length - 1] || NEUTRAL_COLOR);
       // Un único número en toda la temporada: es su dorsal de ese año. Si
       // cambió de número, no se muestra ninguno (no se elige uno al azar).
       s.fixedNumber = s.numbers.length === 1 ? s.numbers[0] : null;
@@ -399,20 +429,9 @@
     };
   }
 
-  function selectedColor() {
-    var p = state.profile;
-    if (!p) return NEUTRAL_COLOR;
-    if (p.selected) return p.selected.colors[p.selected.colors.length - 1];
-    var previous = p.upto[p.upto.length - 1];
-    return previous ? previous.colors[previous.colors.length - 1] : NEUTRAL_COLOR;
-  }
-
-  function applyTeamColor(node, color) {
-    node.style.setProperty('--pilot-color', color);
-    node.style.setProperty('--pilot-soft', rgba(color, 0.18));
-    node.style.setProperty('--pilot-line', rgba(color, 0.42));
-    node.style.setProperty('--pilot-glow', rgba(color, 0.30));
-    node.style.setProperty('--pilot-on-color', onColor(color));
+  /* Sombra suave del color propio de un equipo (solo para sus puntos) */
+  function teamGlow(color) {
+    return rgba(color, 0.30);
   }
 
   /* ------------------------------------------------------------- cabecera */
@@ -421,7 +440,6 @@
     var driver = p.driver;
     var fullName = [driver.givenName, driver.familyName].filter(Boolean).join(' ');
 
-    applyTeamColor(el.hero, selectedColor());
     el.title.textContent = fullName || pilotoNombre || 'Piloto';
     el.eyebrow.textContent = 'Piloto de Fórmula 1';
     el.initials.textContent = initials(driver.givenName, driver.familyName);
@@ -463,17 +481,22 @@
     // Etiquetas secundarias
     var tags = [];
     if (driver.nationality) tags.push({ text: driver.nationality, dot: false });
-    if (p.totals.seasons) tags.push({ text: p.totals.seasons + (p.totals.seasons === 1 ? ' temporada' : ' temporadas') + ' hasta ' + year, dot: true });
+    if (p.totals.seasons) tags.push({ text: p.totals.seasons + (p.totals.seasons === 1 ? ' temporada' : ' temporadas') + ' hasta ' + year, dot: true, theme: true });
     if (p.debut) tags.push({ text: 'Debut ' + p.debut, dot: false });
     if (p.totals.teams.length) tags.push({ text: p.totals.teams.length + (p.totals.teams.length === 1 ? ' escudería' : ' escuderías'), dot: false });
 
     el.tags.innerHTML = tags.map(function (tag) {
-      return '<li class="pilot-hero__tag">' + (tag.dot ? '<span class="pilot-dot" aria-hidden="true"></span>' : '') + esc(tag.text) + '</li>';
+      var dot = tag.dot
+        ? '<span class="pilot-dot' + (tag.theme ? ' pilot-dot--theme' : '') + '" aria-hidden="true"></span>'
+        : '';
+      return '<li class="pilot-hero__tag">' + dot + esc(tag.text) + '</li>';
     }).join('');
 
     if (p.selected) {
       var color = p.selected.colors[p.selected.colors.length - 1];
-      el.tags.innerHTML += '<li class="pilot-hero__tag" style="--pilot-color:' + esc(color) + '"><span class="pilot-dot" aria-hidden="true"></span>' + esc(p.selected.teams.join(' · ')) + '</li>';
+      el.tags.innerHTML += '<li class="pilot-hero__tag" style="--pilot-color:' + esc(color) +
+        ';--pilot-glow:' + esc(teamGlow(color)) + '"><span class="pilot-dot" aria-hidden="true"></span>' +
+        esc(p.selected.teams.join(' · ')) + '</li>';
     }
   }
 
@@ -865,13 +888,14 @@
     var frag = document.createDocumentFragment();
     stints.forEach(function (stint, index) {
       var card = el_('article', 'pilot-stint');
-      applyTeamColor(card, stint.color);
       var years = stint.startYear === stint.endYear
         ? String(stint.startYear)
         : stint.startYear + ' – ' + stint.endYear;
       card.innerHTML =
         '<span class="pilot-stint__order">Etapa ' + (index + 1) + '</span>' +
-        '<span class="pilot-stint__team">' + esc(stint.team) + '</span>' +
+        '<span class="pilot-stint__team"><span class="pilot-dot" style="--pilot-color:' +
+        esc(stint.color) + ';--pilot-glow:' + esc(teamGlow(stint.color)) +
+        '" aria-hidden="true"></span>' + esc(stint.team) + '</span>' +
         '<span class="pilot-stint__years">' + years + (stint.midSeason ? ' · llegada a mitad de temporada' : '') + '</span>' +
         '<span class="pilot-stint__meta">' + stint.years.length + (stint.years.length === 1 ? ' temporada' : ' temporadas') +
         ' · ' + stint.races + (stint.races === 1 ? ' GP' : ' GPs') + '</span>';
@@ -893,12 +917,23 @@
     return '<span class="pilot-table__dash" title="Dato no disponible">—</span>';
   }
 
+  var TROPHY_ICON = '<svg class="pilot-table__trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+    '<path d="M8 4h8v5a4 4 0 0 1-8 0Z"></path>' +
+    '<path d="M8 5H5.5A2.5 2.5 0 0 0 8 9.5"></path>' +
+    '<path d="M16 5h2.5A2.5 2.5 0 0 1 16 9.5"></path>' +
+    '<path d="M12 13v3"></path><path d="M9 20h6"></path><path d="M10 16h4l.7 4h-5.4Z"></path></svg>';
+
   function positionCell(season) {
     var data = state.positions[season.year];
     if (data && !data.unavailable) {
-      return data.position === null
-        ? '<span class="pilot-table__dash">—</span>'
-        : '<span class="pilot-table__pos">' + data.position + 'º</span>';
+      if (data.position === null) return '<span class="pilot-table__dash">—</span>';
+      if (isChampion(season)) {
+        return '<span class="pilot-table__pos pilot-table__pos--champion" title="Campeón del mundo">' +
+          TROPHY_ICON + '<span>' + data.position + 'º</span>' +
+          '<span class="pilot-vh">Campeón del mundo</span></span>';
+      }
+      return '<span class="pilot-table__pos">' + data.position + 'º</span>';
     }
     if (!state.positionsDone) return '<span class="pilot-table__dash" title="Cargando">…</span>';
     return '<span class="pilot-table__dash" title="Dato no disponible">—</span>';
@@ -920,7 +955,10 @@
 
     var frag = document.createDocumentFragment();
     seasons.forEach(function (season) {
-      var tr = el_('tr', season.year === year ? 'pilot-table__row--current' : '');
+      var classes = '';
+      if (season.year === year) classes += 'pilot-table__row--current';
+      if (isChampion(season)) classes += (classes ? ' ' : '') + 'pilot-table__row--champion';
+      var tr = el_('tr', classes);
       var teams = season.teams.map(function (name, i) {
         return '<span class="pilot-table__team"><span class="pilot-dot" style="--pilot-color:' +
           esc(season.colors[i] || NEUTRAL_COLOR) + '" aria-hidden="true"></span>' + esc(name) + '</span>';
