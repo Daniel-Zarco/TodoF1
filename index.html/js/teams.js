@@ -198,12 +198,15 @@
       TEAM_VARS.forEach(function (k) { root.style.removeProperty(k); });
       root.removeAttribute('data-team');
       root.removeAttribute('data-team-stripe');
+      root.removeAttribute('data-team-colors');
       writeJSON(KEY_ACTIVE, null);
       return;
     }
     Object.keys(vars).forEach(function (k) { root.style.setProperty(k, vars[k]); });
     root.setAttribute('data-team', team.id);
     root.setAttribute('data-team-stripe', stripeMode(team));
+    // Nº de colores reales del tema (2 o 3): decide el ciclo de la línea inferior.
+    root.setAttribute('data-team-colors', String(uniqueColors(team).length));
     writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars, stripe: stripeMode(team), hero: teamHeroSrc(team.id) });
   }
 

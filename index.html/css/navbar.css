@@ -59,6 +59,69 @@ html[data-team-stripe="static"] .tf-nav::after {
   }
 }
 
+/* ============================================================
+   Línea inferior — ciclo de color del tema (< 1200px)
+   Sustituye el desplazamiento horizontal por una transición lenta
+   y continua: la línea completa muestra un único color uniforme en
+   cada instante y recorre los colores reales del tema activo
+   (primario → secundario → acento) hasta volver al primario.
+   2 colores: alterna entre ambos. 1 color: permanece fija.
+   ============================================================ */
+@keyframes tf-nav-cycle-2 {
+  0% {
+    background-color: var(--team-primary);
+  }
+
+  50% {
+    background-color: var(--team-secondary);
+  }
+
+  100% {
+    background-color: var(--team-primary);
+  }
+}
+
+@keyframes tf-nav-cycle-3 {
+  0% {
+    background-color: var(--team-primary);
+  }
+
+  33.333% {
+    background-color: var(--team-secondary);
+  }
+
+  66.667% {
+    background-color: var(--team-accent);
+  }
+
+  100% {
+    background-color: var(--team-primary);
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .tf-nav::after {
+    background-image: none;
+    background-color: var(--team-primary);
+    animation: tf-nav-cycle-2 24s ease-in-out infinite;
+  }
+
+  /* Temas con un tercer color: el ciclo pasa también por el acento. */
+  html[data-team-colors="3"] .tf-nav::after {
+    animation-name: tf-nav-cycle-3;
+  }
+}
+
+/* Movimiento reducido: color primario fijo, sin ciclo. */
+@media (max-width: 1199.98px) and (prefers-reduced-motion: reduce) {
+  .tf-nav::after,
+  html[data-team-colors="3"] .tf-nav::after {
+    background-image: none;
+    background-color: var(--team-primary);
+    animation: none;
+  }
+}
+
 /* Bloqueo de scroll cuando el menú móvil o el panel están abiertos */
 html[data-nav-open="true"],
 html[data-nav-open="true"] body {
