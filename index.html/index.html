@@ -4,92 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoF1 &mdash; Estad&iacute;sticas hist&oacute;ricas de F&oacute;rmula 1</title>
-    <link rel="stylesheet" href="css/todof1.css?v=1">
-    <link rel="stylesheet" href="css/index.css?v=1">
+    <meta name="robots" content="noindex">
+    <!-- La antigua portada ya no existe: esta URL se sirve con un 301 a la
+         raíz desde el .htaccess del sitio. Este archivo solo actúa como red
+         de seguridad si las redirecciones del servidor no están activas. -->
+    <meta http-equiv="refresh" content="0; url=/">
+    <title>TodoF1 &mdash; Redirigiendo</title>
+    <script>
+        location.replace('/');
+    </script>
 </head>
 
-<body class="tf-landing">
-
-    <header class="tf-landing__bar">
-        <a class="tf-brand" href="/index.html/index.html">
-            <span class="tf-brand__mark" aria-hidden="true">F1</span>
-            <span class="tf-brand__name">Todo<span>F1</span></span>
-        </a>
-        <a class="tf-btn tf-btn--primary tf-btn--sm" href="/index.html/PagePrincipal.php">Explorar TodoF1</a>
-    </header>
-
-    <main class="tf-landing__hero">
-        <span class="tf-eyebrow">F&oacute;rmula 1 &middot; 1950 &mdash; 2026</span>
-        <h1 class="tf-landing__title">Bienvenido a <span>TodoF1</span></h1>
-        <p class="tf-landing__sub">
-            La plataforma donde consultar todos los datos de la F&oacute;rmula 1: pilotos, escuder&iacute;as,
-            circuitos y estad&iacute;sticas hist&oacute;ricas desde el inicio del campeonato.
-        </p>
-        <div class="tf-landing__cta">
-            <a class="tf-btn tf-btn--primary" href="/index.html/PagePrincipal.php">Comenzar ahora</a>
-        </div>
-
-        <div class="tf-landing__stats">
-            <div class="tf-landing__stat"><strong>57</strong><span>Temporadas</span></div>
-            <div class="tf-landing__stat"><strong>396</strong><span>Pilotos</span></div>
-            <div class="tf-landing__stat"><strong>107</strong><span>Escuder&iacute;as</span></div>
-            <div class="tf-landing__stat"><strong>981</strong><span>Grandes Premios</span></div>
-        </div>
-    </main>
-
-    <section class="tf-landing__faq">
-        <div class="tf-container">
-            <h2 class="tf-landing__faq-title">Preguntas frecuentes</h2>
-
-            <div class="tf-faq">
-                <button class="tf-faq__q accordion" type="button">¿Qu&eacute; puedo hacer en TodoF1?</button>
-                <div class="tf-faq__a accordion-content">
-                    <p>TodoF1 es una aplicaci&oacute;n web donde podr&aacute;s consultar datos detallados de todas las
-                        temporadas de F&oacute;rmula 1, desde sus inicios hasta la actualidad, y mantenerte al d&iacute;a
-                        sobre el campeonato en todo momento.</p>
-                </div>
-
-                <button class="tf-faq__q accordion" type="button">¿A qu&eacute; informaci&oacute;n puedo acceder?</button>
-                <div class="tf-faq__a accordion-content">
-                    <p>Tendr&aacute;s acceso a informaci&oacute;n detallada sobre pilotos, escuder&iacute;as y circuitos
-                        desde 1950, el inicio de la F&oacute;rmula 1, hasta la actualidad.</p>
-                </div>
-
-                <button class="tf-faq__q accordion" type="button">¿Necesito registrarme para consultar los datos?</button>
-                <div class="tf-faq__a accordion-content">
-                    <p>No. Cualquier visitante puede consultar directamente todos los datos de F&oacute;rmula 1
-                        &mdash;pilotos, escuder&iacute;as, circuitos y estad&iacute;sticas&mdash; sin registrarse ni
-                        iniciar sesi&oacute;n.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="tf-landing__foot">
-        <span>TodoF1 &middot; Datos de F&oacute;rmula 1</span>
-    </footer>
-
-    <script>
-        document.querySelectorAll('.accordion').forEach(function (acc) {
-            acc.addEventListener('click', function () {
-                var content = acc.nextElementSibling;
-                var isOpen = content.classList.contains('is-open');
-
-                document.querySelectorAll('.accordion-content').forEach(function (c) {
-                    c.classList.remove('is-open');
-                });
-                document.querySelectorAll('.accordion').forEach(function (a) {
-                    a.classList.remove('is-open');
-                });
-
-                if (!isOpen) {
-                    content.classList.add('is-open');
-                    acc.classList.add('is-open');
-                }
-            });
-        });
-    </script>
+<body>
+    <p>La página principal de TodoF1 está en <a href="/">TodoF1</a>.</p>
 </body>
 
 </html>

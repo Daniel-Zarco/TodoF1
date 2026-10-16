@@ -5,6 +5,14 @@
 # Actualiza el repositorio del servidor y sincroniza únicamente los
 # archivos públicos necesarios hacia el directorio web.
 #
+# Además de www/{index.html,Images,api}, publica en la raíz del sitio los
+# archivos versionados deploy/root/.htaccess y deploy/root/index.php, que
+# enrutan "/" hacia index.html/PagePrincipal.php y redirigen con 301 las
+# URLs antiguas (/index.html/index.html, /index.html/PagePrincipal.php).
+# Esos dos archivos se copian individualmente: nunca se aplica rsync
+# --delete sobre www/, así que private/, los backups y el resto de la raíz
+# permanecen intactos.
+#
 # Uso:
 #   bash deploy/deploy.sh --dry-run   # simulación (no modifica el servidor)
 #   bash deploy/deploy.sh             # despliegue real
@@ -36,6 +44,15 @@ API_FILES=(
 )
 
 DRY_RUN=0
+
+# Archivos que SÍ se publican en la raíz del sitio (www/). Lista explícita y
+# cerrada: son los que gobiernan el enrutamiento de "/". Se copian de uno en
+# uno, nunca con rsync --delete sobre www/, para no tocar private/, los
+# backups del servidor ni cualquier otro archivo de la raíz.
+ROOT_FILES=(
+  .htaccess
+  index.php
+)
 
 # ------------------------------- Utilidades ---------------------------------
 log()  { printf '[%s] %s\n'  "$(date '+%Y-%m-%d %H:%M:%S')" "$*"; }
@@ -79,6 +96,10 @@ command -v rsync >/dev/null 2>&1 || die "No se encontró 'rsync'. Se detiene el 
 
 for d in index.html Images api; do
   [[ -d "$REPO_DIR/$d" ]] || die "Falta el directorio de origen: $REPO_DIR/$d"
+done
+
+for f in "${ROOT_FILES[@]}"; do
+  [[ -f "$REPO_DIR/deploy/root/$f" ]] || die "Falta el archivo de raíz: $REPO_DIR/deploy/root/$f"
 done
 
 # El archivo privado de producción debe existir: la nueva www/api/db.php lo
@@ -131,13 +152,18 @@ TS="$(date '+%Y%m%d-%H%M%S')"
 BK="$BACKUP_DIR/$TS"
 
 if [[ "$DRY_RUN" -eq 1 ]]; then
-  log "MODO SIMULACIÓN: se crearía copia de seguridad de www/{index.html,Images,api} en $BK."
+  log "MODO SIMULACIÓN: se crearía copia de seguridad de www/{index.html,Images,api} y de www/{.htaccess,index.php} en $BK."
 else
   log "Creando copia de seguridad en $BK…"
   mkdir -p "$BK"
   for d in index.html Images api; do
     if [[ -d "$WWW_DIR/$d" ]]; then
       cp -a "$WWW_DIR/$d" "$BK/$d"
+    fi
+  done
+  for f in "${ROOT_FILES[@]}"; do
+    if [[ -f "$WWW_DIR/$f" ]]; then
+      cp -a "$WWW_DIR/$f" "$BK/$f"
     fi
   done
   mkdir -p "$WWW_DIR/index.html" "$WWW_DIR/Images" "$WWW_DIR/api"
@@ -169,11 +195,28 @@ API_OPTS+=(--exclude='*')
 log "Sincronizando api/ (solo: ${API_FILES[*]}) → www/api/…"
 rsync "${API_OPTS[@]}" "$REPO_DIR/api/" "$WWW_DIR/api/"
 
-# ------------------------------- Comprobación -------------------------------
-if [[ -f "$WWW_DIR/index.php" ]]; then
-  log "Conservado $WWW_DIR/index.php (redirección a /index.html/index.html)."
+# ---------------------- Enrutamiento de la raíz (www/) ----------------------
+# La raíz del sitio la gobiernan estos dos archivos versionados:
+#   www/.htaccess   → 301 de las URLs antiguas y rewrite de "/".
+#   www/index.php   → sirve la página principal para "/" (red de seguridad).
+if [[ "$DRY_RUN" -eq 1 ]]; then
+  log "MODO SIMULACIÓN: se copiaría deploy/root/{$(IFS=,; echo "${ROOT_FILES[*]}")} → www/."
 else
-  warn "No existe $WWW_DIR/index.php; el script no lo crea ni lo modifica. Revísalo manualmente."
+  for f in "${ROOT_FILES[@]}"; do
+    cp -f "$REPO_DIR/deploy/root/$f" "$WWW_DIR/$f" || die "No se pudo publicar $WWW_DIR/$f"
+    chmod 644 "$WWW_DIR/$f" || true
+    log "Publicado $WWW_DIR/$f"
+  done
+fi
+
+# ------------------------------- Comprobación -------------------------------
+if [[ "$DRY_RUN" -eq 1 ]]; then
+  log "MODO SIMULACIÓN: no se comprueba la raíz publicada."
+else
+  for f in "${ROOT_FILES[@]}"; do
+    [[ -f "$WWW_DIR/$f" ]] || die "No se publicó el archivo de raíz esperado: $WWW_DIR/$f"
+    log "Verificado $WWW_DIR/$f (enrutamiento de / y 301 de las URLs antiguas)."
+  done
 fi
 
 log "No se han publicado: crear_admin.php, generarUsuarios.php, incrementar_contador.php, .env, private/, vendor/, .git/ ni archivos internos de Laravel."

@@ -39,7 +39,7 @@ $totalUsuarios_json = $totalUsuarios_json ?? '0';
                     <h1 class="tf-section__title tf-page-title">Datos registrados</h1>
                     <p class="tf-section__sub">Estad&iacute;sticas agregadas de los usuarios de la plataforma.</p>
                 </div>
-                <a class="tf-back" href="/index.html/PagePrincipal.php">Volver</a>
+                <a class="tf-back" href="/">Volver</a>
             </div>
 
             <div class="tf-kpi tf-info-total">

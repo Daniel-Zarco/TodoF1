@@ -1,0 +1,39 @@
+# ============================================================
+# TodoF1 — Enrutamiento de la raíz web (www/)
+# Lo publica deploy/deploy.sh en la raíz del sitio.
+#
+#   /                              → página principal (misma URL, 200)
+#   /index.html/index.html         → 301 a /
+#   /index.html/                   → 301 a /
+#   /index.html/PagePrincipal.php  → 301 a /
+#   /index.php                     → 301 a /
+#
+# El resto de URLs (index.html/Page*.php, Images/, api/) se sirven
+# como hasta ahora.
+# ============================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ---- URLs antiguas → raíz (301 permanente) ----
+    RewriteRule ^index\.html/index\.html$ / [R=301,L]
+    RewriteRule ^index\.html/?$ / [R=301,L]
+
+    # La página principal antigua redirige a la raíz únicamente en peticiones
+    # externas: %{THE_REQUEST} no cambia con los rewrites internos, así que
+    # esta condición impide cualquier bucle (el "/" servido internamente
+    # también acaba apuntando a este archivo).
+    RewriteCond %{THE_REQUEST} \s/+index\.html/PagePrincipal\.php[?\s]
+    RewriteRule ^index\.html/PagePrincipal\.php$ / [R=301,L]
+
+    RewriteCond %{THE_REQUEST} \s/+index\.php[?\s]
+    RewriteRule ^index\.php$ / [R=301,L]
+
+    # ---- La raíz sirve la página principal sin cambiar la URL ----
+    # El servidor puede resolver "/" con el DirectoryIndex antes de aplicar
+    # estas reglas, por lo que se cubren las dos formas posibles.
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^$ /index.html/PagePrincipal.php [L]
+
+    RewriteCond %{REQUEST_URI} ^/(index\.php)?$
+    RewriteRule ^index\.php$ /index.html/PagePrincipal.php [L]
+</IfModule>

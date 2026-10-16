@@ -11,7 +11,7 @@
   var tbodyConstructors = document.getElementById('standings-escuderias');
 
   document.getElementById('year-label').textContent = year;
-  document.getElementById('btn-volver').href = '/index.html/PagePrincipal.php?year=' + year;
+  document.getElementById('btn-volver').href = '/?year=' + year;
 
   function esc(value) {
     return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {

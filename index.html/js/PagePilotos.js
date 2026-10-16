@@ -12,7 +12,7 @@
   var badge = document.getElementById('count-badge');
 
   document.getElementById('year-label').textContent = year;
-  document.getElementById('btn-volver').href = '/index.html/PagePrincipal.php?year=' + year;
+  document.getElementById('btn-volver').href = '/?year=' + year;
 
   var drivers = [];
 

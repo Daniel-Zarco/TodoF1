@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header("Location: PagePrincipal.php");
+    header("Location: /");
     exit();
 }
 
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($role === 'admin') {
                 $_SESSION['user_role'] = 'admin';
                 $_SESSION['username'] = $username;
-                header("Location: PagePrincipal.php");
+                header("Location: /");
                 exit();
             } else {
                 $error = "No tienes permisos para acceder.";
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="tf-auth__scrim"></div>
 
     <main class="tf-auth__card">
-        <a class="tf-brand tf-brand--auth" href="/index.html/index.html">
+        <a class="tf-brand tf-brand--auth" href="/">
             <span class="tf-brand__mark" aria-hidden="true">F1</span>
             <span class="tf-brand__name">Todo<span>F1</span></span>
         </a>
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="tf-auth__error" role="alert"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <a class="tf-back tf-auth__back" href="/index.html/index.html">Volver al inicio</a>
+        <a class="tf-back tf-auth__back" href="/">Volver al inicio</a>
     </main>
 </body>
 </html>

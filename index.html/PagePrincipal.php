@@ -30,10 +30,12 @@ session_start();
             } catch (e) { /* sin almacenamiento */ }
         })();
     </script>
-    <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
-    <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
-    <link rel="stylesheet" href="css/PagePrincipal.css?v=<?= @filemtime(__DIR__ . '/css/PagePrincipal.css') ?: '1' ?>">
-    <script src="js/PagePrincipal.js?v=<?= @filemtime(__DIR__ . '/js/PagePrincipal.js') ?: '1' ?>" defer></script>
+    <!-- Rutas absolutas: la página principal se sirve tanto en "/" (raíz
+         del sitio) como en /index.html/PagePrincipal.php. -->
+    <link rel="stylesheet" href="/index.html/css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
+    <link rel="stylesheet" href="/index.html/css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
+    <link rel="stylesheet" href="/index.html/css/PagePrincipal.css?v=<?= @filemtime(__DIR__ . '/css/PagePrincipal.css') ?: '1' ?>">
+    <script src="/index.html/js/PagePrincipal.js?v=<?= @filemtime(__DIR__ . '/js/PagePrincipal.js') ?: '1' ?>" defer></script>
     <?php
     /* Versiones (fecha de modificación) y lista de imágenes del hero. */
     $tf_hero_versions = [];

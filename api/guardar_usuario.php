@@ -50,7 +50,7 @@ try {
     $stmt->close();
 
     // Redirigir a la página principal tras guardar correctamente
-    header('Location: /index.html/PagePrincipal.php');
+    header('Location: /');
     exit;
 } catch (Throwable $e) {
     // Registro interno sin credenciales ni datos sensibles; respuesta genérica.

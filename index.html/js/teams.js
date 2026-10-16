@@ -618,6 +618,15 @@
     saveState(year, st);
     applyFromState(true);
     renderStates();
+    // El selector se cierra solo al elegir (o repetir) un tema: sin recarga,
+    // sin perder la posición de scroll y conservando la preferencia guardada.
+    closeDrawer();
+    // En móvil, cerramos también el menú: es quien libera el scroll y los
+    // bloqueos de interacción (reutiliza el cierre de navbar.js).
+    var nav = window.TodoF1Nav;
+    if (nav && typeof nav.isOpen === 'function' && typeof nav.close === 'function' && nav.isOpen()) {
+      nav.close();
+    }
   }
 
   function renderStates() {

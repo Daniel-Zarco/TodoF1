@@ -12,7 +12,7 @@ $yearQuery = $yearParam !== null ? '?year=' . $yearParam : '';
 
 // Página de temporada asociada a cada sección (para el selector)
 $seasonTargets = [
-    'PagePrincipal.php'   => '/index.html/PagePrincipal.php',
+    'PagePrincipal.php'   => '/',
     'PagePilotos.php'     => '/index.html/PagePilotos.php',
     'PageStatsPiloto.php' => '/index.html/PagePilotos.php',
     'PageEscuderias.php'  => '/index.html/PageEscuderias.php',
@@ -21,10 +21,12 @@ $seasonTargets = [
     'PageStatsCircuito.php' => '/index.html/PageCircuitos.php',
     'PageEstadisticas.php' => '/index.html/PageEstadisticas.php',
 ];
-$seasonBase = $seasonTargets[$current] ?? '/index.html/PagePrincipal.php';
+// La página principal se sirve en la raíz ("/"); admite también index.php
+// como nombre de entrada cuando el enrutador de la raíz la sirve.
+$seasonBase = $seasonTargets[$current] ?? '/';
 
 $items = [
-    ['href' => '/index.html/PagePrincipal.php', 'label' => 'Inicio', 'match' => ['PagePrincipal.php']],
+    ['href' => '/', 'label' => 'Inicio', 'match' => ['PagePrincipal.php', 'index.php']],
     ['href' => '/index.html/PagePilotos.php' . $yearQuery, 'label' => 'Pilotos', 'match' => ['PagePilotos.php', 'PageStatsPiloto.php']],
     ['href' => '/index.html/PageEscuderias.php' . $yearQuery, 'label' => 'Escuder&iacute;as', 'match' => ['PageEscuderias.php', 'PageStatsEscuderia.php']],
     ['href' => '/index.html/PageCircuitos.php' . $yearQuery, 'label' => 'Circuitos', 'match' => ['PageCircuitos.php', 'PageStatsCircuito.php']],

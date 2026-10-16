@@ -23,7 +23,7 @@
           <h1 class="tf-section__title tf-page-title">Circuitos</h1>
           <p class="tf-section__sub">Calendario de Grandes Premios de la temporada seleccionada.</p>
         </div>
-        <a class="tf-back" id="btn-volver" href="/index.html/PagePrincipal.php">P&aacute;gina principal</a>
+        <a class="tf-back" id="btn-volver" href="/">P&aacute;gina principal</a>
       </div>
 
       <div class="tf-toolbar">

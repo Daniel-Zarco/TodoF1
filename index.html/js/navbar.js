@@ -129,13 +129,20 @@
         }
       });
 
+      // API pública mínima: permite cerrar el menú reutilizando esta lógica
+      // (p. ej. el selector de temas al elegir una escudería en móvil).
+      window.TodoF1Nav = {
+        isOpen: function () { return menu.classList.contains('is-open'); },
+        close: function () { closeMenu(true); }
+      };
+
       syncAria();
     }
 
     var season = document.getElementById('tf-season-select');
     if (season) {
       season.addEventListener('change', function () {
-        var base = season.getAttribute('data-year-base') || '/index.html/PagePrincipal.php';
+        var base = season.getAttribute('data-year-base') || '/';
         try { sessionStorage.setItem('todof1:year', season.value); } catch (e) { /* sin almacenamiento */ }
         window.location.href = base + '?year=' + encodeURIComponent(season.value);
       });
