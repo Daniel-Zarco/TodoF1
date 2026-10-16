@@ -58,14 +58,6 @@
   color: var(--team-primary);
 }
 
-.head__tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--c-mute);
-}
-
 /* ============================================================
    HERO
    ============================================================ */
@@ -464,89 +456,6 @@
 }
 
 /* ============================================================
-   ACCESO RÁPIDO
-   ============================================================ */
-.qa-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--sp-4);
-}
-
-.qa {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  min-height: 168px;
-  padding: var(--sp-4);
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: linear-gradient(160deg, var(--c-surface-2), var(--c-surface));
-  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
-}
-
-.qa:hover {
-  transform: translateY(-3px);
-  border-color: var(--team-primary-line);
-  box-shadow: 0 18px 40px var(--team-glow);
-}
-
-.qa__media {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: var(--team-primary);
-  opacity: 0.2;
-  transition: transform var(--t), color var(--t);
-}
-
-.qa__media svg {
-  width: 58%;
-  height: 58%;
-  max-width: 150px;
-  max-height: 150px;
-}
-
-.qa__media--escuderias {
-  color: rgba(255, 255, 255, 0.14);
-}
-
-.qa:hover .qa__media {
-  transform: scale(1.06);
-  opacity: 0.3;
-}
-
-.qa::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.35) 100%);
-  pointer-events: none;
-}
-
-.qa__label {
-  position: relative;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--c-text);
-}
-
-.qa__label span {
-  color: var(--team-primary);
-  transition: transform var(--t-fast);
-}
-
-.qa:hover .qa__label span {
-  transform: translateX(4px);
-}
-
-/* ============================================================
    PANELES / DOS COLUMNAS
    ============================================================ */
 .panel {
@@ -697,8 +606,7 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1000px) {
-  .stats,
-  .qa-grid {
+  .stats {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -766,9 +674,8 @@
     padding: var(--sp-4);
   }
 
-  /* ---------- Tarjetas estadísticas y acceso rápido ---------- */
-  .stats,
-  .qa-grid {
+  /* ---------- Tarjetas estadísticas ---------- */
+  .stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--sp-3);
   }
@@ -809,11 +716,6 @@
     height: 28px;
   }
 
-  .qa {
-    min-height: 124px;
-    padding: var(--sp-3);
-  }
-
   /* ---------- Créditos ---------- */
   .tf-credits {
     margin-top: var(--sp-6);
@@ -823,8 +725,7 @@
 
 /* ---------- Móviles estrechos (≤359px): una sola columna ---------- */
 @media (max-width: 359px) {
-  .stats,
-  .qa-grid {
+  .stats {
     grid-template-columns: 1fr;
   }
 

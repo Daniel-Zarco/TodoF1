@@ -61,10 +61,6 @@
     setHref('stat-pilotos', '/index.html/PagePilotos.php' + q);
     setHref('stat-escuderias', '/index.html/PageEscuderias.php' + q);
     setHref('stat-resultados', '/index.html/PageEstadisticas.php' + q);
-    setHref('access-pilotos', '/index.html/PagePilotos.php' + q);
-    setHref('access-escuderias', '/index.html/PageEscuderias.php' + q);
-    setHref('access-circuitos', '/index.html/PageCircuitos.php' + q);
-    setHref('access-resultados', '/index.html/PageEstadisticas.php' + q);
     setHref('link-pilotos-full', '/index.html/PagePilotos.php' + q);
     setHref('link-escuderias-full', '/index.html/PageEstadisticas.php' + q);
   }

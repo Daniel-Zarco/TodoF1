@@ -174,44 +174,6 @@ session_start();
                 </div>
             </section>
 
-            <!-- ================= ACCESO RÁPIDO ================= -->
-            <section class="tf-section" aria-labelledby="explore-title">
-                <div class="head">
-                    <div>
-                        <span class="tf-eyebrow">Explorar</span>
-                        <h2 class="head__title" id="explore-title">Acceso r&aacute;pido</h2>
-                    </div>
-                    <span class="head__tag">Todo lo que necesitas de la F1</span>
-                </div>
-
-                <div class="qa-grid">
-                    <a class="qa" id="access-pilotos" href="/index.html/PagePilotos.php">
-                        <span class="qa__media qa__media--pilotos" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path></svg>
-                        </span>
-                        <span class="qa__label">Pilotos <span aria-hidden="true">&#8594;</span></span>
-                    </a>
-                    <a class="qa" id="access-escuderias" href="/index.html/PageEscuderias.php">
-                        <span class="qa__media qa__media--escuderias" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M15 19a4.6 4.6 0 0 1 6.2-4.3"></path></svg>
-                        </span>
-                        <span class="qa__label">Escuder&iacute;as <span aria-hidden="true">&#8594;</span></span>
-                    </a>
-                    <a class="qa" id="access-circuitos" href="/index.html/PageCircuitos.php">
-                        <span class="qa__media qa__media--circuitos" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17c0-6 15-7 15-1 0 4-6 4-8 1-2-3-7-2-7-5"></path><circle cx="7" cy="8" r="1.4"></circle><circle cx="18" cy="14" r="1.4"></circle></svg>
-                        </span>
-                        <span class="qa__label">Circuitos <span aria-hidden="true">&#8594;</span></span>
-                    </a>
-                    <a class="qa" id="access-resultados" href="/index.html/PageEstadisticas.php">
-                        <span class="qa__media qa__media--resultados" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11"></path><path d="M9 20V4"></path><path d="M14 20v-7"></path><path d="M19 20V7"></path></svg>
-                        </span>
-                        <span class="qa__label">Resultados <span aria-hidden="true">&#8594;</span></span>
-                    </a>
-                </div>
-            </section>
-
             <!-- ================= PRÓXIMA CARRERA + PILOTOS ================= -->
             <section class="tf-section">
                 <div class="two-col">
