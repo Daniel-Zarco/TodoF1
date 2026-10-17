@@ -64,6 +64,9 @@
     albert_park: '2014–2019',
     catalunya: '2014–2022',
     dijon: '1974–1984',
+    imola: 'desde 2009',
+    hockenheimring: 'desde 2002',
+    red_bull_ring: 'actual (desde 2011)',
     zandvoort: 'hasta 1999'
   };
 
