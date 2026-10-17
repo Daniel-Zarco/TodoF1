@@ -23,7 +23,7 @@
   var TEAMS = {
     ferrari: { p: '#E10600', s: '#FFF200', a: '#FFF200' },
     mercedes: { p: '#00B6A3', s: '#C8CCCE', a: '#27F4D2' },
-    red_bull: { p: '#1B2A78', s: '#FFCC00', a: '#E10600' },
+    red_bull: { p: '#203A70', s: '#FFCC00', a: '#E10600' },
     mclaren: { p: '#FF8000', s: '#47C7FC', a: '#47C7FC' },
     aston_martin: { p: '#00665E', s: '#CEDC00', a: '#CEDC00' },
     alpine: { p: '#2293D1', s: '#F2466E', a: '#F2466E' },
