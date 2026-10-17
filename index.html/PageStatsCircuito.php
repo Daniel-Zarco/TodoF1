@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageStatsCircuito.css?v=<?= @filemtime(__DIR__ . '/css/PageStatsCircuito.css') ?: '1' ?>">
   <script src="js/CircuitosTrazados.js?v=<?= @filemtime(__DIR__ . '/js/CircuitosTrazados.js') ?: '1' ?>" defer></script>
+  <script src="js/f1-horarios.js?v=<?= @filemtime(__DIR__ . '/js/f1-horarios.js') ?: '1' ?>" defer></script>
   <script src="js/PageStatsCirucito.js?v=<?= @filemtime(__DIR__ . '/js/PageStatsCirucito.js') ?: '1' ?>" defer></script>
 </head>
 
@@ -38,6 +39,27 @@
           <p class="circuito-hero__nota" id="trazo-nota" hidden></p>
           <p class="circuito-hero__nota circuito-hero__nota--soft" id="trazo-aviso" hidden></p>
         </div>
+      </section>
+
+      <!-- Programa del fin de semana (solo en la temporada en curso) -->
+      <section class="tf-section tf-mt-6" id="seccion-horarios" hidden>
+        <div class="tf-section__head">
+          <div>
+            <h2 class="tf-section__title">Programa del fin de semana</h2>
+            <p class="tf-section__sub">Horarios en hora peninsular espa&ntilde;ola (Europe/Madrid).</p>
+          </div>
+          <span class="tf-badge" id="horarios-resumen"></span>
+        </div>
+
+        <div class="horarios-proxima" id="horarios-proxima" hidden>
+          <span class="horarios-proxima__etiqueta" id="horarios-proxima-etiqueta">Pr&oacute;xima sesi&oacute;n</span>
+          <span class="horarios-proxima__nombre" id="horarios-proxima-nombre">&mdash;</span>
+          <span class="horarios-proxima__cuando" id="horarios-proxima-cuando">&mdash;</span>
+          <span class="horarios-proxima__cuenta" id="horarios-proxima-cuenta"></span>
+        </div>
+
+        <div class="horarios" id="horarios"></div>
+        <p class="horarios__nota" id="horarios-nota"></p>
       </section>
 
       <!-- Estad&iacute;sticas hist&oacute;ricas -->

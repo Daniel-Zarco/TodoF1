@@ -60,7 +60,7 @@ $items = [
                     <select class="tf-select tf-select--sm" id="tf-season-select"
                             data-year-base="<?= htmlspecialchars($seasonBase) ?>"
                             aria-label="Seleccionar temporada">
-                        <?php for ($y = 2026; $y >= 1950; $y--): ?>
+                        <?php for ($y = (int) date('Y'); $y >= 1950; $y--): ?>
                             <option value="<?= $y ?>"<?= ($yearParam !== null && $y === $yearParam) ? ' selected' : '' ?>><?= $y ?></option>
                         <?php endfor; ?>
                     </select>

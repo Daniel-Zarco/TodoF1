@@ -140,6 +140,155 @@
   align-self: center;
 }
 
+/* ------------------ Programa del fin de semana (horarios) ----------------- */
+.horarios-proxima {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-4);
+  margin-bottom: var(--sp-4);
+  padding: var(--sp-4);
+  border: 1px solid var(--team-primary-line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--team-primary-dim), transparent 85%);
+}
+
+.horarios-proxima[hidden] {
+  display: none;
+}
+
+.horarios-proxima.is-live {
+  border-color: var(--c-green);
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.12), transparent 85%);
+}
+
+.horarios-proxima__etiqueta {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--team-primary);
+}
+
+.horarios-proxima.is-live .horarios-proxima__etiqueta {
+  color: var(--c-green);
+}
+
+.horarios-proxima__nombre {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.horarios-proxima__cuando {
+  font-size: 0.82rem;
+  color: var(--c-dim);
+}
+
+.horarios-proxima__cuenta {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: var(--team-primary);
+}
+
+.horarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--sp-3);
+}
+
+.horarios__dia {
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.horarios__dia-titulo {
+  margin: 0 0 var(--sp-3);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.horarios__lista {
+  display: grid;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.horario {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: var(--c-surface-2);
+}
+
+.horario__nombre {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.horario__hora {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.horario__estado {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+  white-space: nowrap;
+}
+
+.horario.is-pendiente .horario__estado {
+  color: var(--c-dim);
+}
+
+.horario.is-en-curso {
+  border-color: var(--c-green);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.horario.is-en-curso .horario__estado {
+  color: var(--c-green);
+}
+
+.horario.is-finalizada {
+  opacity: 0.6;
+}
+
+.horario.is-destacada {
+  border-color: var(--team-primary-line);
+}
+
+.horario.is-por-confirmar .horario__hora {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--c-mute);
+}
+
+.horarios__nota {
+  margin: var(--sp-3) 0 0;
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: var(--c-mute);
+}
+
 /* ------------------------------- Vuelta rápida --------------------------- */
 #vuelta-rapida:empty {
   display: none;
@@ -202,5 +351,23 @@
 
   .circuito-kpis {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .horarios {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .horarios-proxima__cuenta {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 519px) {
+  .horario {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .horario__estado {
+    grid-column: 1 / -1;
   }
 }

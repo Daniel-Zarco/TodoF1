@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageCircuitos.css?v=<?= @filemtime(__DIR__ . '/css/PageCircuitos.css') ?: '1' ?>">
   <script src="js/CircuitosTrazados.js?v=<?= @filemtime(__DIR__ . '/js/CircuitosTrazados.js') ?: '1' ?>" defer></script>
+  <script src="js/f1-horarios.js?v=<?= @filemtime(__DIR__ . '/js/f1-horarios.js') ?: '1' ?>" defer></script>
   <script src="js/PageCircuitos.js?v=<?= @filemtime(__DIR__ . '/js/PageCircuitos.js') ?: '1' ?>" defer></script>
 </head>
 

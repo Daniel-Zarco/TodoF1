@@ -9,7 +9,10 @@
 
   var API = 'https://api.jolpi.ca/ergast/f1';
   var params = new URLSearchParams(window.location.search);
-  var year = parseInt(params.get('year') || '2026', 10);
+  // La temporada por defecto es la actual (nunca un año fijo en el código).
+  var year = parseInt(params.get('year') || String(new Date().getFullYear()), 10);
+  var horarios = window.TodoF1Horarios || null;
+  var temporadaActual = !!(horarios && horarios.esTemporadaActual(year));
 
   var grid = document.getElementById('circuitos-grid');
   var search = document.getElementById('search');
@@ -53,7 +56,8 @@
   (function poblarTemporadas() {
     if (!yearSel) return;
     var fragmento = document.createDocumentFragment();
-    for (var y = 2026; y >= 1950; y--) {
+    var ultima = new Date().getFullYear();
+    for (var y = ultima; y >= 1950; y--) {
       var opcion = document.createElement('option');
       opcion.value = String(y);
       opcion.textContent = String(y);
@@ -98,6 +102,9 @@
         '<span class="circuito-card__stats" data-stats="' + esc(race.circuitoId) + '">' +
           '<span class="is-loading">Consultando historial…</span>' +
         '</span>' +
+        (temporadaActual
+          ? '<span class="circuito-card__sesion" data-sesion="' + esc(race.round) + '" hidden></span>'
+          : '') +
       '</span>' +
       '<span class="circuito-card__pie">' +
         '<span>' + esc(formatDate(race.date)) + '</span>' +
@@ -283,6 +290,45 @@
     searchClear.hidden = !search.value;
   }
 
+  /* --------------------- Próxima sesión (temporada actual) ------------------ */
+  /* Una sola línea por tarjeta: en curso o la siguiente, con cuenta atrás
+     compacta. Nunca se muestran horarios que la API no publique. */
+  function pintarSesiones() {
+    if (!temporadaActual || !horarios) return;
+    var ahora = new Date();
+
+    entries.forEach(function (entrada) {
+      var nodo = entrada.el.querySelector('[data-sesion]');
+      if (!nodo) return;
+
+      if (!entrada.sesiones) entrada.sesiones = horarios.sesionesDe(entrada.race.origen || entrada.race);
+      var enCurso = null;
+      var siguiente = null;
+      for (var i = 0; i < entrada.sesiones.length; i++) {
+        var e = horarios.estado(entrada.sesiones[i], ahora);
+        if (e === 'en-curso' && !enCurso) enCurso = entrada.sesiones[i];
+        if (e === 'pendiente' && !siguiente) siguiente = entrada.sesiones[i];
+      }
+
+      var objetivo = enCurso || siguiente;
+      if (!objetivo || !objetivo.inicio) {
+        nodo.hidden = true;
+        nodo.textContent = '';
+        return;
+      }
+
+      nodo.hidden = false;
+      nodo.className = 'circuito-card__sesion' + (enCurso ? ' is-live' : '');
+      nodo.innerHTML =
+        '<b>' + (enCurso ? 'En curso' : 'Próxima') + '</b>' +
+        '<span class="circuito-card__sesion-nombre">' + esc(horarios.corto(objetivo.clave)) + '</span>' +
+        '<span class="circuito-card__sesion-cuando">' + esc(horarios.fechaCorta(objetivo.inicio)) + ' · ' +
+          esc(horarios.hora(objetivo.inicio)) + '</span>' +
+        (enCurso ? '' : '<span class="circuito-card__sesion-cuenta">' +
+          esc(horarios.cuentaAtras(objetivo.inicio.getTime() - ahora.getTime())) + '</span>');
+    });
+  }
+
   /* ------------------------------ Arranque ------------------------------ */
   function montar(races) {
     grid.innerHTML = '';
@@ -329,6 +375,9 @@
 
     aplicarFiltros();
 
+    // Próxima sesión de cada GP (solo en la temporada en curso)
+    pintarSesiones();
+
     // Historial (progresivo, sin bloquear la vista)
     var ids = [];
     races.forEach(function (r) {
@@ -363,6 +412,11 @@
   countrySel.addEventListener('change', aplicarFiltros);
   sortSel.addEventListener('change', aplicarFiltros);
 
+  // La próxima sesión y su cuenta atrás se actualizan sin recargar
+  if (temporadaActual) {
+    window.setInterval(pintarSesiones, 30000);
+  }
+
   fetch(API + '/' + year + '.json?limit=100')
     .then(function (res) { return res.json(); })
     .then(function (data) {
@@ -386,7 +440,8 @@
           country: race.Circuit.Location && race.Circuit.Location.country,
           locality: race.Circuit.Location && race.Circuit.Location.locality,
           date: race.date,
-          dateObj: new Date(race.date)
+          dateObj: new Date(race.date),
+          origen: race
         };
       });
 

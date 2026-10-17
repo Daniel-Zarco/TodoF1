@@ -11,7 +11,10 @@
   var params = new URLSearchParams(window.location.search);
   var circuitoNombre = params.get('circuito') || '';
   var circuitoId = params.get('id') || '';
-  var year = params.get('year') || '2026';
+  // La temporada por defecto es la actual (nunca un año fijo en el código).
+  var year = params.get('year') || String(new Date().getFullYear());
+  var horarios = window.TodoF1Horarios || null;
+  var temporadaActual = !!(horarios && horarios.esTemporadaActual(year));
 
   var titulo = document.getElementById('titulo');
   var tbody = document.querySelector('#tabla-resultados tbody');
@@ -308,6 +311,124 @@
       });
   }
 
+  /* ------------------ Programa del fin de semana (actual) ------------------ */
+  var programa = { sesiones: [], nodos: {} };
+
+  function programaDelFinDeSemana(carrera) {
+    var seccion = document.getElementById('seccion-horarios');
+    if (!seccion) return;
+    // Solo en la temporada en curso y si la API publica sesiones.
+    if (!temporadaActual || !horarios || !carrera) return;
+
+    var sesiones = horarios.sesionesDe(carrera);
+    if (!sesiones.length) return;
+
+    var contenedor = document.getElementById('horarios');
+    var dias = horarios.agruparPorDia(sesiones);
+    var fragmento = document.createDocumentFragment();
+    programa.sesiones = sesiones;
+    programa.nodos = {};
+
+    dias.forEach(function (dia) {
+      var bloque = document.createElement('div');
+      bloque.className = 'horarios__dia';
+
+      var titulo = document.createElement('h3');
+      titulo.className = 'horarios__dia-titulo';
+      var etiqueta = dia.etiqueta || '';
+      titulo.textContent = etiqueta ? etiqueta.charAt(0).toUpperCase() + etiqueta.slice(1) : etiqueta;
+      bloque.appendChild(titulo);
+
+      var lista = document.createElement('ul');
+      lista.className = 'horarios__lista';
+
+      dia.sesiones.forEach(function (sesion) {
+        var estado = horarios.estado(sesion, new Date());
+        var li = document.createElement('li');
+        li.className = 'horario is-' + estado;
+        li.innerHTML =
+          '<span class="horario__nombre">' + esc(sesion.nombre) + '</span>' +
+          '<span class="horario__hora">' + (sesion.inicio ? esc(horarios.hora(sesion.inicio)) : 'Por confirmar') + '</span>' +
+          '<span class="horario__estado">' + esc(horarios.etiquetaEstado(estado)) + '</span>';
+        programa.nodos[sesion.clave] = li;
+        lista.appendChild(li);
+      });
+
+      bloque.appendChild(lista);
+      fragmento.appendChild(bloque);
+    });
+
+    contenedor.innerHTML = '';
+    contenedor.appendChild(fragmento);
+
+    var nota = document.getElementById('horarios-nota');
+    if (nota) {
+      var faltan = sesiones.filter(function (s) { return s.porConfirmar; }).length;
+      nota.textContent = 'Horas de inicio oficiales en hora peninsular española. ' +
+        'El estado se calcula con la hora real de inicio; la API no publica la duración de cada sesión.' +
+        (faltan ? ' Hay ' + faltan + (faltan === 1 ? ' sesión sin horario publicado' : ' sesiones sin horario publicado') + '.' : '');
+    }
+
+    seccion.hidden = false;
+    refrescarPrograma();
+  }
+
+  function refrescarPrograma() {
+    if (!programa.sesiones.length || !horarios) return;
+    var ahora = new Date();
+
+    var enCurso = null;
+    var siguiente = null;
+
+    programa.sesiones.forEach(function (sesion) {
+      var estado = horarios.estado(sesion, ahora);
+      if (estado === 'en-curso' && !enCurso) enCurso = sesion;
+      if (estado === 'pendiente' && !siguiente) siguiente = sesion;
+
+      var li = programa.nodos[sesion.clave];
+      if (li) {
+        li.className = 'horario is-' + estado;
+        var etiqueta = li.querySelector('.horario__estado');
+        if (etiqueta) etiqueta.textContent = horarios.etiquetaEstado(estado);
+      }
+    });
+
+    Object.keys(programa.nodos).forEach(function (clave) {
+      programa.nodos[clave].classList.remove('is-destacada');
+    });
+
+    var objetivo = enCurso || siguiente;
+    var caja = document.getElementById('horarios-proxima');
+
+    if (caja) {
+      if (objetivo && objetivo.inicio) {
+        caja.hidden = false;
+        caja.className = 'horarios-proxima' + (enCurso ? ' is-live' : '');
+        document.getElementById('horarios-proxima-etiqueta').textContent =
+          enCurso ? 'En curso' : 'Próxima sesión';
+        document.getElementById('horarios-proxima-nombre').textContent = objetivo.nombre;
+        document.getElementById('horarios-proxima-cuando').textContent =
+          horarios.diaLargo(objetivo.inicio) + ', ' + horarios.hora(objetivo.inicio);
+        document.getElementById('horarios-proxima-cuenta').textContent =
+          enCurso ? '' : horarios.cuentaAtras(objetivo.inicio.getTime() - ahora.getTime());
+        if (programa.nodos[objetivo.clave]) programa.nodos[objetivo.clave].classList.add('is-destacada');
+      } else {
+        caja.hidden = true;
+      }
+    }
+
+    var resumen = document.getElementById('horarios-resumen');
+    if (resumen) {
+      var pendientes = programa.sesiones.filter(function (s) {
+        var e = horarios.estado(s, ahora);
+        return e === 'pendiente' || e === 'en-curso';
+      }).length;
+      resumen.textContent = pendientes
+        ? pendientes + (pendientes === 1 ? ' sesión pendiente' : ' sesiones pendientes')
+        : 'Fin de semana finalizado';
+    }
+  }
+
   /* ------------------------------ Arranque ------------------------------ */
   fetch(API + '/' + year + '/races.json?limit=100')
     .then(function (res) { return res.json(); })
@@ -342,6 +463,9 @@
 
       pintarTrazo();
 
+      // Programa del fin de semana (solo en la temporada en curso)
+      programaDelFinDeSemana(carrera);
+
       // Historial completo (todas las ediciones)
       if (circuitoId) {
         cargarHistorial(circuitoId)
@@ -364,4 +488,9 @@
       tbody.innerHTML = '<tr class="tf-table__empty"><td colspan="5">Error al cargar los datos.</td></tr>';
       kpis.innerHTML = '<div class="tf-error" style="grid-column:1/-1;">Error al cargar los datos.</div>';
     });
+
+  /* La cuenta atrás y el estado de cada sesión se refrescan cada segundo. */
+  if (temporadaActual) {
+    window.setInterval(refrescarPrograma, 1000);
+  }
 })();
