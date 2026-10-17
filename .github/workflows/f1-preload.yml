@@ -1,0 +1,88 @@
+name: Precarga del respaldo de datos (manual)
+
+# ---------------------------------------------------------------------------
+# DESACTIVADO A PROPOSITO: este workflow NO se ejecuta solo.
+#   · Solo tiene disparador manual (workflow_dispatch).
+#   · No publica nada en main ni despliega: unicamente ejecuta por SSH el
+#     script de precarga api/f1_preload.php, que rellena la copia de respaldo
+#     con datos VALIDOS de la API de datos.
+#   · Para automatizarlo (por ejemplo, cada 6 horas) habria que anadir un
+#     bloque 'schedule:' cuando el propietario lo autorice expresamente.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      temporadas:
+        description: 'Temporadas a precargar, separadas por comas (vacio = temporada actual)'
+        required: false
+        default: ''
+      resultados:
+        description: 'Paginas de resultados por temporada (1-40)'
+        required: false
+        default: '6'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: todof1-f1-preload
+  cancel-in-progress: false
+
+jobs:
+  preload:
+    name: Precargar copia de respaldo
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Validar entradas
+        env:
+          TEMPORADAS: ${{ github.event.inputs.temporadas }}
+          RESULTADOS: ${{ github.event.inputs.resultados }}
+        run: |
+          set -eu
+          if [ -n "$TEMPORADAS" ] && ! printf '%s' "$TEMPORADAS" | grep -Eq '^[0-9]{4}(,[0-9]{4})*$'; then
+            echo "::error::Formato de temporadas invalido (usa por ejemplo 2026,2025)"
+            exit 1
+          fi
+          if ! printf '%s' "$RESULTADOS" | grep -Eq '^[0-9]{1,2}$'; then
+            echo "::error::Paginas de resultados invalido (1-40)"
+            exit 1
+          fi
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Ejecutar la precarga
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          TEMPORADAS: ${{ github.event.inputs.temporadas }}
+          RESULTADOS: ${{ github.event.inputs.resultados }}
+        run: |
+          set -eu
+          ARGS="--resultados=$RESULTADOS"
+          if [ -n "$TEMPORADAS" ]; then
+            ARGS="--temporadas=$TEMPORADAS $ARGS"
+          fi
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 \
+            -o ServerAliveInterval=15 \
+            -o ServerAliveCountMax=8 \
+            "$SSH_USER@$SSH_HOST" \
+            "cd /home/todof1/todof1-app && php api/f1_preload.php $ARGS"

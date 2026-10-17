@@ -83,6 +83,11 @@ $items = [
         </nav>
     </div>
 </header>
+<?php /* Capa de disponibilidad de datos: debe cargarse antes que cualquier
+         script que consulte la API (session.js, teams.js y los scripts de
+         cada página), para que todas las peticiones pasen por el respaldo
+         propio y tengan tiempo máximo. */ ?>
+<script src="/index.html/js/f1-datos.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/f1-datos.js') ?: '1' ?>"></script>
 <script src="/index.html/js/session.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/session.js') ?: '1' ?>"></script>
 <script src="/index.html/js/teams.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/teams.js') ?: '1' ?>"></script>
 <script src="/index.html/js/navbar.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/navbar.js') ?: '1' ?>" defer></script>

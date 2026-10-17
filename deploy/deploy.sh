@@ -35,12 +35,16 @@ LOCK_FILE="${TODOF1_LOCK_FILE:-${TMPDIR:-/tmp}/todof1-deploy.lock}"
 
 # Archivos de api/ que SÍ se publican. Lista explícita y cerrada:
 # los endpoints nuevos NO se publican hasta añadirlos aquí conscientemente.
+# f1.php es el proxy con caché persistente que da respaldo cuando la API de
+# datos (Jolpica) no responde. f1_preload.php NO se publica: es una utilidad
+# de línea de comandos que se ejecuta por SSH sobre el repositorio.
 API_FILES=(
   db.php
   navbar.php
   logout.php
   guardar_usuario.php
   PageInfo.php
+  f1.php
 )
 
 DRY_RUN=0
@@ -194,6 +198,23 @@ API_OPTS+=(--exclude='*')
 
 log "Sincronizando api/ (solo: ${API_FILES[*]}) → www/api/…"
 rsync "${API_OPTS[@]}" "$REPO_DIR/api/" "$WWW_DIR/api/"
+
+# ---------------------- Caché persistente de datos --------------------------
+# El proxy www/api/f1.php guarda aquí las respuestas válidas de la API de datos.
+# Vive FUERA de www/ (no lo toca ningún rsync --delete) y dentro del
+# repositorio pero en private/, que está ignorado por git y sobrevive a las
+# actualizaciones (git merge --ff-only no borra archivos no versionados).
+# PHP la crea por sí mismo si falta; aquí se deja preparada.
+CACHE_DIR="${TODOF1_F1_CACHE:-$(dirname "$WWW_DIR")/todof1-app/private/f1-cache}"
+if [[ "$DRY_RUN" -eq 1 ]]; then
+  log "MODO SIMULACIÓN: se prepararía el directorio de caché de datos: $CACHE_DIR"
+else
+  if mkdir -p "$CACHE_DIR" 2>/dev/null && chmod 700 "$CACHE_DIR" 2>/dev/null; then
+    log "Caché de datos preparada: $CACHE_DIR"
+  else
+    warn "No se pudo preparar el directorio de caché ($CACHE_DIR): PHP lo intentará al primer uso."
+  fi
+fi
 
 # ---------------------- Enrutamiento de la raíz (www/) ----------------------
 # La raíz del sitio la gobiernan estos dos archivos versionados:
