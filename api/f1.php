@@ -82,6 +82,9 @@ function todof1_f1_route_ok(string $path): bool
         '/^drivers\/' . $id . '\.json$/',
         '/^drivers\/' . $id . '\/results\.json$/',        // historial completo del piloto
         '/^circuits\/' . $id . '\.json$/',
+        '/^circuits\.json$/',                                // listado de circuitos
+        '/^circuits\/' . $id . '\/results\.json$/',           // resultados completos del circuito
+        '/^circuits\/' . $id . '\/results\/\d{1,2}\.json$/',  // historial/podios por circuito
     ];
 
     foreach ($patterns as $pattern) {
@@ -98,10 +101,10 @@ function todof1_f1_expected_table(string $path): string
     if (preg_match('/Standings\.json$/', $path) === 1) {
         return 'StandingsTable';
     }
-    if (preg_match('/(results|races)\.json$/', $path) === 1) {
-        return 'RaceTable';
-    }
-    if (preg_match('/^\d{4}\.json$/', $path) === 1) {
+    // Cualquier endpoint de resultados/calendario. Incluye las rutas por
+    // circuito: circuits/{id}/results.json y circuits/{id}/results/{pos}.json.
+    if (preg_match('#/(results|races)(\.json|/\d{1,2}\.json)$#', $path) === 1
+        || preg_match('/^\d{4}\.json$/', $path) === 1) {
         return 'RaceTable';
     }
     if (strpos($path, 'constructors') !== false) {

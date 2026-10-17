@@ -1,14 +1,126 @@
-/* TodoF1 — Estadísticas del circuito (ajustes de página) */
+/* ============================================================
+   TodoF1 — Ficha de circuito
+   Trazado SVG grande y centrado como protagonista + historial.
+   ============================================================ */
 
-.tf-profile__media--wide {
-  width: 220px;
-  height: 132px;
-  border-radius: var(--r-lg);
+/* --------------------------- Trazado + datos ---------------------------- */
+.circuito-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--sp-6);
+  align-items: center;
+  padding: var(--sp-6);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(120% 130% at 15% 0%, rgba(255, 255, 255, 0.04), transparent 62%),
+    var(--c-surface);
 }
 
-.tf-profile__body {
-  flex: 1 1 320px;
+.circuito-hero__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(240px, 32vw, 400px);
+  padding: var(--sp-5);
+  border: 1px solid var(--c-line-2);
+  border-radius: var(--r-lg);
+  background: var(--c-surface-2);
+  /* Color del trazado: el del tema activo */
+  color: var(--team-primary);
+  overflow: hidden;
+}
+
+.circuito-hero__trazo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(200px, 28vw, 340px);
+}
+
+.circuito-hero__trazo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.circuito-hero__cargando {
+  position: absolute;
+  bottom: var(--sp-3);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.circuito-hero__cargando[hidden] {
+  display: none;
+}
+
+/* Respaldo elegante: nunca simula un trazado */
+.circuito-hero__fallback {
+  display: grid;
+  place-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  min-height: clamp(200px, 28vw, 340px);
+  border: 1px dashed var(--c-line);
+  border-radius: var(--r-md);
+  background-image:
+    linear-gradient(var(--c-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+  background-size: 30px 30px;
+  color: var(--c-mute);
+  text-align: center;
+}
+
+.circuito-hero__fallback[hidden] {
+  display: none;
+}
+
+.circuito-hero__fallback strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: var(--c-dim);
+}
+
+.circuito-hero__fallback small {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.circuito-hero__info {
+  display: grid;
+  gap: var(--sp-3);
+  align-content: center;
   min-width: 0;
+}
+
+.circuito-hero__nota {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--c-dim);
+}
+
+.circuito-hero__nota--soft {
+  color: var(--c-mute);
+  font-size: 0.72rem;
+}
+
+.circuito-hero__nota a {
+  color: var(--team-primary);
+}
+
+.circuito-hero__nota[hidden] {
+  display: none;
 }
 
 #info-adicional {
@@ -17,6 +129,18 @@
   gap: var(--sp-2);
 }
 
+/* ------------------------------ Estadísticas ---------------------------- */
+.circuito-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--sp-3);
+}
+
+#ganadores-cuenta {
+  align-self: center;
+}
+
+/* ------------------------------- Vuelta rápida --------------------------- */
 #vuelta-rapida:empty {
   display: none;
 }
@@ -53,9 +177,30 @@
   font-size: 1.05rem;
 }
 
-@media (max-width: 720px) {
-  .tf-profile__media--wide {
-    width: 100%;
-    height: 180px;
+/* ------------------------------- Adaptable ------------------------------- */
+@media (max-width: 1019px) {
+  .circuito-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .circuito-hero__media {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 719px) {
+  .circuito-hero {
+    padding: var(--sp-4);
+    border-radius: var(--r-lg);
+  }
+
+  .circuito-hero__media {
+    padding: var(--sp-3);
+    min-height: 220px;
+  }
+
+  .circuito-kpis {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }

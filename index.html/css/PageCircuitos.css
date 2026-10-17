@@ -1,91 +1,333 @@
-/* TodoF1 — Circuitos (ajustes de página) */
+/* ============================================================
+   TodoF1 — Circuitos (listado)
+   Tarjetas con el trazado como protagonista (~70 % del alto),
+   buscador, filtro por país, filtro por temporada y ordenación.
+   ============================================================ */
 
-.tf-circuit-card {
+/* ------------------------------ Controles ------------------------------- */
+.circuitos-controls {
+  display: grid;
+  gap: var(--sp-3);
+  margin: var(--sp-4) 0 var(--sp-5);
+  padding: var(--sp-4);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.circuitos-controls__search {
+  position: relative;
+}
+
+/* La "x" nativa del input de búsqueda se sustituye por la propia */
+.circuitos-controls__search .tf-input[type="search"]::-webkit-search-cancel-button,
+.circuitos-controls__search .tf-input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.circuitos-controls__clear {
+  position: absolute;
+  top: 50%;
+  right: var(--sp-2);
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
+  color: var(--c-dim);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.circuitos-controls__clear:hover {
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+}
+
+.circuitos-controls__clear[hidden] {
+  display: none;
+}
+
+.circuitos-controls__fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+
+.circuitos-controls__field {
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.circuitos-controls__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+}
+
+.circuitos-controls__field .tf-select {
+  width: 100%;
+}
+
+.circuitos-controls__count {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--c-mute);
+}
+
+/* Aviso de temporada (trazados representativos, etc.) */
+.circuitos-note {
+  margin: 0 0 var(--sp-4);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--c-dim);
+}
+
+.circuitos-note--soft {
+  margin: var(--sp-5) 0 0;
+  color: var(--c-mute);
+  font-size: 0.72rem;
+}
+
+.circuitos-note a {
+  color: var(--team-primary);
+}
+
+/* ------------------------------- Cuadrícula ------------------------------ */
+.circuitos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+/* --------------------------------- Tarjeta ------------------------------- */
+.circuito-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
-  padding: var(--sp-5);
+  border: 1px solid var(--c-line);
   border-radius: var(--r-lg);
   background: var(--c-surface);
-  border: 1px solid var(--c-line);
   overflow: hidden;
-  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--t), transform var(--t), box-shadow var(--t);
 }
 
-.tf-circuit-card:hover {
-  transform: translateY(-3px);
+.circuito-card:hover {
+  transform: translateY(-2px);
   border-color: var(--team-primary-line);
   box-shadow: var(--shadow-2);
 }
 
-.tf-circuit-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-3);
+.circuito-card:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: 2px;
 }
 
-.tf-circuit-card__round {
-  font-family: var(--font-display);
+/* El trazado ocupa la mayor parte de la tarjeta */
+.circuito-card__trazo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  padding: var(--sp-6) var(--sp-5);
+  border-bottom: 1px solid var(--c-line);
+  background:
+    radial-gradient(130% 120% at 50% 0%, rgba(255, 255, 255, 0.035), transparent 62%),
+    var(--c-surface-2);
+  /* Color del trazado: el del tema activo */
+  color: var(--team-primary);
+  overflow: hidden;
+}
+
+.circuito-card__trazo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: visible;
+}
+
+.circuito-card__trazo .tf-trazo {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.circuito-card__ronda,
+.circuito-card__estado {
+  position: absolute;
+  top: var(--sp-3);
+  z-index: 1;
+  font-size: 0.68rem;
   font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.circuito-card__ronda {
+  left: var(--sp-4);
   color: var(--team-primary);
 }
 
-.tf-circuit-card__name {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+.circuito-card__estado {
+  right: var(--sp-4);
+  padding: 2px var(--sp-2);
+  border: 1px solid var(--c-line-2);
+  border-radius: var(--r-pill);
+  background: var(--c-glass);
+  color: var(--c-mute);
+  font-size: 0.62rem;
 }
 
-.tf-circuit-card__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-3);
-  font-size: 0.82rem;
+.circuito-card__estado--proximo {
+  border-color: var(--team-primary-line);
+  color: var(--team-primary);
+}
+
+/* Respaldo elegante (nunca simula un trazado) */
+.circuito-card__fallback {
+  display: grid;
+  place-items: center;
+  gap: var(--sp-1);
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--c-line);
+  border-radius: var(--r-md);
+  background-image:
+    linear-gradient(var(--c-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+  background-size: 26px 26px;
+  color: var(--c-mute);
+  text-align: center;
+}
+
+.circuito-card__fallback[hidden] {
+  display: none;
+}
+
+.circuito-card__fallback strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
   color: var(--c-dim);
 }
 
-.tf-circuit-card__meta span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.circuito-card__fallback small {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.tf-circuit-card__foot {
+/* Información */
+.circuito-card__info {
+  display: grid;
+  gap: 2px;
+  padding: var(--sp-4) var(--sp-4) var(--sp-3);
+}
+
+.circuito-card__nombre {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.circuito-card__lugar {
+  font-size: 0.8rem;
+  color: var(--c-dim);
+}
+
+.circuito-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1) var(--sp-4);
+  margin-top: var(--sp-2);
+  font-size: 0.72rem;
+  color: var(--c-mute);
+}
+
+.circuito-card__stats b {
+  color: var(--c-text);
+  font-weight: 700;
+}
+
+.circuito-card__stats .is-loading {
+  opacity: 0.55;
+}
+
+.circuito-card__pie {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-3);
   margin-top: auto;
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--c-line);
-  font-size: 0.8rem;
+  padding: var(--sp-3) var(--sp-4);
+  border-top: 1px solid var(--c-line-2);
+  font-size: 0.75rem;
+  color: var(--c-mute);
 }
 
-.tf-circuit-card__date {
-  font-weight: 600;
-  color: var(--c-text);
-}
-
-.tf-circuit-card__cta {
-  font-weight: 600;
+.circuito-card__cta {
   color: var(--team-primary);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.tf-circuit-card.is-upcoming {
-  opacity: 0.85;
+/* ------------------------------- Adaptable -------------------------------- */
+@media (max-width: 899px) {
+  .circuitos-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
-.tf-circuit-card.is-upcoming::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255, 255, 255, 0.015) 14px 28px);
-  pointer-events: none;
+@media (max-width: 719px) {
+  .circuitos-controls__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .circuito-card__trazo {
+    aspect-ratio: 16 / 11;
+    padding: var(--sp-5) var(--sp-4);
+  }
+}
+
+@media (max-width: 519px) {
+  .circuitos-controls {
+    padding: var(--sp-3);
+  }
+
+  .circuitos-controls__fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .circuito-card__trazo {
+    aspect-ratio: 5 / 4;
+    padding: var(--sp-4) var(--sp-3);
+  }
+
+  .circuito-card__nombre {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circuito-card,
+  .circuito-card:hover {
+    transform: none;
+    transition: none;
+  }
 }

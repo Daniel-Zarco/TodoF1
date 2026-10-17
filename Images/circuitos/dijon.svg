@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg role="img" focusable="false" preserveAspectRatio="xMidYMid meet" class="tf-circuito-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" clip-rule="evenodd" stroke-miterlimit="10" viewBox="24.04 34.62 524.11 549.83">
+    
+    <defs/>
+    <g>
+        <path d="M 339.48 292.18 C 338.18 293.44 321.35 309.58 319.74 311.30 C 316.91 314.30 313.90 315.66 312.54 331.84 C 311.97 338.65 309.67 343.98 304.89 348.05 C 299.84 352.37 297.00 352.67 289.92 352.92 C 280.29 353.24 275.74 357.02 272.82 360.07 C 263.46 369.81 253.45 378.99 244.55 389.15 C 236.56 398.27 229.31 419.32 227.36 435.53 M 227.36 435.53 " stroke="#808080" stroke-width="10.00" fill="none"/>
+        <path d="M 309.70 206.23 C 379.62 133.48 405.22 106.62 430.82 79.75 C 438.23 71.99 449.98 67.42 461.31 69.42 C 481.53 72.99 497.44 92.27 498.08 118.53 C 498.79 147.55 482.73 161.49 475.87 168.68 C 464.56 180.54 458.09 188.16 454.62 201.94 C 449.93 220.53 453.50 234.70 439.59 255.86 C 424.19 279.30 402.83 286.41 370.10 287.01 C 363.42 287.14 346.82 285.28 339.42 292.43 C 338.11 293.68 328.45 299.46 327.81 315.30 C 326.91 337.35 352.35 353.66 366.02 367.99 C 368.13 370.20 383.64 386.97 389.39 395.44 C 400.32 411.54 420.80 429.08 405.82 447.63 C 393.83 462.48 378.66 452.90 372.04 449.37 C 362.43 444.24 269.85 385.35 266.20 385.37 C 263.18 385.38 243.63 392.47 241.00 396.19 C 237.22 401.55 229.24 419.57 227.30 435.78 C 225.20 453.24 226.64 467.86 231.30 483.27 C 235.46 497.03 240.87 511.95 230.30 528.26 C 223.23 539.16 216.09 545.05 194.66 548.43 C 177.70 551.12 158.31 554.55 141.27 556.70 C 127.48 558.45 109.78 555.84 96.96 547.66 C 75.07 533.70 61.44 503.76 69.01 475.37 C 74.45 454.93 87.36 439.50 92.67 433.87 C 112.48 412.83 124.67 399.48 140.95 382.36 Z M 309.70 206.23 " stroke="#000000" stroke-width="10.00" fill="none"/>
+        <path d="M 83.57 444.91 L 148.72 386.93 C 171.54 362.78 194.98 338.77 217.80 314.61 L 223.67 320.88 L 232.14 311.96 C 234.92 307.88 234.01 299.45 237.23 296.09 L 312.80 217.16 L 326.46 193.93 L 355.95 158.14 " stroke="#000000" stroke-width="4.15" fill="none"/>
+        
+        
+        
+        
+        
+        
+        
+        <ellipse cx="514.14" cy="68.63" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        
+        <ellipse cx="473.02" cy="244.59" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        <ellipse cx="359.05" cy="311.75" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        <ellipse cx="257.45" cy="416.12" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        <ellipse cx="250.07" cy="549.41" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        <ellipse cx="58.05" cy="550.44" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        <ellipse cx="388.80" cy="431.95" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+        <path d="M 251.68 243.23 L 242.63 233.50 L 264.78 221.76 Z M 251.68 243.23 " fill-rule="non-zero" fill="#FF0000"/>
+        <g>
+            <path d="M 296.83 244.74 L 290.73 238.62 L 296.85 232.52 L 302.95 238.64 Z M 296.83 244.74 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 302.95 238.64 L 296.85 232.52 L 302.97 226.43 L 309.07 232.55 Z M 302.95 238.64 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 309.07 232.55 L 302.97 226.43 L 309.09 220.33 L 315.19 226.45 Z M 309.07 232.55 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 290.78 238.67 L 284.69 232.55 L 290.81 226.46 L 296.91 232.58 Z M 290.78 238.67 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 303.03 226.48 L 296.93 220.36 L 303.05 214.26 L 309.15 220.38 Z M 303.03 226.48 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 296.96 232.63 L 290.86 226.51 L 296.98 220.41 L 303.08 226.53 Z M 296.96 232.63 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 284.74 232.61 L 278.64 226.49 L 284.76 220.39 L 290.86 226.51 Z M 284.74 232.61 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 290.86 226.51 L 284.77 220.39 L 290.89 214.29 L 296.98 220.41 Z M 290.86 226.51 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 296.98 220.41 L 290.89 214.29 L 297.01 208.20 L 303.10 214.32 Z M 296.98 220.41 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 278.70 226.54 L 272.60 220.42 L 278.72 214.32 L 284.82 220.44 Z M 278.70 226.54 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 290.94 214.35 L 284.84 208.22 L 290.96 202.13 L 297.06 208.25 Z M 290.94 214.35 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 284.87 220.50 L 278.77 214.38 L 284.90 208.28 L 290.99 214.40 Z M 284.87 220.50 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 272.55 220.79 L 266.45 214.67 L 272.57 208.58 L 278.67 214.70 Z M 272.55 220.79 " fill-rule="non-zero" fill="#000000"/>
+            <path d="M 278.67 214.70 L 272.57 208.58 L 278.69 202.48 L 284.79 208.60 Z M 278.67 214.70 " fill-rule="non-zero" fill="#FFFFFF"/>
+            <path d="M 284.79 208.60 L 278.69 202.48 L 284.81 196.38 L 290.91 202.50 Z M 284.79 208.60 " fill-rule="non-zero" fill="#000000"/>
+        </g>
+        <ellipse cx="438.20" cy="173.77" rx="13.65" ry="13.65" fill="#FFFFFF" stroke="#000000" stroke-width="0.80"/>
+        
+    </g>
+<style>
+  .tf-circuito-svg,
+  .tf-circuito-svg * {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: var(--tf-trazo, 6) !important;
+    stroke-linejoin: round !important;
+    stroke-linecap: round !important;
+    vector-effect: non-scaling-stroke !important;
+  }
+  .tf-circuito-svg text, .tf-circuito-svg image, .tf-circuito-svg title,
+  .tf-circuito-svg desc, .tf-circuito-svg metadata { display: none !important; }
+</style></svg>
