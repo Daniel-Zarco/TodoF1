@@ -94,6 +94,7 @@
   var seasonSub = document.getElementById('season-sub');
   var seasonNote = document.getElementById('season-note');
   var photoNote = document.getElementById('photo-note');
+  var carPhotoCredits = document.getElementById('car-photo-credits');
 
   document.getElementById('year-label').textContent = year;
   document.getElementById('btn-volver').href = '/?year=' + year;
@@ -106,6 +107,8 @@
   var resultsOk = true;    // se pudieron cargar los resultados de carrera
   var provisional = false; // la temporada está en curso
   var photosShown = false; // alguna tarjeta muestra fotografía
+  var photosRepresentative = false; // alguna foto es de la era actual (no de esa temporada)
+  var photosCredits = [];  // autoría de las fotos de la temporada (licencias libres)
 
   /* ------------------------------------------------------------ utilidades */
   function esc(value) {
@@ -177,14 +180,46 @@
     return NEUTRAL_COLOR;
   }
 
-  /* Fotografía del equipo (solo si el proyecto la tiene y la temporada es de la
-     era actual). Devuelve '' si no hay imagen fiable: se usará el respaldo. */
-  function teamImage(constructorId) {
-    if (year < CAR_IMAGE_MIN_YEAR) return '';
+  /* Fotografías por temporada y constructorId real (el mismo id que usa
+     Jolpica). Cada entrada corresponde al monoplaza de ESA temporada, con el
+     modelo verificado y la autoría/licencia registradas (todas de Wikimedia
+     Commons, CC BY-SA 4.0). Si no hay entrada se usa la fotografía de la era
+     actual (2025+) o, en su defecto, la composición de respaldo. */
+  var CAR_PHOTOS = {
+    2024: {
+      mclaren: { modelo: 'MCL38', src: '/Images/monoplazas/2024/mclaren.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:McLaren_MCL38.jpg' },
+      ferrari: { modelo: 'SF-24', src: '/Images/monoplazas/2024/ferrari.jpg', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:SF-24_at_the_Japanese_GP.jpg' },
+      red_bull: { modelo: 'RB20', src: '/Images/monoplazas/2024/red_bull.jpg', autor: 'Steffen Prößdorf', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3937_by_Stepro.jpg' },
+      mercedes: { modelo: 'W15', src: '/Images/monoplazas/2024/mercedes.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Mercedes_W15_on_display_-_2024_Chinese_GP.jpg' },
+      aston_martin: { modelo: 'AMR24', src: '/Images/monoplazas/2024/aston_martin.jpg', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:AMR24_at_the_Japanese_GP.jpg' },
+      alpine: { modelo: 'A524', src: '/Images/monoplazas/2024/alpine.jpg', autor: 'Calreyn88', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024_Alpine_A524_Show_car.jpg' },
+      haas: { modelo: 'VF-24', src: '/Images/monoplazas/2024/haas.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2024_Chinese_GP.jpg' },
+      rb: { modelo: 'VCARB 01', src: '/Images/monoplazas/2024/rb.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:RB_VCARB01_2024_Chinese_GP.jpg' },
+      williams: { modelo: 'FW46', src: '/Images/monoplazas/2024/williams.jpg', autor: 'Calreyn88', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024_Williams_FW46.jpg' },
+      sauber: { modelo: 'C44', src: '/Images/monoplazas/2024/sauber.jpg', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Sauber_C44_at_the_Japanese_GP.jpg' }
+    }
+  };
+
+  /* Fotografía del monoplaza para la temporada consultada. Prioridad:
+       1. catálogo por temporada + constructorId real: foto DE ESA temporada,
+       2. fotografía de la era actual del proyecto (2025+), marcada como
+          representativa porque puede ser de otro año,
+       3. sin foto fiable: se usará la composición de respaldo. */
+  function carPhoto(constructorId) {
+    var porAnio = CAR_PHOTOS[String(year)];
+    var exacta = (porAnio && constructorId) ? porAnio[constructorId] : null;
+    if (exacta && exacta.src) {
+      return {
+        src: exacta.src, modelo: exacta.modelo || '', autor: exacta.autor || '',
+        licencia: exacta.licencia || '', fuente: exacta.fuente || '', exacta: true
+      };
+    }
+    if (year < CAR_IMAGE_MIN_YEAR) return null;
     var internal = window.TodoF1Teams && window.TodoF1Teams._internal;
     var map = internal && internal.TEAM_IMAGES;
     var entry = map && constructorId ? map[constructorId] : null;
-    return (entry && entry.src) ? entry.src : '';
+    if (!entry || !entry.src) return null;
+    return { src: entry.src, modelo: '', autor: '', licencia: '', fuente: '', exacta: false };
   }
 
   function versionedSrc(src) {
@@ -538,12 +573,27 @@
     }
 
     // Fotografía (o composición de respaldo) del monoplaza.
-    var src = teamImage(team.id);
-    var photo = src
-      ? '<img class="team-card__photo" src="' + esc(versionedSrc(src)) + '" alt="Monoplaza del equipo ' + esc(team.name) +
-        '" title="Imagen representativa del equipo; puede corresponder a otra temporada" loading="lazy" decoding="async">'
-      : '';
-    if (src) photosShown = true;
+    var foto = carPhoto(team.id);
+    var photo = '';
+    if (foto) {
+      photosShown = true;
+      if (foto.exacta) {
+        photosCredits.push(foto);
+      } else {
+        photosRepresentative = true;   // foto de la era actual: puede ser de otro año
+      }
+      var alt = foto.modelo
+        ? 'Monoplaza ' + foto.modelo + ' de ' + team.name + ' en ' + year
+        : 'Monoplaza del equipo ' + team.name + ' en ' + year;
+      var titulo = foto.exacta
+        ? (foto.modelo ? 'Fotografía del ' + foto.modelo + ' (' + year + ')' : 'Fotografía de la temporada ' + year)
+        : 'Imagen representativa del equipo; puede corresponder a otra temporada';
+      if (foto.exacta && foto.autor) {
+        titulo += ' · Foto: ' + foto.autor + ' (' + foto.licencia + ', Wikimedia Commons)';
+      }
+      photo = '<img class="team-card__photo" src="' + esc(versionedSrc(foto.src)) + '" alt="' + esc(alt) +
+        '" title="' + esc(titulo) + '" loading="lazy" decoding="async">';
+    }
 
     var fallback = '<span class="team-card__fallback" aria-hidden="true">' +
       CAR_SVG.replace('%MONO%', esc(monogram(team.name))) + '</span>';
@@ -701,13 +751,36 @@
     }
 
     photosShown = false;
+    photosRepresentative = false;
+    photosCredits = [];
     var fragment = document.createDocumentFragment();
     list.forEach(function (team) { fragment.appendChild(card(team)); });
     grid.appendChild(fragment);
 
+    // Aviso solo cuando alguna foto NO es de la temporada mostrada.
     if (photoNote) {
       photoNote.textContent = 'Las fotografías son imágenes representativas del equipo y pueden corresponder a otra temporada.';
-      photoNote.hidden = !photosShown;
+      photoNote.hidden = !photosRepresentative;
+    }
+
+    // Créditos de autoría de las fotos de esa temporada (licencias libres).
+    // Se usa un id propio: #photo-credits lo reserva teams.js para los créditos
+    // de las imágenes del hero y reescribiría este bloque.
+    if (carPhotoCredits) {
+      var vistos = {};
+      var partes = [];
+      photosCredits.forEach(function (foto) {
+        if (vistos[foto.src]) return;
+        vistos[foto.src] = true;
+        var texto = (foto.modelo ? foto.modelo + ' — ' : '') + foto.autor + ' (' + foto.licencia + ')';
+        partes.push(foto.fuente
+          ? '<a href="' + esc(foto.fuente) + '" target="_blank" rel="noopener license">' + esc(texto) + '</a>'
+          : esc(texto));
+      });
+      carPhotoCredits.innerHTML = partes.length
+        ? 'Fotografías de los monoplazas de ' + year + ': ' + partes.join(' · ') + ' — vía Wikimedia Commons.'
+        : '';
+      carPhotoCredits.hidden = !partes.length;
     }
   }
 

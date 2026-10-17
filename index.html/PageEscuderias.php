@@ -10,17 +10,28 @@
   <link rel="stylesheet" href="css/PageEscuderias.css?v=<?= @filemtime(__DIR__ . '/css/PageEscuderias.css') ?: '1' ?>">
   <script src="js/PageEscuderias.js?v=<?= @filemtime(__DIR__ . '/js/PageEscuderias.js') ?: '1' ?>" defer></script>
   <?php
-  /* Versiones (fecha de modificación) de las fotografías de escuderías, para
-     que el caché del navegador se refresque igual que en la página principal.
-     El mapa lo consume teams.js (versionedSrc) desde PageEscuderias.js. */
+  /* Versiones (fecha de modificación) de las fotografías, para que el caché del
+     navegador se refresque igual que en la página principal. El mapa lo consume
+     teams.js (versionedSrc) desde PageEscuderias.js. Incluye las imágenes del
+     hero por escudería y el catálogo de monoplazas por temporada. */
   $tf_hero_versions = [];
-  $tf_escuderia_files = glob(__DIR__ . '/../Images/heroes/escuderias/*');
-  if (is_array($tf_escuderia_files)) {
-    foreach ($tf_escuderia_files as $tf_file) {
+  $tf_foto_dirs = ['/Images/heroes/escuderias' => __DIR__ . '/../Images/heroes/escuderias/*'];
+  $tf_monoplazas = glob(__DIR__ . '/../Images/monoplazas/*', GLOB_ONLYDIR);
+  if (is_array($tf_monoplazas)) {
+    foreach ($tf_monoplazas as $tf_dir) {
+      $tf_foto_dirs['/Images/monoplazas/' . basename($tf_dir)] = $tf_dir . '/*';
+    }
+  }
+  foreach ($tf_foto_dirs as $tf_web_dir => $tf_glob) {
+    $tf_files = glob($tf_glob);
+    if (!is_array($tf_files)) {
+      continue;
+    }
+    foreach ($tf_files as $tf_file) {
       if (!is_file($tf_file)) {
         continue;
       }
-      $tf_hero_versions['/Images/heroes/escuderias/' . basename($tf_file)] = (string) @filemtime($tf_file);
+      $tf_hero_versions[$tf_web_dir . '/' . basename($tf_file)] = (string) @filemtime($tf_file);
     }
   }
   ?>
@@ -74,6 +85,9 @@
       <div class="teams-grid" id="teams-grid">
         <div class="tf-loading"><span class="tf-spinner" aria-hidden="true"></span><span>Cargando escuder&iacute;as&hellip;</span></div>
       </div>
+
+      <!-- Cr&eacute;ditos de autor&iacute;a de las fotograf&iacute;as de esa temporada -->
+      <p class="teams-note teams-note--soft teams-credits" id="car-photo-credits" hidden></p>
 
     </div>
   </main>

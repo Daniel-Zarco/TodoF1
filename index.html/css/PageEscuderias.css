@@ -118,6 +118,23 @@
   display: none;
 }
 
+/* Créditos de autoría de las fotografías con licencia libre (CC BY-SA) */
+.teams-credits {
+  margin-top: var(--sp-4);
+  line-height: 1.6;
+}
+
+.teams-credits a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+
+.teams-credits a:hover {
+  color: var(--c-text);
+}
+
 /* ------------------------------------------------------------
    Cuadrícula: dos columnas amplias en escritorio
    ------------------------------------------------------------ */
