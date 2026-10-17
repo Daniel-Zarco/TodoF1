@@ -548,7 +548,7 @@
       '</a>';
   }
 
-  function card(team) {
+  function card(team, index) {
     var article = document.createElement('article');
     article.className = 'team-card';
     article.setAttribute('data-team-id', team.id);
@@ -591,8 +591,12 @@
       if (foto.exacta && foto.autor) {
         titulo += ' · Foto: ' + foto.autor + ' (' + foto.licencia + ', Wikimedia Commons)';
       }
+      // La primera fila se carga de inmediato (es la que se ve al abrir la
+      // página); el resto, en diferido para no descargar fotos innecesarias.
+      var carga = (typeof index === 'number' && index < 2) ? 'eager' : 'lazy';
       photo = '<img class="team-card__photo" src="' + esc(versionedSrc(foto.src)) + '" alt="' + esc(alt) +
-        '" title="' + esc(titulo) + '" loading="lazy" decoding="async">';
+        '" title="' + esc(titulo) + '" loading="' + carga + '" decoding="async"' +
+        (carga === 'eager' ? ' fetchpriority="high"' : '') + '>';
     }
 
     var fallback = '<span class="team-card__fallback" aria-hidden="true">' +
@@ -754,7 +758,7 @@
     photosRepresentative = false;
     photosCredits = [];
     var fragment = document.createDocumentFragment();
-    list.forEach(function (team) { fragment.appendChild(card(team)); });
+    list.forEach(function (team, index) { fragment.appendChild(card(team, index)); });
     grid.appendChild(fragment);
 
     // Aviso solo cuando alguna foto NO es de la temporada mostrada.
