@@ -66,6 +66,7 @@
   var formatoDiaLargo = null;
   var formatoHora = null;
   var formatoFechaCorta = null;
+  var formatoFechaCompacta = null;
 
   function formateadores() {
     if (formatoDiaClave) return;
@@ -81,6 +82,9 @@
       });
       formatoFechaCorta = new Intl.DateTimeFormat('es-ES', {
         timeZone: ZONA, weekday: 'short', day: 'numeric', month: 'short'
+      });
+      formatoFechaCompacta = new Intl.DateTimeFormat('es-ES', {
+        timeZone: ZONA, day: 'numeric', month: 'short'
       });
     } catch (e) {
       formatoDiaClave = null;
@@ -134,6 +138,14 @@
     if (!fecha) return '';
     if (!formatoFechaCorta) return '';
     return formatoFechaCorta.format(fecha);
+  }
+
+  /* Sin día de la semana: para espacios compactos (tarjetas del listado). */
+  function fechaCompacta(fecha) {
+    formateadores();
+    if (!fecha) return '';
+    if (!formatoFechaCompacta) return fechaCorta(fecha);
+    return formatoFechaCompacta.format(fecha);
   }
 
   /* ------------------------ Sesiones del GP ---------------------- */
@@ -298,6 +310,7 @@
     diaLargo: diaLargo,
     hora: hora,
     fechaCorta: fechaCorta,
+    fechaCompacta: fechaCompacta,
     nombre: function (clave) { return NOMBRES[clave] || clave; },
     corto: function (clave) { return CORTOS[clave] || clave; }
   };

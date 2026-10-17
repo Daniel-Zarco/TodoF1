@@ -322,7 +322,7 @@
       nodo.innerHTML =
         '<b>' + (enCurso ? 'En curso' : 'Próxima') + '</b>' +
         '<span class="circuito-card__sesion-nombre">' + esc(horarios.corto(objetivo.clave)) + '</span>' +
-        '<span class="circuito-card__sesion-cuando">' + esc(horarios.fechaCorta(objetivo.inicio)) + ' · ' +
+        '<span class="circuito-card__sesion-cuando">' + esc(horarios.fechaCompacta(objetivo.inicio)) + ' · ' +
           esc(horarios.hora(objetivo.inicio)) + '</span>' +
         (enCurso ? '' : '<span class="circuito-card__sesion-cuenta">' +
           esc(horarios.cuentaAtras(objetivo.inicio.getTime() - ahora.getTime())) + '</span>');
