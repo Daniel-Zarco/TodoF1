@@ -115,11 +115,120 @@
     return rows.length;
   }
 
-  var TRACK_SVG =
-    '<svg class="race__track" viewBox="0 0 220 110" fill="none" stroke="currentColor" ' +
-    'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-    '<path d="M22 82c-6-22 10-38 34-40s40 10 56 4 22-24 44-22 40 20 36 42-28 30-52 26-30-20-52-16-24 26-46 30-16-8-20-24Z"/>' +
-    '</svg>';
+  /* --------------------------- Próxima carrera ---------------------------- */
+  /* Icono de ubicación, icono de giro y de vuelta: trazos simples. */
+  var ICONO_LUGAR =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s7-5.6 7-11a7 7 0 0 0-14 0c0 5.4 7 11 7 11Z"/>' +
+    '<circle cx="12" cy="10" r="2.6"/></svg>';
+
+  var ICONO_GIRO =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-2.6-6.4"/>' +
+    '<polyline points="21 3 21 9 15 9"/></svg>';
+
+  var ICONO_VUELTA =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" y1="12" x2="20" y2="12"/>' +
+    '<polyline points="10 6 4 12 10 18"/></svg>';
+
+  /* Monograma para el respaldo (nunca se dibuja un circuito inventado). */
+  function monograma(nombre) {
+    var palabras = String(nombre || '').replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean);
+    if (!palabras.length) return '—';
+    if (palabras.length === 1) return palabras[0].slice(0, 3).toUpperCase();
+    return (palabras[0][0] + palabras[1][0]).toUpperCase();
+  }
+
+  /* Trazado real del circuito, reutilizando el sistema de PageCircuitos. */
+  function pintarTrazo(host, circuit) {
+    if (!host) return;
+    var trazados = window.TodoF1Trazados;
+    var id = circuit && circuit.circuitId;
+    host.innerHTML =
+      '<span class="race__trazo-respaldo"><b>' + esc(monograma(circuit && circuit.circuitName)) + '</b>' +
+      '<small>Trazado no disponible</small></span>';
+    if (trazados && id && trazados.tiene(id)) {
+      trazados.pintar(host, id, 2.6);
+    }
+  }
+
+  /* Sesiones del fin de semana con la hora de Madrid (módulo compartido).
+     Lo que la API no publica se muestra como «Por confirmar». */
+  function sesionesDelGp(carrera) {
+    var horarios = window.TodoF1Horarios;
+    if (!horarios) return null;
+    var sesiones = horarios.sesionesDe(carrera) || [];
+    if (!sesiones.length) return null;
+    return sesiones.map(function (s) {
+      return {
+        nombre: s.nombre,
+        cuando: s.inicio ? (horarios.fechaCorta(s.inicio) + ' · ' + horarios.hora(s.inicio)) : 'Por confirmar',
+        confirmar: !!s.porConfirmar
+      };
+    });
+  }
+
+  /* Giro de la tarjeta: ratón, táctil, teclado y estados accesibles. */
+  function activarGiro(raiz) {
+    if (!raiz) return;
+    var frente = raiz.querySelector('.flip__cara--frente');
+    var dorso = raiz.querySelector('.flip__cara--dorso');
+
+    // La cara inactiva no debe poder enfocarse ni recibir clics.
+    function inerte(cara, bloquear) {
+      if (!cara) return;
+      if (bloquear) { cara.setAttribute('inert', ''); } else { cara.removeAttribute('inert'); }
+      Array.prototype.forEach.call(cara.querySelectorAll('a, button'), function (n) {
+        if (bloquear) {
+          if (!n.hasAttribute('data-tabindex')) n.setAttribute('data-tabindex', n.getAttribute('tabindex') || '');
+          n.setAttribute('tabindex', '-1');
+        } else {
+          var prev = n.getAttribute('data-tabindex');
+          if (prev) n.setAttribute('tabindex', prev);
+          else n.removeAttribute('tabindex');
+          n.removeAttribute('data-tabindex');
+        }
+      });
+    }
+
+    function voltear() {
+      // Se comprueba el foco ANTES de aplicar inert (que lo retiraría).
+      var activo = document.activeElement;
+      var focoDentro = !!(activo && raiz.contains(activo));
+
+      var activa = raiz.classList.toggle('is-volteada');
+      raiz.setAttribute('data-volteada', activa ? 'si' : 'no');
+      if (frente) frente.setAttribute('aria-hidden', activa ? 'true' : 'false');
+      if (dorso) dorso.setAttribute('aria-hidden', activa ? 'false' : 'true');
+      inerte(frente, activa);
+      inerte(dorso, !activa);
+
+      var visible = activa ? dorso : frente;
+      var destino = visible && visible.querySelector('[data-giro]');
+      if (destino && focoDentro) destino.focus();
+    }
+
+    // Clic en cualquier punto de la tarjeta (salvo enlaces y botones propios).
+    raiz.addEventListener('click', function (e) {
+      if (e.target && e.target.closest && e.target.closest('a, button')) return;
+      voltear();
+    });
+
+    Array.prototype.forEach.call(raiz.querySelectorAll('[data-giro]'), function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
+        voltear();
+      });
+    });
+
+    raiz.setAttribute('data-volteada', 'no');
+    if (frente) frente.setAttribute('aria-hidden', 'false');
+    if (dorso) {
+      dorso.setAttribute('aria-hidden', 'true');
+      inerte(dorso, true);
+    }
+  }
 
   function renderNextRace(calendarRes, value) {
     var el = $('next-race');
@@ -147,18 +256,52 @@
 
     var circuit = next.Circuit || {};
     var loc = circuit.Location || {};
+    var circuitoId = circuit.circuitId || '';
     var place = [circuit.circuitName, loc.country].filter(Boolean).join(' · ');
 
+    // Ficha individual del circuito (misma ruta que usa la página de circuitos).
+    var ficha = '/index.html/PageStatsCircuito.php?circuito=' + encodeURIComponent(circuit.circuitName || '') +
+      '&year=' + encodeURIComponent(value) + (circuitoId ? '&id=' + encodeURIComponent(circuitoId) : '');
+
+    var sesiones = sesionesDelGp(next);
+    var listaSesiones = sesiones
+      ? sesiones.map(function (s) {
+        return '<li class="race__sesion' + (s.confirmar ? ' is-por-confirmar' : '') + '">' +
+          '<span class="race__sesion-nombre">' + esc(s.nombre) + '</span>' +
+          '<span class="race__sesion-cuando">' + esc(s.cuando) + '</span></li>';
+      }).join('')
+      : '<li class="race__sesion is-por-confirmar"><span class="race__sesion-nombre">Sesiones</span>' +
+        '<span class="race__sesion-cuando">Por confirmar</span></li>';
+
     el.innerHTML =
-      '<span class="race__round">Ronda ' + esc(next.round) + '</span>' +
-      '<h3 class="race__name">' + esc(next.raceName) + '</h3>' +
-      '<p class="race__date">' + esc(fmtDate(next.date)) + '</p>' +
-      '<p class="race__circuit">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-      '<path d="M12 21s7-5.6 7-11a7 7 0 0 0-14 0c0 5.4 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.6"></circle></svg> ' +
-      esc(place) + '</p>' +
-      TRACK_SVG +
-      '<a class="tf-btn tf-btn--primary race__link" href="/index.html/PageCircuitos.php?year=' + encodeURIComponent(value) + '">Ver detalles ' + '&#8594;</a>';
+      '<div class="flip" id="race-flip">' +
+        '<div class="flip__interior">' +
+          '<div class="flip__cara flip__cara--frente">' +
+            '<span class="race__round">Ronda ' + esc(next.round) + '</span>' +
+            '<h3 class="race__name">' + esc(next.raceName) + '</h3>' +
+            '<p class="race__date">' + esc(fmtDate(next.date)) + '</p>' +
+            '<p class="race__circuit">' + ICONO_LUGAR + ' ' + esc(place) + '</p>' +
+            '<div class="race__trazo"></div>' +
+            '<div class="race__acciones">' +
+              '<a class="tf-btn tf-btn--primary race__link" href="' + ficha + '">Ver detalles &#8594;</a>' +
+              '<button type="button" class="race__pista" data-giro="1">' + ICONO_GIRO + '<span>Ver horarios</span></button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="flip__cara flip__cara--dorso" aria-hidden="true">' +
+            '<span class="tf-eyebrow">Horarios · Ronda ' + esc(next.round) + '</span>' +
+            '<h3 class="race__name race__name--dorso">' + esc(next.raceName) + '</h3>' +
+            '<p class="race__date race__date--dorso">' + esc(fmtDate(next.date)) + ' · hora peninsular</p>' +
+            '<ul class="race__sesiones">' + listaSesiones + '</ul>' +
+            '<div class="race__acciones race__acciones--fin">' +
+              '<button type="button" class="race__pista" data-giro="1">' + ICONO_VUELTA +
+              '<span>Volver al circuito</span></button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    pintarTrazo(el.querySelector('.race__trazo'), circuit);
+    activarGiro(el.querySelector('.flip'));
   }
 
   async function loadSeason(value) {

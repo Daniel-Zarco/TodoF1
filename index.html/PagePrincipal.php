@@ -35,6 +35,8 @@ session_start();
     <link rel="stylesheet" href="/index.html/css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
     <link rel="stylesheet" href="/index.html/css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
     <link rel="stylesheet" href="/index.html/css/PagePrincipal.css?v=<?= @filemtime(__DIR__ . '/css/PagePrincipal.css') ?: '1' ?>">
+    <script src="/index.html/js/CircuitosTrazados.js?v=<?= @filemtime(__DIR__ . '/js/CircuitosTrazados.js') ?: '1' ?>" defer></script>
+    <script src="/index.html/js/f1-horarios.js?v=<?= @filemtime(__DIR__ . '/js/f1-horarios.js') ?: '1' ?>" defer></script>
     <script src="/index.html/js/PagePrincipal.js?v=<?= @filemtime(__DIR__ . '/js/PagePrincipal.js') ?: '1' ?>" defer></script>
     <?php
     /* Versiones (fecha de modificación) y lista de imágenes del hero. */
