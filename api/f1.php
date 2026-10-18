@@ -69,6 +69,8 @@ function todof1_f1_route_ok(string $path): bool
         '/^\d{4}\/races\.json$/',                                       // pruebas de la temporada
         '/^\d{4}\/\d{1,2}\/results\.json$/',                            // resultados de una prueba
         '/^\d{4}\/driverStandings\.json$/',
+        '/^\d{4}\/\d{1,2}\/driverStandings\.json$/',                      // clasificación tras cada prueba
+        '/^\d{4}\/qualifying\.json$/',                                    // clasificación (poles desde 1994)
         '/^\d{4}\/constructorStandings\.json$/',
         '/^\d{4}\/constructors\.json$/',
         '/^\d{4}\/drivers\.json$/',
@@ -103,7 +105,7 @@ function todof1_f1_expected_table(string $path): string
     }
     // Cualquier endpoint de resultados/calendario. Incluye las rutas por
     // circuito: circuits/{id}/results.json y circuits/{id}/results/{pos}.json.
-    if (preg_match('#/(results|races)(\.json|/\d{1,2}\.json)$#', $path) === 1
+    if (preg_match('#/(results|races|qualifying)(\.json|/\d{1,2}\.json)$#', $path) === 1
         || preg_match('/^\d{4}\.json$/', $path) === 1) {
         return 'RaceTable';
     }
