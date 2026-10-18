@@ -554,30 +554,34 @@
   overscroll-behavior: contain;
 }
 
-/* Trazado real del circuito (mismo sistema que la página de circuitos) */
+/* Trazado real del circuito (mismo sistema que la página de circuitos).
+   El SVG y el respaldo se anclan a la caja: con aspect-ratio, "height: 100%"
+   no se resuelve y el SVG crecería por su proporción intrínseca. */
 .race__trazo {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: block;
   aspect-ratio: 16 / 9;
   max-height: 232px;
   margin: var(--sp-4) 0;
   color: var(--team-primary);
+  overflow: hidden;
 }
 
 .race__trazo svg {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .race__trazo-respaldo {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
   gap: var(--sp-1);
-  width: 100%;
-  height: 100%;
   border: 1px dashed var(--c-line);
   border-radius: var(--r-md);
   background-image:
