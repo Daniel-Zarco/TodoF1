@@ -35,11 +35,6 @@ $items = [
 ?>
 <header class="tf-nav" id="tf-nav">
     <div class="tf-nav__inner">
-        <a class="tf-brand" href="/" aria-label="TodoF1, ir al inicio">
-            <img class="tf-brand__mark" src="/Images/tf1-logo.png" alt="" width="1101" height="468">
-            <span class="tf-brand__name">Todo<span>F1</span></span>
-        </a>
-
         <button class="tf-nav__toggle" id="tf-nav-toggle" type="button"
                 aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="tf-nav-menu">
             <span></span><span></span><span></span>
