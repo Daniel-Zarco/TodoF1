@@ -9,6 +9,9 @@ $tf_year = isset($_GET['year']) && is_numeric($_GET['year']) ? (int) $_GET['year
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= $tf_escuderia !== '' ? htmlspecialchars($tf_escuderia) . ' &mdash; ' : '' ?>Escuder&iacute;a &mdash; TodoF1</title>
+  <link rel="icon" href="/Images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png">
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageStatsEscuderia.css?v=<?= @filemtime(__DIR__ . '/css/PageStatsEscuderia.css') ?: '1' ?>">

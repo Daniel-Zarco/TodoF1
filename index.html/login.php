@@ -58,6 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Acceso administrador &mdash; TodoF1</title>
+    <link rel="icon" href="/Images/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png">
     <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
     <link rel="stylesheet" href="css/login.css?v=<?= @filemtime(__DIR__ . '/css/login.css') ?: '1' ?>">
     <script src="js/login.js?v=<?= @filemtime(__DIR__ . '/js/login.js') ?: '1' ?>" defer></script>
