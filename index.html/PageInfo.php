@@ -20,9 +20,9 @@ $totalUsuarios_json = $totalUsuarios_json ?? '0';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de datos &mdash; TodoF1</title>
-    <link rel="icon" href="/Images/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png">
+    <link rel="icon" href="/Images/favicon.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png?v=2">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">

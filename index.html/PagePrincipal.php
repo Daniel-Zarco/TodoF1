@@ -10,9 +10,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
     <title>TodoF1 — Estad&iacute;sticas de F&oacute;rmula 1</title>
-    <link rel="icon" href="/Images/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png">
+    <link rel="icon" href="/Images/favicon.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png?v=2">
     <script>
         /* Anti-parpadeo: aplica los colores del tema elegido antes de pintar. */
         (function () {
