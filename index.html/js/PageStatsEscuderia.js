@@ -66,11 +66,20 @@
     'tyrrell': '#003399'
   };
 
-  /* Punto de extensión para logotipos verificados (constructorId → src).
-     Está vacío a propósito: el proyecto no dispone de escudos con
-     procedencia y licencia comprobadas, y no se incorporan imágenes de
-     terceros sin verificar. Mientras esté vacío se usa el monograma. */
-  var LOGO_IMAGES = {};
+  /* Catálogo local de logotipos verificados (constructorId + temporada).
+     La identidad del equipo vive en este catálogo y en --team-color; el
+     tema elegido por el usuario sigue usando las variables --team-*. */
+  function teamLogo(constructorId, seasonYear) {
+    var catalog = window.TodoF1EscuderiaLogos;
+    if (!catalog || typeof catalog.resolve !== 'function') return null;
+    return catalog.resolve(constructorId, seasonYear);
+  }
+
+  function teamIdentityColor(constructorId) {
+    var catalog = window.TodoF1EscuderiaLogos;
+    if (!catalog || typeof catalog.color !== 'function') return null;
+    return catalog.color(constructorId);
+  }
 
   var params = new URLSearchParams(window.location.search);
   var escuderia = (params.get('escuderia') || '').trim();
@@ -153,14 +162,6 @@
     return String(Math.round(n * 100) / 100).replace('.', ',');
   }
 
-  /* Monograma del escudo: iniciales de las palabras (máx. 3). */
-  function monogram(name) {
-    var words = String(name || '').trim().split(/\s+/).filter(Boolean);
-    var letters = words.map(function (w) { return w.charAt(0); });
-    if (letters.length > 1) return letters.slice(0, 3).join('').toUpperCase();
-    return String(name || 'F1').slice(0, 3).toUpperCase();
-  }
-
   function hexToRgb(hex) {
     var value = String(hex || '').replace('#', '');
     if (value.length === 3) {
@@ -187,6 +188,9 @@
 
   /* Color del equipo (identidad). El resto de la interfaz usa el tema. */
   function teamColor(constructorId, teamName) {
+    var identity = teamIdentityColor(constructorId);
+    if (identity) return identity;
+
     var resolve = window.TodoF1Teams && window.TodoF1Teams._internal && window.TodoF1Teams._internal.resolveTeam;
     if (typeof resolve === 'function') {
       var resolved = resolve(constructorId);
@@ -451,6 +455,42 @@
       });
   }
 
+  function renderCrestFallback() {
+    el.crest.classList.remove('has-logo');
+    el.crest.innerHTML =
+      '<span class="team-hero__fallback" id="team-mono">' + esc(state.name || 'Escudería') + '</span>' +
+      '<span class="team-hero__crest-line" aria-hidden="true"></span>';
+  }
+
+  function renderCrest() {
+    var logo = teamLogo(state.constructorId, year);
+    if (!logo) {
+      renderCrestFallback();
+      return;
+    }
+
+    el.crest.classList.add('has-logo');
+    el.crest.innerHTML = '';
+    var img = el_('img', 'team-hero__logo');
+    img.src = logo.src;
+    img.alt = 'Logotipo de ' + (state.name || 'la escudería');
+    img.decoding = 'async';
+    img.loading = 'eager';
+    img.addEventListener('error', renderCrestFallback);
+
+    if (logo.plate === 'light') {
+      var plate = el_('span', 'team-hero__logo-plate');
+      plate.appendChild(img);
+      el.crest.appendChild(plate);
+    } else {
+      el.crest.appendChild(img);
+    }
+
+    var line = el_('span', 'team-hero__crest-line');
+    line.setAttribute('aria-hidden', 'true');
+    el.crest.appendChild(line);
+  }
+
   /* ------------------------------------------------------------- cabecera */
   function renderHeader() {
     el.eyebrow.textContent = 'Escudería · Temporada ' + year;
@@ -460,13 +500,12 @@
     el.hero.style.setProperty('--team-color', state.color);
     el.hero.style.setProperty('--team-soft', rgba(state.color, 0.16));
     el.hero.style.setProperty('--team-ink', onColor(state.color));
+    // La serie del gráfico identifica al constructor; el resto de controles
+    // (selector, botones, foco) sigue usando el tema activo --team-*.
+    el.chart.style.setProperty('--team-color', state.color);
 
-    // Escudo: logotipo verificado si existe; si no, monograma deportivo.
-    var logo = LOGO_IMAGES[state.constructorId];
-    el.crest.innerHTML = logo
-      ? '<img class="team-hero__logo" src="' + esc(logo) + '" alt="Logotipo de ' + esc(state.name) + '">'
-      : '<span class="team-hero__mono" id="team-mono">' + esc(monogram(state.name)) + '</span>' +
-        '<span class="team-hero__crest-line" aria-hidden="true"></span>';
+    // Escudo: logotipo verificado para la temporada o nombre completo como fallback.
+    renderCrest();
 
     var season = state.season;
     var sub = '';

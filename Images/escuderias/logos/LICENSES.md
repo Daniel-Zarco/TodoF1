@@ -1,0 +1,71 @@
+# Logotipos de escuderías
+
+Archivos descargados de Wikimedia Commons o Wikipedia en inglés. Cada entrada conserva
+la licencia indicada por la fuente original. Los logotipos son marcas de sus titulares
+y se usan únicamente para identificar a la escudería.
+
+- `alfa-romeo-f1-team-stake-logo.svg` — alfa (2019-2023): Public domain; https://commons.wikimedia.org/wiki/File:Alfa_Romeo_F1_Team_Stake_Logo.svg
+- `scuderia-alpha-tauri.svg` — alphatauri (2020-2023): Fair use; https://en.wikipedia.org/wiki/File:Scuderia_Alpha-Tauri.svg
+- `bwt-alpine-f1-team-logo.png` — alpine (2021-2026): Public domain; https://commons.wikimedia.org/wiki/File:BWT_Alpine_F1_Team_Logo.png
+- `amon-formula-one-team-logo.png` — amon (1974-1974): PD; https://en.wikipedia.org/wiki/File:Amon_(Formula_One_team)_(logo).png
+- `aston-martin-aramco-2024-logo.png` — aston_martin (2021-2026): Fair use; https://en.wikipedia.org/wiki/File:Aston_Martin_Aramco_2024_logo.png
+- `audif1-com-logo17-cropped.svg` — audi (2026-2026): Public domain; https://commons.wikimedia.org/wiki/File:Audif1.com_logo17_(cropped).svg
+- `british-american-racing-logo.png` — bar (1999-2005): Fair use; https://en.wikipedia.org/wiki/File:British_american_racing_logo.png
+- `logo-bmw-group-2021.svg` — bmw (2006-2009): Public domain; https://commons.wikimedia.org/wiki/File:Logo_BMW_Group_2021.svg
+- `boro-logo.png` — boro (1976-1977): Fair use; https://en.wikipedia.org/wiki/File:Boro_logo.png
+- `brabham91.png` — brabham (1962-1992): Fair use; https://en.wikipedia.org/wiki/File:Brabham91.png
+- `brabham91.png` — brabham-alfa_romeo (1962-1992): Fair use; https://en.wikipedia.org/wiki/File:Brabham91.png
+- `brabham91.png` — brabham-brm (1962-1992): Fair use; https://en.wikipedia.org/wiki/File:Brabham91.png
+- `brabham91.png` — brabham-climax (1962-1992): Fair use; https://en.wikipedia.org/wiki/File:Brabham91.png
+- `brabham91.png` — brabham-ford (1962-1992): Fair use; https://en.wikipedia.org/wiki/File:Brabham91.png
+- `brabham91.png` — brabham-repco (1962-1992): Fair use; https://en.wikipedia.org/wiki/File:Brabham91.png
+- `britishracingmotorslogo.png` — brm (1951-1977): Fair use; https://en.wikipedia.org/wiki/File:BritishRacingMotorsLogo.png
+- `britishracingmotorslogo.png` — brm-ford (1950-2026): Fair use; https://en.wikipedia.org/wiki/File:BritishRacingMotorsLogo.png
+- `cadillac-formula-1-team-logo-2025.svg` — cadillac (2026-2026): Fair use; https://en.wikipedia.org/wiki/File:Cadillac_Formula_1_Team_Logo_(2025).svg
+- `caterham-f1-team-logo.svg` — caterham (2012-2014): Fair use; https://en.wikipedia.org/wiki/File:Caterham_F1_Team_logo.svg
+- `dallara-logo.svg` — dallara (1991-1992): Public domain; https://commons.wikimedia.org/wiki/File:Dallara_logo.svg
+- `detomaso-automobili-logo.png` — de_tomaso-alfa_romeo (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:Detomaso_automobili_logo.png
+- `detomaso-automobili-logo.png` — de_tomaso-ferrari (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:Detomaso_automobili_logo.png
+- `detomaso-automobili-logo.png` — de_tomaso-osca (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:Detomaso_automobili_logo.png
+- `anglo-american-racers-logo.svg` — eagle (1966-1969): Fair use; https://en.wikipedia.org/wiki/File:Anglo_American_Racers_logo.svg
+- `anglo-american-racers-logo.svg` — eagle-climax (1950-2026): Fair use; https://en.wikipedia.org/wiki/File:Anglo_American_Racers_logo.svg
+- `anglo-american-racers-logo.svg` — eagle-weslake (1950-2026): Fair use; https://en.wikipedia.org/wiki/File:Anglo_American_Racers_logo.svg
+- `ferrari-wordmark.svg` — ferrari (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:Ferrari_wordmark.svg
+- `racing-point-force-india-logo.jpg` — force_india (2018-2018): Fair use; https://en.wikipedia.org/wiki/File:Racing_Point_Force_India_logo.jpg
+- `forti-logo.png` — forti (1995-1996): Fair use; https://en.wikipedia.org/wiki/File:Forti_logo.png
+- `tgr-haas-f1-team-logo-2026.svg` — haas (2026-2026): Public domain; https://commons.wikimedia.org/wiki/File:TGR_Haas_F1_Team_Logo_(2026).svg
+- `frank-williams-racing-cars-historical-logo.jpg` — iso_marlboro (1973-1974): Fair use; https://en.wikipedia.org/wiki/File:Frank_Williams_Racing_Cars_Historical_logo.jpg
+- `jordan-grand-prix-logo.png` — jordan (1991-2005): Fair use; https://en.wikipedia.org/wiki/File:Jordan_Grand_Prix_logo.png
+- `talbot-brand-logo-1954.png` — lago (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:Talbot_brand_logo_1954.png
+- `larrousse-logo.png` — larrousse (1987-1994): Fair use; https://en.wikipedia.org/wiki/File:Larrousse_logo.png
+- `mastercard-lola-formula-one-team-logo.jpg` — lola (1997-1997): Fair use; https://en.wikipedia.org/wiki/File:MasterCard_Lola_Formula_One_Team_logo.jpg
+- `teamlotus.jpg` — lotus-borgward (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `teamlotus.jpg` — lotus-brm (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `teamlotus.jpg` — lotus-climax (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `teamlotus.jpg` — lotus-ford (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `teamlotus.jpg` — lotus-maserati (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `teamlotus.jpg` — lotus-pw (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `lotus-f1-team-logo.png` — lotus_f1 (2012-2015): Fair use; https://en.wikipedia.org/wiki/File:Lotus_F1_Team_logo.png
+- `logo-500-gp-team-lotus.png` — lotus_racing (2010-2011): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Logo_500_GP_Team_Lotus.png
+- `maserati-logo-2.svg` — maserati (1950-1960): Public domain; https://commons.wikimedia.org/wiki/File:Maserati_logo_2.svg
+- `mclaren-racing-logo.png` — mclaren (2024-2026): Public domain; https://commons.wikimedia.org/wiki/File:McLaren_Racing_logo.png
+- `mclaren-racing-logo.png` — mclaren-alfa_romeo (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:McLaren_Racing_logo.png
+- `mclaren-racing-logo.png` — mclaren-brm (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:McLaren_Racing_logo.png
+- `mclaren-racing-logo.png` — mclaren-ford (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:McLaren_Racing_logo.png
+- `mclaren-racing-logo.png` — mclaren-seren (1950-2026): Public domain; https://commons.wikimedia.org/wiki/File:McLaren_Racing_logo.png
+- `mercedes-amg-petronas-f1-team-logo-2026.svg` — mercedes (2010-2026): Public domain; https://commons.wikimedia.org/wiki/File:Mercedes-AMG_Petronas_F1_Team_logo_(2026).svg
+- `pacific-racing-logo.png` — pacific (1994-1995): Fair use; https://en.wikipedia.org/wiki/File:Pacific_Racing_logo.png
+- `frank-williams-racing-cars-historical-logo.jpg` — politoys (1972-1972): Fair use; https://en.wikipedia.org/wiki/File:Frank_Williams_Racing_Cars_Historical_logo.jpg
+- `bwt-racing-point-logo.svg` — racing_point (2019-2020): Public domain; https://commons.wikimedia.org/wiki/File:BWT_Racing_Point_Logo.svg
+- `vcarb-f1-logo.svg` — rb (2024-2025): Fair use; https://en.wikipedia.org/wiki/File:VCARB_F1_logo.svg
+- `red-bull-racing-logo-2026.svg` — red_bull (2005-2026): Fair use; https://en.wikipedia.org/wiki/File:Red_Bull_Racing_Logo_2026.svg
+- `renault-f1-team-logo-2019.svg` — renault (2016-2020): Fair use; https://en.wikipedia.org/wiki/File:Renault_F1_Team_logo_2019.svg
+- `sauber-motorsport-svg-logo-2023.svg` — sauber (2024-2025): PD; https://en.wikipedia.org/wiki/File:Sauber_Motorsport_SVG_logo_(2023).svg
+- `stewart-logo.png` — stewart (1997-1999): Fair use; https://en.wikipedia.org/wiki/File:Stewart_logo.png
+- `teamlotus.jpg` — team_lotus (1958-1994): CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:TeamLotus.jpg
+- `detomaso-automobili-logo.png` — tomaso (1961-1963): Public domain; https://commons.wikimedia.org/wiki/File:Detomaso_automobili_logo.png
+- `scuderia-toro-rosso-logo.svg` — toro_rosso (2006-2019): Fair use; https://en.wikipedia.org/wiki/File:Scuderia_Toro_Rosso_logo.svg
+- `tyrrell-racing-logo.svg` — tyrrell (1968-1998): Public domain; https://commons.wikimedia.org/wiki/File:Tyrrell_Racing_logo.svg
+- `vanwall-logo.jpg` — vanwall (1954-1960): Fair use; https://en.wikipedia.org/wiki/File:Vanwall_logo.jpg
+- `veritas-logo.png` — veritas (1951-1953): Public domain; https://commons.wikimedia.org/wiki/File:Veritas_logo.png
+- `atlassian-williams-f1-team-logo.svg` — williams (2026-2026): Public domain; https://commons.wikimedia.org/wiki/File:Atlassian_Williams_F1_Team_logo.svg

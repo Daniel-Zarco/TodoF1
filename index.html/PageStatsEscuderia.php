@@ -15,6 +15,7 @@ $tf_year = isset($_GET['year']) && is_numeric($_GET['year']) ? (int) $_GET['year
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageStatsEscuderia.css?v=<?= @filemtime(__DIR__ . '/css/PageStatsEscuderia.css') ?: '1' ?>">
+  <script src="js/escuderia-logos.js?v=<?= @filemtime(__DIR__ . '/js/escuderia-logos.js') ?: '1' ?>" defer></script>
   <script src="js/PageStatsEscuderia.js?v=<?= @filemtime(__DIR__ . '/js/PageStatsEscuderia.js') ?: '1' ?>" defer></script>
 </head>
 
@@ -29,7 +30,8 @@ $tf_year = isset($_GET['year']) && is_numeric($_GET['year']) ? (int) $_GET['year
       <!-- ================= CABECERA (escudo protagonista) ================= -->
       <header class="team-hero" id="team-hero">
         <div class="team-hero__crest" id="team-crest" aria-hidden="true">
-          <span class="team-hero__mono" id="team-mono">&mdash;</span>
+          <span class="team-hero__fallback" id="team-mono">Cargando&hellip;</span>
+          <span class="team-hero__crest-line" aria-hidden="true"></span>
         </div>
 
         <div class="team-hero__main">

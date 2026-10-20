@@ -1,13 +1,13 @@
 /* ============================================================
-   TodoF1 — Ficha individual de la escudería
+   TodoF1 â€” Ficha individual de la escuderÃ­a
    ------------------------------------------------------------
    Dos sistemas de color, igual que en el resto de la web:
-     · Tema activo  → --team-*      (interfaz: filo y halo de la
-                       cabecera, acentos de sección, KPIs, gráfico,
+     Â· Tema activo  â†’ --team-*      (interfaz: filo y halo de la
+                       cabecera, acentos de secciÃ³n, KPIs, grÃ¡fico,
                        controles, foco, tabla y tarjetas de pilotos)
-     · Escudería    → --team-color  (identidad del equipo: escudo,
+     Â· EscuderÃ­a    â†’ --team-color  (identidad del equipo: escudo,
                        y elementos que identifican a un constructor)
-   El dorado de campeón es fijo y se mantiene con cualquier tema.
+   El dorado de campeÃ³n es fijo y se mantiene con cualquier tema.
    ============================================================ */
 
 .team-vh {
@@ -22,7 +22,7 @@
   border: 0;
 }
 
-/* Acento decorativo de las cabeceras de sección (tema activo) */
+/* Acento decorativo de las cabeceras de secciÃ³n (tema activo) */
 .team-head .tf-section__title::before {
   content: "";
   display: block;
@@ -86,21 +86,59 @@
     linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
 }
 
-.team-hero__mono {
+.team-hero__fallback {
+  max-width: 86%;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.6vw, 3.4rem);
+  font-size: clamp(1.2rem, 0.9rem + 1.25vw, 1.8rem);
   font-weight: 800;
-  letter-spacing: 0.06em;
-  line-height: 1;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
   color: var(--team-color, #55555E);
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Logotipo verificado (si algún día se incorpora al mapa LOGO_IMAGES) */
+/* Logotipo real: se conserva la proporciÃ³n y nunca se deforma. */
 .team-hero__logo {
-  width: 70%;
-  height: auto;
+  display: block;
+  width: 80%;
+  height: 66%;
   object-fit: contain;
+  object-position: center;
+  filter:
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 0 2px rgba(255, 255, 255, 0.32));
+}
+
+/* Los logotipos opacos o de tinta oscura se muestran sobre una placa clara. */
+.team-hero__logo-plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76%;
+  height: 64%;
+  padding: clamp(9px, 1.5vw, 16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--r-md);
+  background: #f7f7f4;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+}
+
+.team-hero__logo-plate .team-hero__logo {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  filter: none;
+}
+
+.team-hero__crest.has-logo {
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
+    radial-gradient(120% 85% at 50% 0%, var(--team-soft, rgba(85, 85, 94, 0.16)), transparent 74%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
 }
 
 /* Marca inferior del escudo: identidad del equipo */
@@ -191,7 +229,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Posición provisional (temporada en curso): acento del tema */
+/* PosiciÃ³n provisional (temporada en curso): acento del tema */
 .team-hero__stat.is-provisional b {
   color: var(--team-primary);
 }
@@ -205,7 +243,7 @@
 }
 
 /* ------------------------------------------------------------
-   Tarjetas de estadísticas
+   Tarjetas de estadÃ­sticas
    ------------------------------------------------------------ */
 .team-kpis {
   display: grid;
@@ -302,7 +340,7 @@
 }
 
 /* ------------------------------------------------------------
-   Gráfico de evolución
+   GrÃ¡fico de evoluciÃ³n
    ------------------------------------------------------------ */
 .team-switch {
   display: inline-flex;
@@ -364,26 +402,26 @@
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  fill: var(--team-primary);
+  fill: var(--team-color, var(--team-primary));
 }
 
-/* Serie del constructor: color del tema activo */
+/* Serie del constructor: identidad histÃ³rica del equipo. */
 .team-chart__segment {
   fill: none;
-  stroke: var(--team-primary);
+  stroke: var(--team-color, var(--team-primary));
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Interrupción (temporadas sin participación): discontinua */
+/* InterrupciÃ³n (temporadas sin participaciÃ³n): discontinua */
 .team-chart__segment--gap {
   stroke-dasharray: 5 5;
   opacity: 0.6;
 }
 
 .team-chart__point {
-  fill: var(--team-primary);
+  fill: var(--team-color, var(--team-primary));
   stroke: var(--c-surface);
   stroke-width: 2;
   cursor: pointer;
@@ -645,7 +683,7 @@
 }
 
 /* ------------------------------------------------------------
-   Palmarés
+   PalmarÃ©s
    ------------------------------------------------------------ */
 .team-honours__grid {
   display: grid;
@@ -839,7 +877,7 @@
 
 /* Fila de la temporada consultada (tema activo) y fila de temporada campeona
    (dorado deportivo, independiente del tema). Pueden coexistir: una aporta
-   background-color y la otra background-image, así que ninguna anula a la otra. */
+   background-color y la otra background-image, asÃ­ que ninguna anula a la otra. */
 .team-table tbody tr {
   transition: background-color 200ms var(--ease), background-image 200ms var(--ease);
 }
