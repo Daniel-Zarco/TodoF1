@@ -664,11 +664,13 @@
   function renderChart() {
     var p = state.profile;
     if (!p) return;
-    var seasons = p.upto;
+    // La evolución muestra toda la trayectoria disputada, no solo hasta el año
+    // seleccionado en la URL (las cifras de temporada siguen usando p.upto).
+    var seasons = p.seasons;
 
     el.chart.innerHTML = '';
     if (!seasons.length) {
-      el.chart.appendChild(messageBox('Sin temporadas disputadas hasta ' + year + '.', 'empty'));
+      el.chart.appendChild(messageBox('Sin temporadas disputadas.', 'empty'));
       return;
     }
     if (seasons.length === 1 && el.metricPosition.disabled) {
@@ -1057,7 +1059,7 @@
         return fetchAllRaces(API + '/drivers/' + state.driverId + '/results.json').then(function (races) {
           // Puntos de carrera por temporada (sin sprints) como respaldo informativo
           state.profile = buildProfile(driver, races);
-          state.profile.upto.forEach(function (s) {
+          state.profile.seasons.forEach(function (s) {
             var sum = 0;
             races.forEach(function (race) {
               if (race.season !== String(s.year)) return;
@@ -1072,7 +1074,7 @@
           renderStints();
           renderTable();
 
-          var years = state.profile.upto.map(function (s) { return s.year; });
+          var years = state.profile.seasons.map(function (s) { return s.year; });
           return loadPositions(years);
         });
       })

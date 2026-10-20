@@ -49,7 +49,7 @@
   var NEUTRAL_COLOR = '#55555E';
   var CONCURRENCY = 2;             // peticiones simultáneas de clasificación
   var MIN_GAP = 260;               // separación mínima entre peticiones a la API
-  var HISTORY_CACHE = 'todof1:escuderia-hist:';
+  var HISTORY_CACHE = 'todof1:escuderia-hist-v2:';
   var CACHE_TTL = 20 * 60 * 1000;  // 20 minutos
   var RETRY_DELAYS = [1500, 3500, 7000]; // reintentos ante 429 / fallos de red
 
@@ -650,13 +650,14 @@
       return;
     }
 
+    // La evolución muestra toda la historia del constructor, no solo hasta el
+    // año seleccionado en la URL (las cifras de temporada siguen usando year).
     var seasons = Object.keys(history.results).map(function (key) { return history.results[key]; })
-      .filter(function (s) { return s.year <= year; })
       .sort(function (a, b) { return a.year - b.year; });
 
     if (!seasons.length) {
       el.chart.appendChild(history.resultsDone
-        ? messageBox('Sin temporadas disputadas hasta ' + year + '.', 'empty')
+        ? messageBox('Sin temporadas disputadas.', 'empty')
         : loading('Cargando evolución…'));
       return;
     }
@@ -671,9 +672,9 @@
     if (!valid.length) {
       if (pending) { el.chart.appendChild(loading('Cargando clasificaciones oficiales…')); return; }
       el.chart.appendChild(messageBox(
-        year < CHAMPIONSHIP_START
-          ? 'El Campeonato Mundial de Constructores no existió hasta 1958, así que no hay puntos ni posiciones oficiales que mostrar en ' + year + '.'
-          : 'No hay datos de ' + (metric === 'points' ? 'puntos' : 'posición') + ' disponibles hasta ' + year + '.',
+        seasons[seasons.length - 1].year < CHAMPIONSHIP_START
+          ? 'El Campeonato Mundial de Constructores no existió hasta 1958, así que no hay puntos ni posiciones oficiales que mostrar en su historia.'
+          : 'No hay datos de ' + (metric === 'points' ? 'puntos' : 'posición') + ' disponibles.',
         'empty'));
       return;
     }
@@ -1184,7 +1185,7 @@
       });
       sessionStorage.setItem(HISTORY_CACHE + state.constructorId, JSON.stringify({
         t: Date.now(),
-        throughYear: Math.min(year, LATEST_YEAR - 1),
+        throughYear: LATEST_YEAR - 1,
         standings: keepStandings,
         results: keepResults
       }));
@@ -1248,7 +1249,7 @@
 
     Object.keys(seeded).forEach(function (key) { state.history.standings[key] = seeded[key]; });
 
-    return fetchPagedRacesRetry(API + '/constructors/' + state.constructorId + '/results.json', year)
+    return fetchPagedRacesRetry(API + '/constructors/' + state.constructorId + '/results.json', null)
       .then(function (races) {
         state.history.results = summarizeSeasons(races);
         state.history.resultsDone = true;
@@ -1256,7 +1257,7 @@
         renderHeader();
 
         var seasons = Object.keys(state.history.results).map(Number)
-          .filter(function (y) { return y >= CHAMPIONSHIP_START && y <= year; });
+          .filter(function (y) { return y >= CHAMPIONSHIP_START; });
         var pending = seasons.filter(function (y) { return !(y < LATEST_YEAR && seeded[y]); });
         pending.sort(function (a, b) { return b - a; });
 
