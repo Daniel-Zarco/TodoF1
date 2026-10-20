@@ -42,12 +42,15 @@ const TODOF1_F1_MAX_BYTES = 8388608;     // 8 MB por respuesta
 const TODOF1_F1_TTL_ABIERTA = 600;       // 10 min (temporada en curso)
 const TODOF1_F1_TTL_CERRADA = 2592000;   // 30 días (temporada finalizada)
 const TODOF1_F1_TTL_ESTATICA = 2592000;  // 30 días (listas sin temporada)
-const TODOF1_F1_TIMEOUT = 8;             // segundos (respuesta completa)
-const TODOF1_F1_CONNECT_TIMEOUT = 4;     // segundos (conexión)
+const TODOF1_F1_TTL_HISTORIAL = 3600;    // 1 h (historial completo que incluye la temporada actual)
+const TODOF1_F1_TIMEOUT = 6;             // segundos (respuesta completa)
+const TODOF1_F1_CONNECT_TIMEOUT = 3;     // segundos (conexión)
+const TODOF1_F1_RETRIES = 2;             // intentos totales ante 429/5xx/red (sin caché)
+const TODOF1_F1_RETRY_BASE_MS = 900;     // backoff base entre intentos
 const TODOF1_F1_BREAKER_BASE = 60;       // cortacircuitos: 60 s
 const TODOF1_F1_BREAKER_MAX = 900;       // cortacircuitos: 15 min
 const TODOF1_F1_MIN_GAP = 250000;        // 250 ms entre peticiones al origen (µs)
-const TODOF1_F1_WAIT_MS = 3000;          // espera máxima al descargador (single-flight)
+const TODOF1_F1_WAIT_MS = 14000;         // espera máxima al descargador (single-flight)
 
 /* --------------------------------- Rutas ---------------------------------- */
 function todof1_f1_origin(): string
@@ -317,17 +320,26 @@ function todof1_f1_ttl(string $state): int
     if ($state === 'cerrada') {
         return TODOF1_F1_TTL_CERRADA;
     }
+    if ($state === 'historial') {
+        return TODOF1_F1_TTL_HISTORIAL;
+    }
     return TODOF1_F1_TTL_ESTATICA;
 }
 
 /**
- * Rutas sin temporada explícita: los historiales completos pueden incluir la
- * temporada en curso, así que se tratan como datos cambiantes.
+ * Rutas sin temporada explícita. Los historiales completos incluyen datos
+ * definitivos y la temporada en curso: se cachean una hora (no 10 minutos)
+ * para no repetir decenas de páginas en cada visita. Las listas de una
+ * temporada concreta conservan su TTL de temporada abierta/cerrada.
  */
 function todof1_f1_route_state(string $path, int $season): string
 {
     if ($season > 0) {
         return todof1_f1_season_state($season);
+    }
+    if (preg_match('#^(drivers|constructors)/[^/]+/results\.json$#', $path) === 1
+        || preg_match('#^circuits/[^/]+/results(/\d{1,2})?\.json$#', $path) === 1) {
+        return 'historial';
     }
     if (preg_match('#/(results|races)\.json$#', $path) === 1) {
         return 'abierta';
@@ -359,33 +371,89 @@ function todof1_f1_breaker_get(): array
     ];
 }
 
-function todof1_f1_breaker_note_failure(): void
+function todof1_f1_breaker_write(array $state): void
 {
     $file = todof1_f1_breaker_file();
     if ($file === '') {
         return;
     }
+    $fh = @fopen($file, 'c+');
+    if ($fh === false) {
+        return;
+    }
+    if (flock($fh, LOCK_EX)) {
+        ftruncate($fh, 0);
+        rewind($fh);
+        fwrite($fh, json_encode($state));
+        fflush($fh);
+        flock($fh, LOCK_UN);
+    }
+    fclose($fh);
+}
+
+function todof1_f1_breaker_note_failure(): void
+{
     $state = todof1_f1_breaker_get();
     $state['failures'] = min($state['failures'] + 1, 20);
     $wait = min(TODOF1_F1_BREAKER_BASE * (2 ** ($state['failures'] - 1)), TODOF1_F1_BREAKER_MAX);
     $state['until'] = time() + (int) $wait;
-    @file_put_contents($file, json_encode($state), LOCK_EX);
+    todof1_f1_breaker_write($state);
 }
 
 function todof1_f1_breaker_reset(): void
 {
-    $file = todof1_f1_breaker_file();
-    if ($file !== '') {
-        @file_put_contents($file, json_encode(['failures' => 0, 'until' => 0]), LOCK_EX);
+    todof1_f1_breaker_write(['failures' => 0, 'until' => 0]);
+}
+
+/* --------------------------- Diagnóstico de 503 ---------------------------- */
+function todof1_f1_errors_file(): string
+{
+    $dir = todof1_f1_cache_dir();
+    return $dir === '' ? '' : $dir . '/errors.log';
+}
+
+function todof1_f1_error_log(string $path, string $error): void
+{
+    $file = todof1_f1_errors_file();
+    if ($file === '') {
+        return;
     }
+    if (is_file($file) && (int) @filesize($file) > 32768) {
+        $tail = @file_get_contents($file);
+        if ($tail !== false) {
+            @file_put_contents($file, substr($tail, -16384), LOCK_EX);
+        }
+    }
+    $line = gmdate('c') . "\t" . str_replace(["\r", "\n", "\t"], ' ', $error) . "\t" . $path . "\n";
+    @file_put_contents($file, $line, FILE_APPEND | LOCK_EX);
+}
+
+function todof1_f1_recent_errors(): array
+{
+    $file = todof1_f1_errors_file();
+    if ($file === '' || !is_file($file)) {
+        return [];
+    }
+    $raw = @file_get_contents($file);
+    if ($raw === false || $raw === '') {
+        return [];
+    }
+    $lines = preg_split('/\R/', trim($raw)) ?: [];
+    return array_slice($lines, -20);
 }
 
 /* --------------------- Servir / descargar / single-flight ------------------ */
 /** Sirve la copia guardada. Con $error no vacío se marca como respaldo. */
 function todof1_f1_serve_cache(array $record, string $state, string $error = ''): array
 {
+    $mode = 'cache-cerrada';
+    if ($state === 'abierta') {
+        $mode = 'cache-vigente';
+    } elseif ($state === 'historial') {
+        $mode = 'cache-historial';
+    }
     return [
-        'mode' => $error === '' ? ($state === 'abierta' ? 'cache-vigente' : 'cache-cerrada') : 'respaldo',
+        'mode' => $error === '' ? $mode : 'respaldo',
         'payload' => $record['payload'],
         'saved_at' => (int) $record['saved_at'],
         'error' => $error,
@@ -405,8 +473,32 @@ function todof1_f1_no_copy(string $error): array
 function todof1_f1_fetch_store(string $path, string $file, int $season, int $limit, int $offset, ?array $record): array
 {
     $url = todof1_f1_origin() . '/' . $path . '?limit=' . $limit . '&offset=' . $offset;
-    todof1_f1_throttle();
-    $response = todof1_f1_http_get($url);
+    $state = todof1_f1_route_state($path, $season);
+
+    // Con una copia válida se sirve inmediatamente el respaldo si el origen
+    // falla. Sin copia se permiten dos intentos con backoff para absorber un
+    // 429/5xx puntual sin convertir la visita en un error definitivo.
+    $attempts = is_array($record) ? 1 : max(1, TODOF1_F1_RETRIES);
+    $response = ['ok' => false, 'body' => '', 'status' => 0, 'error' => 'sin_intento'];
+
+    for ($attempt = 1; $attempt <= $attempts; $attempt++) {
+        todof1_f1_throttle();
+        $response = todof1_f1_http_get($url);
+        if ($response['ok']) {
+            break;
+        }
+
+        $status = (int) $response['status'];
+        $transient = $status === 0 || $status === 429 || $status >= 500;
+        if (!$transient) {
+            break;   // 4xx real: no se reintenta
+        }
+        if ($attempt < $attempts) {
+            $backoff = TODOF1_F1_RETRY_BASE_MS * (2 ** ($attempt - 1));
+            $backoff += mt_rand(0, 250);
+            usleep($backoff * 1000);
+        }
+    }
 
     if (!$response['ok']) {
         $status = (int) $response['status'];
@@ -422,7 +514,7 @@ function todof1_f1_fetch_store(string $path, string $file, int $season, int $lim
         // 429, 5xx o fallo de red: se considera caída (cortacircuitos + respaldo).
         todof1_f1_breaker_note_failure();
         $error = $response['error'] !== '' ? $response['error'] : ('http_' . $status);
-        return is_array($record) ? todof1_f1_serve_cache($record, 'abierta', $error) : todof1_f1_no_copy($error);
+        return is_array($record) ? todof1_f1_serve_cache($record, $state, $error) : todof1_f1_no_copy($error);
     }
 
     $data = json_decode($response['body'], true);
@@ -430,7 +522,7 @@ function todof1_f1_fetch_store(string $path, string $file, int $season, int $lim
     if ($problem !== '') {
         // Respuesta incorrecta: NUNCA sobrescribe una copia válida.
         todof1_f1_breaker_note_failure();
-        return is_array($record) ? todof1_f1_serve_cache($record, 'abierta', $problem) : todof1_f1_no_copy($problem);
+        return is_array($record) ? todof1_f1_serve_cache($record, $state, $problem) : todof1_f1_no_copy($problem);
     }
 
     todof1_f1_breaker_reset();
@@ -491,7 +583,7 @@ function todof1_f1_cleanup(): void
         if (!is_file($file)) {
             continue;   // directorios: no se tocan
         }
-        if (($name === 'breaker.json') || ($name === 'last-cleanup') || ($name === 'last-fetch')) {
+        if (($name === 'breaker.json') || ($name === 'last-cleanup') || ($name === 'last-fetch') || ($name === 'errors.log')) {
             continue;
         }
         if (preg_match('/\.tmp$/', $name) === 1) {
@@ -747,23 +839,29 @@ function todof1_f1_get(string $path, int $limit, int $offset, bool $force = fals
     if (is_resource($lock)) {
         if (!flock($lock, LOCK_EX | LOCK_NB)) {
             $esDescargador = false;
+
+            // Ya hay una copia válida (aunque esté caducada): se sirve al
+            // instante mientras otro proceso la actualiza. No se bloquea la
+            // página esperando al origen.
+            if (is_array($record)) {
+                fclose($lock);
+                return todof1_f1_serve_cache($record, $state);
+            }
+
+            // Sin copia: se espera al descargador para no duplicar la consulta.
             $esperado = 0;
             while ($esperado < TODOF1_F1_WAIT_MS) {
                 usleep(250000);
                 $esperado += 250;
                 $fresco = todof1_f1_read($file);
-                if (is_array($fresco) && (time() - (int) $fresco['saved_at']) <= $ttl) {
+                if (is_array($fresco)) {
                     fclose($lock);
                     return todof1_f1_serve_cache($fresco, $state);
                 }
             }
-            // El descargador sigue trabajando: se sirve la copia antigua si la
-            // hay (respaldo) en vez de pedir lo mismo otra vez.
-            if (is_array($record)) {
-                fclose($lock);
-                return todof1_f1_serve_cache($record, $state, 'espera_descarga');
-            }
-            // Sin copia: se asume también la descarga (caso poco frecuente).
+            $breaker = todof1_f1_breaker_get();
+            fclose($lock);
+            return todof1_f1_no_copy($breaker['until'] > time() ? 'cortacircuitos' : 'en_curso');
         }
     }
 
@@ -822,6 +920,7 @@ function todof1_f1_status(): array
         ],
         'temporada_en_curso' => (int) date('Y'),
         'cobertura' => todof1_f1_coverage(),
+        'ultimos_errores' => todof1_f1_recent_errors(),
         'origen' => todof1_f1_origin(),
     ];
 }
@@ -915,6 +1014,10 @@ if ($result['payload'] === null) {
             'copia' => false,
         ], $headers);
     }
+
+    // Diagnóstico acotado: permite saber exactamente qué rutas se quedaron sin
+    // copia y por qué, sin registrar datos de usuarios ni respuestas completas.
+    todof1_f1_error_log($path, (string) $result['error']);
 
     todof1_f1_respond(503, [
         'error' => 'jolpica_no_disponible',

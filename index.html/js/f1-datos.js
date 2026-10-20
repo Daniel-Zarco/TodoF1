@@ -21,7 +21,7 @@
 
   var ORIGIN = 'https://api.jolpi.ca/ergast/f1';
   var PROXY = '/api/f1.php';
-  var TIMEOUT = 15000;          // tiempo máximo por petición (ms)
+  var TIMEOUT = 20000;          // tiempo máximo por petición (ms); cubre el single-flight del proxy
   var originalFetch = window.fetch ? window.fetch.bind(window) : null;
 
   if (!originalFetch) {
@@ -35,6 +35,7 @@
   var sawSinCopia = false;      // alguna consulta no tenía copia disponible
   var lastSaved = '';           // fecha de guardado del respaldo (ISO)
   var notice = null;
+  var inflight = Object.create(null);   // peticiones idénticas simultáneas
 
   /* -------------------------------------------------------- utilidades */
   function isApiUrl(url) {
@@ -185,10 +186,17 @@
     var text = el.querySelector('[data-aviso-texto]');
     if (!text) return;
 
-    // Si algo se sirvió de la copia guardada, ese es el aviso principal (con su
-    // fecha); solo cuando no hay ninguna copia se informa de ello.
+    var when = lastSaved ? formatDate(lastSaved) : '';
+
+    // Puede coincidir una parte servida desde copia y otra sin copia: se
+    // informa de ambas para no dar a entender que todo está respaldado.
+    if (sawRespaldo && sawSinCopia) {
+      text.textContent = 'Jolpica no está disponible temporalmente. Mostrando los últimos datos guardados' +
+        (when ? ' (actualizados el ' + when + ')' : '') +
+        ' para algunas consultas; otras todavía no tienen copia guardada.';
+      return;
+    }
     if (sawRespaldo) {
-      var when = lastSaved ? formatDate(lastSaved) : '';
       text.textContent = 'Jolpica no está disponible temporalmente. Mostrando los últimos datos guardados' +
         (when ? ' (actualizados el ' + when + ')' : '') + '.';
       return;
@@ -236,7 +244,7 @@
       sawSinCopia = true;
       updateNotice();
     }
-    // cache-vigente / cache-cerrada / definitiva: datos al día, sin aviso.
+    // cache-vigente / cache-cerrada / cache-historial / definitiva: datos válidos, sin aviso.
   }
 
   /* ¿La respuesta la ha producido nuestro proxy? (lleva sus cabeceras) */
@@ -249,28 +257,18 @@
   }
 
   /* ----------------------------------------------------------- transporte */
-  window.fetch = function (input, init) {
-    var url = typeof input === 'string' ? input : (input && input.url);
-
-    if (!isApiUrl(url)) {
-      return originalFetch(input, init);      // otros dominios: intactos
-    }
-
-    // Solo se redirigen lecturas: cualquier otro método se deja pasar tal cual.
-    var metodo = (init && init.method) || (input && input.method) || 'GET';
-    if (String(metodo).toUpperCase() !== 'GET') {
-      return originalFetch(input, init);
-    }
-
-    // El proxy no está disponible: se usa la API original con tiempo máximo.
-    if (proxyBroken) {
-      return withTimeout(input, init);
-    }
-
+  function requestViaProxy(url, input, init) {
     return withTimeout(toProxy(url), init).then(function (response) {
       // El proxy no está desplegado: 404/405 SIN sus cabeceras propias. (Un 404
       // legítimo del proveedor sí las lleva y se traslada sin más.)
       if ((response.status === 404 || response.status === 405) && !esDelProxy(response)) {
+        proxyBroken = true;
+        return withTimeout(input, init);
+      }
+
+      // Un 5xx sin las cabeceras del proxy procede del hosting (Alwaysdata),
+      // no de Jolpica: se intenta la API original mientras el proxy se recupera.
+      if (response.status >= 500 && !esDelProxy(response)) {
         proxyBroken = true;
         return withTimeout(input, init);
       }
@@ -309,6 +307,45 @@
       proxyBroken = true;
       return withTimeout(input, init);
     });
+  }
+
+  window.fetch = function (input, init) {
+    var url = typeof input === 'string' ? input : (input && input.url);
+
+    if (!isApiUrl(url)) {
+      return originalFetch(input, init);      // otros dominios: intactos
+    }
+
+    // Solo se redirigen lecturas: cualquier otro método se deja pasar tal cual.
+    var metodo = (init && init.method) || (input && input.method) || 'GET';
+    if (String(metodo).toUpperCase() !== 'GET') {
+      return originalFetch(input, init);
+    }
+
+    // El proxy no está disponible: se usa la API original con tiempo máximo.
+    if (proxyBroken) {
+      return withTimeout(input, init);
+    }
+
+    // Varias partes de una página pueden pedir el mismo endpoint a la vez
+    // (por ejemplo, la ficha y el historial). Se comparte una sola petición y
+    // cada consumidor recibe su propia copia de la respuesta.
+    var dedupe = typeof input === 'string' && !(init && init.signal);
+    var key = dedupe ? toProxy(url) : '';
+    if (key && inflight[key]) {
+      return inflight[key].then(function (response) { return response.clone(); });
+    }
+
+    var request = requestViaProxy(url, input, init);
+    if (key) {
+      inflight[key] = request;
+      var clear = function () {
+        if (inflight[key] === request) delete inflight[key];
+      };
+      request.then(clear, clear);
+      return request.then(function (response) { return response.clone(); });
+    }
+    return request;
   };
 
   /* Estado consultable (diagnóstico y pruebas). */
@@ -316,12 +353,14 @@
     origen: ORIGIN,
     proxy: PROXY,
     modo: function () {
+      if (sawRespaldo && sawSinCopia) return 'mixto';
       if (sawRespaldo) return 'respaldo';
       if (sawSinCopia) return 'sin-copia';
       return lastSeen === 'live' ? 'live' : '';
     },
     visto: function () { return lastSeen; },
     guardado: function () { return lastSaved; },
-    proxyDisponible: function () { return !proxyBroken; }
+    proxyDisponible: function () { return !proxyBroken; },
+    enVuelo: function () { return Object.keys(inflight).length; }
   };
 })();
