@@ -37,6 +37,7 @@
           <h1 class="pilot-hero__name" id="titulo">Cargando&hellip;</h1>
           <p class="pilot-hero__sub" id="hero-sub">Cargando informaci&oacute;n del piloto&hellip;</p>
           <ul class="pilot-hero__tags" id="hero-tags"></ul>
+          <div class="pilot-hero__career" id="hero-career" aria-label="Datos de toda la carrera"></div>
           <div class="pilot-hero__actions">
             <a class="tf-btn tf-btn--ghost tf-btn--sm" id="wiki" href="#" target="_blank" rel="noopener" hidden>Ver en Wikipedia</a>
             <span class="pilot-hero__season">Temporada <b id="hero-season">&mdash;</b></span>
@@ -97,7 +98,7 @@
         <div class="tf-section__head pilot-head">
           <div>
             <h2 class="tf-section__title" id="results-title">Resultados por temporada</h2>
-            <p class="tf-section__sub" id="results-sub">Grandes Premios disputados, victorias, podios y puntos.</p>
+            <p class="tf-section__sub" id="results-sub">Todas las temporadas disputadas, con la temporada consultada resaltada.</p>
           </div>
         </div>
 

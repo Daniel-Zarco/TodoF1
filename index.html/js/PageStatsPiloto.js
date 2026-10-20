@@ -17,7 +17,9 @@
        (puntos oficiales del campeonato, que sí incluyen los sprints).
      · Fotografía y fecha de fallecimiento: API de Wikipedia/Wikidata
        (misma integración que ya usaba esta página).
-   ALCANCE: la trayectoria que se muestra se limita al año seleccionado.
+   ALCANCE: cabecera, estadísticas de carrera y trayectoria usan todas las
+   temporadas. El año de la URL solo marca la temporada seleccionada (cifras
+   por defecto, fila resaltada y etapa destacada).
    ============================================================ */
 (function () {
   'use strict';
@@ -61,6 +63,7 @@
     title: document.getElementById('titulo'),
     sub: document.getElementById('hero-sub'),
     tags: document.getElementById('hero-tags'),
+    career: document.getElementById('hero-career'),
     wiki: document.getElementById('wiki'),
     season: document.getElementById('hero-season'),
     kpiScope: document.getElementById('kpi-scope'),
@@ -84,6 +87,7 @@
     positions: {},     // { year: {position: n|null, points: string|null} | {unavailable:true} }
     positionsDone: false,
     finished: {},      // { year: true|false } temporada ya finalizada (verificado)
+    flippedCards: {},  // { clave: true } tarjetas KPI mostrando la cara de carrera
     profile: null
   };
 
@@ -406,23 +410,21 @@
       s.fixedNumber = s.numbers.length === 1 ? s.numbers[0] : null;
     });
 
-    var upto = seasons.filter(function (s) { return s.year <= year; });
     var totals = {
-      seasons: upto.length,
-      races: upto.reduce(function (a, s) { return a + s.races; }, 0),
-      wins: upto.reduce(function (a, s) { return a + s.wins; }, 0),
-      podiums: upto.reduce(function (a, s) { return a + s.podiums; }, 0),
-      best: upto.reduce(function (a, s) { return (s.best !== null && (a === null || s.best < a)) ? s.best : a; }, null),
+      seasons: seasons.length,
+      races: seasons.reduce(function (a, s) { return a + s.races; }, 0),
+      wins: seasons.reduce(function (a, s) { return a + s.wins; }, 0),
+      podiums: seasons.reduce(function (a, s) { return a + s.podiums; }, 0),
+      best: seasons.reduce(function (a, s) { return (s.best !== null && (a === null || s.best < a)) ? s.best : a; }, null),
       teams: []
     };
-    upto.forEach(function (s) {
+    seasons.forEach(function (s) {
       s.teams.forEach(function (name) { if (totals.teams.indexOf(name) === -1) totals.teams.push(name); });
     });
 
     return {
       driver: driver,
       seasons: seasons,
-      upto: upto,
       debut: seasons.length ? seasons[0].year : null,
       lastSeason: seasons.length ? seasons[seasons.length - 1].year : null,
       totals: totals,
@@ -433,6 +435,68 @@
   /* Sombra suave del color propio de un equipo (solo para sus puntos) */
   function teamGlow(color) {
     return rgba(color, 0.30);
+  }
+
+  function listText(values) {
+    if (!values || !values.length) return '';
+    return values.length === 1
+      ? values[0]
+      : values.slice(0, -1).join(', ') + ' y ' + values[values.length - 1];
+  }
+
+  /* Valor de puntos de una temporada: oficial si ya se consultó y, mientras
+     tanto, puntos de carrera (sin sprints) como respaldo. */
+  function seasonPointValue(season) {
+    var pos = state.positions[season.year];
+    if (pos && pos.points != null) {
+      var official = numFloat(pos.points);
+      if (official !== null) return { value: official, official: true };
+    }
+    if (season.racePoints !== undefined) return { value: season.racePoints, official: false };
+    return { value: null, official: false };
+  }
+
+  function careerPointTotal(p) {
+    var total = 0;
+    var official = true;
+    p.seasons.forEach(function (season) {
+      var points = seasonPointValue(season);
+      if (points.value === null) {
+        official = false;
+        return;
+      }
+      if (!points.official) official = false;
+      total += points.value;
+    });
+    return { value: Math.round(total * 100) / 100, official: official };
+  }
+
+  function careerTeamList(p) {
+    var byName = {};
+    var list = [];
+    p.seasons.forEach(function (season) {
+      season.teams.forEach(function (name, index) {
+        var entry = byName[name];
+        if (!entry) {
+          entry = byName[name] = {
+            name: name, color: season.colors[index] || NEUTRAL_COLOR,
+            first: season.year, last: season.year, current: false
+          };
+          list.push(entry);
+        }
+        entry.color = season.colors[index] || entry.color;
+        entry.last = season.year;
+        if (season.year === year) entry.current = true;
+      });
+    });
+    list.sort(function (a, b) { return a.first - b.first; });
+    return list;
+  }
+
+  function careerStat(label, value, title) {
+    return '<div class="pilot-career__item"' + (title ? ' title="' + esc(title) + '"' : '') + '>' +
+      '<span class="pilot-career__label">' + esc(label) + '</span>' +
+      '<span class="pilot-career__value">' + esc(value) + '</span></div>';
   }
 
   /* ------------------------------------------------------------- cabecera */
@@ -468,23 +532,37 @@
     }
 
     // Escudería(s) de la temporada seleccionada
-    var teamText = p.selected
-      ? (p.selected.teams.length > 1
-        ? p.selected.teams.slice(0, -1).join(', ') + ' y ' + p.selected.teams[p.selected.teams.length - 1]
-        : p.selected.teams[0])
-      : '';
+    var teamText = p.selected ? listText(p.selected.teams) : '';
     el.sub.textContent = p.selected
       ? 'Con ' + teamText + ' en la temporada ' + year + '.'
       : (p.lastSeason !== null && year > p.lastSeason
         ? 'Su última temporada disputada fue ' + p.lastSeason + '.'
         : 'Temporada ' + year + '.');
 
-    // Etiquetas secundarias
+    // Resumen de toda la carrera
+    var teams = careerTeamList(p);
+    var points = careerPointTotal(p);
+    var pointsValue = points.value === null ? '—' : fmtPoints(points.value) + (points.official ? '' : '*');
+    el.career.innerHTML =
+      careerStat('Temporadas', String(p.totals.seasons), 'Temporadas con al menos un Gran Premio') +
+      careerStat('Puntos', pointsValue, points.official
+        ? 'Puntos oficiales de toda su carrera'
+        : 'Incluye puntos de carrera en temporadas sin clasificación oficial') +
+      careerStat('Victorias', String(p.totals.wins), 'Grandes Premios ganados en toda su carrera') +
+      careerStat('Podios', String(p.totals.podiums), 'Podios en toda su carrera') +
+      careerStat('Escuderías', String(teams.length), listText(teams.map(function (team) { return team.name; })));
+
+    // Etiquetas secundarias y todas las escuderías de su carrera
     var tags = [];
     if (driver.nationality) tags.push({ text: driver.nationality, dot: false });
-    if (p.totals.seasons) tags.push({ text: p.totals.seasons + (p.totals.seasons === 1 ? ' temporada' : ' temporadas') + ' hasta ' + year, dot: true, theme: true });
-    if (p.debut) tags.push({ text: 'Debut ' + p.debut, dot: false });
-    if (p.totals.teams.length) tags.push({ text: p.totals.teams.length + (p.totals.teams.length === 1 ? ' escudería' : ' escuderías'), dot: false });
+    if (p.debut) tags.push({ text: 'Debut ' + p.debut, dot: true, theme: true });
+
+    var driverAge = age(driver.dateOfBirth);
+    if (state.deathYear !== null && state.deathYear !== undefined) {
+      tags.push({ text: 'Fallecido en ' + state.deathYear, dot: false });
+    } else if (driverAge !== null) {
+      tags.push({ text: driverAge + ' años', dot: false });
+    }
 
     el.tags.innerHTML = tags.map(function (tag) {
       var dot = tag.dot
@@ -493,12 +571,12 @@
       return '<li class="pilot-hero__tag">' + dot + esc(tag.text) + '</li>';
     }).join('');
 
-    if (p.selected) {
-      var color = p.selected.colors[p.selected.colors.length - 1];
-      el.tags.innerHTML += '<li class="pilot-hero__tag" style="--pilot-color:' + esc(color) +
-        ';--pilot-glow:' + esc(teamGlow(color)) + '"><span class="pilot-dot" aria-hidden="true"></span>' +
-        esc(p.selected.teams.join(' · ')) + '</li>';
-    }
+    el.tags.innerHTML += teams.map(function (team) {
+      return '<li class="pilot-hero__tag pilot-hero__tag--team' + (team.current ? ' is-current' : '') + '"' +
+        (team.current ? ' aria-current="true"' : '') +
+        ' style="--pilot-color:' + esc(team.color) + ';--pilot-glow:' + esc(teamGlow(team.color)) + '">' +
+        '<span class="pilot-dot" aria-hidden="true"></span>' + esc(team.name) + '</li>';
+    }).join('');
   }
 
   /* Foto del piloto (Wikipedia) y fecha de fallecimiento (Wikidata). */
@@ -555,64 +633,146 @@
     seasons: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 9.5h17"></path><path d="M8 3.5v3"></path><path d="M16 3.5v3"></path></svg>',
     best: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14.5" r="5.5"></circle><path d="M12 12.2l.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.3Z"></path><path d="M8.5 9 6 3.5h12L15.5 9"></path></svg>',
     debut: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5v17"></path><path d="M6 4.5h11l-2 3.5 2 3.5H6"></path></svg>',
-    age: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>'
+    age: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>',
+    points: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5v9"></path><path d="M14.8 9.5c-.6-.8-1.6-1.2-2.8-1.2-1.7 0-2.8.8-2.8 2s1.1 1.8 2.8 2.1c1.9.3 3 .9 3 2.2s-1.3 2-3 2c-1.4 0-2.5-.5-3.1-1.4"></path></svg>',
+    races: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"></path><path d="M5 5h13l-2.3 4L18 13H5"></path><path d="M8 5v4M12 5v4M16 5v4M8 9h4M12 9h4"></path></svg>',
+    teams: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3"></circle><path d="M3.5 19a5.5 5.5 0 0 1 11 0"></path><circle cx="16.5" cy="9.5" r="2.5"></circle><path d="M15.2 19a4.5 4.5 0 0 1 5.3-4.4"></path></svg>'
   };
 
-  function kpiCard(opts) {
-    var card = el_('article', 'pilot-kpi' + (opts.lead ? ' pilot-kpi--lead' : ''));
-    card.innerHTML =
-      '<span class="pilot-kpi__icon">' + ICONS[opts.icon] + '</span>' +
+  function kpiFace(side, opts) {
+    var career = side === 'career';
+    var face = career ? opts.back : opts.front;
+    return '<span class="pilot-kpi__face pilot-kpi__face--' + side + '" aria-hidden="' + (career ? 'true' : 'false') + '">' +
+      '<span class="pilot-kpi__top">' +
+        '<span class="pilot-kpi__icon">' + ICONS[opts.icon] + '</span>' +
+        '<span class="pilot-kpi__scope' + (career ? ' pilot-kpi__scope--career' : '') + '">' +
+          (career ? 'Total carrera' : 'Temporada ' + year) +
+        '</span>' +
+      '</span>' +
       '<span class="pilot-kpi__label">' + esc(opts.label) + '</span>' +
-      '<span class="pilot-kpi__value' + (opts.text ? ' is-text' : '') + '">' + esc(opts.value) + '</span>' +
-      '<span class="pilot-kpi__note">' + esc(opts.note) + '</span>';
+      '<span class="pilot-kpi__value' + (face.text ? ' is-text' : '') + '">' + esc(face.value) + '</span>' +
+      '<span class="pilot-kpi__note">' + esc(face.note) + '</span>' +
+      '<span class="pilot-kpi__hint">' + (career ? 'Ver temporada' : 'Ver total carrera') + '</span>' +
+    '</span>';
+  }
+
+  function kpiCard(opts) {
+    var flipped = !!state.flippedCards[opts.key];
+    var card = el_('button', 'pilot-kpi' + (opts.lead ? ' pilot-kpi--lead' : '') + (flipped ? ' is-flipped' : ''));
+    card.type = 'button';
+    card.setAttribute('data-kpi', opts.key);
+    card.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+    card.innerHTML = '<span class="pilot-kpi__inner">' +
+      kpiFace('season', opts) + kpiFace('career', opts) + '</span>';
+    var initialFront = card.querySelector('.pilot-kpi__face--season');
+    var initialBack = card.querySelector('.pilot-kpi__face--career');
+    if (initialFront) initialFront.setAttribute('aria-hidden', flipped ? 'true' : 'false');
+    if (initialBack) initialBack.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+    card.addEventListener('click', function () {
+      var next = !card.classList.contains('is-flipped');
+      card.classList.toggle('is-flipped', next);
+      card.setAttribute('aria-pressed', next ? 'true' : 'false');
+      var front = card.querySelector('.pilot-kpi__face--season');
+      var back = card.querySelector('.pilot-kpi__face--career');
+      if (front) front.setAttribute('aria-hidden', next ? 'true' : 'false');
+      if (back) back.setAttribute('aria-hidden', next ? 'false' : 'true');
+      state.flippedCards[opts.key] = next;
+    });
     return card;
   }
 
   function renderKpis() {
     var p = state.profile;
+    var selected = p.selected;
     var totals = p.totals;
-    var driverAge = age(p.driver.dateOfBirth);
+    var selectedPoints = selected ? seasonPointValue(selected) : { value: null, official: false };
+    var careerPoints = careerPointTotal(p);
+    var selectedPointsText = selectedPoints.value === null
+      ? '—'
+      : fmtPoints(selectedPoints.value) + (selectedPoints.official ? '' : '*');
+    var careerPointsText = p.seasons.length
+      ? fmtPoints(careerPoints.value) + (careerPoints.official ? '' : '*')
+      : '—';
+    var selectedTeams = selected ? selected.teams : [];
+    var selectedNote = selected
+      ? 'Temporada ' + year + ' · pulsa una tarjeta para ver el total de su carrera.'
+      : 'Sin participación en ' + year + ' · el total de carrera sigue disponible en cada tarjeta.';
 
-    el.kpiScope.textContent = totals.seasons
-      ? 'Trayectoria acumulada hasta ' + year + ' (' + totals.seasons +
-        (totals.seasons === 1 ? ' temporada disputada).' : ' temporadas disputadas).')
-      : 'Sin temporadas disputadas hasta ' + year + '.';
+    el.kpiScope.textContent = selectedNote;
 
     el.kpis.innerHTML = '';
     var frag = document.createDocumentFragment();
 
     frag.appendChild(kpiCard({
-      icon: 'wins', label: 'Victorias',
-      value: totals.wins === 0 ? '0' : String(totals.wins), lead: totals.wins > 0,
-      note: 'Grandes Premios ganados (sin sprints)' + (totals.wins > 0 ? '' : ' · todavía sin victorias')
+      key: 'points', icon: 'points', label: 'Puntos',
+      lead: selectedPoints.value !== null && selectedPoints.value > 0,
+      front: {
+        value: selectedPointsText,
+        note: selectedPoints.official
+          ? 'Puntos oficiales de la temporada'
+          : 'Puntos de carrera en la temporada (sin sprints)'
+      },
+      back: {
+        value: careerPointsText,
+        note: careerPoints.official
+          ? 'Suma de puntos oficiales de toda la carrera'
+          : 'Incluye puntos de carrera en temporadas sin clasificación oficial'
+      }
     }));
     frag.appendChild(kpiCard({
-      icon: 'podiums', label: 'Podios',
-      value: String(totals.podiums), lead: totals.podiums > 0,
-      note: 'Resultados en el podio (1º a 3º)'
+      key: 'wins', icon: 'wins', label: 'Victorias',
+      front: {
+        value: selected ? String(selected.wins) : '—',
+        note: selected ? 'Grandes Premios ganados en ' + year : 'Sin participación en ' + year
+      },
+      back: {
+        value: String(totals.wins),
+        note: 'Grandes Premios ganados en toda su carrera'
+      }
     }));
     frag.appendChild(kpiCard({
-      icon: 'seasons', label: 'Temporadas',
-      value: String(totals.seasons), lead: totals.seasons > 0,
-      note: 'Temporadas con al menos un Gran Premio'
+      key: 'podiums', icon: 'podiums', label: 'Podios',
+      front: {
+        value: selected ? String(selected.podiums) : '—',
+        note: selected ? 'Podios en ' + year + ' (1º a 3º)' : 'Sin participación en ' + year
+      },
+      back: {
+        value: String(totals.podiums),
+        note: 'Podios en toda su carrera (1º a 3º)'
+      }
     }));
     frag.appendChild(kpiCard({
-      icon: 'best', label: 'Mejor resultado',
-      value: totals.best === null ? '—' : totals.best + 'º',
-      note: 'Mejor posición final en carrera'
+      key: 'races', icon: 'races', label: 'Grandes Premios',
+      front: {
+        value: selected ? String(selected.races) : '—',
+        note: selected ? 'Carreras disputadas en ' + year : 'Sin participación en ' + year
+      },
+      back: {
+        value: String(totals.races),
+        note: 'Carreras de Gran Premio disputadas'
+      }
     }));
     frag.appendChild(kpiCard({
-      icon: 'debut', label: 'Debut',
-      value: p.debut === null ? '—' : String(p.debut),
-      note: 'Primera temporada con carrera disputada'
+      key: 'best', icon: 'best', label: 'Mejor resultado',
+      front: {
+        value: selected && selected.best !== null ? selected.best + 'º' : '—',
+        note: selected ? 'Mejor puesto en carrera en ' + year : 'Sin participación en ' + year
+      },
+      back: {
+        value: totals.best === null ? '—' : totals.best + 'º',
+        note: 'Mejor puesto en carrera de toda su carrera'
+      }
     }));
     frag.appendChild(kpiCard({
-      icon: 'age', label: 'Edad',
-      value: driverAge === null ? '—' : String(driverAge),
-      text: state.deathYear !== null,
-      note: state.deathYear !== null
-        ? 'Fallecido en ' + state.deathYear + ' · Nacido el ' + fmtDate(p.driver.dateOfBirth)
-        : 'Nacido el ' + fmtDate(p.driver.dateOfBirth)
+      key: 'teams', icon: 'teams', label: 'Escuderías',
+      front: {
+        value: selected ? String(selectedTeams.length) : '—',
+        note: selected ? listText(selectedTeams) : 'Sin escudería en ' + year
+      },
+      back: {
+        value: String(totals.teams.length),
+        note: listText(totals.teams)
+      }
     }));
 
     el.kpis.appendChild(frag);
@@ -664,8 +824,8 @@
   function renderChart() {
     var p = state.profile;
     if (!p) return;
-    // La evolución muestra toda la trayectoria disputada, no solo hasta el año
-    // seleccionado en la URL (las cifras de temporada siguen usando p.upto).
+    // La evolución muestra toda la trayectoria disputada; el año de la URL
+    // solo selecciona la temporada destacada en el resto de la ficha.
     var seasons = p.seasons;
 
     el.chart.innerHTML = '';
@@ -863,11 +1023,13 @@
           last.endYear = season.year;
           last.years.push(season.year);
           last.races += season.races;
+          if (season.year === year) last.selected = true;
           return;
         }
         stints.push({
           team: team, color: color, startYear: season.year, endYear: season.year,
-          years: [season.year], races: season.races, midSeason: multi
+          years: [season.year], races: season.races, midSeason: multi,
+          selected: season.year === year
         });
       });
     });
@@ -876,26 +1038,30 @@
 
   function renderStints() {
     var p = state.profile;
-    var stints = buildStints(p.upto);
+    var stints = buildStints(p.seasons);
 
     el.stints.innerHTML = '';
     if (!stints.length) {
-      el.stints.appendChild(messageBox('Sin escuderías registradas hasta ' + year + '.', 'empty'));
+      el.stints.appendChild(messageBox('Sin escuderías registradas.', 'empty'));
       return;
     }
 
     el.stintsSub.textContent = stints.length === 1
-      ? 'Un único equipo en su trayectoria hasta ' + year + '.'
-      : 'Equipos con los que ha competido hasta ' + year + ', en orden cronológico.';
+      ? 'Un único equipo en toda su carrera, en orden cronológico.'
+      : 'Todas las escuderías de su carrera, en orden cronológico.' +
+        (p.selected ? ' La etapa de ' + year + ' aparece resaltada.' : '');
 
     var frag = document.createDocumentFragment();
     stints.forEach(function (stint, index) {
-      var card = el_('article', 'pilot-stint');
+      var card = el_('article', 'pilot-stint' + (stint.selected ? ' pilot-stint--current' : ''));
       var years = stint.startYear === stint.endYear
         ? String(stint.startYear)
         : stint.startYear + ' – ' + stint.endYear;
       card.innerHTML =
-        '<span class="pilot-stint__order">Etapa ' + (index + 1) + '</span>' +
+        '<span class="pilot-stint__top">' +
+          '<span class="pilot-stint__order">Etapa ' + (index + 1) + '</span>' +
+          (stint.selected ? '<span class="pilot-stint__badge">Temporada ' + year + '</span>' : '') +
+        '</span>' +
         '<span class="pilot-stint__team"><span class="pilot-dot" style="--pilot-color:' +
         esc(stint.color) + ';--pilot-glow:' + esc(teamGlow(stint.color)) +
         '" aria-hidden="true"></span>' + esc(stint.team) + '</span>' +
@@ -944,24 +1110,29 @@
 
   function renderTable() {
     var p = state.profile;
-    var seasons = p.upto.slice().sort(function (a, b) {
+    var seasons = p.seasons.slice().sort(function (a, b) {
       return state.sortAsc ? a.year - b.year : b.year - a.year;
     });
+    el.resultsSub.textContent = p.debut !== null && p.lastSeason !== null
+      ? 'Todas las temporadas disputadas, de ' + p.debut + ' a ' + p.lastSeason +
+        '. La temporada ' + year + ' aparece resaltada.'
+      : 'Todas las temporadas disputadas. La temporada ' + year + ' aparece resaltada.';
 
     el.resultsBody.innerHTML = '';
     if (!seasons.length) {
       var row = el_('tr', 'tf-table__empty');
-      row.innerHTML = '<td colspan="7">Sin resultados hasta ' + year + '.</td>';
+      row.innerHTML = '<td colspan="7">Sin temporadas disputadas.</td>';
       el.resultsBody.appendChild(row);
       return;
     }
 
     var frag = document.createDocumentFragment();
     seasons.forEach(function (season) {
-      var classes = '';
-      if (season.year === year) classes += 'pilot-table__row--current';
+      var current = season.year === year;
+      var classes = current ? 'pilot-table__row--current' : '';
       if (isChampion(season)) classes += (classes ? ' ' : '') + 'pilot-table__row--champion';
       var tr = el_('tr', classes);
+      if (current) tr.setAttribute('aria-current', 'true');
       var teams = season.teams.map(function (name, i) {
         return '<span class="pilot-table__team"><span class="pilot-dot" style="--pilot-color:' +
           esc(season.colors[i] || NEUTRAL_COLOR) + '" aria-hidden="true"></span>' + esc(name) + '</span>';
@@ -1015,6 +1186,8 @@
     el.title.textContent = pilotoNombre || 'Piloto no encontrado';
     el.sub.textContent = message;
     el.hero.removeAttribute('style');
+    el.career.innerHTML = '';
+    el.tags.innerHTML = '';
     el.kpis.innerHTML = '';
     el.kpis.appendChild(messageBox(message, 'empty'));
     el.chart.innerHTML = '';
@@ -1050,11 +1223,13 @@
         // La cabecera se pinta en cuanto llega la ficha (sin esperar a la
         // trayectoria) y la foto/fallecimiento se resuelven en paralelo.
         state.profile = {
-          driver: driver, seasons: [], upto: [], totals: { seasons: 0, races: 0, wins: 0, podiums: 0, best: null, teams: [] },
+          driver: driver, seasons: [], totals: { seasons: 0, races: 0, wins: 0, podiums: 0, best: null, teams: [] },
           debut: null, lastSeason: null, selected: null
         };
         renderHeader();
-        loadPhotoAndDeath(driver).then(function () { if (state.profile) renderKpis(); });
+        loadPhotoAndDeath(driver).then(function () {
+          if (state.profile) { renderHeader(); renderKpis(); }
+        });
 
         return fetchAllRaces(API + '/drivers/' + state.driverId + '/results.json').then(function (races) {
           // Puntos de carrera por temporada (sin sprints) como respaldo informativo
@@ -1075,7 +1250,12 @@
           renderTable();
 
           var years = state.profile.seasons.map(function (s) { return s.year; });
-          return loadPositions(years);
+          return loadPositions(years).then(function () {
+            // Al terminar las clasificaciones, los totales de carrera pasan de
+            // los puntos de carrera al dato oficial sin recargar la página.
+            renderHeader();
+            renderKpis();
+          });
         });
       })
       .catch(function (error) {
@@ -1133,7 +1313,7 @@
   });
 
   el.evolutionSub.textContent = 'Puntos oficiales del campeonato en cada temporada disputada.';
-  el.resultsSub.textContent = 'Detalle temporada a temporada hasta ' + year + '.';
+  el.resultsSub.textContent = 'Todas las temporadas disputadas; la temporada ' + year + ' aparece resaltada.';
   el.volver.href = '/index.html/PagePilotos.php?year=' + year;
   el.season.textContent = year;
   load();

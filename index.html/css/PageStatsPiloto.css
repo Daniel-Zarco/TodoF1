@@ -209,6 +209,65 @@
   box-shadow: 0 0 10px var(--team-glow);
 }
 
+.pilot-hero__tag--team.is-current {
+  border-color: var(--team-primary);
+  background: var(--team-primary-dim);
+  color: var(--c-text);
+  box-shadow: inset 0 0 0 1px var(--team-primary-line);
+}
+
+/* Resumen de toda la carrera */
+.pilot-hero__career {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+  padding: var(--sp-3);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: linear-gradient(180deg, var(--c-surface-3), var(--c-surface-2));
+}
+
+.pilot-hero__career:empty {
+  display: none;
+}
+
+.pilot-career__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 0 var(--sp-2);
+  border-left: 1px solid var(--c-line);
+}
+
+.pilot-career__item:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.pilot-career__label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-mute);
+  white-space: nowrap;
+}
+
+.pilot-career__value {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 0.9rem + 0.55vw, 1.35rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+  font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* Botones y controles interactivos: tema activo */
 .pilot-hero__actions .tf-btn--ghost {
   border-color: var(--team-primary-line);
@@ -262,15 +321,21 @@
 
 .pilot-kpi {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  display: block;
+  width: 100%;
   min-width: 0;
-  padding: var(--sp-5) var(--sp-5) calc(var(--sp-5) + 4px);
+  padding: 0;
   overflow: hidden;
   border: 1px solid var(--c-line);
   border-radius: var(--r-lg);
   background: linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  perspective: 1200px;
+  -webkit-appearance: none;
+  appearance: none;
   transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
 }
 
@@ -278,23 +343,69 @@
 .pilot-kpi::after {
   content: "";
   position: absolute;
+  z-index: 3;
   inset: auto 0 0 0;
   height: 3px;
   background: linear-gradient(90deg, var(--team-primary), transparent 78%);
   opacity: 0.85;
+  pointer-events: none;
+}
+
+.pilot-kpi:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: 3px;
 }
 
 .pilot-kpi--lead {
-  background: linear-gradient(180deg, var(--team-primary-dim), var(--c-surface) 62%);
   border-color: var(--team-primary-line);
+  background: linear-gradient(180deg, var(--team-primary-dim), var(--c-surface) 62%);
+}
+
+.pilot-kpi__inner {
+  position: relative;
+  display: grid;
+  min-height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.pilot-kpi.is-flipped .pilot-kpi__inner {
+  transform: rotateY(180deg);
+}
+
+.pilot-kpi__face {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 100%;
+  padding: var(--sp-5) var(--sp-5) calc(var(--sp-5) + 4px);
+  border-radius: inherit;
+  background: transparent;
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.pilot-kpi__face--career {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, var(--team-primary-dim), var(--c-surface) 58%);
+}
+
+.pilot-kpi__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  margin-bottom: 2px;
 }
 
 .pilot-kpi__icon {
   display: grid;
   place-items: center;
+  flex: 0 0 auto;
   width: 38px;
   height: 38px;
-  margin-bottom: 2px;
   border-radius: var(--r-sm);
   background: var(--team-primary-dim);
   color: var(--team-primary);
@@ -303,6 +414,26 @@
 .pilot-kpi__icon svg {
   width: 20px;
   height: 20px;
+}
+
+.pilot-kpi__scope {
+  padding: 3px 7px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-pill);
+  background: var(--c-surface-3);
+  color: var(--c-mute);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pilot-kpi__scope--career {
+  border-color: var(--team-primary-line);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
 }
 
 .pilot-kpi__label {
@@ -329,11 +460,25 @@
 }
 
 .pilot-kpi__note {
+  overflow-wrap: anywhere;
   font-size: 0.78rem;
   color: var(--c-mute);
 }
 
-/* Solo las tarjetas informativas: no deben parecer botones */
+.pilot-kpi__hint {
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--team-primary);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pilot-kpi__hint::after {
+  content: " \2192";
+}
+
 @media (hover: hover) {
 
   .pilot-kpi:hover {
@@ -521,6 +666,36 @@
   border-radius: 0 3px 3px 0;
   background: var(--team-primary);
   box-shadow: 0 0 12px var(--team-glow);
+}
+
+.pilot-stint--current {
+  border-color: var(--team-primary-line);
+  background: linear-gradient(160deg, var(--team-primary-dim), var(--c-surface) 58%);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+.pilot-stint--current::before {
+  width: 4px;
+}
+
+.pilot-stint__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.pilot-stint__badge {
+  padding: 3px 7px;
+  border: 1px solid var(--team-primary-line);
+  border-radius: var(--r-pill);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .pilot-stint__order {
@@ -763,8 +938,13 @@
     gap: var(--sp-3);
   }
 
-  .pilot-kpi {
+  .pilot-kpi__face {
     padding: var(--sp-4) var(--sp-4) calc(var(--sp-4) + 4px);
+  }
+
+  .pilot-career__item {
+    padding: 0;
+    border-left: 0;
   }
 
   .pilot-kpi__icon {
@@ -810,6 +990,7 @@
 @media (prefers-reduced-motion: reduce) {
 
   .pilot-kpi,
+  .pilot-kpi__inner,
   .pilot-hero__photo,
   .pilot-chart__point,
   .pilot-chart__tip,
