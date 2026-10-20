@@ -319,6 +319,7 @@
   }
 
   function emptyState(message, type) {
+    if (type === 'loading' && window.TodoF1Loader) return window.TodoF1Loader.create(message);
     var box = document.createElement('div');
     box.className = 'tf-' + (type || 'empty');
     box.innerHTML = '<span>' + esc(message) + '</span>';

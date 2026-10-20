@@ -32,7 +32,7 @@
             <strong id="circuito-monograma">&mdash;</strong>
             <small>Trazado no disponible</small>
           </div>
-          <span class="circuito-hero__cargando" id="circuito-cargando">Cargando trazado&hellip;</span>
+          <span class="circuito-hero__cargando tf-loading-inline" id="circuito-cargando">Cargando trazado&hellip;</span>
         </div>
 
         <div class="circuito-hero__info">
@@ -74,10 +74,10 @@
           </div>
         </div>
         <div class="circuito-kpis" id="kpis">
-          <div class="tf-skeleton" style="height:92px;"></div>
-          <div class="tf-skeleton" style="height:92px;"></div>
-          <div class="tf-skeleton" style="height:92px;"></div>
-          <div class="tf-skeleton" style="height:92px;"></div>
+          <div class="tf-loading" style="grid-column:1/-1;">
+            <span class="tf-spinner"></span>
+            <span>Cargando estadísticas&hellip;</span>
+          </div>
         </div>
       </section>
 
@@ -104,7 +104,7 @@
             </thead>
             <tbody>
               <tr class="tf-table__empty">
-                <td colspan="5">Cargando historial&hellip;</td>
+                <td colspan="5"><span class="tf-loading-inline">Cargando historial&hellip;</span></td>
               </tr>
             </tbody>
           </table>
@@ -133,7 +133,11 @@
                 <th scope="col" class="tf-td-right">Tiempo final</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr class="tf-table__empty">
+                <td colspan="5"><span class="tf-loading-inline">Cargando clasificación&hellip;</span></td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </section>

@@ -905,6 +905,85 @@ button {
   }
 }
 
+/* Loader global: tres barras inclinadas que se encienden de izquierda a
+   derecha. El color sale del tema activo y se actualiza sin recargar. */
+.tf-loading,
+.tf-loading-inline {
+  animation: tf-loader-in 0.18s ease-out 0.12s both;
+}
+
+.tf-loading-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--c-mute);
+  vertical-align: middle;
+}
+
+.tf-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 28px;
+}
+
+.tf-loader i {
+  display: block;
+  width: 6px;
+  height: 24px;
+  border-radius: 2px;
+  background: var(--team-primary, #E10600);
+  opacity: 0.28;
+  transform: skewX(-24deg) scaleY(0.72);
+  transform-origin: 50% 100%;
+  animation: tf-loader-bar 1.05s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.tf-loader i:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.tf-loader i:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.tf-loader--sm {
+  height: 14px;
+  gap: 2px;
+}
+
+.tf-loader--sm i {
+  width: 3px;
+  height: 12px;
+  border-radius: 1px;
+}
+
+@keyframes tf-loader-bar {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: skewX(-24deg) scaleY(0.72);
+    box-shadow: 0 0 0 transparent;
+  }
+
+  42% {
+    opacity: 1;
+    transform: skewX(-24deg) scaleY(1);
+    box-shadow: 0 0 10px var(--team-glow, transparent);
+  }
+}
+
+@keyframes tf-loader-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .tf-skeleton {
   position: relative;
   overflow: hidden;
@@ -1157,5 +1236,18 @@ button {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .tf-loading,
+  .tf-loading-inline {
+    animation: none;
+    opacity: 1;
+  }
+
+  .tf-loader i {
+    animation: none;
+    opacity: 1;
+    transform: skewX(-24deg);
+    box-shadow: none;
   }
 }

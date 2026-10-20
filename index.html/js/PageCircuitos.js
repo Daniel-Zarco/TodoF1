@@ -100,7 +100,7 @@
         '<span class="circuito-card__lugar">' + esc(race.country || '—') +
           (race.locality ? ' · ' + esc(race.locality) : '') + '</span>' +
         '<span class="circuito-card__stats" data-stats="' + esc(race.circuitoId) + '">' +
-          '<span class="is-loading">Consultando historial…</span>' +
+          '<span class="is-loading tf-loading-inline">Consultando historial…</span>' +
         '</span>' +
         (temporadaActual
           ? '<span class="circuito-card__sesion" data-sesion="' + esc(race.round) + '" hidden></span>'

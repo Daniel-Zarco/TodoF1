@@ -29,8 +29,15 @@
     if (el) el.href = url;
   }
 
-  function loadingState(el) {
-    if (el) el.innerHTML = '<div class="tf-loading"><span class="tf-spinner"></span><span>Cargando…</span></div>';
+  function loadingState(el, message) {
+    if (!el) return;
+    message = message || 'Cargando…';
+    if (window.TodoF1Loader) {
+      el.innerHTML = '';
+      el.appendChild(window.TodoF1Loader.create(message));
+    } else {
+      el.innerHTML = '<div class="tf-loading"><span class="tf-spinner"></span><span>' + esc(message) + '</span></div>';
+    }
   }
 
   function messageState(el, message, type) {
@@ -310,9 +317,9 @@
     ['kpi-gp', 'kpi-pilotos', 'kpi-escuderias', 'kpi-resultados'].forEach(function (id) {
       setText(id, '—');
     });
-    loadingState($('next-race'));
-    loadingState($('standings-pilotos'));
-    loadingState($('standings-escuderias'));
+    loadingState($('next-race'), 'Cargando próxima carrera…');
+    loadingState($('standings-pilotos'), 'Cargando pilotos…');
+    loadingState($('standings-escuderias'), 'Cargando escuderías…');
 
     var settled = await Promise.allSettled([
       fetch(API + '/' + value + '.json').then(function (r) { return r.json(); }),

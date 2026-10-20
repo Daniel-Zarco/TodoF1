@@ -90,4 +90,5 @@ $items = [
 <script src="/index.html/js/f1-datos.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/f1-datos.js') ?: '1' ?>"></script>
 <script src="/index.html/js/session.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/session.js') ?: '1' ?>"></script>
 <script src="/index.html/js/teams.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/teams.js') ?: '1' ?>"></script>
+<script src="/index.html/js/loader.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/loader.js') ?: '1' ?>"></script>
 <script src="/index.html/js/navbar.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/navbar.js') ?: '1' ?>" defer></script>

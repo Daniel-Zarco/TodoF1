@@ -95,7 +95,7 @@
                 </tr>
               </thead>
               <tbody id="standings-pilotos">
-                <tr class="tf-table__empty"><td colspan="6">Cargando&hellip;</td></tr>
+                <tr class="tf-table__empty"><td colspan="6"><span class="tf-loading-inline">Cargando pilotos&hellip;</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -121,7 +121,7 @@
                 </tr>
               </thead>
               <tbody id="standings-escuderias">
-                <tr class="tf-table__empty"><td colspan="5">Cargando&hellip;</td></tr>
+                <tr class="tf-table__empty"><td colspan="5"><span class="tf-loading-inline">Cargando escuderías&hellip;</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -144,7 +144,7 @@
           <div class="dash-toolbar">
             <span class="dash-toolbar__label" id="evol-etiqueta">Elige hasta 5 pilotos</span>
             <div class="chips" id="evol-pilotos" role="group" aria-labelledby="evol-etiqueta">
-              <span class="tf-mute">Cargando&hellip;</span>
+              <span class="tf-mute tf-loading-inline">Cargando pilotos&hellip;</span>
             </div>
           </div>
 

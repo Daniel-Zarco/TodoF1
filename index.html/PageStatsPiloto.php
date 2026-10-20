@@ -120,7 +120,7 @@
               </tr>
             </thead>
             <tbody id="pilot-results">
-              <tr class="tf-table__empty"><td colspan="7">Cargando resultados&hellip;</td></tr>
+              <tr class="tf-table__empty"><td colspan="7"><span class="tf-loading-inline">Cargando resultados&hellip;</span></td></tr>
             </tbody>
           </table>
         </div>

@@ -213,6 +213,7 @@
   }
 
   function loading(message) {
+    if (window.TodoF1Loader) return window.TodoF1Loader.create(message);
     return el_('div', 'tf-loading', '<span class="tf-spinner" aria-hidden="true"></span><span>' + esc(message) + '</span>');
   }
 

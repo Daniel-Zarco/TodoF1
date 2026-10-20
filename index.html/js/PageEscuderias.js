@@ -679,6 +679,7 @@
   }
 
   function loadingState(message) {
+    if (window.TodoF1Loader) return window.TodoF1Loader.create(message);
     var box = document.createElement('div');
     box.className = 'tf-loading';
     box.innerHTML = '<span class="tf-spinner" aria-hidden="true"></span><span>' + esc(message) + '</span>';

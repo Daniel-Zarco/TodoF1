@@ -192,7 +192,7 @@ session_start();
                             </div>
                         </div>
                         <div id="next-race" aria-live="polite">
-                            <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando&hellip;</span></div>
+                            <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando pr&oacute;xima carrera&hellip;</span></div>
                         </div>
                     </div>
 
@@ -205,7 +205,7 @@ session_start();
                             <a id="link-pilotos-full" class="head__link" href="/index.html/PagePilotos.php">Ver completa &#8594;</a>
                         </div>
                         <div class="tf-standings" id="standings-pilotos" aria-live="polite">
-                            <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando clasificaci&oacute;n&hellip;</span></div>
+                            <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando pilotos&hellip;</span></div>
                         </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ session_start();
                         <a id="link-escuderias-full" class="head__link" href="/index.html/PageEstadisticas.php">Ver completa &#8594;</a>
                     </div>
                     <div class="tf-standings" id="standings-escuderias" aria-live="polite">
-                        <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando clasificaci&oacute;n&hellip;</span></div>
+                        <div class="tf-loading"><span class="tf-spinner"></span><span>Cargando escuder&iacute;as&hellip;</span></div>
                     </div>
                 </div>
             </section>
