@@ -13,7 +13,6 @@
   var root = document.documentElement;
   var YEAR_MIN = 1950;
   var YEAR_MAX = 2026;
-  var API = 'https://api.jolpi.ca/ergast/f1';
   var KEY_THEME = 'todof1:teams:';     // preferencia (compat) por temporada
   var KEY_ACTIVE = 'todof1:teams-active';
   var TEAM_VARS = ['--team-primary', '--team-secondary', '--team-accent', '--team-glow',
@@ -45,6 +44,21 @@
     bmw_sauber: { p: '#2C6FBB', s: '#C8CCCE', a: '#E10600' },
     jordan: { p: '#D6B400', s: '#2B2B2B', a: '#FFD800' }
   };
+
+  // Paleta fija del selector: las 11 escuderías de 2026 para cualquier temporada.
+  var THEME_TEAMS_2026 = [
+    { id: 'alpine', name: 'Alpine F1 Team' },
+    { id: 'aston_martin', name: 'Aston Martin' },
+    { id: 'audi', name: 'Audi' },
+    { id: 'cadillac', name: 'Cadillac F1 Team' },
+    { id: 'ferrari', name: 'Ferrari' },
+    { id: 'haas', name: 'Haas F1 Team' },
+    { id: 'mclaren', name: 'McLaren' },
+    { id: 'mercedes', name: 'Mercedes' },
+    { id: 'rb', name: 'RB F1 Team' },
+    { id: 'red_bull', name: 'Red Bull' },
+    { id: 'williams', name: 'Williams' }
+  ];
 
   // Imágenes del hero por escudería, usando los constructorId reales y las
   // rutas/formatos REALES de /Images/heroes/escuderias (formatos mixtos).
@@ -397,8 +411,6 @@
 
   // ---------------------------------------------------------- Panel (drawer)
   var panel = null, backdrop = null, themeGrid = null, statusEl = null;
-  var listCache = {};
-  var pending = {};
   var openToken = 0;
   var lastFocused = null;
 
@@ -487,27 +499,6 @@
     statusEl.style.display = 'none';
   }
 
-  function ensureTeams(year) {
-    if (listCache[year]) return Promise.resolve(listCache[year]);
-    if (pending[year]) return pending[year];
-    var request = fetch(API + '/' + year + '/constructors.json')
-      .then(function (r) {
-        if (r && r.ok === false) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) {
-        var list = (data.MRData && data.MRData.ConstructorTable && data.MRData.ConstructorTable.Constructors) || [];
-        listCache[year] = list;
-        delete pending[year];
-        return list;
-      }, function (err) {
-        delete pending[year];
-        throw err;
-      });
-    pending[year] = request;
-    return request;
-  }
-
   function openDrawer() {
     buildDrawer();
     lastFocused = document.activeElement;
@@ -516,40 +507,16 @@
     if (yearEl) yearEl.textContent = year;
 
     root.setAttribute('data-drawer', 'open');
-    var token = ++openToken;
-    loadYear(year, token);
+    openToken++;
+    loadYear(year);
 
     var openBtn = document.getElementById('tf-theme-picker');
     if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
     panel.focus();
   }
 
-  function loadYear(year, token) {
-    if (listCache[year]) {
-      renderOptions(year, listCache[year]);
-      return;
-    }
-    themeGrid.innerHTML = '';
-    showStatus('<span class="tf-spinner" aria-hidden="true"></span><span class="tf-drawer__msg">Cargando escuder&iacute;as…</span>');
-    ensureTeams(year).then(function (list) {
-      if (token !== openToken) return;
-      renderOptions(year, list);
-    }, function () {
-      if (token !== openToken) return;
-      showError(year, token);
-    });
-  }
-
-  function showError(year, token) {
-    themeGrid.innerHTML = '';
-    showStatus('<span class="tf-drawer__msg">No se pudieron cargar las escuder&iacute;as de esta temporada.</span>');
-    var retry = el('button', 'tf-drawer__retry', 'Reintentar');
-    retry.setAttribute('type', 'button');
-    retry.addEventListener('click', function () {
-      delete listCache[year];
-      loadYear(year, openToken);
-    });
-    statusEl.appendChild(retry);
+  function loadYear(year) {
+    renderOptions(year);
   }
 
   function closeDrawer() {
@@ -560,18 +527,13 @@
     else if (lastFocused && lastFocused.focus) { lastFocused.focus(); }
   }
 
-  function renderOptions(year, list) {
+  function renderOptions(year) {
     if (!themeGrid) return;
     themeGrid.innerHTML = '';
     themeGrid.appendChild(buildOriginalOption(year));
-    if (!list || !list.length) {
-      showStatus('<span class="tf-drawer__msg">Esta temporada no tiene escuder&iacute;as con identidad visual. Se usa el tema original.</span>');
-      renderStates();
-      return;
-    }
     hideStatus();
-    list.forEach(function (c) {
-      themeGrid.appendChild(buildTeamOption(year, c.constructorId, c.name, resolveTeam(c.constructorId)));
+    THEME_TEAMS_2026.forEach(function (t) {
+      themeGrid.appendChild(buildTeamOption(year, t.id, t.name, resolveTeam(t.id)));
     });
     renderStates();
   }
