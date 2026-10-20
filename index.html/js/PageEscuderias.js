@@ -20,13 +20,12 @@
      · "Pilotos" = todos los que disputaron al menos un GP con el
        equipo esa temporada (sustituciones y cambios incluidos).
    FOTOGRAFÍAS:
-     · Se reutilizan las imágenes ya presentes en el proyecto
-       (/Images/heroes/escuderias, mapa TEAM_IMAGES de teams.js), que
-       son monoplazas de la era actual: solo se muestran a partir de
-       2025. En las temporadas anteriores se usa la composición de
-       respaldo (nombre + color del equipo + silueta neutra), sin
-       mostrar nunca un coche actual en una temporada histórica.
-     · La página avisa de que son imágenes representativas del equipo.
+     · Catálogo exacto por temporada y constructorId: 2020-2023, 2024
+       (ya existente) y 2025. Para 2026 se conservan las imágenes
+       actuales del proyecto. Nunca se usa una foto de otra temporada.
+     · Si no hay foto exacta: logotipo histórico del equipo y, si no
+       existe, nombre completo como fallback tipográfico.
+     · Créditos, autoría y licencia se conservan en el catálogo local.
    TEMAS: la interfaz general (buscador, ordenación, foco) sigue el
    tema activo (--team-*). El color propio de cada tarjeta identifica
    a su escudería (teams.js por constructorId + mapa histórico ya
@@ -42,7 +41,7 @@
   var MIN_YEAR = 1950;
   var LATEST_YEAR = 2026;
   var NEUTRAL_COLOR = '#55555E';
-  var CAR_IMAGE_MIN_YEAR = 2025; // las fotos del proyecto son de la era actual
+  var CAR_IMAGE_MIN_YEAR = 2026; // solo 2026 usa las fotos actuales del proyecto
   var CHAMPIONSHIP_START = 1958; // primer año del Mundial de Constructores
   var CACHE_KEY = 'todof1:escuderias:v1:';
   var CACHE_TTL = 20 * 60 * 1000; // 20 minutos
@@ -61,26 +60,6 @@
     'brabham': '#FFCC00',
     'tyrrell': '#003399'
   };
-
-  /* Silueta neutra de monoplaza para el respaldo: es un elemento gráfico
-     genérico, no representa a ningún equipo ni temporada concretos. */
-  var CAR_SVG =
-    '<svg class="team-card__car" viewBox="0 0 280 96" aria-hidden="true" focusable="false">' +
-    '<g fill="currentColor">' +
-    '<rect x="6" y="80" width="268" height="4" rx="2" opacity=".16"></rect>' +
-    '<rect x="14" y="72" width="60" height="5" rx="2.5" opacity=".35"></rect>' +
-    '<text x="140" y="34" text-anchor="middle" font-family="Sora, Inter, sans-serif" ' +
-    'font-size="30" font-weight="800" letter-spacing="2" opacity=".22">%MONO%</text>' +
-    '<path d="M232 22h42v9h-42z"></path>' +
-    '<rect x="248" y="31" width="9" height="30" rx="4"></rect>' +
-    '<path d="M18 64l30-9 42-5 30-14c8-4 17-6 27-6h22c9 0 16 3 20 9l7 11 30 4c9 1 15 4 18 10 2 5-1 8-7 8H24c-8 0-10-4-6-8z"></path>' +
-    '<path d="M136 40c10-9 26-13 42-12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>' +
-    '<circle cx="70" cy="68" r="22"></circle>' +
-    '<circle cx="70" cy="68" r="9" fill="#0B0B0D" opacity=".55"></circle>' +
-    '<circle cx="214" cy="66" r="25"></circle>' +
-    '<circle cx="214" cy="66" r="10" fill="#0B0B0D" opacity=".55"></circle>' +
-    '</g>' +
-    '</svg>';
 
   var params = new URLSearchParams(window.location.search);
   var year = parseInt(params.get('year') || String(LATEST_YEAR), 10);
@@ -106,8 +85,9 @@
   var standingsFailed = false; // la petición de clasificación falló (no es lo mismo que no existir)
   var resultsOk = true;    // se pudieron cargar los resultados de carrera
   var provisional = false; // la temporada está en curso
-  var photosShown = false; // alguna tarjeta muestra fotografía
-  var photosRepresentative = false; // alguna foto es de la era actual (no de esa temporada)
+  var photosShown = 0;     // tarjetas con foto real de la temporada
+  var logosShown = 0;      // tarjetas sin foto que usan logotipo histórico
+  var fallbacksShown = 0;  // tarjetas sin foto ni logotipo (nombre completo)
   var photosCredits = [];  // autoría de las fotos de la temporada (licencias libres)
 
   /* ------------------------------------------------------------ utilidades */
@@ -129,14 +109,6 @@
   function num(value) {
     var parsed = parseInt(value, 10);
     return isNaN(parsed) ? null : parsed;
-  }
-
-  /* Monograma para el respaldo: iniciales de las palabras (máx. 3). */
-  function monogram(name) {
-    var words = String(name || '').trim().split(/\s+/).filter(Boolean);
-    var letters = words.map(function (w) { return w.charAt(0); });
-    return (letters.length > 1 ? letters.slice(0, 3) : [String(name || 'F1').slice(0, 3)])
-      .join('').toUpperCase();
   }
 
   function hexToRgb(hex) {
@@ -200,11 +172,27 @@
     }
   };
 
+  // Catálogo histórico generado desde Wikimedia Commons (2020-2023 y 2025).
+  // Se fusiona sin sobrescribir el catálogo 2024 ya existente.
+  if (window.TodoF1CarPhotos) {
+    Object.keys(window.TodoF1CarPhotos).forEach(function (y) {
+      if (!CAR_PHOTOS[y]) CAR_PHOTOS[y] = {};
+      Object.keys(window.TodoF1CarPhotos[y]).forEach(function (id) {
+        CAR_PHOTOS[y][id] = window.TodoF1CarPhotos[y][id];
+      });
+    });
+  }
+
+  function teamLogo(constructorId) {
+    var catalog = window.TodoF1EscuderiaLogos;
+    if (!catalog || typeof catalog.resolve !== 'function') return null;
+    return catalog.resolve(constructorId, year);
+  }
+
   /* Fotografía del monoplaza para la temporada consultada. Prioridad:
        1. catálogo por temporada + constructorId real: foto DE ESA temporada,
-       2. fotografía de la era actual del proyecto (2025+), marcada como
-          representativa porque puede ser de otro año,
-       3. sin foto fiable: se usará la composición de respaldo. */
+       2. fotografía actual del proyecto solo para 2026 (nunca para otro año),
+       3. sin foto fiable: logotipo histórico o nombre completo del equipo. */
   function carPhoto(constructorId) {
     var porAnio = CAR_PHOTOS[String(year)];
     var exacta = (porAnio && constructorId) ? porAnio[constructorId] : null;
@@ -219,7 +207,7 @@
     var map = internal && internal.TEAM_IMAGES;
     var entry = map && constructorId ? map[constructorId] : null;
     if (!entry || !entry.src) return null;
-    return { src: entry.src, modelo: '', autor: '', licencia: '', fuente: '', exacta: false };
+    return { src: entry.src, modelo: '', autor: '', licencia: '', fuente: '', exacta: true };
   }
 
   function versionedSrc(src) {
@@ -572,24 +560,20 @@
       posBadge = '<span class="team-card__pos team-card__pos--none" title="' + esc(posTitle) + '">&mdash;</span>';
     }
 
-    // Fotografía (o composición de respaldo) del monoplaza.
+    // Fotografía real de la temporada → logotipo histórico → nombre completo.
     var foto = carPhoto(team.id);
     var photo = '';
     if (foto) {
-      photosShown = true;
-      if (foto.exacta) {
-        photosCredits.push(foto);
-      } else {
-        photosRepresentative = true;   // foto de la era actual: puede ser de otro año
-      }
+      photosShown += 1;
+      if (foto.autor || foto.fuente) photosCredits.push(foto);
       var alt = foto.modelo
         ? 'Monoplaza ' + foto.modelo + ' de ' + team.name + ' en ' + year
         : 'Monoplaza del equipo ' + team.name + ' en ' + year;
-      var titulo = foto.exacta
-        ? (foto.modelo ? 'Fotografía del ' + foto.modelo + ' (' + year + ')' : 'Fotografía de la temporada ' + year)
-        : 'Imagen representativa del equipo; puede corresponder a otra temporada';
-      if (foto.exacta && foto.autor) {
-        titulo += ' · Foto: ' + foto.autor + ' (' + foto.licencia + ', Wikimedia Commons)';
+      var titulo = foto.modelo
+        ? 'Fotografía del ' + foto.modelo + ' (' + year + ')'
+        : 'Fotografía de la temporada ' + year;
+      if (foto.autor) {
+        titulo += ' · Foto: ' + foto.autor + (foto.licencia ? ' (' + foto.licencia + ', Wikimedia Commons)' : '');
       }
       // La primera fila se carga de inmediato (es la que se ve al abrir la
       // página); el resto, en diferido para no descargar fotos innecesarias.
@@ -599,8 +583,21 @@
         (carga === 'eager' ? ' fetchpriority="high"' : '') + '>';
     }
 
-    var fallback = '<span class="team-card__fallback" aria-hidden="true">' +
-      CAR_SVG.replace('%MONO%', esc(monogram(team.name))) + '</span>';
+    var logo = teamLogo(team.id);
+    var fallback = '';
+    if (logo) {
+      if (!foto) logosShown += 1;
+      var plate = logo.plate === 'light';
+      fallback = '<span class="team-card__fallback team-card__fallback--logo" aria-hidden="true">' +
+        (plate ? '<span class="team-card__logo-plate">' : '') +
+        '<img class="team-card__logo" src="' + esc(versionedSrc(logo.src)) + '" alt="" loading="lazy" decoding="async">' +
+        (plate ? '</span>' : '') +
+        '<span class="team-card__fallback-name">' + esc(team.name) + '</span></span>';
+    } else {
+      if (!foto) fallbacksShown += 1;
+      fallback = '<span class="team-card__fallback team-card__fallback--name" aria-hidden="true">' +
+        '<span class="team-card__fallback-name">' + esc(team.name) + '</span></span>';
+    }
 
     // Estadísticas de la temporada (los "—" indican dato no disponible).
     var pointsTitle = hasStandings
@@ -656,6 +653,19 @@
       if (img.complete && img.naturalWidth) img.classList.add('is-loaded');
       img.addEventListener('load', function () { img.classList.add('is-loaded'); });
       img.addEventListener('error', function () { img.style.display = 'none'; });
+    }
+
+    var logoImg = article.querySelector('.team-card__logo');
+    if (logoImg) {
+      logoImg.addEventListener('error', function () {
+        logoImg.style.display = 'none';
+        var plate = logoImg.parentNode;
+        if (plate && plate.classList && plate.classList.contains('team-card__logo-plate')) {
+          plate.style.display = 'none';
+        }
+        var fb = logoImg.closest('.team-card__fallback');
+        if (fb) fb.classList.add('is-failed');
+      });
     }
 
     var more = article.querySelector('.team-card__more');
@@ -755,17 +765,26 @@
       return;
     }
 
-    photosShown = false;
-    photosRepresentative = false;
+    photosShown = 0;
+    logosShown = 0;
+    fallbacksShown = 0;
     photosCredits = [];
     var fragment = document.createDocumentFragment();
     list.forEach(function (team, index) { fragment.appendChild(card(team, index)); });
     grid.appendChild(fragment);
 
-    // Aviso solo cuando alguna foto NO es de la temporada mostrada.
+    // Cobertura visual de la temporada: fotos reales, logos históricos y
+    // fallbacks tipográficos. Nunca se presenta una foto de otro año como si
+    // fuera de esta temporada.
     if (photoNote) {
-      photoNote.textContent = 'Las fotografías son imágenes representativas del equipo y pueden corresponder a otra temporada.';
-      photoNote.hidden = !photosRepresentative;
+      var partesCobertura = [];
+      if (photosShown) partesCobertura.push(photosShown + ' ' + (photosShown === 1 ? 'fotografía real' : 'fotografías reales'));
+      if (logosShown) partesCobertura.push(logosShown + ' ' + (logosShown === 1 ? 'logotipo histórico' : 'logotipos históricos'));
+      if (fallbacksShown) partesCobertura.push(fallbacksShown + ' ' + (fallbacksShown === 1 ? 'fallback tipográfico' : 'fallbacks tipográficos'));
+      photoNote.textContent = partesCobertura.length
+        ? 'Cobertura visual de ' + year + ': ' + partesCobertura.join(' · ') + '.'
+        : '';
+      photoNote.hidden = !partesCobertura.length;
     }
 
     // Créditos de autoría de las fotos de esa temporada (licencias libres).

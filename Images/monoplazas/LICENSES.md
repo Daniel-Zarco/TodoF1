@@ -1,0 +1,55 @@
+# Fotografías de monoplazas
+
+Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
+licencia y fuente original. No se reutilizan fotos de otra temporada.
+
+- 2020 `alfa` — Alfa Romeo C39; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629030738).jpg
+- 2020 `alphatauri` — AlphaTauri AT01; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Pierre_Gasly-Alpha_Tauri_AT01_(2)_(cropped).jpg
+- 2020 `ferrari` — Ferrari SF1000; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629607611).jpg
+- 2020 `haas` — Haas VF-20; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Romain_Grosjean-Haas_VF-20_(1).jpg
+- 2020 `mclaren` — McLaren MCL35; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Lando_Norris-McLaren_MCL35_(3).jpg
+- 2020 `mercedes` — Mercedes-AMG F1 W11 EQ Performance; Original:  Eustace Bagge / Derivative work:  Danyele; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2020_Tuscan_Grand_Prix_-_race_day_(cropped).jpg
+- 2020 `racing_point` — Racing Point RP20; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Sergio_Perez-Racing_Point_RP_20_(5).jpg
+- 2020 `red_bull` — Red Bull Racing RB16; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Alexander_Albon-Red_Bull_RB16_(4).jpg
+- 2020 `renault` — Renault R.S.20; Eustace Bagge; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2020_Tuscan_Grand_Prix_2_(cropped).jpg
+- 2020 `williams` — Williams FW43; Eustace Bagge; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:George_Russell_2020_Tuscan_Grand_Prix_-_race_day.jpg
+- 2021 `alfa` — Alfa Romeo C41; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._99_Giovinazzi_(side).jpg
+- 2021 `alphatauri` — AlphaTauri AT02; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._10_Gasly_(side).jpg
+- 2021 `alpine` — Alpine A521; Chris Down; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso,_F1_British_Grand_Prix_2021.jpg
+- 2021 `aston_martin` — Aston Martin AMR21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._5_Vettel.jpg
+- 2021 `ferrari` — Ferrari SF21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._16_Leclerc_(side).jpg
+- 2021 `haas` — Haas VF-21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._47_Schumacher_(side).jpg
+- 2021 `mclaren` — McLaren MCL35M; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._4_Norris.jpg
+- 2021 `mercedes` — Mercedes-AMG F1 W12 E Performance; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._44_Hamilton_(side).jpg
+- 2021 `red_bull` — Red Bull Racing RB16B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._33_Verstappen_(side).jpg
+- 2021 `williams` — Williams FW43B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._63_Russell_(side).jpg
+- 2022 `alfa` — Alfa Romeo C42; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._77_Bottas.jpg
+- 2022 `alphatauri` — AlphaTauri AT03; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._10_Gasly.jpg
+- 2022 `alpine` — Alpine A522; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2022_British_Grand_Prix_(52382586268).jpg
+- 2022 `aston_martin` — Aston Martin AMR22; Wastrick; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2022_(cropped).jpg
+- 2022 `ferrari` — Ferrari F1-75; Wastrick; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Charles_Leclerc_2022.jpg
+- 2022 `haas` — Haas VF-22; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2022_British_Grand_Prix_(52381409242).jpg
+- 2022 `mclaren` — McLaren MCL36; Timfilbert; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lando_Norris_drives_the_McLaren_MCL36_during_the_2022_British_Grand_Prix..jpg
+- 2022 `mercedes` — Mercedes-AMG F1 W13 E Performance; Roberto Monti; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2022_Emilia_Romagna_GP_-_Mercedes-AMG_F1_W13_E_Performance_of_Lewis_Hamilton.jpg
+- 2022 `red_bull` — Red Bull Racing RB18; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._1_Verstappen_(side_2).jpg
+- 2022 `williams` — Williams FW44; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._23_Albon.jpg
+- 2023 `alfa` — Alfa Romeo C43; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._24_(2).jpg
+- 2023 `alphatauri` — AlphaTauri AT04; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._21_(2).jpg
+- 2023 `alpine` — Alpine A523; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._10_(2)_(cropped).jpg
+- 2023 `aston_martin` — Aston Martin AMR23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._14_(1).jpg
+- 2023 `ferrari` — Ferrari SF-23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._55_(1).jpg
+- 2023 `haas` — Haas VF-23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._27_(2).jpg
+- 2023 `mclaren` — McLaren MCL60; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._4_(2).jpg
+- 2023 `mercedes` — Mercedes-AMG F1 W14 E Performance; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._44_(2).jpg
+- 2023 `red_bull` — Red Bull Racing RB19; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._1_(1).jpg
+- 2023 `williams` — Williams FW45; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._23_(2).jpg
+- 2025 `alpine` — Alpine A525; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._10_Gasly.jpg
+- 2025 `aston_martin` — Aston Martin AMR25; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg
+- 2025 `ferrari` — Ferrari SF-25; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._44_Hamilton.jpg
+- 2025 `haas` — Haas VF-25; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._87_Bearman.jpg
+- 2025 `mclaren` — McLaren MCL39; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._4_Norris.jpg
+- 2025 `mercedes` — Mercedes-AMG F1 W16 E Performance; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Singapore_GP_-_Mercedes_-_George_Russell_-_FP1.jpg
+- 2025 `rb` — Racing Bulls VCARB 02; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg
+- 2025 `red_bull` — Red Bull Racing RB21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._1_Verstappen.jpg
+- 2025 `sauber` — Sauber C45; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg
+- 2025 `williams` — Williams FW47; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg

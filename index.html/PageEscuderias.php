@@ -8,9 +8,12 @@
   <link rel="icon" href="/Images/favicon.ico?v=2" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png?v=2">
+  <script src="js/teams.js?v=<?= @filemtime(__DIR__ . '/js/teams.js') ?: '1' ?>"></script>
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageEscuderias.css?v=<?= @filemtime(__DIR__ . '/css/PageEscuderias.css') ?: '1' ?>">
+  <script src="js/escuderia-logos.js?v=<?= @filemtime(__DIR__ . '/js/escuderia-logos.js') ?: '1' ?>" defer></script>
+  <script src="js/car-photos.js?v=<?= @filemtime(__DIR__ . '/js/car-photos.js') ?: '1' ?>" defer></script>
   <script src="js/PageEscuderias.js?v=<?= @filemtime(__DIR__ . '/js/PageEscuderias.js') ?: '1' ?>" defer></script>
   <?php
   /* Versiones (fecha de modificación) de las fotografías, para que el caché del

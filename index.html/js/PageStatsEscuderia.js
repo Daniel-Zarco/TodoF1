@@ -718,6 +718,13 @@
       return;
     }
 
+    // Sin datos oficiales no se reserva un hueco vacío en el eje: la serie
+    // solo contiene las temporadas con punto/posición válidos.
+    if (history.standingsDone && valid.length < points.length) {
+      points = valid;
+      seasons = valid.map(function (point) { return point.season; });
+    }
+
     var svgNS = 'http://www.w3.org/2000/svg';
     var svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('role', 'img');
@@ -1083,6 +1090,14 @@
     '<path d="M16 5h2.5A2.5 2.5 0 0 1 16 9.5"></path>' +
     '<path d="M12 13v3"></path><path d="M9 20h6"></path><path d="M10 16h4l.7 4h-5.4Z"></path></svg>';
 
+  function missingStandingTitle(seasonYear) {
+    if (state.history && state.history.failedYears && state.history.failedYears[seasonYear]) {
+      return 'No se pudo cargar la clasificación oficial: fallo temporal de la API (no implica ausencia de datos)';
+    }
+    if (seasonYear < CHAMPIONSHIP_START) return 'No existía el Mundial de Constructores';
+    return 'Sin clasificación oficial registrada para esta temporada';
+  }
+
   function pointsCell(seasonYear) {
     var data = seasonStanding(seasonYear);
     if (data && !data.unavailable) {
@@ -1091,8 +1106,7 @@
       return '<span title="Puntos oficiales del campeonato de constructores">' + esc(label) + '</span>';
     }
     if (state.history && !state.history.standingsDone) return '<span class="team-table__dash" title="Cargando">…</span>';
-    return '<span class="team-table__dash" title="' +
-      (seasonYear < CHAMPIONSHIP_START ? 'No existía el Mundial de Constructores' : 'Dato no disponible') + '">—</span>';
+    return '<span class="team-table__dash" title="' + esc(missingStandingTitle(seasonYear)) + '">—</span>';
   }
 
   function positionCell(seasonYear) {
@@ -1107,8 +1121,7 @@
       return '<span class="team-table__pos">' + data.position + 'º</span>';
     }
     if (state.history && !state.history.standingsDone) return '<span class="team-table__dash" title="Cargando">…</span>';
-    return '<span class="team-table__dash" title="' +
-      (seasonYear < CHAMPIONSHIP_START ? 'No existía el Mundial de Constructores' : 'Dato no disponible') + '">—</span>';
+    return '<span class="team-table__dash" title="' + esc(missingStandingTitle(seasonYear)) + '">—</span>';
   }
 
   function driversCell(season) {
@@ -1147,10 +1160,14 @@
       return;
     }
 
+    var failedStandings = Object.keys(history.failedYears || {}).length;
     el.resultsSub.textContent = seasons.length + (seasons.length === 1 ? ' temporada' : ' temporadas') +
       ' disputadas hasta ' + year + '. Ordenadas de ' + (state.sortAsc ? 'más antigua a más reciente' : 'más reciente a más antigua') + '.' +
       (!history.standingsDone && history.pendingTotal
         ? ' Cargando clasificaciones oficiales (' + (history.pendingDone || 0) + '/' + history.pendingTotal + ')…'
+        : '') +
+      (failedStandings
+        ? ' No se pudieron cargar ' + failedStandings + ' clasificaciones oficiales; aparecen como —.'
         : '');
 
     var frag = document.createDocumentFragment();
@@ -1244,7 +1261,7 @@
      y después las clasificaciones oficiales por temporada, con concurrencia
      limitada y de la más reciente a la más antigua. */
   function loadHistory() {
-    state.history = { results: {}, standings: {}, resultsDone: false, standingsDone: false };
+    state.history = { results: {}, standings: {}, failedYears: {}, resultsDone: false, standingsDone: false };
 
     var cached = readHistoryCache();
     if (cached && cached.throughYear >= year) {
@@ -1273,7 +1290,12 @@
           state.history.resultsDone = true;
           renderHistory();
           return fetchSeasonStanding(LATEST_YEAR).then(function (data) {
-            if (data) state.history.standings[LATEST_YEAR] = data;
+            if (data) {
+              state.history.standings[LATEST_YEAR] = data;
+              delete state.history.failedYears[LATEST_YEAR];
+            } else {
+              state.history.failedYears[LATEST_YEAR] = true;
+            }
             state.history.standingsDone = true;
             renderHistory();
           });
@@ -1321,7 +1343,12 @@
             .then(function () {
               return runQueue(retry, 1, function (y) {
                 return fetchSeasonStanding(y).then(function (data) {
-                  if (!data) return;
+                  if (!data) {
+                    state.history.failedYears[y] = true;
+                    scheduleRender();
+                    return;
+                  }
+                  delete state.history.failedYears[y];
                   state.history.standings[y] = data;
                   if (y < LATEST_YEAR && !data.unavailable) seeded[y] = data;
                   scheduleRender();

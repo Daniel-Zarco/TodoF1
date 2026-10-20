@@ -79,11 +79,10 @@
   overflow: hidden;
   border: 1px solid var(--c-line);
   border-radius: var(--r-lg);
-  background-color: var(--c-surface-3);
+  background-color: #111216;
   background-image:
-    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
-    radial-gradient(120% 85% at 50% 0%, var(--team-soft, rgba(85, 85, 94, 0.16)), transparent 74%),
-    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
+    radial-gradient(125% 100% at 50% 0%, var(--team-soft, rgba(85, 85, 94, 0.16)), transparent 72%),
+    linear-gradient(180deg, #1a1b20, #0f1013 72%);
 }
 
 .team-hero__fallback {
@@ -103,8 +102,8 @@
 /* Logotipo real: se conserva la proporciÃ³n y nunca se deforma. */
 .team-hero__logo {
   display: block;
-  width: 80%;
-  height: 66%;
+  width: 92%;
+  height: 78%;
   object-fit: contain;
   object-position: center;
   filter:
@@ -117,9 +116,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 76%;
-  height: 64%;
-  padding: clamp(9px, 1.5vw, 16px);
+  width: 86%;
+  height: 78%;
+  padding: clamp(10px, 1.8vw, 18px);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--r-md);
   background: #f7f7f4;
@@ -132,13 +131,6 @@
   max-width: 100%;
   max-height: 100%;
   filter: none;
-}
-
-.team-hero__crest.has-logo {
-  background-image:
-    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 14px),
-    radial-gradient(120% 85% at 50% 0%, var(--team-soft, rgba(85, 85, 94, 0.16)), transparent 74%),
-    linear-gradient(180deg, var(--c-surface-2), var(--c-surface));
 }
 
 /* Marca inferior del escudo: identidad del equipo */

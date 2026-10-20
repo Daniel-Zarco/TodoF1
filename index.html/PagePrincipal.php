@@ -13,26 +13,8 @@ session_start();
     <link rel="icon" href="/Images/favicon.ico?v=2" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png?v=2">
     <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png?v=2">
-    <script>
-        /* Anti-parpadeo: aplica los colores del tema elegido antes de pintar. */
-        (function () {
-            try {
-                /* Personalización por escudería: usa los colores cacheados del tema activo. */
-                var y = parseInt(new URLSearchParams(location.search).get('year'), 10);
-                if (!y || y < 1950 || y > 2026) {
-                    try { y = parseInt(sessionStorage.getItem('todof1:year'), 10); } catch (e1) { y = NaN; }
-                }
-                if (!y || y < 1950 || y > 2026) y = 2026;
-                var act = JSON.parse(localStorage.getItem('todof1:teams-active') || 'null');
-                if (act && act.vars && String(act.year) === String(y)) {
-                    for (var k in act.vars) {
-                        if (act.vars.hasOwnProperty(k)) document.documentElement.style.setProperty(k, act.vars[k]);
-                    }
-                    if (act.stripe) document.documentElement.setAttribute('data-team-stripe', act.stripe);
-                }
-            } catch (e) { /* sin almacenamiento */ }
-        })();
-    </script>
+    <!-- Tema global: se aplica antes de pintar para evitar parpadeos. -->
+    <script src="/index.html/js/teams.js?v=<?= @filemtime(__DIR__ . '/js/teams.js') ?: '1' ?>"></script>
     <!-- Rutas absolutas: la página principal se sirve tanto en "/" (raíz
          del sitio) como en /index.html/PagePrincipal.php. -->
     <link rel="stylesheet" href="/index.html/css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
@@ -97,13 +79,12 @@ session_start();
                             }
                             var general = im.getAttribute('data-general') || im.getAttribute('src');
                             im.onerror = function () { im.onerror = null; im.setAttribute('src', withVersion(general)); };
-                            var y = parseInt(new URLSearchParams(location.search).get('year'), 10);
-                            if (!y || y < 1950 || y > 2026) {
-                                try { y = parseInt(sessionStorage.getItem('todof1:year'), 10); } catch (e1) { y = NaN; }
+                            var theme = window.TodoF1Teams && window.TodoF1Teams.state().theme;
+                            var internal = window.TodoF1Teams && window.TodoF1Teams._internal;
+                            if (theme && internal) {
+                                var hero = internal.teamHeroSrc(theme);
+                                if (hero) im.setAttribute('src', withVersion(hero));
                             }
-                            if (!y || y < 1950 || y > 2026) y = 2026;
-                            var act = JSON.parse(localStorage.getItem('todof1:teams-active') || 'null');
-                            if (act && act.hero && String(act.year) === String(y)) im.setAttribute('src', withVersion(act.hero));
                         } catch (e) { /* sin almacenamiento */ }
                     })();
                 </script>

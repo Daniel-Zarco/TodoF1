@@ -12,6 +12,7 @@ $tf_year = isset($_GET['year']) && is_numeric($_GET['year']) ? (int) $_GET['year
   <link rel="icon" href="/Images/favicon.ico?v=2" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon-32x32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon-16x16.png?v=2">
+  <script src="js/teams.js?v=<?= @filemtime(__DIR__ . '/js/teams.js') ?: '1' ?>"></script>
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageStatsEscuderia.css?v=<?= @filemtime(__DIR__ . '/css/PageStatsEscuderia.css') ?: '1' ?>">

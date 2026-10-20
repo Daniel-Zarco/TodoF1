@@ -1,10 +1,9 @@
 /* ============================================================
    TodoF1 — Selector de tema visual
    - Un único tema activo a la vez.
-   - Escuderías obtenidas de los datos reales, por temporada.
+   - Paleta fija de los 11 equipos de 2026, disponible en toda temporada.
    - Colores por constructorId (identidad visual de cada equipo).
-   - Preferencia guardada en localStorage por temporada
-     (independiente del modo claro/oscuro).
+   - Preferencia única y global en localStorage (independiente de la temporada).
    - Aplica variables CSS globales --team-* (no recolorea la página).
    ============================================================ */
 (function () {
@@ -13,8 +12,9 @@
   var root = document.documentElement;
   var YEAR_MIN = 1950;
   var YEAR_MAX = 2026;
-  var KEY_THEME = 'todof1:teams:';     // preferencia (compat) por temporada
-  var KEY_ACTIVE = 'todof1:teams-active';
+  try { localStorage.removeItem('todof1:teams-active'); } catch (e) { /* sin almacenamiento */ }
+  var KEY_THEME = 'todof1:theme';       // preferencia global única
+  var LEGACY_PREFIX = 'todof1:teams:'; // claves antiguas, solo para migrar
   var TEAM_VARS = ['--team-primary', '--team-secondary', '--team-accent', '--team-glow',
     '--team-primary-dim', '--team-primary-line', '--team-on-primary', '--team-stripe'];
 
@@ -79,17 +79,16 @@
   };
 
   // Imágenes del carrusel del tema «TodoF1 original», en orden por nombre.
-  // Se toman TODAS las imágenes válidas de /Images/heroes/default (lista del servidor);
-  // si no está disponible, se usa esta lista por defecto.
-  var DEFAULT_IMAGES = (window.TodoF1DefaultImages && window.TodoF1DefaultImages.length)
-    ? window.TodoF1DefaultImages.slice()
-    : [
-      '/Images/heroes/default/a.jpg',
-      '/Images/heroes/default/b.jpg',
-      '/Images/heroes/default/c.jpg',
-      '/Images/heroes/default/d.jpg',
-      '/Images/heroes/default/e.jpg'
+  // Se resuelven en init() para que la lista del servidor (definida más abajo
+  // en el <head>) esté disponible aunque este script se cargue antes.
+  var DEFAULT_FALLBACK = [
+    '/Images/heroes/default/a.jpg',
+    '/Images/heroes/default/b.jpg',
+    '/Images/heroes/default/c.jpg',
+    '/Images/heroes/default/d.jpg',
+    '/Images/heroes/default/e.jpg'
   ];
+  var DEFAULT_IMAGES = DEFAULT_FALLBACK.slice();
 
   // Imagen de respaldo si alguna falla (una imagen válida de default).
   var FALLBACK_IMAGE = DEFAULT_IMAGES[0];
@@ -115,18 +114,71 @@
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* sin almacenamiento */ }
   }
 
-  // Estado por temporada: { theme: idTema|null }. Compatibilidad: { main } previo.
+  // Preferencia global: { theme: idTema|null }. Compatibilidad: { main } previo.
+  var legacyChecked = false;
+
+  function legacyTheme(year) {
+    var keys = [];
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && key.indexOf(LEGACY_PREFIX) === 0) keys.push(key);
+      }
+    } catch (e) { return { found: false, theme: null }; }
+
+    var preferred = LEGACY_PREFIX + (year || currentYear());
+    keys.sort(function (a, b) {
+      if (a === preferred) return -1;
+      if (b === preferred) return 1;
+      return a < b ? 1 : -1;
+    });
+    for (var k = 0; k < keys.length; k++) {
+      var value = readJSON(keys[k]);
+      if (value && typeof value === 'object') {
+        var theme = (value.theme !== undefined) ? value.theme : (value.main || null);
+        return { found: true, theme: theme || null };
+      }
+    }
+    return { found: false, theme: null };
+  }
+
+  function removeLegacyKeys() {
+    try {
+      var keys = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && key.indexOf(LEGACY_PREFIX) === 0) keys.push(key);
+      }
+      keys.forEach(function (key) { localStorage.removeItem(key); });
+      localStorage.removeItem('todof1:teams-active');
+    } catch (e) { /* sin almacenamiento */ }
+  }
+
   function readState(year) {
-    var v = readJSON(KEY_THEME + year);
-    if (v && typeof v === 'object') {
-      var theme = (v.theme !== undefined) ? v.theme : (v.main || null);
-      return { theme: theme || null };
+    var v = readJSON(KEY_THEME);
+    if (v !== null) {
+      if (typeof v === 'string') return { theme: v || null };
+      if (typeof v === 'object') {
+        var theme = (v.theme !== undefined) ? v.theme : (v.main || null);
+        return { theme: theme || null };
+      }
+      return { theme: null };
+    }
+
+    if (legacyChecked) return { theme: null };
+    legacyChecked = true;
+    var legacy = legacyTheme(year);
+    if (legacy.found) {
+      saveState({ theme: legacy.theme });
+      removeLegacyKeys();
+      return { theme: legacy.theme };
     }
     return { theme: null };
   }
 
-  function saveState(year, state) {
-    writeJSON(KEY_THEME + year, { theme: state.theme || null });
+  function saveState(state) {
+    legacyChecked = true;
+    writeJSON(KEY_THEME, { theme: state.theme || null });
   }
 
   // ---------------------------------------------------------- Color
@@ -213,7 +265,6 @@
       root.removeAttribute('data-team');
       root.removeAttribute('data-team-stripe');
       root.removeAttribute('data-team-colors');
-      writeJSON(KEY_ACTIVE, null);
       return;
     }
     Object.keys(vars).forEach(function (k) { root.style.setProperty(k, vars[k]); });
@@ -221,12 +272,15 @@
     root.setAttribute('data-team-stripe', stripeMode(team));
     // Nº de colores reales del tema (2 o 3): decide el ciclo de la línea inferior.
     root.setAttribute('data-team-colors', String(uniqueColors(team).length));
-    writeJSON(KEY_ACTIVE, { year: currentYear(), vars: vars, stripe: stripeMode(team), hero: teamHeroSrc(team.id) });
+  }
+
+  function applyThemeOnly() {
+    var state = readState();
+    applyTeam(state.theme ? resolveTeam(state.theme) : null);
   }
 
   function applyFromState(animate) {
-    var state = readState(currentYear());
-    applyTeam(state.theme ? resolveTeam(state.theme) : null);
+    applyThemeOnly();
     applyHero(animate);
   }
 
@@ -395,7 +449,7 @@
     stopCarousel();
     if (heroShown === null) heroShown = img.getAttribute('src') || versionedSrc(FALLBACK_IMAGE);
 
-    var state = readState(currentYear());
+    var state = readState();
     if (state.theme) {
       setCarouselActive(false);
       setHeroImage(teamHeroSrc(state.theme) || FALLBACK_IMAGE, animate, token);
@@ -452,7 +506,7 @@
     panel.appendChild(head);
 
     var seasonLine = el('p', 'tf-drawer__season');
-    seasonLine.innerHTML = 'Temporada <b id="tf-drawer-year">—</b> · datos reales';
+    seasonLine.innerHTML = 'Temporada <b id="tf-drawer-year">—</b> · los 11 temas están disponibles en todas las temporadas';
     panel.appendChild(seasonLine);
 
     var group = el('section', 'tf-drawer__group');
@@ -468,7 +522,7 @@
     group.appendChild(themeGrid);
     panel.appendChild(group);
 
-    panel.appendChild(el('p', 'tf-drawer__foot', 'Solo puede haber un tema activo. Se guarda por temporada.'));
+    panel.appendChild(el('p', 'tf-drawer__foot', 'Solo puede haber un tema activo. Se guarda para todas las temporadas.'));
 
     document.body.appendChild(backdrop);
     document.body.appendChild(panel);
@@ -548,7 +602,7 @@
       '<span class="theme-opt__swatches"><i style="background:#E10600"></i><i style="background:#0B0B0D"></i><i style="background:#F5F5F5"></i></span>' +
       '<span class="theme-opt__text"><b>TodoF1 original</b><small>Rojo y negro</small></span>' +
       '<span class="theme-opt__check" aria-hidden="true">&#10003;</span>';
-    btn.addEventListener('click', function () { setTheme(year, null); });
+    btn.addEventListener('click', function () { setTheme(null); });
     return btn;
   }
 
@@ -566,7 +620,7 @@
       '<span class="theme-opt__text"><b>' + escHtml(name) + '</b><small>' + (team ? 'Escuder&iacute;a' : 'Sin tema disponible') + '</small></span>' +
       '<span class="theme-opt__check" aria-hidden="true">&#10003;</span>';
     if (team) {
-      btn.addEventListener('click', function () { setTheme(year, id); });
+      btn.addEventListener('click', function () { setTheme(id); });
     } else {
       btn.disabled = true;
       btn.setAttribute('aria-disabled', 'true');
@@ -574,10 +628,10 @@
     return btn;
   }
 
-  function setTheme(year, id) {
-    var st = readState(year);
+  function setTheme(id) {
+    var st = readState();
     st.theme = id || null;
-    saveState(year, st);
+    saveState(st);
     applyFromState(true);
     renderStates();
     // El selector se cierra solo al elegir (o repetir) un tema: sin recarga,
@@ -593,7 +647,7 @@
 
   function renderStates() {
     if (!themeGrid) return;
-    var st = readState(currentYear());
+    var st = readState();
     var opts = themeGrid.querySelectorAll('.theme-opt');
     Array.prototype.forEach.call(opts, function (opt) {
       var tid = opt.getAttribute('data-theme-id') || '';
@@ -641,6 +695,11 @@
 
   // ---------------------------------------------------------- Init
   function init() {
+    if (window.TodoF1DefaultImages && window.TodoF1DefaultImages.length) {
+      DEFAULT_IMAGES = window.TodoF1DefaultImages.slice();
+      FALLBACK_IMAGE = DEFAULT_IMAGES[0] || FALLBACK_IMAGE;
+    }
+
     var btn = document.getElementById('tf-theme-picker');
     if (btn) {
       btn.addEventListener('click', openDrawer);
@@ -654,11 +713,16 @@
 
   window.TodoF1Teams = {
     year: currentYear,
-    state: function (y) { return readState(y || currentYear()); },
+    state: function () { return readState(); },
     apply: applyFromState,
+    boot: applyThemeOnly,
     open: function () { openDrawer(); },
     _internal: { hexToRgb: hexToRgb, rgba: rgba, luminance: luminance, onColor: onColor, resolveTeam: resolveTeam, varsFor: varsFor, uniqueColors: uniqueColors, stripeGradient: stripeGradient, teamHeroSrc: teamHeroSrc, versionedSrc: versionedSrc, TEAMS: TEAMS, TEAM_IMAGES: TEAM_IMAGES, DEFAULT_IMAGES: DEFAULT_IMAGES, FALLBACK_IMAGE: FALLBACK_IMAGE }
   };
+
+  // Aplicación temprana: el script se carga en <head>, antes de pintar el
+  // cuerpo. Así se evita el parpadeo al recuperar la preferencia global.
+  applyThemeOnly();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
