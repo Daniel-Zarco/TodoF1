@@ -159,16 +159,16 @@
      actual (2025+) o, en su defecto, la composición de respaldo. */
   var CAR_PHOTOS = {
     2024: {
-      mclaren: { modelo: 'MCL38', src: '/Images/monoplazas/2024/mclaren.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:McLaren_MCL38.jpg' },
-      ferrari: { modelo: 'SF-24', src: '/Images/monoplazas/2024/ferrari.jpg', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:SF-24_at_the_Japanese_GP.jpg' },
-      red_bull: { modelo: 'RB20', src: '/Images/monoplazas/2024/red_bull.jpg', autor: 'Steffen Prößdorf', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3937_by_Stepro.jpg' },
-      mercedes: { modelo: 'W15', src: '/Images/monoplazas/2024/mercedes.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Mercedes_W15_on_display_-_2024_Chinese_GP.jpg' },
-      aston_martin: { modelo: 'AMR24', src: '/Images/monoplazas/2024/aston_martin.jpg', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:AMR24_at_the_Japanese_GP.jpg' },
-      alpine: { modelo: 'A524', src: '/Images/monoplazas/2024/alpine.jpg', autor: 'Calreyn88', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024_Alpine_A524_Show_car.jpg' },
-      haas: { modelo: 'VF-24', src: '/Images/monoplazas/2024/haas.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2024_Chinese_GP.jpg' },
-      rb: { modelo: 'VCARB 01', src: '/Images/monoplazas/2024/rb.jpg', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:RB_VCARB01_2024_Chinese_GP.jpg' },
-      williams: { modelo: 'FW46', src: '/Images/monoplazas/2024/williams.jpg', autor: 'Calreyn88', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024_Williams_FW46.jpg' },
-      sauber: { modelo: 'C44', src: '/Images/monoplazas/2024/sauber.jpg', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Sauber_C44_at_the_Japanese_GP.jpg' }
+      mclaren: { modelo: 'MCL38', src: '/Images/monoplazas/2024/mclaren.webp', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:McLaren_MCL38.jpg' },
+      ferrari: { modelo: 'SF-24', src: '/Images/monoplazas/2024/ferrari.webp', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:SF-24_at_the_Japanese_GP.jpg' },
+      red_bull: { modelo: 'RB20', src: '/Images/monoplazas/2024/red_bull.webp', autor: 'Steffen Prößdorf', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024-08-25_Motorsport,_Formel_1,_Gro%C3%9Fer_Preis_der_Niederlande_2024_STP_3937_by_Stepro.jpg' },
+      mercedes: { modelo: 'W15', src: '/Images/monoplazas/2024/mercedes.webp', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Mercedes_W15_on_display_-_2024_Chinese_GP.jpg' },
+      aston_martin: { modelo: 'AMR24', src: '/Images/monoplazas/2024/aston_martin.webp', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:AMR24_at_the_Japanese_GP.jpg' },
+      alpine: { modelo: 'A524', src: '/Images/monoplazas/2024/alpine.webp', autor: 'Calreyn88', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024_Alpine_A524_Show_car.jpg' },
+      haas: { modelo: 'VF-24', src: '/Images/monoplazas/2024/haas.webp', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2024_Chinese_GP.jpg' },
+      rb: { modelo: 'VCARB 01', src: '/Images/monoplazas/2024/rb.webp', autor: 'Liauzh', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:RB_VCARB01_2024_Chinese_GP.jpg' },
+      williams: { modelo: 'FW46', src: '/Images/monoplazas/2024/williams.webp', autor: 'Calreyn88', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:2024_Williams_FW46.jpg' },
+      sauber: { modelo: 'C44', src: '/Images/monoplazas/2024/sauber.webp', autor: 'Cineyas', licencia: 'CC BY-SA 4.0', fuente: 'https://commons.wikimedia.org/wiki/File:Sauber_C44_at_the_Japanese_GP.jpg' }
     }
   };
 

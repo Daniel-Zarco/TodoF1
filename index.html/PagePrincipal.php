@@ -58,7 +58,7 @@ session_start();
             <!-- ================= HERO ================= -->
             <section class="hero" id="hero" aria-labelledby="hero-title">
                 <div class="hero__media" aria-hidden="true">
-                    <img id="hero-img" class="hero__img" src="/Images/heroes/default/a.jpg?v=<?= @filemtime(__DIR__ . '/../Images/heroes/default/a.jpg') ?: '1' ?>" data-general="/Images/heroes/default/a.jpg"
+                    <img id="hero-img" class="hero__img" src="/Images/heroes/default/a.webp?v=<?= @filemtime(__DIR__ . '/../Images/heroes/default/a.webp') ?: '1' ?>" data-general="/Images/heroes/default/a.webp"
                          alt="Monoplazas de Fórmula 1 de distintas escuderías compitiendo en la salida de un Gran Premio"
                          fetchpriority="high" decoding="async" width="1280" height="851">
                     <img id="hero-img-next" class="hero__img hero__img--next" alt="" aria-hidden="true" decoding="async" width="1280" height="851">

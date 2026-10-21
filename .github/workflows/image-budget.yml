@@ -1,0 +1,31 @@
+name: Image budget
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Images/**'
+      - 'deploy/check-image-budget.sh'
+      - '.github/workflows/image-budget.yml'
+  pull_request:
+    paths:
+      - 'Images/**'
+      - 'deploy/check-image-budget.sh'
+      - '.github/workflows/image-budget.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  budget:
+    name: Check image storage budget
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check images
+        env:
+          IMAGE_MAX_KB: 250
+          IMAGE_BUDGET_MB: 12
+        run: bash deploy/check-image-budget.sh

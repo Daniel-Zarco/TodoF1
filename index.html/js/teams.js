@@ -65,28 +65,28 @@
   // Si el archivo falla, se usa una imagen válida de /Images/heroes/default.
   // `credit` es opcional: { label, author, license, licenseUrl, source }.
   var TEAM_IMAGES = {
-    ferrari: { src: '/Images/heroes/escuderias/ferrari.png' },
-    mclaren: { src: '/Images/heroes/escuderias/mclaren.jpg' },
-    mercedes: { src: '/Images/heroes/escuderias/mercedes.avif' },
-    red_bull: { src: '/Images/heroes/escuderias/red_bull.avif' },
+    ferrari: { src: '/Images/heroes/escuderias/ferrari.webp' },
+    mclaren: { src: '/Images/heroes/escuderias/mclaren.webp' },
+    mercedes: { src: '/Images/heroes/escuderias/mercedes.webp' },
+    red_bull: { src: '/Images/heroes/escuderias/red_bull.webp' },
     rb: { src: '/Images/heroes/escuderias/rb.webp' },
     aston_martin: { src: '/Images/heroes/escuderias/aston_martin.webp' },
     alpine: { src: '/Images/heroes/escuderias/alpine.webp' },
-    williams: { src: '/Images/heroes/escuderias/williams.avif' },
-    haas: { src: '/Images/heroes/escuderias/haas.avif' },
+    williams: { src: '/Images/heroes/escuderias/williams.webp' },
+    haas: { src: '/Images/heroes/escuderias/haas.webp' },
     audi: { src: '/Images/heroes/escuderias/audi.jpg' },
-    cadillac: { src: '/Images/heroes/escuderias/cadillac.jpg' }
+    cadillac: { src: '/Images/heroes/escuderias/cadillac.webp' }
   };
 
   // Imágenes del carrusel del tema «TodoF1 original», en orden por nombre.
   // Se resuelven en init() para que la lista del servidor (definida más abajo
   // en el <head>) esté disponible aunque este script se cargue antes.
   var DEFAULT_FALLBACK = [
-    '/Images/heroes/default/a.jpg',
-    '/Images/heroes/default/b.jpg',
-    '/Images/heroes/default/c.jpg',
-    '/Images/heroes/default/d.jpg',
-    '/Images/heroes/default/e.jpg'
+    '/Images/heroes/default/a.webp',
+    '/Images/heroes/default/b.webp',
+    '/Images/heroes/default/c.webp',
+    '/Images/heroes/default/d.webp',
+    '/Images/heroes/default/e.webp'
   ];
   var DEFAULT_IMAGES = DEFAULT_FALLBACK.slice();
 
