@@ -78,7 +78,7 @@
     this.trigger.setAttribute('aria-controls', panelId);
     this.trigger.innerHTML =
       '<span class="tf-season__prefix">Temporada</span>' +
-      '<span class="tf-season__year">' + FALLBACK_MAX + '</span>' +
+      '<span class="tf-season__value">' + FALLBACK_MAX + '</span>' +
       '<span class="tf-season__chev">' + CHEVRON + '</span>';
 
     this.panel = node('div', 'tf-season__panel');
@@ -141,7 +141,7 @@
     var value = parseInt(this.select.value, 10);
     if (isNaN(value) || value < this.min || value > this.max) value = this.max;
     this.selected = value;
-    this.trigger.querySelector('.tf-season__year').textContent = String(value);
+    this.trigger.querySelector('.tf-season__value').textContent = String(value);
     this.trigger.setAttribute('aria-label', 'Seleccionar temporada, actual ' + value);
     if (this.isOpen) {
       this.decade = decadeStart(value);
