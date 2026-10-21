@@ -1107,8 +1107,17 @@ html[data-drawer="open"] .tf-drawer__panel {
   }
 
   .tf-season__trigger--hero {
-    min-height: 40px;
-    height: 40px;
+    min-height: 44px;
+    height: 44px;
+  }
+
+  .tf-season__head {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+  }
+
+  .tf-season__arrow {
+    width: 44px;
+    height: 44px;
   }
 
   .tf-season__panel {
