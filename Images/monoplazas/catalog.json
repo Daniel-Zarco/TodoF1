@@ -1,6 +1,789 @@
 {
   "generatedFrom": "Wikimedia Commons / Wikipedia page images",
   "years": {
+    "2010": {
+      "ferrari": {
+        "modelo": "Ferrari F10",
+        "src": "/Images/monoplazas/2010/ferrari.webp",
+        "autor": "Andrew Griffith from United Kingdom",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_Bahrain_2010.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM03",
+        "src": "/Images/monoplazas/2010/force_india.webp",
+        "autor": "Liuzzi_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Liuzzi_Bahrain_2010_(cropped).jpg"
+      },
+      "hrt": {
+        "modelo": "HRT F110",
+        "src": "/Images/monoplazas/2010/hrt.webp",
+        "autor": "Bruno_Senna_2010_Bahrain.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Bruno_Senna_2010_Bahrain_(cropped).jpg"
+      },
+      "lotus_racing": {
+        "modelo": "Lotus T127",
+        "src": "/Images/monoplazas/2010/lotus_racing.webp",
+        "autor": "Lotus_in_Bahrain.jpg : Andrew® derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_in_Bahrain_(cropped)_2010.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-25",
+        "src": "/Images/monoplazas/2010/mclaren.webp",
+        "autor": "Jenson_Button_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jenson_Button_Bahrain_2010_cropped.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes MGP W01",
+        "src": "/Images/monoplazas/2010/mercedes.webp",
+        "autor": "Andrew Griffith from United Kingdom",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2010_Bahrain.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB6",
+        "src": "/Images/monoplazas/2010/red_bull.webp",
+        "autor": "Vettel_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Vettel_Bahrain_2010_(cropped).jpg"
+      },
+      "renault": {
+        "modelo": "Renault R30",
+        "src": "/Images/monoplazas/2010/renault.webp",
+        "autor": "Kubica_Bahrain_Grand_Prix_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kubica_Bahrain_Grand_Prix_2010_(cropped).jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C29",
+        "src": "/Images/monoplazas/2010/sauber.webp",
+        "autor": "Sauber Bahrain 2010 02.jpg : Andrew® derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sauber_Bahrain_2010.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR5",
+        "src": "/Images/monoplazas/2010/toro_rosso.webp",
+        "autor": "Toro_Rosso_STR5_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Toro_Rosso_STR5_Bahrain_2010_(cropped).jpg"
+      },
+      "virgin": {
+        "modelo": "Virgin VR-01",
+        "src": "/Images/monoplazas/2010/virgin.webp",
+        "autor": "Virgin_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Virgin_Bahrain_2010_(cropped).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW32",
+        "src": "/Images/monoplazas/2010/williams.webp",
+        "autor": "Barrichello_Malaysian_GP_2010.jpg : Joost Rooijmans from Kuala Lumpur, Malaysia derivative work: Chubbennaitor ( talk )",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Barrichello_Malaysian_GP_2010_(cropped).jpg"
+      }
+    },
+    "2011": {
+      "ferrari": {
+        "modelo": "Ferrari 150º Italia",
+        "src": "/Images/monoplazas/2011/ferrari.webp",
+        "autor": "Gil Abrantes",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_150%C2%B0_Italia_Alonso_2011_Spanish_GP.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM04",
+        "src": "/Images/monoplazas/2011/force_india.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Paul_Di_Resta_(6182439125).jpg"
+      },
+      "hrt": {
+        "modelo": "HRT F111",
+        "src": "/Images/monoplazas/2011/hrt.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2011_Japan_FP1.jpg"
+      },
+      "lotus_racing": {
+        "modelo": "Lotus T128",
+        "src": "/Images/monoplazas/2011/lotus_racing.webp",
+        "autor": "Gil Abrantes",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_T128_Kovalainen.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-26",
+        "src": "/Images/monoplazas/2011/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jenson_Button_2011_Malaysia_FP2_2.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes MGP W02",
+        "src": "/Images/monoplazas/2011/mercedes.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Michael_Schumacher_(6182900110).jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB7",
+        "src": "/Images/monoplazas/2011/red_bull.webp",
+        "autor": "Neil",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Red_Bull_Racing-Renault_RB7_(55060540169).jpg"
+      },
+      "renault": {
+        "modelo": "Renault R31",
+        "src": "/Images/monoplazas/2011/renault.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Vitaly_Petrov_(6196175970).jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C30",
+        "src": "/Images/monoplazas/2011/sauber.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kamui_Kobayashi_(6195664211).jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR6",
+        "src": "/Images/monoplazas/2011/toro_rosso.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jaime_Alguersuari_(6196188624).jpg"
+      },
+      "virgin": {
+        "modelo": "Virgin MVR-02",
+        "src": "/Images/monoplazas/2011/virgin.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jerome_d%27Ambrosio_(6147965715).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW33",
+        "src": "/Images/monoplazas/2011/williams.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Rubens_Barrichello_(6196180836).jpg"
+      }
+    },
+    "2012": {
+      "caterham": {
+        "modelo": "Caterham CT01",
+        "src": "/Images/monoplazas/2012/caterham.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Vitaly_Petrov_2012_Malaysia_FP1.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari F2012",
+        "src": "/Images/monoplazas/2012/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2012_Malaysia_FP1.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM05",
+        "src": "/Images/monoplazas/2012/force_india.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2012_Malaysia_FP1.jpg"
+      },
+      "hrt": {
+        "modelo": "HRT F112",
+        "src": "/Images/monoplazas/2012/hrt.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pedro_de_la_Rosa_2012_Malaysia_FP1.jpg"
+      },
+      "lotus_f1": {
+        "modelo": "Lotus E20",
+        "src": "/Images/monoplazas/2012/lotus_f1.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_2012_Malaysia_FP1.jpg"
+      },
+      "marussia": {
+        "modelo": "Marussia MR01",
+        "src": "/Images/monoplazas/2012/marussia.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Timo_Glock_2012_Malaysia_FP1.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-27",
+        "src": "/Images/monoplazas/2012/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2012_Malaysia_FP1.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W03",
+        "src": "/Images/monoplazas/2012/mercedes.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2012_Malaysia_FP1.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB8",
+        "src": "/Images/monoplazas/2012/red_bull.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2012_Malaysia_FP1.jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C31",
+        "src": "/Images/monoplazas/2012/sauber.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sergio_Perez_2012_Malaysia_FP1.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR7",
+        "src": "/Images/monoplazas/2012/toro_rosso.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jean-Eric_Vergne_2012_Malaysia_FP1.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW34",
+        "src": "/Images/monoplazas/2012/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pastor_Maldonado_2012_Malaysia_FP1.jpg"
+      }
+    },
+    "2013": {
+      "caterham": {
+        "modelo": "Caterham CT03",
+        "src": "/Images/monoplazas/2013/caterham.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Charles_Pic_2013_Malaysia_FP2.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari F138",
+        "src": "/Images/monoplazas/2013/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2013_Malaysia_FP2.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM06",
+        "src": "/Images/monoplazas/2013/force_india.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Adrian_Sutil_2013_Malaysia_FP2.jpg"
+      },
+      "lotus_f1": {
+        "modelo": "Lotus E21",
+        "src": "/Images/monoplazas/2013/lotus_f1.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_2013_Malaysia_FP2.jpg"
+      },
+      "marussia": {
+        "modelo": "Marussia MR02",
+        "src": "/Images/monoplazas/2013/marussia.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jules_Bianchi_2013_Malaysia_FP2.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-28",
+        "src": "/Images/monoplazas/2013/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jenson_Button_2013_Malaysia_FP2_1.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W04",
+        "src": "/Images/monoplazas/2013/mercedes.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2013_Malaysia_FP2_1.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB9",
+        "src": "/Images/monoplazas/2013/red_bull.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2013_Malaysia_FP2.jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C32",
+        "src": "/Images/monoplazas/2013/sauber.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2013_Malaysia_FP2.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR8",
+        "src": "/Images/monoplazas/2013/toro_rosso.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jean-Eric_Vergne_2013_Malaysia_FP2.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW35",
+        "src": "/Images/monoplazas/2013/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pastor_Maldonado_2013_Malaysia_FP2_1.jpg"
+      }
+    },
+    "2014": {
+      "caterham": {
+        "modelo": "Caterham CT05",
+        "src": "/Images/monoplazas/2014/caterham.webp",
+        "autor": "Jake Archibald",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Marcus_Ericsson_2014_British_GP_001.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari F14 T",
+        "src": "/Images/monoplazas/2014/ferrari.webp",
+        "autor": "Jake Archibald",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2014_British_GP_002_(cropped).jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM07",
+        "src": "/Images/monoplazas/2014/force_india.webp",
+        "autor": "Jake Archibald",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:F1_-_Force_India_-_Nico_H%C3%BClkenberg_(14428318228).jpg"
+      },
+      "lotus_f1": {
+        "modelo": "Lotus E22",
+        "src": "/Images/monoplazas/2014/lotus_f1.webp",
+        "autor": "Jake Archibald",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_E22_Maldonado_Silverstone_2014_(3).jpg"
+      },
+      "marussia": {
+        "modelo": "Marussia MR03",
+        "src": "/Images/monoplazas/2014/marussia.webp",
+        "autor": "Habeed Hameed",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jules_Bianchi_Bahre%C3%AFn_2014.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-29",
+        "src": "/Images/monoplazas/2014/mclaren.webp",
+        "autor": "emperornie",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mclaren_MP4-29_Jenson_Button_2014_F1_Chinese_GP.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W05 Hybrid",
+        "src": "/Images/monoplazas/2014/mercedes.webp",
+        "autor": "nhayashida",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mercedes_F1_W05_Hybrid_(Lewis_Hamilton).jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB10",
+        "src": "/Images/monoplazas/2014/red_bull.webp",
+        "autor": "emperornie",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2014_China_Race_(cropped).jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C33",
+        "src": "/Images/monoplazas/2014/sauber.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Adrian_Sutil_2014_Singapore_FP1.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR9",
+        "src": "/Images/monoplazas/2014/toro_rosso.webp",
+        "autor": "Jake Archibald",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Daniil_Kvyat_2014_British_GP_002_(cropped).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW36",
+        "src": "/Images/monoplazas/2014/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Felipe_Massa_2014_Singapore_FP1.jpg"
+      }
+    },
+    "2015": {
+      "ferrari": {
+        "modelo": "Ferrari SF15-T",
+        "src": "/Images/monoplazas/2015/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2015_Malaysia_FP2_3.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM08",
+        "src": "/Images/monoplazas/2015/force_india.webp",
+        "autor": "Keisuke Kariya",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:H%C3%BClkenberg_Japan_2015.jpg"
+      },
+      "lotus_f1": {
+        "modelo": "Lotus E23 Hybrid",
+        "src": "/Images/monoplazas/2015/lotus_f1.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Romain_Grosjean_2015_Malaysia_FP1.jpg"
+      },
+      "manor": {
+        "modelo": "Manor Marussia MR03B",
+        "src": "/Images/monoplazas/2015/manor.webp",
+        "autor": "Steventattum",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Will_Stevens_driving_the_Manor_F1_MR03B_at_the_British_GP.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-30",
+        "src": "/Images/monoplazas/2015/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jenson_Button_2015_Malaysia_FP2_1.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W06 Hybrid",
+        "src": "/Images/monoplazas/2015/mercedes.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2015_Malaysia_FP2_1.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB11",
+        "src": "/Images/monoplazas/2015/red_bull.webp",
+        "autor": "Veilleux79",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_b.jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C34",
+        "src": "/Images/monoplazas/2015/sauber.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Raffaele_Marciello_2015_Malaysia_FP1_1.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR10",
+        "src": "/Images/monoplazas/2015/toro_rosso.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Sainz_Jr_2015_Malaysia_FP3_1.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW37",
+        "src": "/Images/monoplazas/2015/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Felipe_Massa_2015_Malaysia_FP3.jpg"
+      }
+    },
+    "2016": {
+      "ferrari": {
+        "modelo": "Ferrari SF16-H",
+        "src": "/Images/monoplazas/2016/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2016_Malaysia_FP2_1.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM09",
+        "src": "/Images/monoplazas/2016/force_india.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sergio_Perez_2016_Malaysia_FP2_1.jpg"
+      },
+      "haas": {
+        "modelo": "Haas VF-16",
+        "src": "/Images/monoplazas/2016/haas.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Romain_Grosjean_2016_Malaysia_FP2_1.jpg"
+      },
+      "manor": {
+        "modelo": "Manor MRT05",
+        "src": "/Images/monoplazas/2016/manor.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pascal_Wehrlein_2016_Malaysia_FP2_1.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4-31",
+        "src": "/Images/monoplazas/2016/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2016_Malaysia_FP2_1.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W07 Hybrid",
+        "src": "/Images/monoplazas/2016/mercedes.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2016_Malaysia_FP2.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB12",
+        "src": "/Images/monoplazas/2016/red_bull.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Max_Verstappen_2016_Malaysia_FP2.jpg"
+      },
+      "renault": {
+        "modelo": "Renault R.S.16",
+        "src": "/Images/monoplazas/2016/renault.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jolyon_Palmer_2016_Malaysia_FP2_1.jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C35",
+        "src": "/Images/monoplazas/2016/sauber.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Marcus_Ericsson_2016_Malaysia_FP2_1.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR11",
+        "src": "/Images/monoplazas/2016/toro_rosso.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Sainz_Jr_2016_Malaysia_FP2_1.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW38",
+        "src": "/Images/monoplazas/2016/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Felipe_Massa_2016_Malaysia_FP2.jpg"
+      }
+    },
+    "2017": {
+      "ferrari": {
+        "modelo": "Ferrari SF70H",
+        "src": "/Images/monoplazas/2017/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2017_Malaysia_FP2.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM10",
+        "src": "/Images/monoplazas/2017/force_india.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Esteban_Ocon_2017_Malaysia_FP2_2.jpg"
+      },
+      "haas": {
+        "modelo": "Haas VF-17",
+        "src": "/Images/monoplazas/2017/haas.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kevin_Magnussen_2017_Malaysia_FP2_2.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MCL32",
+        "src": "/Images/monoplazas/2017/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2017_Malaysia_FP2_1.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W08 EQ Power+",
+        "src": "/Images/monoplazas/2017/mercedes.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2017_Malaysia_FP2.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB13",
+        "src": "/Images/monoplazas/2017/red_bull.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2017_Malaysia_FP1.jpg"
+      },
+      "renault": {
+        "modelo": "Renault R.S.17",
+        "src": "/Images/monoplazas/2017/renault.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2017_Malaysia_FP2_2.jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C36",
+        "src": "/Images/monoplazas/2017/sauber.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pascal_Wehrlein_2017_Malaysia_FP2_2.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR12",
+        "src": "/Images/monoplazas/2017/toro_rosso.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Sainz_Jr_2017_Malaysia_FP2_2.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW40",
+        "src": "/Images/monoplazas/2017/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Felipe_Massa_2017_Malaysia_FP2_2.jpg"
+      }
+    },
+    "2018": {
+      "ferrari": {
+        "modelo": "Ferrari SF71H",
+        "src": "/Images/monoplazas/2018/ferrari.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._5_Vettel.jpg"
+      },
+      "force_india": {
+        "modelo": "Force India VJM11",
+        "src": "/Images/monoplazas/2018/force_india.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._11_Perez.jpg"
+      },
+      "haas": {
+        "modelo": "Haas VF-18",
+        "src": "/Images/monoplazas/2018/haas.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._8_Grosjean.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MCL33",
+        "src": "/Images/monoplazas/2018/mclaren.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._14_Alonso.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W09 EQ Power+",
+        "src": "/Images/monoplazas/2018/mercedes.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._77_Bottas.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB14",
+        "src": "/Images/monoplazas/2018/red_bull.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._33_Verstappen.jpg"
+      },
+      "renault": {
+        "modelo": "Renault R.S.18",
+        "src": "/Images/monoplazas/2018/renault.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._27_H%C3%BClkenberg.jpg"
+      },
+      "sauber": {
+        "modelo": "Sauber C37",
+        "src": "/Images/monoplazas/2018/sauber.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._9_Ericsson.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR13",
+        "src": "/Images/monoplazas/2018/toro_rosso.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._10_Gasly.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW41",
+        "src": "/Images/monoplazas/2018/williams.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._18_Stroll.jpg"
+      }
+    },
+    "2019": {
+      "alfa": {
+        "modelo": "Alfa Romeo C38",
+        "src": "/Images/monoplazas/2019/alfa.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._7_R%C3%A4ikk%C3%B6nen_1.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari SF90",
+        "src": "/Images/monoplazas/2019/ferrari.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._5_Vettel_1.jpg"
+      },
+      "haas": {
+        "modelo": "Haas VF-19",
+        "src": "/Images/monoplazas/2019/haas.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._20_Magnussen_1.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MCL34",
+        "src": "/Images/monoplazas/2019/mclaren.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._55_Sainz_1.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes F1 W10 EQ Power+",
+        "src": "/Images/monoplazas/2019/mercedes.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._77_Bottas_1.jpg"
+      },
+      "racing_point": {
+        "modelo": "Racing Point RP19",
+        "src": "/Images/monoplazas/2019/racing_point.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._18_Stroll_1.jpg"
+      },
+      "red_bull": {
+        "modelo": "Red Bull RB15",
+        "src": "/Images/monoplazas/2019/red_bull.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._33_Verstappen_1.jpg"
+      },
+      "renault": {
+        "modelo": "Renault R.S.19",
+        "src": "/Images/monoplazas/2019/renault.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._3_Ricciardo_1.jpg"
+      },
+      "toro_rosso": {
+        "modelo": "Toro Rosso STR14",
+        "src": "/Images/monoplazas/2019/toro_rosso.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._26_Kvyat_1.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW42",
+        "src": "/Images/monoplazas/2019/williams.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._88_Kubica_1.jpg"
+      }
+    },
     "2020": {
       "mercedes": {
         "modelo": "Mercedes-AMG F1 W11 EQ Performance",

@@ -3,53 +3,162 @@
 Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
 licencia y fuente original. No se reutilizan fotos de otra temporada.
 
-- 2020 `alfa` — Alfa Romeo C39; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629030738).jpg
-- 2020 `alphatauri` — AlphaTauri AT01; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Pierre_Gasly-Alpha_Tauri_AT01_(2)_(cropped).jpg
-- 2020 `ferrari` — Ferrari SF1000; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629607611).jpg
-- 2020 `haas` — Haas VF-20; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Romain_Grosjean-Haas_VF-20_(1).jpg
-- 2020 `mclaren` — McLaren MCL35; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Lando_Norris-McLaren_MCL35_(3).jpg
-- 2020 `mercedes` — Mercedes-AMG F1 W11 EQ Performance; Original:  Eustace Bagge / Derivative work:  Danyele; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2020_Tuscan_Grand_Prix_-_race_day_(cropped).jpg
-- 2020 `racing_point` — Racing Point RP20; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Sergio_Perez-Racing_Point_RP_20_(5).jpg
-- 2020 `red_bull` — Red Bull Racing RB16; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Alexander_Albon-Red_Bull_RB16_(4).jpg
-- 2020 `renault` — Renault R.S.20; Eustace Bagge; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2020_Tuscan_Grand_Prix_2_(cropped).jpg
-- 2020 `williams` — Williams FW43; Eustace Bagge; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:George_Russell_2020_Tuscan_Grand_Prix_-_race_day.jpg
-- 2021 `alfa` — Alfa Romeo C41; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._99_Giovinazzi_(side).jpg
-- 2021 `alphatauri` — AlphaTauri AT02; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._10_Gasly_(side).jpg
-- 2021 `alpine` — Alpine A521; Chris Down; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso,_F1_British_Grand_Prix_2021.jpg
-- 2021 `aston_martin` — Aston Martin AMR21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._5_Vettel.jpg
-- 2021 `ferrari` — Ferrari SF21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._16_Leclerc_(side).jpg
-- 2021 `haas` — Haas VF-21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._47_Schumacher_(side).jpg
-- 2021 `mclaren` — McLaren MCL35M; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._4_Norris.jpg
-- 2021 `mercedes` — Mercedes-AMG F1 W12 E Performance; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._44_Hamilton_(side).jpg
-- 2021 `red_bull` — Red Bull Racing RB16B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._33_Verstappen_(side).jpg
-- 2021 `williams` — Williams FW43B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._63_Russell_(side).jpg
-- 2022 `alfa` — Alfa Romeo C42; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._77_Bottas.jpg
-- 2022 `alphatauri` — AlphaTauri AT03; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._10_Gasly.jpg
-- 2022 `alpine` — Alpine A522; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2022_British_Grand_Prix_(52382586268).jpg
-- 2022 `aston_martin` — Aston Martin AMR22; Wastrick; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2022_(cropped).jpg
-- 2022 `ferrari` — Ferrari F1-75; Wastrick; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Charles_Leclerc_2022.jpg
-- 2022 `haas` — Haas VF-22; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2022_British_Grand_Prix_(52381409242).jpg
-- 2022 `mclaren` — McLaren MCL36; Timfilbert; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lando_Norris_drives_the_McLaren_MCL36_during_the_2022_British_Grand_Prix..jpg
-- 2022 `mercedes` — Mercedes-AMG F1 W13 E Performance; Roberto Monti; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2022_Emilia_Romagna_GP_-_Mercedes-AMG_F1_W13_E_Performance_of_Lewis_Hamilton.jpg
-- 2022 `red_bull` — Red Bull Racing RB18; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._1_Verstappen_(side_2).jpg
-- 2022 `williams` — Williams FW44; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._23_Albon.jpg
-- 2023 `alfa` — Alfa Romeo C43; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._24_(2).jpg
-- 2023 `alphatauri` — AlphaTauri AT04; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._21_(2).jpg
-- 2023 `alpine` — Alpine A523; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._10_(2)_(cropped).jpg
-- 2023 `aston_martin` — Aston Martin AMR23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._14_(1).jpg
-- 2023 `ferrari` — Ferrari SF-23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._55_(1).jpg
-- 2023 `haas` — Haas VF-23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._27_(2).jpg
-- 2023 `mclaren` — McLaren MCL60; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._4_(2).jpg
-- 2023 `mercedes` — Mercedes-AMG F1 W14 E Performance; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._44_(2).jpg
-- 2023 `red_bull` — Red Bull Racing RB19; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._1_(1).jpg
-- 2023 `williams` — Williams FW45; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._23_(2).jpg
-- 2025 `alpine` — Alpine A525; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._10_Gasly.jpg
-- 2025 `aston_martin` — Aston Martin AMR25; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg
-- 2025 `ferrari` — Ferrari SF-25; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._44_Hamilton.jpg
-- 2025 `haas` — Haas VF-25; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._87_Bearman.jpg
-- 2025 `mclaren` — McLaren MCL39; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._4_Norris.jpg
-- 2025 `mercedes` — Mercedes-AMG F1 W16 E Performance; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Singapore_GP_-_Mercedes_-_George_Russell_-_FP1.jpg
-- 2025 `rb` — Racing Bulls VCARB 02; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg
-- 2025 `red_bull` — Red Bull Racing RB21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._1_Verstappen.jpg
-- 2025 `sauber` — Sauber C45; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg
-- 2025 `williams` — Williams FW47; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg
+- 2010 `ferrari` — Ferrari F10; Andrew Griffith from United Kingdom; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_Bahrain_2010.jpg
+- 2010 `force_india` — Force India VJM03; Liuzzi_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Liuzzi_Bahrain_2010_(cropped).jpg
+- 2010 `hrt` — HRT F110; Bruno_Senna_2010_Bahrain.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Bruno_Senna_2010_Bahrain_(cropped).jpg
+- 2010 `lotus_racing` — Lotus T127; Lotus_in_Bahrain.jpg : Andrew® derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_in_Bahrain_(cropped)_2010.jpg
+- 2010 `mclaren` — McLaren MP4-25; Jenson_Button_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jenson_Button_Bahrain_2010_cropped.jpg
+- 2010 `mercedes` — Mercedes MGP W01; Andrew Griffith from United Kingdom; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2010_Bahrain.jpg
+- 2010 `red_bull` — Red Bull RB6; Vettel_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Vettel_Bahrain_2010_(cropped).jpg
+- 2010 `renault` — Renault R30; Kubica_Bahrain_Grand_Prix_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Kubica_Bahrain_Grand_Prix_2010_(cropped).jpg
+- 2010 `sauber` — Sauber C29; Sauber Bahrain 2010 02.jpg : Andrew® derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Sauber_Bahrain_2010.jpg
+- 2010 `toro_rosso` — Toro Rosso STR5; Toro_Rosso_STR5_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Toro_Rosso_STR5_Bahrain_2010_(cropped).jpg
+- 2010 `virgin` — Virgin VR-01; Virgin_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Virgin_Bahrain_2010_(cropped).jpg
+- 2010 `williams` — Williams FW32; Barrichello_Malaysian_GP_2010.jpg : Joost Rooijmans from Kuala Lumpur, Malaysia derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Barrichello_Malaysian_GP_2010_(cropped).jpg
+- 2011 `ferrari` — Ferrari 150º Italia; Gil Abrantes; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_150%C2%B0_Italia_Alonso_2011_Spanish_GP.jpg
+- 2011 `force_india` — Force India VJM04; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Paul_Di_Resta_(6182439125).jpg
+- 2011 `hrt` — HRT F111; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2011_Japan_FP1.jpg
+- 2011 `lotus_racing` — Lotus T128; Gil Abrantes; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_T128_Kovalainen.jpg
+- 2011 `mclaren` — McLaren MP4-26; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jenson_Button_2011_Malaysia_FP2_2.jpg
+- 2011 `mercedes` — Mercedes MGP W02; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Michael_Schumacher_(6182900110).jpg
+- 2011 `red_bull` — Red Bull RB7; Neil; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Red_Bull_Racing-Renault_RB7_(55060540169).jpg
+- 2011 `renault` — Renault R31; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Vitaly_Petrov_(6196175970).jpg
+- 2011 `sauber` — Sauber C30; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Kamui_Kobayashi_(6195664211).jpg
+- 2011 `toro_rosso` — Toro Rosso STR6; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jaime_Alguersuari_(6196188624).jpg
+- 2011 `virgin` — Virgin MVR-02; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jerome_d%27Ambrosio_(6147965715).jpg
+- 2011 `williams` — Williams FW33; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Rubens_Barrichello_(6196180836).jpg
+- 2012 `caterham` — Caterham CT01; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Vitaly_Petrov_2012_Malaysia_FP1.jpg
+- 2012 `ferrari` — Ferrari F2012; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2012_Malaysia_FP1.jpg
+- 2012 `force_india` — Force India VJM05; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2012_Malaysia_FP1.jpg
+- 2012 `hrt` — HRT F112; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Pedro_de_la_Rosa_2012_Malaysia_FP1.jpg
+- 2012 `lotus_f1` — Lotus E20; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_2012_Malaysia_FP1.jpg
+- 2012 `marussia` — Marussia MR01; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Timo_Glock_2012_Malaysia_FP1.jpg
+- 2012 `mclaren` — McLaren MP4-27; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2012_Malaysia_FP1.jpg
+- 2012 `mercedes` — Mercedes F1 W03; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2012_Malaysia_FP1.jpg
+- 2012 `red_bull` — Red Bull RB8; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2012_Malaysia_FP1.jpg
+- 2012 `sauber` — Sauber C31; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Sergio_Perez_2012_Malaysia_FP1.jpg
+- 2012 `toro_rosso` — Toro Rosso STR7; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jean-Eric_Vergne_2012_Malaysia_FP1.jpg
+- 2012 `williams` — Williams FW34; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Pastor_Maldonado_2012_Malaysia_FP1.jpg
+- 2013 `caterham` — Caterham CT03; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Charles_Pic_2013_Malaysia_FP2.jpg
+- 2013 `ferrari` — Ferrari F138; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2013_Malaysia_FP2.jpg
+- 2013 `force_india` — Force India VJM06; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Adrian_Sutil_2013_Malaysia_FP2.jpg
+- 2013 `lotus_f1` — Lotus E21; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_2013_Malaysia_FP2.jpg
+- 2013 `marussia` — Marussia MR02; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jules_Bianchi_2013_Malaysia_FP2.jpg
+- 2013 `mclaren` — McLaren MP4-28; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jenson_Button_2013_Malaysia_FP2_1.jpg
+- 2013 `mercedes` — Mercedes F1 W04; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2013_Malaysia_FP2_1.jpg
+- 2013 `red_bull` — Red Bull RB9; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2013_Malaysia_FP2.jpg
+- 2013 `sauber` — Sauber C32; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2013_Malaysia_FP2.jpg
+- 2013 `toro_rosso` — Toro Rosso STR8; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jean-Eric_Vergne_2013_Malaysia_FP2.jpg
+- 2013 `williams` — Williams FW35; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Pastor_Maldonado_2013_Malaysia_FP2_1.jpg
+- 2014 `caterham` — Caterham CT05; Jake Archibald; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Marcus_Ericsson_2014_British_GP_001.jpg
+- 2014 `ferrari` — Ferrari F14 T; Jake Archibald; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2014_British_GP_002_(cropped).jpg
+- 2014 `force_india` — Force India VJM07; Jake Archibald; CC BY 2.0; https://commons.wikimedia.org/wiki/File:F1_-_Force_India_-_Nico_H%C3%BClkenberg_(14428318228).jpg
+- 2014 `lotus_f1` — Lotus E22; Jake Archibald; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_E22_Maldonado_Silverstone_2014_(3).jpg
+- 2014 `marussia` — Marussia MR03; Habeed Hameed; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jules_Bianchi_Bahre%C3%AFn_2014.jpg
+- 2014 `mclaren` — McLaren MP4-29; emperornie; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mclaren_MP4-29_Jenson_Button_2014_F1_Chinese_GP.jpg
+- 2014 `mercedes` — Mercedes F1 W05 Hybrid; nhayashida; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Mercedes_F1_W05_Hybrid_(Lewis_Hamilton).jpg
+- 2014 `red_bull` — Red Bull RB10; emperornie; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2014_China_Race_(cropped).jpg
+- 2014 `sauber` — Sauber C33; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Adrian_Sutil_2014_Singapore_FP1.jpg
+- 2014 `toro_rosso` — Toro Rosso STR9; Jake Archibald; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Daniil_Kvyat_2014_British_GP_002_(cropped).jpg
+- 2014 `williams` — Williams FW36; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Felipe_Massa_2014_Singapore_FP1.jpg
+- 2015 `ferrari` — Ferrari SF15-T; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2015_Malaysia_FP2_3.jpg
+- 2015 `force_india` — Force India VJM08; Keisuke Kariya; CC BY 2.0; https://commons.wikimedia.org/wiki/File:H%C3%BClkenberg_Japan_2015.jpg
+- 2015 `lotus_f1` — Lotus E23 Hybrid; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Romain_Grosjean_2015_Malaysia_FP1.jpg
+- 2015 `manor` — Manor Marussia MR03B; Steventattum; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Will_Stevens_driving_the_Manor_F1_MR03B_at_the_British_GP.jpg
+- 2015 `mclaren` — McLaren MP4-30; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Jenson_Button_2015_Malaysia_FP2_1.jpg
+- 2015 `mercedes` — Mercedes F1 W06 Hybrid; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2015_Malaysia_FP2_1.jpg
+- 2015 `red_bull` — Red Bull RB11; Veilleux79; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_b.jpg
+- 2015 `sauber` — Sauber C34; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Raffaele_Marciello_2015_Malaysia_FP1_1.jpg
+- 2015 `toro_rosso` — Toro Rosso STR10; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Carlos_Sainz_Jr_2015_Malaysia_FP3_1.jpg
+- 2015 `williams` — Williams FW37; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Felipe_Massa_2015_Malaysia_FP3.jpg
+- 2016 `ferrari` — Ferrari SF16-H; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2016_Malaysia_FP2_1.jpg
+- 2016 `force_india` — Force India VJM09; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sergio_Perez_2016_Malaysia_FP2_1.jpg
+- 2016 `haas` — Haas VF-16; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Romain_Grosjean_2016_Malaysia_FP2_1.jpg
+- 2016 `manor` — Manor MRT05; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Pascal_Wehrlein_2016_Malaysia_FP2_1.jpg
+- 2016 `mclaren` — McLaren MP4-31; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2016_Malaysia_FP2_1.jpg
+- 2016 `mercedes` — Mercedes F1 W07 Hybrid; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2016_Malaysia_FP2.jpg
+- 2016 `red_bull` — Red Bull RB12; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Max_Verstappen_2016_Malaysia_FP2.jpg
+- 2016 `renault` — Renault R.S.16; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Jolyon_Palmer_2016_Malaysia_FP2_1.jpg
+- 2016 `sauber` — Sauber C35; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Marcus_Ericsson_2016_Malaysia_FP2_1.jpg
+- 2016 `toro_rosso` — Toro Rosso STR11; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Carlos_Sainz_Jr_2016_Malaysia_FP2_1.jpg
+- 2016 `williams` — Williams FW38; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Felipe_Massa_2016_Malaysia_FP2.jpg
+- 2017 `ferrari` — Ferrari SF70H; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2017_Malaysia_FP2.jpg
+- 2017 `force_india` — Force India VJM10; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Esteban_Ocon_2017_Malaysia_FP2_2.jpg
+- 2017 `haas` — Haas VF-17; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Kevin_Magnussen_2017_Malaysia_FP2_2.jpg
+- 2017 `mclaren` — McLaren MCL32; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2017_Malaysia_FP2_1.jpg
+- 2017 `mercedes` — Mercedes F1 W08 EQ Power+; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2017_Malaysia_FP2.jpg
+- 2017 `red_bull` — Red Bull RB13; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2017_Malaysia_FP1.jpg
+- 2017 `renault` — Renault R.S.17; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Nico_Hulkenberg_2017_Malaysia_FP2_2.jpg
+- 2017 `sauber` — Sauber C36; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Pascal_Wehrlein_2017_Malaysia_FP2_2.jpg
+- 2017 `toro_rosso` — Toro Rosso STR12; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Carlos_Sainz_Jr_2017_Malaysia_FP2_2.jpg
+- 2017 `williams` — Williams FW40; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Felipe_Massa_2017_Malaysia_FP2_2.jpg
+- 2018 `ferrari` — Ferrari SF71H; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._5_Vettel.jpg
+- 2018 `force_india` — Force India VJM11; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._11_Perez.jpg
+- 2018 `haas` — Haas VF-18; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._8_Grosjean.jpg
+- 2018 `mclaren` — McLaren MCL33; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._14_Alonso.jpg
+- 2018 `mercedes` — Mercedes F1 W09 EQ Power+; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._77_Bottas.jpg
+- 2018 `red_bull` — Red Bull RB14; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._33_Verstappen.jpg
+- 2018 `renault` — Renault R.S.18; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._27_H%C3%BClkenberg.jpg
+- 2018 `sauber` — Sauber C37; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._9_Ericsson.jpg
+- 2018 `toro_rosso` — Toro Rosso STR13; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._10_Gasly.jpg
+- 2018 `williams` — Williams FW41; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2018_Nr._18_Stroll.jpg
+- 2019 `alfa` — Alfa Romeo C38; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._7_R%C3%A4ikk%C3%B6nen_1.jpg
+- 2019 `ferrari` — Ferrari SF90; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._5_Vettel_1.jpg
+- 2019 `haas` — Haas VF-19; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._20_Magnussen_1.jpg
+- 2019 `mclaren` — McLaren MCL34; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._55_Sainz_1.jpg
+- 2019 `mercedes` — Mercedes F1 W10 EQ Power+; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._77_Bottas_1.jpg
+- 2019 `racing_point` — Racing Point RP19; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._18_Stroll_1.jpg
+- 2019 `red_bull` — Red Bull RB15; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._33_Verstappen_1.jpg
+- 2019 `renault` — Renault R.S.19; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._3_Ricciardo_1.jpg
+- 2019 `toro_rosso` — Toro Rosso STR14; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._26_Kvyat_1.jpg
+- 2019 `williams` — Williams FW42; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2019_Nr._88_Kubica_1.jpg
+- 2020 `alfa` ÔÇö Alfa Romeo C39; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629030738).jpg
+- 2020 `alphatauri` ÔÇö AlphaTauri AT01; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Pierre_Gasly-Alpha_Tauri_AT01_(2)_(cropped).jpg
+- 2020 `ferrari` ÔÇö Ferrari SF1000; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2020_F1_Pre-Season_Testing_Catalonia_(49629607611).jpg
+- 2020 `haas` ÔÇö Haas VF-20; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Romain_Grosjean-Haas_VF-20_(1).jpg
+- 2020 `mclaren` ÔÇö McLaren MCL35; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Lando_Norris-McLaren_MCL35_(3).jpg
+- 2020 `mercedes` ÔÇö Mercedes-AMG F1 W11 EQ Performance; Original:  Eustace Bagge / Derivative work:  Danyele; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2020_Tuscan_Grand_Prix_-_race_day_(cropped).jpg
+- 2020 `racing_point` ÔÇö Racing Point RP20; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Sergio_Perez-Racing_Point_RP_20_(5).jpg
+- 2020 `red_bull` ÔÇö Red Bull Racing RB16; Alberto-g-rovi; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Alexander_Albon-Red_Bull_RB16_(4).jpg
+- 2020 `renault` ÔÇö Renault R.S.20; Eustace Bagge; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Daniel_Ricciardo_2020_Tuscan_Grand_Prix_2_(cropped).jpg
+- 2020 `williams` ÔÇö Williams FW43; Eustace Bagge; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:George_Russell_2020_Tuscan_Grand_Prix_-_race_day.jpg
+- 2021 `alfa` ÔÇö Alfa Romeo C41; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._99_Giovinazzi_(side).jpg
+- 2021 `alphatauri` ÔÇö AlphaTauri AT02; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._10_Gasly_(side).jpg
+- 2021 `alpine` ÔÇö Alpine A521; Chris Down; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso,_F1_British_Grand_Prix_2021.jpg
+- 2021 `aston_martin` ÔÇö Aston Martin AMR21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._5_Vettel.jpg
+- 2021 `ferrari` ÔÇö Ferrari SF21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._16_Leclerc_(side).jpg
+- 2021 `haas` ÔÇö Haas VF-21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._47_Schumacher_(side).jpg
+- 2021 `mclaren` ÔÇö McLaren MCL35M; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._4_Norris.jpg
+- 2021 `mercedes` ÔÇö Mercedes-AMG F1 W12 E Performance; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._44_Hamilton_(side).jpg
+- 2021 `red_bull` ÔÇö Red Bull Racing RB16B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._33_Verstappen_(side).jpg
+- 2021 `williams` ÔÇö Williams FW43B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2021_Nr._63_Russell_(side).jpg
+- 2022 `alfa` ÔÇö Alfa Romeo C42; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._77_Bottas.jpg
+- 2022 `alphatauri` ÔÇö AlphaTauri AT03; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._10_Gasly.jpg
+- 2022 `alpine` ÔÇö Alpine A522; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2022_British_Grand_Prix_(52382586268).jpg
+- 2022 `aston_martin` ÔÇö Aston Martin AMR22; Wastrick; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sebastian_Vettel_2022_(cropped).jpg
+- 2022 `ferrari` ÔÇö Ferrari F1-75; Wastrick; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Charles_Leclerc_2022.jpg
+- 2022 `haas` ÔÇö Haas VF-22; Jen Ross; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2022_British_Grand_Prix_(52381409242).jpg
+- 2022 `mclaren` ÔÇö McLaren MCL36; Timfilbert; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lando_Norris_drives_the_McLaren_MCL36_during_the_2022_British_Grand_Prix..jpg
+- 2022 `mercedes` ÔÇö Mercedes-AMG F1 W13 E Performance; Roberto Monti; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2022_Emilia_Romagna_GP_-_Mercedes-AMG_F1_W13_E_Performance_of_Lewis_Hamilton.jpg
+- 2022 `red_bull` ÔÇö Red Bull Racing RB18; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._1_Verstappen_(side_2).jpg
+- 2022 `williams` ÔÇö Williams FW44; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2022_Nr._23_Albon.jpg
+- 2023 `alfa` ÔÇö Alfa Romeo C43; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._24_(2).jpg
+- 2023 `alphatauri` ÔÇö AlphaTauri AT04; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._21_(2).jpg
+- 2023 `alpine` ÔÇö Alpine A523; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._10_(2)_(cropped).jpg
+- 2023 `aston_martin` ÔÇö Aston Martin AMR23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._14_(1).jpg
+- 2023 `ferrari` ÔÇö Ferrari SF-23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._55_(1).jpg
+- 2023 `haas` ÔÇö Haas VF-23; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._27_(2).jpg
+- 2023 `mclaren` ÔÇö McLaren MCL60; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._4_(2).jpg
+- 2023 `mercedes` ÔÇö Mercedes-AMG F1 W14 E Performance; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._44_(2).jpg
+- 2023 `red_bull` ÔÇö Red Bull Racing RB19; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._1_(1).jpg
+- 2023 `williams` ÔÇö Williams FW45; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2023_Nr._23_(2).jpg
+- 2025 `alpine` ÔÇö Alpine A525; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._10_Gasly.jpg
+- 2025 `aston_martin` ÔÇö Aston Martin AMR25; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Aston_Martin_-_Fernando_Alonso_-_FP1.jpg
+- 2025 `ferrari` ÔÇö Ferrari SF-25; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._44_Hamilton.jpg
+- 2025 `haas` ÔÇö Haas VF-25; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._87_Bearman.jpg
+- 2025 `mclaren` ÔÇö McLaren MCL39; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._4_Norris.jpg
+- 2025 `mercedes` ÔÇö Mercedes-AMG F1 W16 E Performance; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Singapore_GP_-_Mercedes_-_George_Russell_-_FP1.jpg
+- 2025 `rb` ÔÇö Racing Bulls VCARB 02; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Racing_Bulls_-_Liam_Lawson_-_FP2.jpg
+- 2025 `red_bull` ÔÇö Red Bull Racing RB21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._1_Verstappen.jpg
+- 2025 `sauber` ÔÇö Sauber C45; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg
+- 2025 `williams` ÔÇö Williams FW47; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg
