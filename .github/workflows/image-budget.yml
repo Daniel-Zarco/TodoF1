@@ -6,12 +6,12 @@ on:
       - main
     paths:
       - 'Images/**'
-      - 'deploy/check-image-budget.sh'
+      - 'deploy/*.sh'
       - '.github/workflows/image-budget.yml'
   pull_request:
     paths:
       - 'Images/**'
-      - 'deploy/check-image-budget.sh'
+      - 'deploy/*.sh'
       - '.github/workflows/image-budget.yml'
   workflow_dispatch:
 
@@ -24,6 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate deploy shell scripts
+        run: |
+          bash -n deploy/deploy.sh
+          bash -n deploy/check-image-budget.sh
+          bash -n deploy/prune-deploy-backups.sh
       - name: Check images
         env:
           IMAGE_MAX_KB: 250

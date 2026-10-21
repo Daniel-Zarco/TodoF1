@@ -1,0 +1,60 @@
+name: Backup maintenance
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run: solo simula; apply: elimina backups antiguos'
+        required: true
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+      keep:
+        description: 'Copias válidas a conservar (además de la web activa)'
+        required: true
+        default: '2'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: todof1-backup-maintenance
+  cancel-in-progress: false
+
+jobs:
+  prune:
+    name: Prune deploy backups
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Run backup retention
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          MODE: ${{ github.event.inputs.mode }}
+          KEEP: ${{ github.event.inputs.keep }}
+        run: |
+          case "$KEEP" in
+            ''|*[!0-9]*) echo "::error::keep debe ser un número entero"; exit 1 ;;
+          esac
+
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$SSH_USER@$SSH_HOST" \
+            "cd /home/todof1/todof1-app || exit 1; git fetch --prune origin main || exit 1; git merge --ff-only origin/main || exit 1; bash deploy/prune-deploy-backups.sh --${MODE} --keep ${KEEP}"
