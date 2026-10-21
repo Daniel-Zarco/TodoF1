@@ -15,9 +15,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  test-retention:
+    name: Test backup retention
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simular retención segura
+        run: |
+          bash -n deploy/prune-deploy-backups.sh
+          bash -n deploy/test-prune-deploy-backups.sh
+          bash deploy/test-prune-deploy-backups.sh
+
   deploy:
     name: Deploy to alwaysdata
     runs-on: ubuntu-latest
+    needs: test-retention
 
     steps:
       - name: Configure SSH
@@ -117,3 +129,19 @@ jobs:
             exit 1
           fi
           echo "VERIFICACION DE PRODUCCION: OK"
+
+      # Solo se ejecuta si el despliegue y la verificación de producción han
+      # terminado correctamente: GitHub omite este paso si algo anterior falla.
+      - name: Retención automática de backups
+        if: ${{ success() }}
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          echo "Despliegue verificado; conservando las 2 copias válidas más recientes."
+          ssh -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes \
+            "$SSH_USER@$SSH_HOST" \
+            "cd /home/todof1/todof1-app || exit 1; bash deploy/prune-deploy-backups.sh --apply --keep 2"

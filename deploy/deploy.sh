@@ -245,15 +245,6 @@ fi
 log "No se han publicado: crear_admin.php, generarUsuarios.php, incrementar_contador.php, .env, private/, vendor/, .git/ ni archivos internos de Laravel."
 log "No se ejecutan migraciones ni se modifica MariaDB."
 
-# Auditoría de retención: NO borra nada. La limpieza real requiere el workflow
-# manual "Backup maintenance" con mode=apply y autorización explícita.
-if [[ "$DRY_RUN" -eq 0 ]]; then
-  log "Auditoría de copias de seguridad (dry-run, sin borrar nada)…"
-  if ! TODOF1_LOCK_FILE="$LOCK_FILE" TODOF1_DEPLOY_LOCK_HELD=1 bash "$REPO_DIR/deploy/prune-deploy-backups.sh" --dry-run; then
-    warn "La auditoría de backups falló; el despliegue ya estaba verificado y no se ha borrado nada."
-  fi
-fi
-
 if [[ "$DRY_RUN" -eq 1 ]]; then
   log "Simulación completada. No se ha modificado el servidor."
 else

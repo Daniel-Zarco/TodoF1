@@ -76,8 +76,8 @@ if WWW_REAL="$(readlink -f "$WWW_DIR" 2>/dev/null)" && [[ -n "$WWW_REAL" ]]; the
   esac
 fi
 
-# No limpiar mientras hay un despliegue en curso. deploy.sh marca esta variable
-# cuando invoca la auditoría al final, ya que él mismo mantiene el lock.
+# No limpiar mientras hay un despliegue en curso. Un invocador que ya mantiene
+# el lock puede marcar TODOF1_DEPLOY_LOCK_HELD=1 para omitir esta comprobación.
 if [[ "${TODOF1_DEPLOY_LOCK_HELD:-0}" != "1" ]]; then
   DEPLOY_LOCK="${TODOF1_LOCK_FILE:-${TMPDIR:-/tmp}/todof1-deploy.lock}"
   exec 8>"$DEPLOY_LOCK" || { echo "No se pudo abrir el lock de despliegue"; exit 1; }
