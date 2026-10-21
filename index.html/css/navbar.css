@@ -841,24 +841,30 @@ html[data-drawer="open"] .tf-drawer__panel {
 .tf-season__trigger {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   height: 36px;
-  padding: 0 10px 0 12px;
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-md);
-  background: #2c2d31;
+  padding: 0 11px 0 15px;
+  border: 1px solid #414248;
+  border-radius: 11px;
+  background: #292a2f;
   color: var(--c-text);
   font: inherit;
   cursor: pointer;
+  box-shadow: inset 3px 0 0 var(--team-primary);
   transition: border-color 160ms var(--ease), background-color 160ms var(--ease),
-    box-shadow 160ms var(--ease), transform 160ms var(--ease);
+    box-shadow 160ms var(--ease);
 }
 
-.tf-season__trigger:hover,
+.tf-season__trigger:hover {
+  border-color: #55575f;
+  background: #303137;
+  box-shadow: inset 3px 0 0 var(--team-primary);
+}
+
 .tf-season__trigger[aria-expanded="true"] {
   border-color: var(--team-primary-line);
-  background: var(--team-primary-dim);
-  box-shadow: 0 0 0 3px var(--team-primary-dim);
+  background: #303137;
+  box-shadow: inset 3px 0 0 var(--team-primary), inset 0 0 0 1px var(--team-primary-line);
 }
 
 .tf-season__trigger:focus-visible {
@@ -866,32 +872,26 @@ html[data-drawer="open"] .tf-drawer__panel {
   outline-offset: 2px;
 }
 
-.tf-season__cal {
-  display: inline-grid;
-  place-items: center;
-  color: var(--team-primary);
-}
-
-.tf-season__cal svg,
 .tf-season__chev svg {
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 .tf-season__prefix {
-  color: var(--c-mute);
-  font-size: 0.66rem;
+  color: var(--c-dim);
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .tf-season__year {
+  color: #fff;
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 800;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -900,7 +900,8 @@ html[data-drawer="open"] .tf-drawer__panel {
 .tf-season__chev {
   display: inline-grid;
   place-items: center;
-  color: var(--c-mute);
+  margin-left: 1px;
+  color: var(--c-dim);
   transition: transform 160ms var(--ease);
 }
 
@@ -909,7 +910,7 @@ html[data-drawer="open"] .tf-drawer__panel {
 }
 
 .tf-season__trigger--hero {
-  min-width: 124px;
+  min-width: 132px;
   height: 34px;
 }
 
@@ -1103,7 +1104,7 @@ html[data-drawer="open"] .tf-drawer__panel {
     justify-content: space-between;
     min-height: 48px;
     height: 48px;
-    padding: 0 14px;
+    padding: 0 14px 0 17px;
   }
 
   .tf-season__trigger--hero {
@@ -1139,6 +1140,12 @@ html[data-drawer="open"] .tf-drawer__panel {
 
   .tf-season__year {
     min-height: 48px;
+  }
+}
+
+@media (max-width: 359px) {
+  .tf-season__trigger .tf-season__prefix {
+    display: none;
   }
 }
 

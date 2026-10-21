@@ -44,10 +44,6 @@
     return window.innerWidth <= MOBILE_MAX;
   }
 
-  var CALENDAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
-    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
-    '<rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect>' +
-    '<path d="M3.5 9.5h17"></path><path d="M8 3.5v3"></path><path d="M16 3.5v3"></path></svg>';
   var CHEVRON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
     '<path d="m7 9 5 5 5-5"></path></svg>';
@@ -81,8 +77,7 @@
     this.trigger.setAttribute('aria-expanded', 'false');
     this.trigger.setAttribute('aria-controls', panelId);
     this.trigger.innerHTML =
-      '<span class="tf-season__cal">' + CALENDAR + '</span>' +
-      '<span class="tf-season__prefix">' + (context === 'nav' ? 'TEMP.' : 'Temporada') + '</span>' +
+      '<span class="tf-season__prefix">Temporada</span>' +
       '<span class="tf-season__year">' + FALLBACK_MAX + '</span>' +
       '<span class="tf-season__chev">' + CHEVRON + '</span>';
 
