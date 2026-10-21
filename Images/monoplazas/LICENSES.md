@@ -3,6 +3,148 @@
 Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
 licencia y fuente original. No se reutilizan fotos de otra temporada.
 
+- 1980 `alfa` — Alfa Romeo 179; Ben Sutherland; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Andrea_De_Cesaris_Alfa_Romeo_179.jpg
+- 1980 `arrows` — Arrows A3; TOM at Picassa .; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A3_Mallory_Park.JPG
+- 1980 `brabham` — Brabham BT49; Eric Verplanken; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Piquetmonaco.jpg
+- 1980 `ensign` — Ensign N179; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ensign_N179_(52339098099)_(cropped).jpg
+- 1980 `ferrari` — Ferrari 312T5; Mark McArdle; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_312T5_Gilles_Villeneuve_2010_Canada_2.jpg
+- 1980 `ligier` — Ligier JS11/15; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jacques_Laffite_Ligier_JS11_15_2019_Silverstone_Classic_(48557917442).jpg
+- 1980 `mclaren` — McLaren M29; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_M29.jpg
+- 1980 `renault` — Renault RE20; Pereira, Fernando / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 930-9906; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Arnoux_at_1980_Dutch_Grand_Prix.jpg
+- 1980 `shadow` — Shadow DN11; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1980_Shadow-Cosworth_DN11.jpg
+- 1980 `team_lotus` — Lotus 81; https://www.flickr.com/photos/mrlaugh/; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:2017_FIA_Masters_Historic_Formula_One_Championship,_Circuit_of_the_Americas_(23970302968).jpg
+- 1980 `tyrrell` — Tyrrell 009; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Tyrrell_009_Mont-Tremblant_Esses.jpg
+- 1980 `williams` — Williams FW07; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Williams_FW07C,_Peter_Sowerby,_GB_(17.06.2007).jpg
+- 1981 `alfa` — Alfa Romeo 179D; Falcon® Photography from France; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alfa_Romeo_179D_1981_(33152755025).jpg
+- 1981 `arrows` — Arrows A3; TOM at Picassa .; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A3_Mallory_Park.JPG
+- 1981 `ats` — ATS D5; Hans van Dijk for Anefo; CC0; https://commons.wikimedia.org/wiki/File:Grand_Prix_van_NL_op_circuit_van_Zandvoort_nr._10_,_11_officials_en_politie_la,_Bestanddeelnr_253-8581.jpg
+- 1981 `brabham` — Brabham BT49C; Eric Verplanken; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Piquetmonaco.jpg
+- 1981 `ferrari` — Ferrari 126CK; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Ferrari_126CK_front-left_Museo_Ferrari.jpg
+- 1981 `ligier` — Ligier JS17; Hans van Dijk for Anefo; CC0; https://commons.wikimedia.org/wiki/File:Laffite_en_Reutemann_tijdens_de_Grand_Prix_Formule_1_van_Nederland_1981.jpg
+- 1981 `march` — March 811; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:March_811_at_Silverstone_Classic_2011.jpg
+- 1981 `mclaren` — McLaren MP4/1; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_(48557916077).jpg
+- 1981 `renault` — Renault RE30; Hans van Dijk for Anefo; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Ren%C3%A9_Arnoux_1981_Nederland.jpg
+- 1981 `team_lotus` — Lotus 87; Russell Whitworth; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus_87_2008_Silverstone_Classic.jpg
+- 1981 `toleman` — Toleman TG181; Phil Guest from Bournemouth, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Toleman_TG181.jpg
+- 1981 `tyrrell` — Tyrrell 010; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Eddie_Cheever%27s_1981_Tyrrell-Ford_Tyrrell_010_F1_car_(14478688039).jpg
+- 1981 `williams` — Williams FW07C; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Williams_FW07C,_Peter_Sowerby,_GB_(17.06.2007).jpg
+- 1982 `alfa` — Alfa Romeo 182; AlfvanBeem; CC0; https://commons.wikimedia.org/wiki/File:1982_F1_Alfa_Romeo_182_B.JPG
+- 1982 `arrows` — Arrows A4; https://www.flickr.com/photos/95472204@N03/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A4_2018_(41789577514).jpg
+- 1982 `ats` — ATS D5; Hans van Dijk for Anefo; CC0; https://commons.wikimedia.org/wiki/File:Grand_Prix_van_NL_op_circuit_van_Zandvoort_nr._10_,_11_officials_en_politie_la,_Bestanddeelnr_253-8581.jpg
+- 1982 `brabham` — Brabham BT50; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Nelson_Piquet_1982_British_GP.jpg
+- 1982 `ferrari` — Ferrari 126C2; Hans van Dijk for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 932-2345; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Pironi_and_Alboreto_at_1982_Dutch_Grand_Prix.jpg
+- 1982 `ligier` — Ligier JS17B; Hans van Dijk for Anefo; CC0; https://commons.wikimedia.org/wiki/File:Laffite_en_Reutemann_tijdens_de_Grand_Prix_Formule_1_van_Nederland_1981.jpg
+- 1982 `march` — March 821; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:March_821_at_Silverstone_Classic_2011.jpg
+- 1982 `mclaren` — McLaren MP4/1B; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_(48557916077).jpg
+- 1982 `renault` — Renault RE30B; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Rene_Arnoux_1982_British_GP.jpg
+- 1982 `team_lotus` — Lotus 91; https://www.flickr.com/photos/95472204@N03/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_91_2018_(42512010201).jpg
+- 1982 `theodore` — Theodore TY02; Hans van Dijk for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 932-2346; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Lammers_at_1982_Dutch_Grand_Prix.jpg
+- 1982 `tyrrell` — Tyrrell 011; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Michele_Alboreto%27s_1983_Tyrrell-Ford_Tyrrell_011_F1_car_(14665320865).jpg
+- 1982 `williams` — Williams FW08; Joecompan; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW08.jpg
+- 1983 `alfa` — Alfa Romeo 183T; Nic Redhead; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alfa_Romeo_183T_Goodwood_Festival_of_Speed_2012_(37256969).jpg
+- 1983 `arrows` — Arrows A6; Russell Whitworth; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A6_2008_Silverstone_Classic.jpg
+- 1983 `ats` — ATS D6; MPW57; CC BY 3.0; https://commons.wikimedia.org/wiki/File:ATS_D6_1.jpg
+- 1983 `brabham` — Brabham BT52; Jake Archibald; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg
+- 1983 `ferrari` — Ferrari 126C2B; Plaskowski; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Ferrari_126C2B_Detroit_Grand_Prix_1983.jpeg
+- 1983 `ligier` — Ligier JS21; Alain Mingam; Public domain; https://commons.wikimedia.org/wiki/File:Ligier_JS_21.jpg
+- 1983 `mclaren` — McLaren MP4/1C; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_(48557916077).jpg
+- 1983 `osella` — Osella FA1D; Midgrid; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Osella_FA1D_Bournemouth_WHEELS_Festival_2006.jpg
+- 1983 `ram` — RAM 01; Ben Sutherland; CC BY 2.0; https://commons.wikimedia.org/wiki/File:RAM_01.jpg
+- 1983 `renault` — Renault RE40; ignis; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Renault_RE_40_1983_Mulhouse_FRA_001.JPG
+- 1983 `spirit` — Spirit 201; Mclarensenna; Public domain; https://commons.wikimedia.org/wiki/File:Spirit201HCH.jpg
+- 1983 `team_lotus` — Lotus 94T; jambox998; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus_94T_Mansell_Goodwood_2012.jpg
+- 1983 `theodore` — Theodore N183; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Roberto_Guerrero_Theodore_N183_2019_Silverstone_Classic_(48557911782).jpg
+- 1983 `toleman` — Toleman TG183; Tony Hisgett; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Toleman_TG183B_left_2012_Autosport_International.jpg
+- 1983 `tyrrell` — Tyrrell 012; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_012_2019_Silverstone_Classic_(48557777561).jpg
+- 1983 `williams` — Williams FW08C; Joecompan; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW08.jpg
+- 1984 `alfa` — Alfa Romeo 184T; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Cheever_Alfa_Romeo_184T_1984_Dallas_F1.jpg
+- 1984 `arrows` — Arrows A7; Anna from Grassau, Deutschland; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A7_1984.jpg
+- 1984 `ats` — ATS D7; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Winkelhock_ATS_D7_1984_Dallas_F1.jpg
+- 1984 `brabham` — Brabham BT53; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Piquet_Brabham_BT53_1984_Dallas_F1.jpg
+- 1984 `ferrari` — Ferrari 126C4; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alboreto_Ferrari_126C4_1984_Dallas_F1.jpg
+- 1984 `ligier` — Ligier JS23; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Andrea_de_Cesaris_1984_Dallas.jpg
+- 1984 `mclaren` — McLaren MP4/2; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_31_(Porsche_Museum_-_1986_McLaren_TAG_MP_4-2_C_Formel_1).JPG
+- 1984 `renault` — Renault RE50; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Derek_Warwick_Renault_RE50_1984_Dallas_F1.jpg
+- 1984 `spirit` — Spirit 101; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Spirit_101_at_Silverstone_Classic_2011.jpg
+- 1984 `team_lotus` — Lotus 95T; twm1340; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mansell_Lotus_95T_Dallas_1984_F1.jpg
+- 1984 `toleman` — Toleman TG183B; Tony Hisgett; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Toleman_TG183B_left_2012_Autosport_International.jpg
+- 1984 `tyrrell` — Tyrrell 012; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_012_2019_Silverstone_Classic_(48557777561).jpg
+- 1984 `williams` — Williams FW09; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Williams_FW09_Honda_Collection_Hall.jpg
+- 1985 `alfa` — Alfa Romeo 185T; tomislav medak; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alfa_Romeo_185T_Museo_Nazionale_dell%27Automobile_di_Torino.jpg
+- 1985 `arrows` — Arrows A8; Jerry Lewis-Evans; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:1985_European_GP_Boutsen.jpg
+- 1985 `brabham` — Brabham BT54; Stahlkocher; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Brabham_BMW_BT54_Turbo_1985_vr_TCE.jpg
+- 1985 `ferrari` — Ferrari 156/85; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Alboreto_1985-08-02.jpg
+- 1985 `ligier` — Ligier JS25; _morgado2; CC BY 4.0; https://commons.wikimedia.org/wiki/File:-125_-_Ligier_JS25_-_1985.jpg
+- 1985 `lola` — Lola THL1; Jerry Lewis-Evans; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:1985_European_GP_Alan_Jones_03.jpg
+- 1985 `mclaren` — McLaren MP4/2B; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_31_(Porsche_Museum_-_1986_McLaren_TAG_MP_4-2_C_Formel_1).JPG
+- 1985 `minardi` — Minardi M185; Jerry Lewis-Evans; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:1985_European_GP_Martini.jpg
+- 1985 `ram` — RAM 03; Jerry Lewis-Evans; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:1985_European_GP_Philippe_Alliot.jpg
+- 1985 `renault` — Renault RE60; Thomas Bersy; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Renault_RE60.jpg
+- 1985 `spirit` — Spirit 101; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Spirit_101_at_Silverstone_Classic_2011.jpg
+- 1985 `team_lotus` — Lotus 97T; Dima Moroz; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_97T_of_Ayrton_Senna,_1985.jpg
+- 1985 `toleman` — Toleman TG184; Tony Hisgett; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Toleman_TG184_front-right_2012_Autosport_International.jpg
+- 1985 `tyrrell` — Tyrrell 014; Jerry Lewis-Evans; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:1985_European_GP_Brundle_02.jpg
+- 1985 `williams` — Williams FW10; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Mansell_-_Williams_1985.jpg
+- 1985 `zakspeed` — Zakspeed 841; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Zakspeed_841_Dr._Jonathan_Palmer.jpg
+- 1986 `ags` — AGS JH21C; Falcon® Photography from France; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:AGS_JH21C_1986_(27082681156).jpg
+- 1986 `arrows` — Arrows A9; Nic Redhead; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A9_at_Goodwood_2012_(3).jpg
+- 1986 `benetton` — Benetton B186; Don France from Alamo, CA, USA Don France Photography; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Gerhard_Berger_1986_Detroit.jpg
+- 1986 `brabham` — Brabham BT55; Matthew Lamb; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Brabhams_at_the_2016_Goodwood_Festival_of_Speed.jpg
+- 1986 `ferrari` — Ferrari F1/86; Luigi Rosa from Pavia, Italy; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alboreto_at_1986_Italian_Grand_Prix.jpg
+- 1986 `ligier` — Ligier JS27; Koreller; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Manoir_de_l%27Automobile_-_213_-_F1_Ligier_JS_27_1986.jpg
+- 1986 `lola` — Lola THL2; https://www.flickr.com/photos/95472204@N03/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lola_THL2_Goodwood_Festival_of_Speed_2018_(41657894040).jpg
+- 1986 `mclaren` — McLaren MP4/2C; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_31_(Porsche_Museum_-_1986_McLaren_TAG_MP_4-2_C_Formel_1).JPG
+- 1986 `minardi` — Minardi M186; _morgado; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Estoril_Classic_DSC_6262_(24070720728).jpg
+- 1986 `osella` — Osella FA1G; Matthias v.d. Elbe; Public domain; https://commons.wikimedia.org/wiki/File:Osella-FA1G-POR86.jpg
+- 1986 `team_lotus` — Lotus 98T; Dima Moroz; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_98T_of_Ayrton_Senna,_1986.jpg
+- 1986 `tyrrell` — Tyrrell 015; pelican-actor; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_015.jpg
+- 1986 `williams` — Williams FW11; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Williams_FW11_Honda_Collection_Hall.jpg
+- 1987 `ags` — AGS JH22; Koreller; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Manoir_de_l%27Automobile_-_198_-_AGS_F1_JH_22_1986-1987.jpg
+- 1987 `arrows` — Arrows A10; Matthew Lamb; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A10_at_the_2016_Goodwood_Festival_of_Speed.jpg
+- 1987 `benetton` — Benetton B187; Daderot; CC0; https://commons.wikimedia.org/wiki/File:Benetton_F1_187-03_1987_-_Bentley_Wildfowl_and_Motor_Museum_-_Halland,_East_Sussex,_England_-_DSC05802.jpg
+- 1987 `brabham` — Brabham BT56; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Brabham_BT56_NEC_Jan_1994_(51897762409).jpg
+- 1987 `ferrari` — Ferrari F1/87; Etienne (Li); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Ferrari_F1-87.jpg
+- 1987 `ligier` — Ligier JS29; MPW57; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Ligier_JS_29_1.jpg
+- 1987 `mclaren` — McLaren MP4/3; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_MP4-3.jpg
+- 1987 `team_lotus` — Lotus 99T; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1987_Lotus_99T_2.jpg
+- 1987 `williams` — Williams FW11B; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Williams_FW11_Honda_Collection_Hall.jpg
+- 1988 `ags` — AGS JH23; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_AGS_JH23_-_1989_-_001.jpg
+- 1988 `arrows` — Arrows A10B; Matthew Lamb; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A10_at_the_2016_Goodwood_Festival_of_Speed.jpg
+- 1988 `benetton` — Benetton B188; Brian Snelson; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Benetton_B188_Goodwood_FoS_2009_2.jpg
+- 1988 `ferrari` — Ferrari F1/87/88C; Etienne (Li); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Ferrari_F1-87.jpg
+- 1988 `ligier` — Ligier JS31; Xavoun; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Ligier_JS31_-_R%C3%A9tromobile_2025.jpg
+- 1988 `mclaren` — McLaren MP4/4; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_MP4-4_front-right_Honda_Collection_Hall.jpg
+- 1988 `osella` — Osella FA1L; Patrick Down; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Osella_FA1L.jpg
+- 1988 `rial` — Rial ARC1; Original: Der Alf / Derivative work: Danyele; CC BY 4.0; https://commons.wikimedia.org/wiki/File:F1_1988,_Rial_ARC1,_Spa_Francorchamps_(55425564171)_(cropped).jpg
+- 1988 `team_lotus` — Lotus 100T; https://www.flickr.com/photos/temalive/; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Sato_Lotus_100T_Suzuka_2010.jpg
+- 1988 `tyrrell` — Tyrrell 017; Matti Blume; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:EMS_2023,_Essen_(P1160461).jpg
+- 1988 `williams` — Williams FW12; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW12B_(Mansell)_front-left_2017_Williams_Conference_Centre.jpg
+- 1989 `ags` — AGS JH23B; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_AGS_JH23_-_1989_-_001.jpg
+- 1989 `arrows` — Arrows A11; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:Motor-Sport-Museum_am_Hockenheimring,_1991_Footwork_Porsche_A11C,_pic1.jpg
+- 1989 `benetton` — Benetton B189; madagascarica from Verneuil Grand, France; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Alessandro_Nannini_1989_Belgian_GP_1.jpg
+- 1989 `brabham` — Brabham BT58; madagascarica from Verneuil Grand, France; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1989_Belgian_GP_race_start_10.jpg
+- 1989 `coloni` — Coloni FC188B; jo3hug; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Coloni_FC188B_2008_Donington_Park.jpg
+- 1989 `dallara` — Dallara 189; Thesupermat; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Paris_-_Retromobile_2014_-_BMS_Dallara_Formule_1_-_1989_-_002.jpg
+- 1989 `ferrari` — Ferrari 640; Maurizio Cefariello; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nigel_Mansell_Ferrari_F1_(16032819141).jpg
+- 1989 `ligier` — Ligier JS33; wileynorwichphoto; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Philippe_Alliot_1990_United_States.jpg
+- 1989 `mclaren` — McLaren MP4/5; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_MP4-5.jpg
+- 1989 `minardi` — Minardi M189; GTHO; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Minardi_M189_-_Pierluigi_Martini.jpg
+- 1989 `team_lotus` — Lotus 101; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Satoru_Nakajima_demonstrating_Lotus_101_2011_Japan.jpg
+- 1989 `tyrrell` — Tyrrell 018; madagascarica from Verneuil Grand, France; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Johnny_Herbert_1989_Belgian_GP.jpg
+- 1989 `williams` — Williams FW12C; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW12B_(Mansell)_front-left_2017_Williams_Conference_Centre.jpg
+- 1989 `zakspeed` — Zakspeed 891; Valder137; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Zakspeed-Yamaha_891_1989_Formula1_Bernd_Schneider_East_Racing_LSideFrontt_SATM_05June2013_(14600643865).jpg
+- 1990 `ags` — AGS JH24; Eustace Bagge; CC BY 4.0; https://commons.wikimedia.org/wiki/File:AGS_JH24_at_the_2025_Italian_Grand_Prix.jpg
+- 1990 `arrows` — Arrows A11B; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:Motor-Sport-Museum_am_Hockenheimring,_1991_Footwork_Porsche_A11C,_pic1.jpg
+- 1990 `benetton` — Benetton B190; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Benetton_B190_front-right_2010_Pavilion_Pit_Stop.jpg
+- 1990 `ferrari` — Ferrari 641; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Ferrari_641-2_front-left2_Museo_Ferrari.jpg
+- 1990 `leyton` — Leyton House CG901; Daderot; CC0; https://commons.wikimedia.org/wiki/File:Leyton_House_CG901_Formula_One,_1990_-_Collings_Foundation_-_Massachusetts_-_DSC07049.jpg
+- 1990 `life` — Life L190; Brian Snelson; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1990_Life_190.jpg
+- 1990 `ligier` — Ligier JS33B; wileynorwichphoto; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Philippe_Alliot_1990_United_States.jpg
+- 1990 `mclaren` — McLaren MP4/5B; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_MP4-5.jpg
+- 1990 `minardi` — Minardi M190; JacoTen; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Minardi_M190_(2).jpg
+- 1990 `team_lotus` — Lotus 102; Andrew Basterfield; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus-Lamborghini_102.jpg
+- 1990 `tyrrell` — Tyrrell 019; Norimasa Hayashida; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_019_(cropped_version).jpg
+- 1990 `williams` — Williams FW13B; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW13_front-left_2017_Williams_Conference_Centre.jpg
 - 2000 `arrows` — Arrows A21; Vakie81; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A21_Spa-Francorchamps_Racing_Museum.jpg
 - 2000 `bar` — BAR 002; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BAR_002_Honda_Collection_Hall.jpg
 - 2000 `benetton` — Benetton B200; Erikrost22; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Benetton_F1_2000.jpg

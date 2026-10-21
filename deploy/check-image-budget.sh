@@ -2,11 +2,11 @@
 #
 # Preflight de almacenamiento para las fotografías de TodoF1.
 # Uso: bash deploy/check-image-budget.sh
-# Variables: IMAGE_MAX_KB (def. 250), IMAGE_BUDGET_MB (def. 35).
+# Variables: IMAGE_MAX_KB (def. 250), IMAGE_BUDGET_MB (def. 60).
 set -euo pipefail
 
 MAX_KB="${IMAGE_MAX_KB:-250}"
-BUDGET_MB="${IMAGE_BUDGET_MB:-35}"
+BUDGET_MB="${IMAGE_BUDGET_MB:-60}"
 DIRS=(Images/monoplazas Images/heroes)
 
 total=0

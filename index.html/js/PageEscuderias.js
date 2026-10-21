@@ -20,7 +20,7 @@
      · "Pilotos" = todos los que disputaron al menos un GP con el
        equipo esa temporada (sustituciones y cambios incluidos).
    FOTOGRAFÍAS:
-     · Catálogo exacto por temporada y constructorId: 2000-2023, 2024
+     · Catálogo exacto por temporada y constructorId: 1980-2023, 2024
        (ya existente) y 2025. Para 2026 se conservan las imágenes
        actuales del proyecto. Nunca se usa una foto de otra temporada.
      · Si no hay foto exacta: logotipo histórico del equipo y, si no
@@ -172,7 +172,7 @@
     }
   };
 
-  // Catálogo histórico generado desde Wikimedia Commons (2000-2019, 2020-2023 y 2025).
+  // Catálogo histórico generado desde Wikimedia Commons (1980-2019, 2020-2023 y 2025).
   // Se fusiona sin sobrescribir el catálogo 2024 ya existente.
   if (window.TodoF1CarPhotos) {
     Object.keys(window.TodoF1CarPhotos).forEach(function (y) {

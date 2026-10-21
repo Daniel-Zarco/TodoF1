@@ -1,6 +1,1022 @@
 {
   "generatedFrom": "Wikimedia Commons / Wikipedia page images",
   "years": {
+    "1980": {
+      "alfa": {
+        "modelo": "Alfa Romeo 179",
+        "src": "/Images/monoplazas/1980/alfa.webp",
+        "autor": "Ben Sutherland",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Andrea_De_Cesaris_Alfa_Romeo_179.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A3",
+        "src": "/Images/monoplazas/1980/arrows.webp",
+        "autor": "TOM at Picassa .",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A3_Mallory_Park.JPG"
+      },
+      "brabham": {
+        "modelo": "Brabham BT49",
+        "src": "/Images/monoplazas/1980/brabham.webp",
+        "autor": "Eric Verplanken",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Piquetmonaco.jpg"
+      },
+      "ensign": {
+        "modelo": "Ensign N179",
+        "src": "/Images/monoplazas/1980/ensign.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ensign_N179_(52339098099)_(cropped).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312T5",
+        "src": "/Images/monoplazas/1980/ferrari.webp",
+        "autor": "Mark McArdle",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_312T5_Gilles_Villeneuve_2010_Canada_2.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS11/15",
+        "src": "/Images/monoplazas/1980/ligier.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jacques_Laffite_Ligier_JS11_15_2019_Silverstone_Classic_(48557917442).jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M29",
+        "src": "/Images/monoplazas/1980/mclaren.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M29.jpg"
+      },
+      "renault": {
+        "modelo": "Renault RE20",
+        "src": "/Images/monoplazas/1980/renault.webp",
+        "autor": "Pereira, Fernando / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 930-9906",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arnoux_at_1980_Dutch_Grand_Prix.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN11",
+        "src": "/Images/monoplazas/1980/shadow.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1980_Shadow-Cosworth_DN11.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 81",
+        "src": "/Images/monoplazas/1980/team_lotus.webp",
+        "autor": "https://www.flickr.com/photos/mrlaugh/",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:2017_FIA_Masters_Historic_Formula_One_Championship,_Circuit_of_the_Americas_(23970302968).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 009",
+        "src": "/Images/monoplazas/1980/tyrrell.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_009_Mont-Tremblant_Esses.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW07",
+        "src": "/Images/monoplazas/1980/williams.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW07C,_Peter_Sowerby,_GB_(17.06.2007).jpg"
+      }
+    },
+    "1981": {
+      "alfa": {
+        "modelo": "Alfa Romeo 179D",
+        "src": "/Images/monoplazas/1981/alfa.webp",
+        "autor": "Falcon® Photography from France",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_179D_1981_(33152755025).jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A3",
+        "src": "/Images/monoplazas/1981/arrows.webp",
+        "autor": "TOM at Picassa .",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A3_Mallory_Park.JPG"
+      },
+      "ats": {
+        "modelo": "ATS D5",
+        "src": "/Images/monoplazas/1981/ats.webp",
+        "autor": "Hans van Dijk for Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Grand_Prix_van_NL_op_circuit_van_Zandvoort_nr._10_,_11_officials_en_politie_la,_Bestanddeelnr_253-8581.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT49C",
+        "src": "/Images/monoplazas/1981/brabham.webp",
+        "autor": "Eric Verplanken",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Piquetmonaco.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 126CK",
+        "src": "/Images/monoplazas/1981/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_126CK_front-left_Museo_Ferrari.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS17",
+        "src": "/Images/monoplazas/1981/ligier.webp",
+        "autor": "Hans van Dijk for Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Laffite_en_Reutemann_tijdens_de_Grand_Prix_Formule_1_van_Nederland_1981.jpg"
+      },
+      "march": {
+        "modelo": "March 811",
+        "src": "/Images/monoplazas/1981/march.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:March_811_at_Silverstone_Classic_2011.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/1",
+        "src": "/Images/monoplazas/1981/mclaren.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_(48557916077).jpg"
+      },
+      "renault": {
+        "modelo": "Renault RE30",
+        "src": "/Images/monoplazas/1981/renault.webp",
+        "autor": "Hans van Dijk for Anefo",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ren%C3%A9_Arnoux_1981_Nederland.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 87",
+        "src": "/Images/monoplazas/1981/team_lotus.webp",
+        "autor": "Russell Whitworth",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_87_2008_Silverstone_Classic.jpg"
+      },
+      "toleman": {
+        "modelo": "Toleman TG181",
+        "src": "/Images/monoplazas/1981/toleman.webp",
+        "autor": "Phil Guest from Bournemouth, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Toleman_TG181.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 010",
+        "src": "/Images/monoplazas/1981/tyrrell.webp",
+        "autor": "Ben Sutherland from Crystal Palace, London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Eddie_Cheever%27s_1981_Tyrrell-Ford_Tyrrell_010_F1_car_(14478688039).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW07C",
+        "src": "/Images/monoplazas/1981/williams.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW07C,_Peter_Sowerby,_GB_(17.06.2007).jpg"
+      }
+    },
+    "1982": {
+      "alfa": {
+        "modelo": "Alfa Romeo 182",
+        "src": "/Images/monoplazas/1982/alfa.webp",
+        "autor": "AlfvanBeem",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1982_F1_Alfa_Romeo_182_B.JPG"
+      },
+      "arrows": {
+        "modelo": "Arrows A4",
+        "src": "/Images/monoplazas/1982/arrows.webp",
+        "autor": "https://www.flickr.com/photos/95472204@N03/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A4_2018_(41789577514).jpg"
+      },
+      "ats": {
+        "modelo": "ATS D5",
+        "src": "/Images/monoplazas/1982/ats.webp",
+        "autor": "Hans van Dijk for Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Grand_Prix_van_NL_op_circuit_van_Zandvoort_nr._10_,_11_officials_en_politie_la,_Bestanddeelnr_253-8581.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT50",
+        "src": "/Images/monoplazas/1982/brabham.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nelson_Piquet_1982_British_GP.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 126C2",
+        "src": "/Images/monoplazas/1982/ferrari.webp",
+        "autor": "Hans van Dijk for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 932-2345",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pironi_and_Alboreto_at_1982_Dutch_Grand_Prix.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS17B",
+        "src": "/Images/monoplazas/1982/ligier.webp",
+        "autor": "Hans van Dijk for Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Laffite_en_Reutemann_tijdens_de_Grand_Prix_Formule_1_van_Nederland_1981.jpg"
+      },
+      "march": {
+        "modelo": "March 821",
+        "src": "/Images/monoplazas/1982/march.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:March_821_at_Silverstone_Classic_2011.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/1B",
+        "src": "/Images/monoplazas/1982/mclaren.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_(48557916077).jpg"
+      },
+      "renault": {
+        "modelo": "Renault RE30B",
+        "src": "/Images/monoplazas/1982/renault.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Rene_Arnoux_1982_British_GP.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 91",
+        "src": "/Images/monoplazas/1982/team_lotus.webp",
+        "autor": "https://www.flickr.com/photos/95472204@N03/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_91_2018_(42512010201).jpg"
+      },
+      "theodore": {
+        "modelo": "Theodore TY02",
+        "src": "/Images/monoplazas/1982/theodore.webp",
+        "autor": "Hans van Dijk for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 932-2346",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lammers_at_1982_Dutch_Grand_Prix.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 011",
+        "src": "/Images/monoplazas/1982/tyrrell.webp",
+        "autor": "Ben Sutherland from Crystal Palace, London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Michele_Alboreto%27s_1983_Tyrrell-Ford_Tyrrell_011_F1_car_(14665320865).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW08",
+        "src": "/Images/monoplazas/1982/williams.webp",
+        "autor": "Joecompan",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW08.jpg"
+      }
+    },
+    "1983": {
+      "alfa": {
+        "modelo": "Alfa Romeo 183T",
+        "src": "/Images/monoplazas/1983/alfa.webp",
+        "autor": "Nic Redhead",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_183T_Goodwood_Festival_of_Speed_2012_(37256969).jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A6",
+        "src": "/Images/monoplazas/1983/arrows.webp",
+        "autor": "Russell Whitworth",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A6_2008_Silverstone_Classic.jpg"
+      },
+      "ats": {
+        "modelo": "ATS D6",
+        "src": "/Images/monoplazas/1983/ats.webp",
+        "autor": "MPW57",
+        "licencia": "CC BY 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:ATS_D6_1.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT52",
+        "src": "/Images/monoplazas/1983/brabham.webp",
+        "autor": "Jake Archibald",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nelson_Piquet_driving_Brabham_BT52_2013_Goodwood_Festival_of_Speed.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 126C2B",
+        "src": "/Images/monoplazas/1983/ferrari.webp",
+        "autor": "Plaskowski",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_126C2B_Detroit_Grand_Prix_1983.jpeg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS21",
+        "src": "/Images/monoplazas/1983/ligier.webp",
+        "autor": "Alain Mingam",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ligier_JS_21.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/1C",
+        "src": "/Images/monoplazas/1983/mclaren.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:John_Watson_McLaren_MP4_1_2019_Silverstone_Classic_(48557916077).jpg"
+      },
+      "osella": {
+        "modelo": "Osella FA1D",
+        "src": "/Images/monoplazas/1983/osella.webp",
+        "autor": "Midgrid",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Osella_FA1D_Bournemouth_WHEELS_Festival_2006.jpg"
+      },
+      "ram": {
+        "modelo": "RAM 01",
+        "src": "/Images/monoplazas/1983/ram.webp",
+        "autor": "Ben Sutherland",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:RAM_01.jpg"
+      },
+      "renault": {
+        "modelo": "Renault RE40",
+        "src": "/Images/monoplazas/1983/renault.webp",
+        "autor": "ignis",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Renault_RE_40_1983_Mulhouse_FRA_001.JPG"
+      },
+      "spirit": {
+        "modelo": "Spirit 201",
+        "src": "/Images/monoplazas/1983/spirit.webp",
+        "autor": "Mclarensenna",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Spirit201HCH.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 94T",
+        "src": "/Images/monoplazas/1983/team_lotus.webp",
+        "autor": "jambox998",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_94T_Mansell_Goodwood_2012.jpg"
+      },
+      "theodore": {
+        "modelo": "Theodore N183",
+        "src": "/Images/monoplazas/1983/theodore.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Roberto_Guerrero_Theodore_N183_2019_Silverstone_Classic_(48557911782).jpg"
+      },
+      "toleman": {
+        "modelo": "Toleman TG183",
+        "src": "/Images/monoplazas/1983/toleman.webp",
+        "autor": "Tony Hisgett",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Toleman_TG183B_left_2012_Autosport_International.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 012",
+        "src": "/Images/monoplazas/1983/tyrrell.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_012_2019_Silverstone_Classic_(48557777561).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW08C",
+        "src": "/Images/monoplazas/1983/williams.webp",
+        "autor": "Joecompan",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW08.jpg"
+      }
+    },
+    "1984": {
+      "alfa": {
+        "modelo": "Alfa Romeo 184T",
+        "src": "/Images/monoplazas/1984/alfa.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cheever_Alfa_Romeo_184T_1984_Dallas_F1.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A7",
+        "src": "/Images/monoplazas/1984/arrows.webp",
+        "autor": "Anna from Grassau, Deutschland",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A7_1984.jpg"
+      },
+      "ats": {
+        "modelo": "ATS D7",
+        "src": "/Images/monoplazas/1984/ats.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Winkelhock_ATS_D7_1984_Dallas_F1.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT53",
+        "src": "/Images/monoplazas/1984/brabham.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Piquet_Brabham_BT53_1984_Dallas_F1.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 126C4",
+        "src": "/Images/monoplazas/1984/ferrari.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alboreto_Ferrari_126C4_1984_Dallas_F1.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS23",
+        "src": "/Images/monoplazas/1984/ligier.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Andrea_de_Cesaris_1984_Dallas.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/2",
+        "src": "/Images/monoplazas/1984/mclaren.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_31_(Porsche_Museum_-_1986_McLaren_TAG_MP_4-2_C_Formel_1).JPG"
+      },
+      "renault": {
+        "modelo": "Renault RE50",
+        "src": "/Images/monoplazas/1984/renault.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Derek_Warwick_Renault_RE50_1984_Dallas_F1.jpg"
+      },
+      "spirit": {
+        "modelo": "Spirit 101",
+        "src": "/Images/monoplazas/1984/spirit.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Spirit_101_at_Silverstone_Classic_2011.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 95T",
+        "src": "/Images/monoplazas/1984/team_lotus.webp",
+        "autor": "twm1340",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mansell_Lotus_95T_Dallas_1984_F1.jpg"
+      },
+      "toleman": {
+        "modelo": "Toleman TG183B",
+        "src": "/Images/monoplazas/1984/toleman.webp",
+        "autor": "Tony Hisgett",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Toleman_TG183B_left_2012_Autosport_International.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 012",
+        "src": "/Images/monoplazas/1984/tyrrell.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_012_2019_Silverstone_Classic_(48557777561).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW09",
+        "src": "/Images/monoplazas/1984/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW09_Honda_Collection_Hall.jpg"
+      }
+    },
+    "1985": {
+      "alfa": {
+        "modelo": "Alfa Romeo 185T",
+        "src": "/Images/monoplazas/1985/alfa.webp",
+        "autor": "tomislav medak",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_185T_Museo_Nazionale_dell%27Automobile_di_Torino.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A8",
+        "src": "/Images/monoplazas/1985/arrows.webp",
+        "autor": "Jerry Lewis-Evans",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Boutsen.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT54",
+        "src": "/Images/monoplazas/1985/brabham.webp",
+        "autor": "Stahlkocher",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BMW_BT54_Turbo_1985_vr_TCE.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 156/85",
+        "src": "/Images/monoplazas/1985/ferrari.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alboreto_1985-08-02.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS25",
+        "src": "/Images/monoplazas/1985/ligier.webp",
+        "autor": "_morgado2",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:-125_-_Ligier_JS25_-_1985.jpg"
+      },
+      "lola": {
+        "modelo": "Lola THL1",
+        "src": "/Images/monoplazas/1985/lola.webp",
+        "autor": "Jerry Lewis-Evans",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Alan_Jones_03.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/2B",
+        "src": "/Images/monoplazas/1985/mclaren.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_31_(Porsche_Museum_-_1986_McLaren_TAG_MP_4-2_C_Formel_1).JPG"
+      },
+      "minardi": {
+        "modelo": "Minardi M185",
+        "src": "/Images/monoplazas/1985/minardi.webp",
+        "autor": "Jerry Lewis-Evans",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Martini.jpg"
+      },
+      "ram": {
+        "modelo": "RAM 03",
+        "src": "/Images/monoplazas/1985/ram.webp",
+        "autor": "Jerry Lewis-Evans",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Philippe_Alliot.jpg"
+      },
+      "renault": {
+        "modelo": "Renault RE60",
+        "src": "/Images/monoplazas/1985/renault.webp",
+        "autor": "Thomas Bersy",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Renault_RE60.jpg"
+      },
+      "spirit": {
+        "modelo": "Spirit 101",
+        "src": "/Images/monoplazas/1985/spirit.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Spirit_101_at_Silverstone_Classic_2011.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 97T",
+        "src": "/Images/monoplazas/1985/team_lotus.webp",
+        "autor": "Dima Moroz",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_97T_of_Ayrton_Senna,_1985.jpg"
+      },
+      "toleman": {
+        "modelo": "Toleman TG184",
+        "src": "/Images/monoplazas/1985/toleman.webp",
+        "autor": "Tony Hisgett",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Toleman_TG184_front-right_2012_Autosport_International.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 014",
+        "src": "/Images/monoplazas/1985/tyrrell.webp",
+        "autor": "Jerry Lewis-Evans",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1985_European_GP_Brundle_02.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW10",
+        "src": "/Images/monoplazas/1985/williams.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mansell_-_Williams_1985.jpg"
+      },
+      "zakspeed": {
+        "modelo": "Zakspeed 841",
+        "src": "/Images/monoplazas/1985/zakspeed.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Zakspeed_841_Dr._Jonathan_Palmer.jpg"
+      }
+    },
+    "1986": {
+      "ags": {
+        "modelo": "AGS JH21C",
+        "src": "/Images/monoplazas/1986/ags.webp",
+        "autor": "Falcon® Photography from France",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:AGS_JH21C_1986_(27082681156).jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A9",
+        "src": "/Images/monoplazas/1986/arrows.webp",
+        "autor": "Nic Redhead",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A9_at_Goodwood_2012_(3).jpg"
+      },
+      "benetton": {
+        "modelo": "Benetton B186",
+        "src": "/Images/monoplazas/1986/benetton.webp",
+        "autor": "Don France from Alamo, CA, USA Don France Photography",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Gerhard_Berger_1986_Detroit.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT55",
+        "src": "/Images/monoplazas/1986/brabham.webp",
+        "autor": "Matthew Lamb",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabhams_at_the_2016_Goodwood_Festival_of_Speed.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari F1/86",
+        "src": "/Images/monoplazas/1986/ferrari.webp",
+        "autor": "Luigi Rosa from Pavia, Italy",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alboreto_at_1986_Italian_Grand_Prix.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS27",
+        "src": "/Images/monoplazas/1986/ligier.webp",
+        "autor": "Koreller",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Manoir_de_l%27Automobile_-_213_-_F1_Ligier_JS_27_1986.jpg"
+      },
+      "lola": {
+        "modelo": "Lola THL2",
+        "src": "/Images/monoplazas/1986/lola.webp",
+        "autor": "https://www.flickr.com/photos/95472204@N03/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lola_THL2_Goodwood_Festival_of_Speed_2018_(41657894040).jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/2C",
+        "src": "/Images/monoplazas/1986/mclaren.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_31_(Porsche_Museum_-_1986_McLaren_TAG_MP_4-2_C_Formel_1).JPG"
+      },
+      "minardi": {
+        "modelo": "Minardi M186",
+        "src": "/Images/monoplazas/1986/minardi.webp",
+        "autor": "_morgado",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Estoril_Classic_DSC_6262_(24070720728).jpg"
+      },
+      "osella": {
+        "modelo": "Osella FA1G",
+        "src": "/Images/monoplazas/1986/osella.webp",
+        "autor": "Matthias v.d. Elbe",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Osella-FA1G-POR86.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 98T",
+        "src": "/Images/monoplazas/1986/team_lotus.webp",
+        "autor": "Dima Moroz",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_98T_of_Ayrton_Senna,_1986.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 015",
+        "src": "/Images/monoplazas/1986/tyrrell.webp",
+        "autor": "pelican-actor",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_015.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW11",
+        "src": "/Images/monoplazas/1986/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW11_Honda_Collection_Hall.jpg"
+      }
+    },
+    "1987": {
+      "ags": {
+        "modelo": "AGS JH22",
+        "src": "/Images/monoplazas/1987/ags.webp",
+        "autor": "Koreller",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Manoir_de_l%27Automobile_-_198_-_AGS_F1_JH_22_1986-1987.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A10",
+        "src": "/Images/monoplazas/1987/arrows.webp",
+        "autor": "Matthew Lamb",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A10_at_the_2016_Goodwood_Festival_of_Speed.jpg"
+      },
+      "benetton": {
+        "modelo": "Benetton B187",
+        "src": "/Images/monoplazas/1987/benetton.webp",
+        "autor": "Daderot",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Benetton_F1_187-03_1987_-_Bentley_Wildfowl_and_Motor_Museum_-_Halland,_East_Sussex,_England_-_DSC05802.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT56",
+        "src": "/Images/monoplazas/1987/brabham.webp",
+        "autor": "Tony Hisgett from Birmingham, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT56_NEC_Jan_1994_(51897762409).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari F1/87",
+        "src": "/Images/monoplazas/1987/ferrari.webp",
+        "autor": "Etienne (Li)",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_F1-87.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS29",
+        "src": "/Images/monoplazas/1987/ligier.webp",
+        "autor": "MPW57",
+        "licencia": "CC BY 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ligier_JS_29_1.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/3",
+        "src": "/Images/monoplazas/1987/mclaren.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-3.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 99T",
+        "src": "/Images/monoplazas/1987/team_lotus.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1987_Lotus_99T_2.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW11B",
+        "src": "/Images/monoplazas/1987/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW11_Honda_Collection_Hall.jpg"
+      }
+    },
+    "1988": {
+      "ags": {
+        "modelo": "AGS JH23",
+        "src": "/Images/monoplazas/1988/ags.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_AGS_JH23_-_1989_-_001.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A10B",
+        "src": "/Images/monoplazas/1988/arrows.webp",
+        "autor": "Matthew Lamb",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A10_at_the_2016_Goodwood_Festival_of_Speed.jpg"
+      },
+      "benetton": {
+        "modelo": "Benetton B188",
+        "src": "/Images/monoplazas/1988/benetton.webp",
+        "autor": "Brian Snelson",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Benetton_B188_Goodwood_FoS_2009_2.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari F1/87/88C",
+        "src": "/Images/monoplazas/1988/ferrari.webp",
+        "autor": "Etienne (Li)",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_F1-87.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS31",
+        "src": "/Images/monoplazas/1988/ligier.webp",
+        "autor": "Xavoun",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ligier_JS31_-_R%C3%A9tromobile_2025.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/4",
+        "src": "/Images/monoplazas/1988/mclaren.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-4_front-right_Honda_Collection_Hall.jpg"
+      },
+      "osella": {
+        "modelo": "Osella FA1L",
+        "src": "/Images/monoplazas/1988/osella.webp",
+        "autor": "Patrick Down",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Osella_FA1L.jpg"
+      },
+      "rial": {
+        "modelo": "Rial ARC1",
+        "src": "/Images/monoplazas/1988/rial.webp",
+        "autor": "Original: Der Alf / Derivative work: Danyele",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:F1_1988,_Rial_ARC1,_Spa_Francorchamps_(55425564171)_(cropped).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 100T",
+        "src": "/Images/monoplazas/1988/team_lotus.webp",
+        "autor": "https://www.flickr.com/photos/temalive/",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Sato_Lotus_100T_Suzuka_2010.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 017",
+        "src": "/Images/monoplazas/1988/tyrrell.webp",
+        "autor": "Matti Blume",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:EMS_2023,_Essen_(P1160461).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW12",
+        "src": "/Images/monoplazas/1988/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW12B_(Mansell)_front-left_2017_Williams_Conference_Centre.jpg"
+      }
+    },
+    "1989": {
+      "ags": {
+        "modelo": "AGS JH23B",
+        "src": "/Images/monoplazas/1989/ags.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_AGS_JH23_-_1989_-_001.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A11",
+        "src": "/Images/monoplazas/1989/arrows.webp",
+        "autor": "Alf van Beem",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Motor-Sport-Museum_am_Hockenheimring,_1991_Footwork_Porsche_A11C,_pic1.jpg"
+      },
+      "benetton": {
+        "modelo": "Benetton B189",
+        "src": "/Images/monoplazas/1989/benetton.webp",
+        "autor": "madagascarica from Verneuil Grand, France",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alessandro_Nannini_1989_Belgian_GP_1.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT58",
+        "src": "/Images/monoplazas/1989/brabham.webp",
+        "autor": "madagascarica from Verneuil Grand, France",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1989_Belgian_GP_race_start_10.jpg"
+      },
+      "coloni": {
+        "modelo": "Coloni FC188B",
+        "src": "/Images/monoplazas/1989/coloni.webp",
+        "autor": "jo3hug",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Coloni_FC188B_2008_Donington_Park.jpg"
+      },
+      "dallara": {
+        "modelo": "Dallara 189",
+        "src": "/Images/monoplazas/1989/dallara.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Paris_-_Retromobile_2014_-_BMS_Dallara_Formule_1_-_1989_-_002.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 640",
+        "src": "/Images/monoplazas/1989/ferrari.webp",
+        "autor": "Maurizio Cefariello",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nigel_Mansell_Ferrari_F1_(16032819141).jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS33",
+        "src": "/Images/monoplazas/1989/ligier.webp",
+        "autor": "wileynorwichphoto",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Philippe_Alliot_1990_United_States.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/5",
+        "src": "/Images/monoplazas/1989/mclaren.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-5.jpg"
+      },
+      "minardi": {
+        "modelo": "Minardi M189",
+        "src": "/Images/monoplazas/1989/minardi.webp",
+        "autor": "GTHO",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Minardi_M189_-_Pierluigi_Martini.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 101",
+        "src": "/Images/monoplazas/1989/team_lotus.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Satoru_Nakajima_demonstrating_Lotus_101_2011_Japan.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 018",
+        "src": "/Images/monoplazas/1989/tyrrell.webp",
+        "autor": "madagascarica from Verneuil Grand, France",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Johnny_Herbert_1989_Belgian_GP.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW12C",
+        "src": "/Images/monoplazas/1989/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW12B_(Mansell)_front-left_2017_Williams_Conference_Centre.jpg"
+      },
+      "zakspeed": {
+        "modelo": "Zakspeed 891",
+        "src": "/Images/monoplazas/1989/zakspeed.webp",
+        "autor": "Valder137",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Zakspeed-Yamaha_891_1989_Formula1_Bernd_Schneider_East_Racing_LSideFrontt_SATM_05June2013_(14600643865).jpg"
+      }
+    },
+    "1990": {
+      "ags": {
+        "modelo": "AGS JH24",
+        "src": "/Images/monoplazas/1990/ags.webp",
+        "autor": "Eustace Bagge",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:AGS_JH24_at_the_2025_Italian_Grand_Prix.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A11B",
+        "src": "/Images/monoplazas/1990/arrows.webp",
+        "autor": "Alf van Beem",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Motor-Sport-Museum_am_Hockenheimring,_1991_Footwork_Porsche_A11C,_pic1.jpg"
+      },
+      "benetton": {
+        "modelo": "Benetton B190",
+        "src": "/Images/monoplazas/1990/benetton.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Benetton_B190_front-right_2010_Pavilion_Pit_Stop.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 641",
+        "src": "/Images/monoplazas/1990/ferrari.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_641-2_front-left2_Museo_Ferrari.jpg"
+      },
+      "leyton": {
+        "modelo": "Leyton House CG901",
+        "src": "/Images/monoplazas/1990/leyton.webp",
+        "autor": "Daderot",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Leyton_House_CG901_Formula_One,_1990_-_Collings_Foundation_-_Massachusetts_-_DSC07049.jpg"
+      },
+      "life": {
+        "modelo": "Life L190",
+        "src": "/Images/monoplazas/1990/life.webp",
+        "autor": "Brian Snelson",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1990_Life_190.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS33B",
+        "src": "/Images/monoplazas/1990/ligier.webp",
+        "autor": "wileynorwichphoto",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Philippe_Alliot_1990_United_States.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren MP4/5B",
+        "src": "/Images/monoplazas/1990/mclaren.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_MP4-5.jpg"
+      },
+      "minardi": {
+        "modelo": "Minardi M190",
+        "src": "/Images/monoplazas/1990/minardi.webp",
+        "autor": "JacoTen",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Minardi_M190_(2).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 102",
+        "src": "/Images/monoplazas/1990/team_lotus.webp",
+        "autor": "Andrew Basterfield",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus-Lamborghini_102.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 019",
+        "src": "/Images/monoplazas/1990/tyrrell.webp",
+        "autor": "Norimasa Hayashida",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_019_(cropped_version).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW13B",
+        "src": "/Images/monoplazas/1990/williams.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Williams_FW13_front-left_2017_Williams_Conference_Centre.jpg"
+      }
+    },
     "2000": {
       "arrows": {
         "modelo": "Arrows A21",
