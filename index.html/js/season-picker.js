@@ -115,7 +115,14 @@
     this.grid.setAttribute('aria-label', 'Años de la década');
     this.panel.appendChild(this.grid);
 
-    label ? (label.hidden = true) : (select.hidden = true);
+    if (label) {
+      label.hidden = true;
+      label.style.display = 'none';
+      label.setAttribute('aria-hidden', 'true');
+    } else {
+      select.hidden = true;
+      select.style.display = 'none';
+    }
     host.parentNode.insertBefore(this.trigger, host.nextSibling);
     document.body.appendChild(this.backdrop);
     document.body.appendChild(this.panel);
