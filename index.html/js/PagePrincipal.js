@@ -374,23 +374,5 @@
     });
   }
 
-  var select = $('anio');
-  for (var y = YEAR_MAX; y >= YEAR_MIN; y--) {
-    var opt = document.createElement('option');
-    opt.value = y;
-    opt.textContent = y;
-    select.appendChild(opt);
-  }
-  select.value = year;
-
-  select.addEventListener('change', function () {
-    var value = parseInt(this.value, 10);
-    try { sessionStorage.setItem('todof1:year', value); } catch (e) { /* sin almacenamiento */ }
-    var url = new URL(window.location.href);
-    url.searchParams.set('year', value);
-    window.history.replaceState({}, '', url);
-    loadSeason(value);
-  });
-
   loadSeason(year);
 })();

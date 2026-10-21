@@ -232,47 +232,6 @@
   transform: translateX(4px);
 }
 
-.hero__bar {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  padding: 12px clamp(22px, 4vw, 56px);
-  border-top: 1px solid var(--c-line);
-  background: rgba(var(--c-scrim-bar, 34, 35, 38), 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  flex-wrap: wrap;
-}
-
-.hero__season {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.hero__season-label {
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-mute);
-}
-
-.hero__select {
-  width: auto;
-  min-width: 96px;
-  min-height: 34px;
-  height: 34px;
-  padding: 0 30px 0 12px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.92rem;
-  border-radius: var(--r-sm);
-}
-
 /* ============================================================
    CRÉDITOS FOTOGRÁFICOS
    ============================================================ */
@@ -825,16 +784,6 @@
   .hero__body {
     max-width: none;
     padding: clamp(22px, 6vw, 30px) clamp(18px, 5vw, 24px) clamp(18px, 5vw, 24px);
-  }
-
-  .hero__bar {
-    justify-content: flex-start;
-    padding: 10px clamp(18px, 5vw, 24px);
-  }
-
-  .hero__select {
-    min-height: 40px;
-    height: 40px;
   }
 
   /* ---------- Paneles: evita que el grid fuerce desbordamiento ---------- */
