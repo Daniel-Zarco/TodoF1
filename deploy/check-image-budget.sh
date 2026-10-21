@@ -30,7 +30,7 @@ echo "Imágenes revisadas: ${count}"
 echo "Peso total: $(( total / 1024 / 1024 )) MB (${total} bytes)"
 echo "Presupuesto: ${BUDGET_MB} MB; límite por imagen: ${MAX_KB} KB"
 
-printf '%s\n' "${largest[@]}" | sort -nr | head -5 | while read -r kb file; do
+printf '%s\n' "${largest[@]}" | sort -nr | sed -n '1,5p' | while read -r kb file; do
   echo "  ${kb} KB  ${file}"
 done
 
