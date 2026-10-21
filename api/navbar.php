@@ -59,7 +59,7 @@ $items = [
                     <span class="tf-nav__season-label">Temp.</span>
                     <select class="tf-select tf-select--sm" id="tf-season-select"
                             data-year-base="<?= htmlspecialchars($seasonBase) ?>"
-                            aria-label="Seleccionar temporada">
+                            data-season-picker aria-label="Seleccionar temporada">
                         <?php for ($y = (int) date('Y'); $y >= 1950; $y--): ?>
                             <option value="<?= $y ?>"<?= ($yearParam !== null && $y === $yearParam) ? ' selected' : '' ?>><?= $y ?></option>
                         <?php endfor; ?>
@@ -89,5 +89,6 @@ $items = [
          propio y tengan tiempo máximo. */ ?>
 <script src="/index.html/js/f1-datos.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/f1-datos.js') ?: '1' ?>"></script>
 <script src="/index.html/js/session.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/session.js') ?: '1' ?>"></script>
+<script src="/index.html/js/season-picker.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/season-picker.js') ?: '1' ?>"></script>
 <script src="/index.html/js/loader.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/loader.js') ?: '1' ?>"></script>
 <script src="/index.html/js/navbar.js?v=<?= @filemtime(__DIR__ . '/../index.html/js/navbar.js') ?: '1' ?>" defer></script>

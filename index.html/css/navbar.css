@@ -836,3 +836,312 @@ html[data-drawer="open"] .tf-drawer__panel {
     animation: none !important;
   }
 }
+
+/* Selector de temporada por décadas */
+.tf-season__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 10px 0 12px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  background: #2c2d31;
+  color: var(--c-text);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 160ms var(--ease), background-color 160ms var(--ease),
+    box-shadow 160ms var(--ease), transform 160ms var(--ease);
+}
+
+.tf-season__trigger:hover,
+.tf-season__trigger[aria-expanded="true"] {
+  border-color: var(--team-primary-line);
+  background: var(--team-primary-dim);
+  box-shadow: 0 0 0 3px var(--team-primary-dim);
+}
+
+.tf-season__trigger:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: 2px;
+}
+
+.tf-season__cal {
+  display: inline-grid;
+  place-items: center;
+  color: var(--team-primary);
+}
+
+.tf-season__cal svg,
+.tf-season__chev svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.tf-season__prefix {
+  color: var(--c-mute);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tf-season__year {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.tf-season__chev {
+  display: inline-grid;
+  place-items: center;
+  color: var(--c-mute);
+  transition: transform 160ms var(--ease);
+}
+
+.tf-season__trigger[aria-expanded="true"] .tf-season__chev {
+  transform: rotate(180deg);
+}
+
+.tf-season__trigger--hero {
+  min-width: 124px;
+  height: 34px;
+}
+
+.tf-season__backdrop {
+  position: fixed;
+  z-index: 1490;
+  inset: 0;
+  background: rgba(6, 6, 8, 0.58);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 170ms var(--ease);
+}
+
+.tf-season__backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.tf-season__panel {
+  position: fixed;
+  z-index: 1500;
+  width: 320px;
+  max-width: calc(100vw - 24px);
+  padding: 14px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  background: #222326;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.58), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top center;
+  transition: opacity 170ms var(--ease), transform 170ms var(--ease);
+}
+
+.tf-season__panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
+  animation: tf-season-pop 180ms var(--ease);
+}
+
+@keyframes tf-season-pop {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.tf-season__head {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tf-season__arrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--c-line);
+  border-radius: 50%;
+  background: var(--c-surface-3);
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 150ms var(--ease), background-color 150ms var(--ease),
+    color 150ms var(--ease), opacity 150ms var(--ease);
+}
+
+.tf-season__arrow:hover:not(:disabled) {
+  border-color: var(--team-primary);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+}
+
+.tf-season__arrow:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: 2px;
+}
+
+.tf-season__arrow:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.tf-season__decade {
+  overflow: hidden;
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.tf-season__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tf-season__grid.is-changing {
+  animation: tf-season-grid 180ms var(--ease);
+}
+
+@keyframes tf-season-grid {
+  from { opacity: 0.35; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+.tf-season__year {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 6px;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-sm);
+  background: #2c2d31;
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: border-color 150ms var(--ease), background-color 150ms var(--ease),
+    color 150ms var(--ease), transform 150ms var(--ease);
+}
+
+.tf-season__year:hover {
+  border-color: var(--team-primary-line);
+  background: var(--c-surface-3);
+}
+
+.tf-season__year:focus-visible {
+  outline: 2px solid var(--team-primary);
+  outline-offset: 2px;
+}
+
+.tf-season__year.is-selected {
+  border-color: var(--team-primary);
+  background: var(--team-primary-dim);
+  color: var(--team-primary);
+  box-shadow: inset 0 0 0 1px var(--team-primary-line);
+}
+
+.tf-season__year.is-selected::after {
+  content: "\2713";
+  margin-left: 5px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.tf-season__year.is-current {
+  border-color: var(--team-primary-line);
+}
+
+.tf-season__now {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--team-primary);
+  box-shadow: 0 0 6px var(--team-glow);
+}
+
+@media (min-width: 768px) {
+  .tf-season__backdrop {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .tf-season__trigger--nav {
+    flex: 1 1 140px;
+    justify-content: space-between;
+    min-height: 48px;
+    height: 48px;
+    padding: 0 14px;
+  }
+
+  .tf-season__trigger--hero {
+    min-height: 40px;
+    height: 40px;
+  }
+
+  .tf-season__panel {
+    left: 8px;
+    right: 8px;
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    top: auto;
+    width: auto;
+    max-width: none;
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top));
+    padding: 14px 14px calc(14px + env(safe-area-inset-bottom));
+    transform: translateY(12px) scale(0.99);
+    transform-origin: bottom center;
+  }
+
+  .tf-season__panel.is-open {
+    transform: none;
+  }
+
+  .tf-season__year {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tf-season__trigger,
+  .tf-season__chev,
+  .tf-season__backdrop,
+  .tf-season__panel,
+  .tf-season__arrow,
+  .tf-season__year,
+  .tf-season__grid {
+    transition: none !important;
+    animation: none !important;
+  }
+}

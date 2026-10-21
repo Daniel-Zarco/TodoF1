@@ -47,6 +47,9 @@
   function syncSelect() {
     var select = document.getElementById('tf-season-select');
     if (select) select.value = String(year);
+    if (window.TodoF1SeasonPicker && typeof window.TodoF1SeasonPicker.sync === 'function') {
+      window.TodoF1SeasonPicker.sync();
+    }
   }
 
   if (document.readyState === 'loading') {

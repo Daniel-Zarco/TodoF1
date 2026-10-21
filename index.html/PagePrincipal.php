@@ -106,7 +106,7 @@ session_start();
                 <div class="hero__bar">
                     <label class="hero__season">
                         <span class="hero__season-label">Temporada</span>
-                        <select id="anio" class="tf-select hero__select" name="anio" aria-label="Seleccionar temporada"></select>
+                        <select id="anio" class="tf-select hero__select" name="anio" data-season-picker aria-label="Seleccionar temporada"></select>
                     </label>
                 </div>
             </section>
