@@ -3,6 +3,113 @@
 Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
 licencia y fuente original. No se reutilizan fotos de otra temporada.
 
+- 2000 `arrows` — Arrows A21; Vakie81; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A21_Spa-Francorchamps_Racing_Museum.jpg
+- 2000 `bar` — BAR 002; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BAR_002_Honda_Collection_Hall.jpg
+- 2000 `benetton` — Benetton B200; Erikrost22; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Benetton_F1_2000.jpg
+- 2000 `ferrari` — Ferrari F1-2000; ozz13x; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Rubens_Barrichello_2000_Belgian.jpg
+- 2000 `jaguar` — Jaguar R1; Vauxford; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2000_Jaguar_R1_3.0_Front.jpg
+- 2000 `jordan` — Jordan EJ10; ozz13x; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Heinz-Harald_Frentzen_2000_Belgium.jpg
+- 2000 `mclaren` — McLaren MP4/15; Rick Dikeman; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Mika_H%C3%A4kkinen_2000_United_States_Grand_Prix.jpg
+- 2000 `minardi` — Minardi M02; Anibaln; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Mazzacane_en_Minardi_F1_2000.jpg
+- 2000 `prost` — Prost AP03; User:Arnaud 25; Public domain; https://commons.wikimedia.org/wiki/File:Prost_Grand_Prix_06.jpg
+- 2000 `sauber` — Sauber C19; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C19_front-left_2017_Hangar-7.jpg
+- 2000 `williams` — Williams FW22; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW22_front-left_2017_Williams_Conference_Centre.jpg
+- 2001 `arrows` — Arrows A22; Peter Wright from United Kingdom; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jos_Verstappen_Orange_Arrows_Asiatech_A22_(8969760804).jpg
+- 2001 `bar` — BAR 003; Peter Wright (F1.Fan); CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jacques_Villeneuve,_BAR_Honda_BAR003.jpg
+- 2001 `benetton` — Benetton B201; Mathieu Felten; CC BY 2.5; https://commons.wikimedia.org/wiki/File:Button_2001_French_Grand_Prix.jpg
+- 2001 `ferrari` — Ferrari F2001; Original: Peter Wright from United Kingdom / Derivative work: Danyele; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Michael_Schumacher,_Ferrari_F2001_(8968595731)_(cropped).jpg
+- 2001 `jaguar` — Jaguar R2; Ludovic Mauduit; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jaguar_R2.jpg
+- 2001 `jordan` — Jordan EJ11; Peter Wright from United Kingdom; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jarno_Trulli,_Jordan_Honda_EJ11_(8969812858).jpg
+- 2001 `mclaren` — McLaren MP4-16; Peter Wright from United Kingdom; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:David_Coulthard,_McLaren_Mercedes_MP4-16_(8969814538).jpg
+- 2001 `minardi` — Minardi PS01; María Isabel Gómez Bravo; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Mobil_Alonso_-_Minardi_PS01_2001.jpg
+- 2001 `prost` — Prost AP04; agentura HOCH2; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Enge_indianapolis_2001.jpeg
+- 2001 `sauber` — Sauber C20; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C20_front-right_2017_Hangar-7.jpg
+- 2001 `williams` — Williams FW23; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2001_Williams_FW23_Formula_1_Car_(53436323520).jpg
+- 2002 `arrows` — Arrows A23; Mathieu Felten; CC BY 2.5; https://commons.wikimedia.org/wiki/File:Frentzen_Bernoldi_France_2002.jpg
+- 2002 `bar` — BAR 004; Andrea Volpato; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:BAR_004_Villeneuve.jpg
+- 2002 `ferrari` — Ferrari F2002; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Ferrari_F2002_front-right_Museo_Ferrari.jpg
+- 2002 `jaguar` — Jaguar R3; taken by CMP73 , cropped and retouched by Morio; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jaguar_R3.jpg
+- 2002 `jordan` — Jordan EJ12; Rainmaker47; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jodan_honda_ej12.JPG
+- 2002 `mclaren` — McLaren MP4-17; Dima Moroz; CC BY 2.0; https://commons.wikimedia.org/wiki/File:McLaren_MP4-17_of_David_Coulthard,_2002.jpg
+- 2002 `minardi` — Minardi PS02; Mathieu Felten; CC BY 2.5; https://commons.wikimedia.org/wiki/File:Webber_2002.jpg
+- 2002 `renault` — Renault R202; Boris1964; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Button_Silverstone_2002.jpg
+- 2002 `sauber` — Sauber C21; Andrew-44-19; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C21-2002.jpg
+- 2002 `toyota` — Toyota TF102; Iwao; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Toyota_TF102.jpg
+- 2002 `williams` — Williams FW24; ozz13x; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Williams_FW24.jpg
+- 2003 `bar` — BAR 005; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jenson_Button_2003_Silverstone.jpg
+- 2003 `ferrari` — Ferrari F2003-GA; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Michael_Schumacher_2003_Silverstone_(cropped).jpg
+- 2003 `jaguar` — Jaguar R4; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ant%C3%B4nio_Pizzonia_2003_Silverstone.jpg
+- 2003 `jordan` — Jordan EJ13; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Giancarlo_Fisichella_2003_Silverstone_8.jpg
+- 2003 `mclaren` — McLaren MP4-17D; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Kimi_R%C3%A4ikk%C3%B6nen_2003_Silverstone.jpg
+- 2003 `minardi` — Minardi PS03; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Justin_Wilson_2003_Silverstone.jpg
+- 2003 `renault` — Renault R23; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2003_Silverstone.jpg
+- 2003 `sauber` — Sauber C22; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_2003_Silverstone.jpg
+- 2003 `toyota` — Toyota TF103; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Olivier_Panis_2003_Silverstone.jpg
+- 2003 `williams` — Williams FW25; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ralf_Schumacher_2003_Silverstone.jpg
+- 2004 `bar` — BAR 006; Mclarensenna; Public domain; https://commons.wikimedia.org/wiki/File:BAR006HCH.jpg
+- 2004 `ferrari` — Ferrari F2004; Rick Dikeman; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Michael_Schumacher_Ferrari_2004.jpg
+- 2004 `jaguar` — Jaguar R5; Rick Dikeman; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Webber_usgp_2004.jpg
+- 2004 `jordan` — Jordan EJ14; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_-_Jordan_EJ14_at_the_2004_British_Grand_Prix_(50835282581).jpg
+- 2004 `mclaren` — McLaren MP4-19; Sang Trinh from Ottawa, Canada; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Coulthard_2004_Canada.jpg
+- 2004 `minardi` — Minardi PS04B; Rick Dikeman; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Minardi_usgp_2004.jpg
+- 2004 `renault` — Renault R24; TMWolf; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Fernando_Alonso_2004_Canada.jpg
+- 2004 `sauber` — Sauber C23; Rick Dikeman; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Sauber_usgp_2004.jpg
+- 2004 `toyota` — Toyota TF104; Rick Dikeman; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Toyota_f1_usgp_2004.jpg
+- 2004 `williams` — Williams FW26; inottawa; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Williams_FW26_Canada_GP_2004.jpg
+- 2005 `bar` — BAR 007; TMWolf; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jenson_Button_2005_Canada.jpg
+- 2005 `ferrari` — Ferrari F2005; Leo Schulz (Der-fan) at de.wikipedia; Public domain; https://commons.wikimedia.org/wiki/File:MichaelSchumacherHO2005.jpg
+- 2005 `jordan` — Jordan EJ15; Dan Smith; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Karthikeyan_(Jordan)_locking_brakes_in_qualifying_at_USGP_2005.jpg
+- 2005 `mclaren` — McLaren MP4-20; user:Mateusz; CC BY-SA 1.0; https://commons.wikimedia.org/wiki/File:Pedro_de_la_Rosa_2005_Canadian_GP.jpg
+- 2005 `minardi` — Minardi PS05; Kevin Smith; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Minardi_PS05_British_GP_2005.jpg
+- 2005 `red_bull` — Red Bull RB1; TMWolf; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Coulthard_RedBull_Canada2005.jpg
+- 2005 `renault` — Renault R25; Dan Smith; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alonso_(Renault)_qualifying_at_USGP_2005.jpg
+- 2005 `sauber` — Sauber C24; TMWolf; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jacques_Villeneuve_2005_Canada.jpg
+- 2005 `toyota` — Toyota TF105; Ralf_Schumacher_2005.jpg : TMWolf derivative work: Chubbennaitor ( talk ); CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ralf_Schumacher_2005_(cropped).jpg
+- 2005 `williams` — Williams FW27; "TMWolf"; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_Canadian_Grand_Prix_2005.jpg
+- 2006 `bmw_sauber` — BMW Sauber F1.06; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_2006_Brazil.jpg
+- 2006 `ferrari` — Ferrari 248 F1; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Michael_Schumacher_Ferrari_248F1_2006_Brazil.jpg
+- 2006 `honda` — Honda RA106; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Rubens_Barrichello_2006_Brazil.jpg
+- 2006 `mclaren` — McLaren MP4-21; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2006_McLaren_MP4-21.jpg
+- 2006 `mf1` — Midland M16; paulwoolrich; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Tiago_Monteiro_2006_April.jpg
+- 2006 `red_bull` — Red Bull RB2; Stahlkocher; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Red_Bull_Racing_F1_2006_EMS.jpg
+- 2006 `renault` — Renault R26; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Renault_R26_front-left_2017_Museo_Fernando_Alonso.jpg
+- 2006 `spyker_mf1` — Spyker MF1 M16; lightrace .; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Spyker_M16_Christijan_Albers_September_2006.jpg
+- 2006 `super_aguri` — Super Aguri SA05; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Super_Aguri_SA05_Bridgestone_Today.jpg
+- 2006 `toro_rosso` — Toro Rosso STR01; TMWolf Cropped by Diniz .; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Scott_Speed_Canada_2006_(crop).PNG
+- 2006 `toyota` — Toyota TF106; TMWolf; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jarno_Trulli_2006_Canada.jpg
+- 2006 `williams` — Williams FW28; TMWolf; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2006_Canada_2.jpg
+- 2007 `bmw_sauber` — BMW Sauber F1.07; Rob Snell; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_2007_Britain_2.jpg
+- 2007 `ferrari` — Ferrari F2007; Rob Snell; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Kimi_Raikkonen_2007_Britain_2.jpg
+- 2007 `honda` — Honda RA107; Mike Powell from United States; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Rubens_Barrichello_2007_Malaysia.jpg
+- 2007 `mclaren` — McLaren MP4-22; Tom!!; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2007.jpg
+- 2007 `red_bull` — Red Bull RB3; Mark_Webber_2007_Malaysia.jpg : Mike Powell from United States derivative work: Chubbennaitor ( talk ); CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mark_Webber_2007_Malaysia_(cropped).jpg
+- 2007 `renault` — Renault R27; Rob Snell; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Heikki_Kovalainen_2007_Britain_2.jpg
+- 2007 `spyker` — Spyker F8-VII; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Adrian_Sutil_2007_Brazil_free_practice.jpg
+- 2007 `super_aguri` — Super Aguri SA07; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Super_Aguri_SA07_Honda_Collection_Hall.jpg
+- 2007 `toro_rosso` — Toro Rosso STR02; Rob Snell; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Vitantonio_Liuzzi_2007_Britain_2.jpg
+- 2007 `toyota` — Toyota TF107; Jarno_Trulli_2007_USA.jpg : Matthew Blasi from Fredericksburg Va & Washington DC, USA derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jarno_Trulli_2007_USA_(cropped).jpg
+- 2007 `williams` — Williams FW29; Rob Snell; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nico_Rosberg_2007_Britain.jpg
+- 2008 `bmw_sauber` — BMW Sauber F1.08; Mypoorbrain; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nick_Heidfeld_2008_test.jpg
+- 2008 `ferrari` — Ferrari F2008; Mypoorbrain; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Luca_Badoer_2008_test.jpg
+- 2008 `force_india` — Force India VJM01; Sfloresa; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Sutil-forceindia-2008.jpg
+- 2008 `honda` — Honda RA108; Mark McArdle; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Barrichello_Canada_2008.jpg
+- 2008 `mclaren` — McLaren MP4-23; Tim Wang from Beijing, China; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lewis_Hamilton_2008_China.jpg
+- 2008 `red_bull` — Red Bull RB4; Mohd Nor Azmil Abdul Rahman from Kuala Lumpur, Malaysia; CC BY 2.0; https://commons.wikimedia.org/wiki/File:David_Coulthard_2008_Malaysia.jpg
+- 2008 `renault` — Renault R28; Darren; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nelson_Piquet_2008_test_3.jpg
+- 2008 `super_aguri` — Super Aguri SA08; Mohd Nor Azmil Abdul Rahman from Kuala Lumpur, Malaysia; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Davidson_2008_Malaysia.jpg
+- 2008 `toro_rosso` — Toro Rosso STR03; Cord Rodefeld from Ulm, Germany; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Sebastien_Bourdais_2008_Monaco.jpg
+- 2008 `toyota` — Toyota TF108; Marc Evans from Newbury, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jarno_Trulli_2008_Britain_2.jpg
+- 2008 `williams` — Williams FW30; Marc Evans from Newbury, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Kazuki_Nakajima_2008_Britain.jpg
+- 2009 `bmw_sauber` — BMW Sauber F1.09; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Kubica_BMW_F1.09.jpg
+- 2009 `brawn` — Brawn BGP 001; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Button_Spain_2009.jpg
+- 2009 `ferrari` — Ferrari F60; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Raikkonen_Spain_2009.jpg
+- 2009 `force_india` — Force India VJM02; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Fisichella_Spain_2009.jpg
+- 2009 `mclaren` — McLaren MP4-24; Jose Mª Izquierdo Galiot using a Nikon D90 + Sigma 18-200 DC OS HSM; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Hamilton_McLaren_MP4-24.jpg
+- 2009 `red_bull` — Red Bull RB5; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Vettel_Spain_2009.jpg
+- 2009 `renault` — Renault R29; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Alonso_2009_Spain.jpg
+- 2009 `toro_rosso` — Toro Rosso STR4; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Bourdais_Spain_2009.jpg
+- 2009 `toyota` — Toyota TF109; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Trulli_Spain_2009.jpg
+- 2009 `williams` — Williams FW31; Jose Mª Izquierdo Galiot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Nakajima_2009_Spain.jpg
 - 2010 `ferrari` — Ferrari F10; Andrew Griffith from United Kingdom; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_Bahrain_2010.jpg
 - 2010 `force_india` — Force India VJM03; Liuzzi_Bahrain_2010.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Liuzzi_Bahrain_2010_(cropped).jpg
 - 2010 `hrt` — HRT F110; Bruno_Senna_2010_Bahrain.jpg : Andrew Griffith from United Kingdom derivative work: Chubbennaitor ( talk ); CC BY 2.0; https://commons.wikimedia.org/wiki/File:Bruno_Senna_2010_Bahrain_(cropped).jpg
