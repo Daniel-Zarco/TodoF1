@@ -3,6 +3,150 @@
 Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
 licencia y fuente original. No se reutilizan fotos de otra temporada.
 
+- 1970 `brabham` — Brabham BT33; Muzio Photo / SAEMEC Editions (S/688); Public domain; https://commons.wikimedia.org/wiki/File:1970_Italian_GP_-_Brabham%27s_Brabham-Ford_BT33.jpg
+- 1970 `brm` — BRM P153; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Pedro_Rodriguez%27_1970_BRM_P153_F1_car_(14478690210).jpg
+- 1970 `ferrari` — Ferrari 312B; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:1970_Ferrari_F1_312B_driven_by_Mario_Andretti,_pic2.JPG
+- 1970 `march` — March 701; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1970_March_701_HCC_25.jpg
+- 1970 `matra` — Matra MS120; 5225C; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Matra_MS120_of_Jean-Pierre_Beltoise,_museum_display.jpg
+- 1970 `mclaren-ford` — McLaren M14A; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:McLaren_M14A_at_Goodwood_2012_(3).jpg
+- 1970 `surtees` — Surtees TS7; Stephen Hynds; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Surtees_TS7_at_Goodwood_2014_004.jpg
+- 1970 `team_lotus` — Lotus 72C; The original uploader was Stahlkocher at German Wikipedia .; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lotus_72_Ford_Cosworth.jpg
+- 1970 `tomaso` — De Tomaso 505/38; https://www.flickr.com/photos/69527563@N05/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Piers_Courage_De_Tomaso_505_Goodwood_Festival_of_Speed_2019_(48242763796).jpg
+- 1970 `tyrrell` — Tyrrell 001; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jackie_Stewart_1970_Tyrrell_001_2_(51861790678).jpg
+- 1971 `brabham` — Brabham BT34; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Graham_Hill_-_Brabham_BT34_approaches_Druids_Hill_Bend_at_the_Rothmans_World_Championship_Victory_Race_at_Brands_Hatch_(25914990852).jpg
+- 1971 `brm` — BRM P160; Legends Of Motorsports; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:BRM_P160_at_Barber_01.jpg
+- 1971 `ferrari` — Ferrari 312B2; Andrew Basterfield; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_312B2_at_Goodwood_2010.jpg
+- 1971 `lotus-ford` — Lotus 72D; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_-_Lotus_72D_approaches_Druids_Hill_Bend_at_the_Rothmans_World_Championship_Victory_Race_at_Brands_Hatch_(25914992192).jpg
+- 1971 `lotus-pw` — Lotus 56B; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1971_Lotus_Type_56B_Gas_Turbine_Four_Wheel_Drive_(24175169139).jpg
+- 1971 `march-alfa_romeo` — March 711; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:1971_Andrea_de_Adamich,_March,_Fuchsr%C3%B6hre.jpg
+- 1971 `march-ford` — March 711; Pyrope; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ronnie_Peterson_March_711_1971_cropped_wide.jpg
+- 1971 `matra` — Matra MS120B; Brinkie; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Matra_MS120-02.jpg
+- 1971 `mclaren` — McLaren M19A; Supermac1961 from CHAFFORD HUNDRED, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:McLaren-Cosworth_M19A_-_Flickr_-_Supermac1961.jpg
+- 1971 `surtees` — Surtees TS9; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1971_Surtees_TS9_(26955).jpg
+- 1971 `tyrrell` — Tyrrell 003; Iain Cameron; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_003_F1_Championship_winning_car_-_1971_(21322120005).jpg
+- 1972 `brabham` — Brabham BT37; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Carlos_Reutemann%27s_1972_Brabham_BT37_(6838109027).jpg
+- 1972 `brm` — BRM P160B; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:BRM_P160B_vorne.jpg
+- 1972 `ferrari` — Ferrari 312B2; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Ferrari_312_B2_-_1972_-_001.jpg
+- 1972 `march` — March 721; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ronnie_Peterson_Henri_Pescarolo%27s_1972_March-Ford_March_721-3_F1_car_(14478711578).jpg
+- 1972 `matra` — Matra MS120C; Xavoun; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Matra_MS120D_-_Salon_R%C3%A9tromobile_2025.jpg
+- 1972 `mclaren` — McLaren M19C; _morgado2; CC BY 4.0; https://commons.wikimedia.org/wiki/File:McLaren_M19C.jpg
+- 1972 `surtees` — Surtees TS9B; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1972_Surtees_TS9B_(64821).jpg
+- 1972 `team_lotus` — Lotus 72D; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lotus_72D_(2024).jpg
+- 1972 `tecno` — Tecno PA123/3; Edvvc from London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1972_Tecno_PA123_(19807884464).jpg
+- 1972 `tyrrell` — Tyrrell 006; Legends Of Motorsports; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_006_Mont-Tremblant_Esses_03.jpg
+- 1973 `brabham` — Brabham BT42; Bahnfrend; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1973_Brabham_BT42,_Melbourne,_2008.JPG
+- 1973 `brm` — BRM P160E; 50DAG2026; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:19_Regazzoni_Marlboro_BRM_gpN73.jpg
+- 1973 `ensign` — Ensign N173; David Merrett; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1973_Ensign_N173_at_Silverstone_Classic_2019.jpg
+- 1973 `ferrari` — Ferrari 312B3; Rahil Rupawala; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_312_B3_Spazzaneve_-_Museo_Ferrari_(18108395676)_(cropped).jpg
+- 1973 `iso_marlboro` — Iso-Marlboro IR; 50DAG2026; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Iso-Marlboro_Williams_Howden_Ganley_GP73FR.jpg
+- 1973 `march` — March 731; Ozzy Delaney from Birmingham; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1973_-_March_731-01_(12678450425).jpg
+- 1973 `mclaren` — McLaren M23; 50DAG2026; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Jacky_Ickx_Yardley_McLaren_M23.jpg
+- 1973 `shadow` — Shadow DN1; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Shadow_DN1_at_Silverstone_Classic_2011.jpg
+- 1973 `surtees` — Surtees TS14A; TOM at Picassa .; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Surtees_TS14_Mallory_Park.JPG
+- 1973 `team_lotus` — Lotus 72E; 50DAG2026; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Emerson_1_Lotus_72E.jpg
+- 1973 `tecno` — Tecno PA123/6; crazylenny2; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Nanni_Galli_Tecno_PA-123.jpg
+- 1973 `tyrrell` — Tyrrell 006; David Merrett from Daventry, England; CC BY 4.0; https://commons.wikimedia.org/wiki/File:1973_Tyrrell_006_(54834214603).jpg
+- 1974 `amon` — Amon AF101; StickboyNZ; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:ChrisAmonAF101.jpg
+- 1974 `brabham` — Brabham BT44; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1974_Brabham_BT44.jpg
+- 1974 `brm` — BRM P201; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:BRM_P201_at_Silverstone_Classic_2009.jpg
+- 1974 `ferrari` — Ferrari 312B3-74; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1974_Ferrari_312_B3.jpg
+- 1974 `hesketh` — Hesketh 308; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Hesketh_308_1974.jpg
+- 1974 `iso_marlboro` — Iso-Marlboro FW; Hans Peters for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 927-2736; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Van_Lennep_at_1974_Dutch_Grand_Prix_(2).jpg
+- 1974 `lola` — Lola T370; Hugh Llewelyn from Keynsham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:1974_Lola_Cosworth_T370_HU3_(35264652325).jpg
+- 1974 `march` — March 741; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1974_March_741.jpg
+- 1974 `mclaren` — McLaren M23; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_McLaren_M23_-_1974_-_001.jpg
+- 1974 `penske` — Penske PC1; Christian Sinclair; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Mark_Donohue_and_Chris_Amon_1974_Watkins_Glen.jpg
+- 1974 `shadow` — Shadow DN3; 50DAG2026; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:16_Peter_Revson_UOP_Shadow.jpg
+- 1974 `surtees` — Surtees TS16; Alf van Beem; Public domain; https://commons.wikimedia.org/wiki/File:1974_Surtees_TS16_Formule_1,_Ford_Cosworth_3000_DFV_8cyl,_driver_Jochen_Mass_pic1.jpg
+- 1974 `team_lotus` — Lotus 76; Vakie81; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lotus_76.jpg
+- 1974 `token` — Token RJ02; In Vitrio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Token_RJ02.,_Goodwood_Members%27_Meeting_2015.jpg
+- 1974 `trojan` — Trojan T103; Darren; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_006_leads_Trojan_T103.jpg
+- 1974 `tyrrell` — Tyrrell 007; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Scheckter_Britain_1974.jpg
+- 1975 `brabham` — Brabham BT44B; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1975_Brabham-Cosworth_BT44B.jpg
+- 1975 `brm` — BRM P201; espinya; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BRM_P201_Motul_-_Henri_Pescarolo_-_panoramio.jpg
+- 1975 `ensign` — Ensign N175; _morgado2; CC BY 4.0; https://commons.wikimedia.org/wiki/File:-33_-_Ensign_MN175_-_1975.jpg
+- 1975 `ferrari` — Ferrari 312T; Ercole Colombo; Public domain; https://commons.wikimedia.org/wiki/File:1975_Italian_GP_-_Niki_Lauda_-_Ferrari_312T.jpg
+- 1975 `fittipaldi` — Fittipaldi FD01; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Fittipaldi_FD-01_with_Wilson_2007.jpg
+- 1975 `hesketh` — Hesketh 308B; Neil; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Hesketh_308B_-_James_Hunt_(27422976993).jpg
+- 1975 `hill` — Embassy Hill GH1; GBT2020; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1975_British_GP_Graham_Hill%27s_Goodbye.png
+- 1975 `lyncar` — Lyncar 006; Txemari. (Navarra). from Navarra, España; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Lyncar_F1_Ford_Cosworht_(1977)._(55078840707).jpg
+- 1975 `maki` — Maki F101C; Herranderssvensson; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:1975_Maki_F101C.jpg
+- 1975 `march` — March 751; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:March_751_Mont-Tremblant_Esses.jpg
+- 1975 `mclaren` — McLaren M23C; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_1975_Race_of_Champions.jpg
+- 1975 `parnelli` — Parnelli VPJ4; Christian Sinclair; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Patrick_Depailler,_Mario_Andretti_and_Wilson_Fittipaldi_1975_Watkins_Glen.jpg
+- 1975 `penske` — Penske PC1; Christian Sinclair; CC BY 2.0; https://commons.wikimedia.org/wiki/File:John_Watson_1975_Watkins_Glen.jpg
+- 1975 `shadow-ford` — Shadow DN5; _morgado2; CC BY 4.0; https://commons.wikimedia.org/wiki/File:-16_-_Shadow_DN5_-_1975.jpg
+- 1975 `shadow-matra` — Shadow DN7; Bryce 003 at English Wikipedia; Public domain; https://commons.wikimedia.org/wiki/File:DN7matra.jpg
+- 1975 `surtees` — Surtees TS16; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1975_Surtees_TS16_(51353898685).jpg
+- 1975 `team_lotus` — Lotus 72E; Gillfoto; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Ronnie_Peterson_Lotus_72E_Brands_Hatch_1975.png
+- 1975 `tyrrell` — Tyrrell 007; Gillfoto; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Jody_Scheckter_Tyrrell_Silverstone_39_b.jpg
+- 1975 `williams` — Williams FW04; Christian Sinclair; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jacques_Laffite_and_Jean-Pierre_Jarier_1975_Watkins_Glen.jpg
+- 1976 `brabham-alfa_romeo` — Brabham BT45; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Carlos_Pace_-_Brabham_BT45_-_1976_Race_of_Champions,_Brands_Hatch.jpg
+- 1976 `brabham-ford` — Brabham BT44B; Chris Game; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Brabham_BT44B_turning.jpg
+- 1976 `brm` — BRM P201B; TOM; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BRM_P201_Mallory_Park.JPG
+- 1976 `ensign` — Ensign N176; Gillfoto; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:1976_British_GP_Amon_Ensign.jpg
+- 1976 `ferrari` — Ferrari 312T2; Prova MO; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1976_Ferrari_312_T2_at_RMMR_2022.jpg
+- 1976 `fittipaldi` — Fittipaldi FD04; Christian Sinclair; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_1976_Long_Beach.jpg
+- 1976 `hesketh` — Hesketh 308D; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Hesketh_308D.jpg
+- 1976 `kojima` — Kojima KE007; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Kojima_KE007_front-left_2013_Yurakucho.jpg
+- 1976 `ligier` — Ligier JS5; Gillfoto; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Laffite_Ligier_1.jpg
+- 1976 `march` — March 761; Der Alf; CC BY 4.0; https://commons.wikimedia.org/wiki/File:F1_1976,_March_761-10,_Spa_Francorchamps_(55424597747).jpg
+- 1976 `mclaren` — McLaren M26; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1976_McLaren_M26_HCC25.jpg
+- 1976 `penske` — Penske PC4; Gillfoto; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:John_Watson_Penske_55.jpg
+- 1976 `shadow` — Shadow DN8; Legends Of Motorsports; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Shadow_DN8_at_Barber_02.jpg
+- 1976 `surtees` — Surtees TS19; Gillfoto; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Alan_Jones_Surtees_TS19_RoC_1976.jpg
+- 1976 `team_lotus` — Lotus 77; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1976_Lotus_77_(19699088274).jpg
+- 1976 `tyrrell` — Tyrrell P34; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jody_Scheckter_-_Tyrrell_P34_-_at_the_Graham_Hil_International_Trophy_Race,_Silverstone_in_1976_(52411283725).jpg
+- 1976 `wolf` — Wolf-Williams FW05; Andrew Basterfield; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Wolf-Williams_FW05_at_Goodwood_2010_crop.jpg
+- 1977 `brabham` — Brabham BT45B; Zairon; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Arese_Museo_Storico_Alfa_Romeo_1977_Brabham_BT-45B_2.jpg
+- 1977 `ensign` — Ensign N177; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1977_Ensign_MN177_(20321728485).jpg
+- 1977 `ferrari` — Ferrari 312T2B; Koen Suyk / Anefo; CC0; https://commons.wikimedia.org/wiki/File:Lauda_at_1977_Dutch_Grand_Prix.jpg
+- 1977 `fittipaldi` — Fittipaldi F5; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Fittipaldi_F5,_Bj._1977_(2011-08-13_Sp).JPG
+- 1977 `hesketh` — Hesketh 308E; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Hesketh_308E.jpg
+- 1977 `lec` — LEC CRP1; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:LEC_CRP1_Donington_Grand_Prix_Collection_in_2007.jpg
+- 1977 `ligier` — Ligier JS7; Suyk, Koen / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 929-3237; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Lauda_and_Laffite_at_1977_Dutch_Grand_Prix.jpg
+- 1977 `march` — March 761B; Unknown author Unknown author; Public domain; https://commons.wikimedia.org/wiki/File:1977_Argentine_Grand_Prix_Ribeiro.jpg
+- 1977 `mclaren` — McLaren M26; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:James_Hunt_McLaren_M26_2019_Silverstone_Classic_(48557923242).jpg
+- 1977 `penske` — Penske PC4; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jean-Pierre_Jarier_-_Penske_PC4_at_Tabac_at_the_1977_Monaco_GP.jpg
+- 1977 `renault` — Renault RS01; Nic Redhead from Birmingham, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Renault_RS01_at_Goodwood_2012.jpg
+- 1977 `shadow` — Shadow DN8; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1977_Shadow_DN8_(20327654591).jpg
+- 1977 `surtees` — Surtees TS19; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Vittorio_Brambilla_-_Surtees_TS19_leads_Jacques_Laffite_-_Ligier_JS7_at_Tabac_at_the_1977_Monaco_GP.jpg
+- 1977 `team_lotus` — Lotus 78; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mario_Andretti_-_Lotus_78_at_Tabac_at_the_1977_Monaco_GP.jpg
+- 1977 `tyrrell` — Tyrrell P34; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Tyrrell_P34_-_1977_-_001.jpg
+- 1977 `wolf` — Wolf WR1; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jody_Scheckter%27s_1977_Wolf-Ford_Wolf_WR1_F1_car_(14662121211).jpg
+- 1978 `arrows` — Arrows FA1; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Riccardo_Patrese_-_Arrows_FA1_at_Druids_at_the_1978_British_Grand_Prix_(50050521097).jpg
+- 1978 `ats` — ATS HS1; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jochen_Mass_-_ATS_HS1_leads_Bruno_Giacomelli_-_Mclaren_M26_%26_PatrickTambay_-_Mclaren_M26_at_Druids_at_the_1978_British_Grand_Prix_(50049698498).jpg
+- 1978 `brabham` — Brabham BT46; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1978_Brabham-Alfa_Romeo_BT46B_Fan_Car.jpg
+- 1978 `ensign` — Ensign N177; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Derek_Daly_-_Ensign_N177_%26_Rupert_Keegan_-_Surtees_TS20_head_down_Paddock_Hill_at_the_1978_British_Grand_Prix_(50050265771).jpg
+- 1978 `ferrari` — Ferrari 312T3; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Ferrari_312_T3_-_1978_-_001.jpg
+- 1978 `fittipaldi` — Fittipaldi F5A; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1978_Fittipaldi_F5A_(20313248072).jpg
+- 1978 `hesketh` — Hesketh 308E; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1978_Hesketh_308E.jpg
+- 1978 `ligier` — Ligier JS9; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jacques_Laffite_-_Ligier_JS9_heads_towards_Druids_at_the_1978_British_Grand_Prix_(50050267606).jpg
+- 1978 `mclaren` — McLaren M26; Mr.choppers; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_M26,_ex-James_Hunt_(1978_spec)_at_Classic_Remise_Berlin.jpg
+- 1978 `renault` — Renault RS01; Thesupermat; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Paris_-_Retromobile_2013_-_Renault_F1_RS01_-_1978_-_102.jpg
+- 1978 `shadow` — Shadow DN9; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Clay_Regazzoni_-_Shadow_DN9_at_Druids_at_the_1978_British_Grand_Prix_(50049697668).jpg
+- 1978 `surtees` — Surtees TS20; Nheyob; CC0; https://commons.wikimedia.org/wiki/File:Barber_Vintage_Motorsports_Museum_(Birmingham,_Alabama)_-_1978_Surtees_F-1_TS20_No._003,_2_(1).jpg
+- 1978 `team_lotus` — Lotus 79; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1978_Lotus_79_SCD_24.jpg
+- 1978 `theodore` — Theodore TR1; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Theodore_TR1_2019_Silverstone_Classic_(48557784306).jpg
+- 1978 `tyrrell` — Tyrrell 008; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Patrick_Depailler_1978_Tyrrell_008_2_(51861706321).jpg
+- 1978 `williams` — Williams FW06; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Alan_Jones_1978_Williams_Fw06_F1_2_(51860748602).jpg
+- 1978 `wolf` — Wolf WR5; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jody_Scheckter_-_Wolf_WR5_exits_Druids_at_the_1978_British_Grand_Prix_(50050519762).jpg
+- 1979 `alfa` — Alfa Romeo 179; Ladislaus Hoffner; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1979-05_Bruno_Giacomelli_-_Zolder_-_Alfa_Romeo_-_Formel_1.jpg
+- 1979 `arrows` — Arrows A2; MPW57; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A2_N%C3%BCrburgring_Motorsport_Museum.jpg
+- 1979 `ats` — ATS D3; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_ATS_D3_-_1979_-_001.jpg
+- 1979 `brabham-alfa_romeo` — Brabham BT48; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1979_Brabham-Alfa_Romeo_BT48.jpg
+- 1979 `brabham-ford` — Brabham BT49; Fordcapri at English Wikipedia; Public domain; https://commons.wikimedia.org/wiki/File:Brabham_BT49_Nelson_Piquet.jpg
+- 1979 `ensign` — Ensign N179; _morgado2; CC BY 4.0; https://commons.wikimedia.org/wiki/File:-22_-_Ensign_N179.jpg
+- 1979 `ferrari` — Ferrari 312T4; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_312T4_-_Jody_Scheckter_at_the_1979_Belgian_Grand_Prix,_Zolder_(51632958993).jpg
+- 1979 `ligier` — Ligier JS11; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1979_Ligier-Cosworth_JS11.jpg
+- 1979 `mclaren` — McLaren M28; Legends Of Motorsports; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:McLaren_M28_Watson_1979-Barber02.jpg
+- 1979 `merzario` — Merzario A2; MPW57; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Merzario_A2_2015_Oldtimer_Grand_Prix_N%C3%BCrburgring.jpg
+- 1979 `renault` — Renault RS10; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1979_Renault_RS10.jpg
+- 1979 `shadow` — Shadow DN9; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Elio_de_Angelis%27s_1979_Shadow_DN9_(51352872951).jpg
+- 1979 `team_lotus` — Lotus 79; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mario_Andretti_-_Lotus_79_at_the_1979_Race_of_Champions_(50141072022).jpg
+- 1979 `tyrrell` — Tyrrell 009; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_009_at_Silverstone_Classic_2011.jpg
+- 1979 `williams` — Williams FW07; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alan_Jones_-_Williams_FW07_at_Rascasse_during_practice_for_the_1979_Monaco_GP_(49984746103).jpg
+- 1979 `wolf` — Wolf WR8; Mick from Northamptonshire, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ex_James_Hunt._Wolf_WR8_Ford_Cosworth_F1_Race_Car_-_Flickr_-_mick_-_Lumix.jpg
 - 1980 `alfa` — Alfa Romeo 179; Ben Sutherland; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Andrea_De_Cesaris_Alfa_Romeo_179.jpg
 - 1980 `arrows` — Arrows A3; TOM at Picassa .; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A3_Mallory_Park.JPG
 - 1980 `brabham` — Brabham BT49; Eric Verplanken; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Piquetmonaco.jpg
@@ -534,3 +678,26 @@ Se conserva el fallback (logotipo o nombre del equipo) y no se publica una image
 - `1992/march` — March CG911B: solo existe un recorte de 322x185 px, insuficiente para las tarjetas.
 - `1996/footwork` — Footwork FA17: solo hay una foto aerea del peloton donde no se identifica el FA17.
 - `1997/tyrrell` — Tyrrell 025: solo existe una maqueta a escala, no una fotografia del coche real.
+
+## Pendientes 1970-1979 (sin fotografía verificable)
+
+Se conserva el fallback (logotipo o nombre del equipo) y no se publica una imagen dudosa.
+
+- `1970/bellasi` — Bellasi F1 70: sin foto verificable en Wikimedia Commons.
+- `1970/mclaren-alfa_romeo` — McLaren M7D: sin foto verificable en Wikimedia Commons.
+- `1971/bellasi` — Bellasi F1 70: sin foto verificable en Wikimedia Commons.
+- `1972/connew` — Connew PC1: solo existen dibujos del PC1, no fotografías del coche real.
+- `1972/politoys` — Politoys FX3: sin foto verificable en Wikimedia Commons.
+- `1974/ensign` — Ensign N174: solo existe una foto de una maqueta (John Day Models), no del coche real.
+- `1974/parnelli` — Parnelli VPJ4: no hay foto verificable de 1974; la disponible es de 1975.
+- `1975/lola` — Lola T371: sin foto verificable del Lola T371.
+- `1976/boro` — Boro 001: sin foto verificable del Boro 001.
+- `1976/parnelli` — Parnelli VPJ4B: sin foto verificable del Parnelli VPJ4B.
+- `1976/williams` — Williams FW04: no hay foto verificable de 1976 sin reutilizar la de 1975.
+- `1977/boro` — Boro 001: sin foto verificable del Boro 001.
+- `1977/brm` — BRM P207: solo existe una foto de 361x240 px, insuficiente para las tarjetas.
+- `1977/kojima` — Kojima KE009: sin foto verificable del Kojima KE009.
+- `1978/martini` — Martini MK23: sin foto verificable del Martini MK23.
+- `1978/merzario` — Merzario A1: solo hay foto del Merzario A2, no del A1.
+- `1979/fittipaldi` — Fittipaldi F6: sin foto verificable del Fittipaldi F6.
+- `1979/rebaque` — Rebaque HR100: sin foto verificable del Rebaque HR100.

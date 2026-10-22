@@ -1,6 +1,1034 @@
 {
   "generatedFrom": "Wikimedia Commons / Wikipedia page images",
   "years": {
+    "1970": {
+      "brabham": {
+        "modelo": "Brabham BT33",
+        "src": "/Images/monoplazas/1970/brabham.webp",
+        "autor": "Muzio Photo / SAEMEC Editions (S/688)",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1970_Italian_GP_-_Brabham%27s_Brabham-Ford_BT33.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P153",
+        "src": "/Images/monoplazas/1970/brm.webp",
+        "autor": "Ben Sutherland from Crystal Palace, London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Pedro_Rodriguez%27_1970_BRM_P153_F1_car_(14478690210).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312B",
+        "src": "/Images/monoplazas/1970/ferrari.webp",
+        "autor": "Alf van Beem",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1970_Ferrari_F1_312B_driven_by_Mario_Andretti,_pic2.JPG"
+      },
+      "march": {
+        "modelo": "March 701",
+        "src": "/Images/monoplazas/1970/march.webp",
+        "autor": "MrWalkr",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1970_March_701_HCC_25.jpg"
+      },
+      "matra": {
+        "modelo": "Matra MS120",
+        "src": "/Images/monoplazas/1970/matra.webp",
+        "autor": "5225C",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Matra_MS120_of_Jean-Pierre_Beltoise,_museum_display.jpg"
+      },
+      "mclaren-ford": {
+        "modelo": "McLaren M14A",
+        "src": "/Images/monoplazas/1970/mclaren-ford.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M14A_at_Goodwood_2012_(3).jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS7",
+        "src": "/Images/monoplazas/1970/surtees.webp",
+        "autor": "Stephen Hynds",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Surtees_TS7_at_Goodwood_2014_004.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 72C",
+        "src": "/Images/monoplazas/1970/team_lotus.webp",
+        "autor": "The original uploader was Stahlkocher at German Wikipedia .",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_72_Ford_Cosworth.jpg"
+      },
+      "tomaso": {
+        "modelo": "De Tomaso 505/38",
+        "src": "/Images/monoplazas/1970/tomaso.webp",
+        "autor": "https://www.flickr.com/photos/69527563@N05/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Piers_Courage_De_Tomaso_505_Goodwood_Festival_of_Speed_2019_(48242763796).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 001",
+        "src": "/Images/monoplazas/1970/tyrrell.webp",
+        "autor": "Tony Hisgett from Birmingham, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jackie_Stewart_1970_Tyrrell_001_2_(51861790678).jpg"
+      }
+    },
+    "1971": {
+      "brabham": {
+        "modelo": "Brabham BT34",
+        "src": "/Images/monoplazas/1971/brabham.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Graham_Hill_-_Brabham_BT34_approaches_Druids_Hill_Bend_at_the_Rothmans_World_Championship_Victory_Race_at_Brands_Hatch_(25914990852).jpg"
+      },
+      "brm": {
+        "modelo": "BRM P160",
+        "src": "/Images/monoplazas/1971/brm.webp",
+        "autor": "Legends Of Motorsports",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P160_at_Barber_01.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312B2",
+        "src": "/Images/monoplazas/1971/ferrari.webp",
+        "autor": "Andrew Basterfield",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_312B2_at_Goodwood_2010.jpg"
+      },
+      "lotus-ford": {
+        "modelo": "Lotus 72D",
+        "src": "/Images/monoplazas/1971/lotus-ford.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_-_Lotus_72D_approaches_Druids_Hill_Bend_at_the_Rothmans_World_Championship_Victory_Race_at_Brands_Hatch_(25914992192).jpg"
+      },
+      "lotus-pw": {
+        "modelo": "Lotus 56B",
+        "src": "/Images/monoplazas/1971/lotus-pw.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1971_Lotus_Type_56B_Gas_Turbine_Four_Wheel_Drive_(24175169139).jpg"
+      },
+      "march-alfa_romeo": {
+        "modelo": "March 711",
+        "src": "/Images/monoplazas/1971/march-alfa_romeo.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1971_Andrea_de_Adamich,_March,_Fuchsr%C3%B6hre.jpg"
+      },
+      "march-ford": {
+        "modelo": "March 711",
+        "src": "/Images/monoplazas/1971/march-ford.webp",
+        "autor": "Pyrope",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ronnie_Peterson_March_711_1971_cropped_wide.jpg"
+      },
+      "matra": {
+        "modelo": "Matra MS120B",
+        "src": "/Images/monoplazas/1971/matra.webp",
+        "autor": "Brinkie",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Matra_MS120-02.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M19A",
+        "src": "/Images/monoplazas/1971/mclaren.webp",
+        "autor": "Supermac1961 from CHAFFORD HUNDRED, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren-Cosworth_M19A_-_Flickr_-_Supermac1961.jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS9",
+        "src": "/Images/monoplazas/1971/surtees.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1971_Surtees_TS9_(26955).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 003",
+        "src": "/Images/monoplazas/1971/tyrrell.webp",
+        "autor": "Iain Cameron",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_003_F1_Championship_winning_car_-_1971_(21322120005).jpg"
+      }
+    },
+    "1972": {
+      "brabham": {
+        "modelo": "Brabham BT37",
+        "src": "/Images/monoplazas/1972/brabham.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Reutemann%27s_1972_Brabham_BT37_(6838109027).jpg"
+      },
+      "brm": {
+        "modelo": "BRM P160B",
+        "src": "/Images/monoplazas/1972/brm.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P160B_vorne.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312B2",
+        "src": "/Images/monoplazas/1972/ferrari.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Ferrari_312_B2_-_1972_-_001.jpg"
+      },
+      "march": {
+        "modelo": "March 721",
+        "src": "/Images/monoplazas/1972/march.webp",
+        "autor": "Ben Sutherland from Crystal Palace, London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ronnie_Peterson_Henri_Pescarolo%27s_1972_March-Ford_March_721-3_F1_car_(14478711578).jpg"
+      },
+      "matra": {
+        "modelo": "Matra MS120C",
+        "src": "/Images/monoplazas/1972/matra.webp",
+        "autor": "Xavoun",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Matra_MS120D_-_Salon_R%C3%A9tromobile_2025.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M19C",
+        "src": "/Images/monoplazas/1972/mclaren.webp",
+        "autor": "_morgado2",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M19C.jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS9B",
+        "src": "/Images/monoplazas/1972/surtees.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1972_Surtees_TS9B_(64821).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 72D",
+        "src": "/Images/monoplazas/1972/team_lotus.webp",
+        "autor": "Lukas Raich",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_72D_(2024).jpg"
+      },
+      "tecno": {
+        "modelo": "Tecno PA123/3",
+        "src": "/Images/monoplazas/1972/tecno.webp",
+        "autor": "Edvvc from London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1972_Tecno_PA123_(19807884464).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 006",
+        "src": "/Images/monoplazas/1972/tyrrell.webp",
+        "autor": "Legends Of Motorsports",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_006_Mont-Tremblant_Esses_03.jpg"
+      }
+    },
+    "1973": {
+      "brabham": {
+        "modelo": "Brabham BT42",
+        "src": "/Images/monoplazas/1973/brabham.webp",
+        "autor": "Bahnfrend",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1973_Brabham_BT42,_Melbourne,_2008.JPG"
+      },
+      "brm": {
+        "modelo": "BRM P160E",
+        "src": "/Images/monoplazas/1973/brm.webp",
+        "autor": "50DAG2026",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:19_Regazzoni_Marlboro_BRM_gpN73.jpg"
+      },
+      "ensign": {
+        "modelo": "Ensign N173",
+        "src": "/Images/monoplazas/1973/ensign.webp",
+        "autor": "David Merrett",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1973_Ensign_N173_at_Silverstone_Classic_2019.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312B3",
+        "src": "/Images/monoplazas/1973/ferrari.webp",
+        "autor": "Rahil Rupawala",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_312_B3_Spazzaneve_-_Museo_Ferrari_(18108395676)_(cropped).jpg"
+      },
+      "iso_marlboro": {
+        "modelo": "Iso-Marlboro IR",
+        "src": "/Images/monoplazas/1973/iso_marlboro.webp",
+        "autor": "50DAG2026",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Iso-Marlboro_Williams_Howden_Ganley_GP73FR.jpg"
+      },
+      "march": {
+        "modelo": "March 731",
+        "src": "/Images/monoplazas/1973/march.webp",
+        "autor": "Ozzy Delaney from Birmingham",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1973_-_March_731-01_(12678450425).jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M23",
+        "src": "/Images/monoplazas/1973/mclaren.webp",
+        "autor": "50DAG2026",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jacky_Ickx_Yardley_McLaren_M23.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN1",
+        "src": "/Images/monoplazas/1973/shadow.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Shadow_DN1_at_Silverstone_Classic_2011.jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS14A",
+        "src": "/Images/monoplazas/1973/surtees.webp",
+        "autor": "TOM at Picassa .",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Surtees_TS14_Mallory_Park.JPG"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 72E",
+        "src": "/Images/monoplazas/1973/team_lotus.webp",
+        "autor": "50DAG2026",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Emerson_1_Lotus_72E.jpg"
+      },
+      "tecno": {
+        "modelo": "Tecno PA123/6",
+        "src": "/Images/monoplazas/1973/tecno.webp",
+        "autor": "crazylenny2",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Nanni_Galli_Tecno_PA-123.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 006",
+        "src": "/Images/monoplazas/1973/tyrrell.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1973_Tyrrell_006_(54834214603).jpg"
+      }
+    },
+    "1974": {
+      "amon": {
+        "modelo": "Amon AF101",
+        "src": "/Images/monoplazas/1974/amon.webp",
+        "autor": "StickboyNZ",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:ChrisAmonAF101.jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT44",
+        "src": "/Images/monoplazas/1974/brabham.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1974_Brabham_BT44.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P201",
+        "src": "/Images/monoplazas/1974/brm.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P201_at_Silverstone_Classic_2009.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312B3-74",
+        "src": "/Images/monoplazas/1974/ferrari.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1974_Ferrari_312_B3.jpg"
+      },
+      "hesketh": {
+        "modelo": "Hesketh 308",
+        "src": "/Images/monoplazas/1974/hesketh.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Hesketh_308_1974.jpg"
+      },
+      "iso_marlboro": {
+        "modelo": "Iso-Marlboro FW",
+        "src": "/Images/monoplazas/1974/iso_marlboro.webp",
+        "autor": "Hans Peters for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 927-2736",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Van_Lennep_at_1974_Dutch_Grand_Prix_(2).jpg"
+      },
+      "lola": {
+        "modelo": "Lola T370",
+        "src": "/Images/monoplazas/1974/lola.webp",
+        "autor": "Hugh Llewelyn from Keynsham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1974_Lola_Cosworth_T370_HU3_(35264652325).jpg"
+      },
+      "march": {
+        "modelo": "March 741",
+        "src": "/Images/monoplazas/1974/march.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1974_March_741.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M23",
+        "src": "/Images/monoplazas/1974/mclaren.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_McLaren_M23_-_1974_-_001.jpg"
+      },
+      "penske": {
+        "modelo": "Penske PC1",
+        "src": "/Images/monoplazas/1974/penske.webp",
+        "autor": "Christian Sinclair",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mark_Donohue_and_Chris_Amon_1974_Watkins_Glen.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN3",
+        "src": "/Images/monoplazas/1974/shadow.webp",
+        "autor": "50DAG2026",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:16_Peter_Revson_UOP_Shadow.jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS16",
+        "src": "/Images/monoplazas/1974/surtees.webp",
+        "autor": "Alf van Beem",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1974_Surtees_TS16_Formule_1,_Ford_Cosworth_3000_DFV_8cyl,_driver_Jochen_Mass_pic1.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 76",
+        "src": "/Images/monoplazas/1974/team_lotus.webp",
+        "autor": "Vakie81",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_76.jpg"
+      },
+      "token": {
+        "modelo": "Token RJ02",
+        "src": "/Images/monoplazas/1974/token.webp",
+        "autor": "In Vitrio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Token_RJ02.,_Goodwood_Members%27_Meeting_2015.jpg"
+      },
+      "trojan": {
+        "modelo": "Trojan T103",
+        "src": "/Images/monoplazas/1974/trojan.webp",
+        "autor": "Darren",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_006_leads_Trojan_T103.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 007",
+        "src": "/Images/monoplazas/1974/tyrrell.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Scheckter_Britain_1974.jpg"
+      }
+    },
+    "1975": {
+      "brabham": {
+        "modelo": "Brabham BT44B",
+        "src": "/Images/monoplazas/1975/brabham.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1975_Brabham-Cosworth_BT44B.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P201",
+        "src": "/Images/monoplazas/1975/brm.webp",
+        "autor": "espinya",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P201_Motul_-_Henri_Pescarolo_-_panoramio.jpg"
+      },
+      "ensign": {
+        "modelo": "Ensign N175",
+        "src": "/Images/monoplazas/1975/ensign.webp",
+        "autor": "_morgado2",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:-33_-_Ensign_MN175_-_1975.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312T",
+        "src": "/Images/monoplazas/1975/ferrari.webp",
+        "autor": "Ercole Colombo",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1975_Italian_GP_-_Niki_Lauda_-_Ferrari_312T.jpg"
+      },
+      "fittipaldi": {
+        "modelo": "Fittipaldi FD01",
+        "src": "/Images/monoplazas/1975/fittipaldi.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fittipaldi_FD-01_with_Wilson_2007.jpg"
+      },
+      "hesketh": {
+        "modelo": "Hesketh 308B",
+        "src": "/Images/monoplazas/1975/hesketh.webp",
+        "autor": "Neil",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Hesketh_308B_-_James_Hunt_(27422976993).jpg"
+      },
+      "hill": {
+        "modelo": "Embassy Hill GH1",
+        "src": "/Images/monoplazas/1975/hill.webp",
+        "autor": "GBT2020",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1975_British_GP_Graham_Hill%27s_Goodbye.png"
+      },
+      "lyncar": {
+        "modelo": "Lyncar 006",
+        "src": "/Images/monoplazas/1975/lyncar.webp",
+        "autor": "Txemari. (Navarra). from Navarra, España",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lyncar_F1_Ford_Cosworht_(1977)._(55078840707).jpg"
+      },
+      "maki": {
+        "modelo": "Maki F101C",
+        "src": "/Images/monoplazas/1975/maki.webp",
+        "autor": "Herranderssvensson",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1975_Maki_F101C.jpg"
+      },
+      "march": {
+        "modelo": "March 751",
+        "src": "/Images/monoplazas/1975/march.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:March_751_Mont-Tremblant_Esses.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M23C",
+        "src": "/Images/monoplazas/1975/mclaren.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_1975_Race_of_Champions.jpg"
+      },
+      "parnelli": {
+        "modelo": "Parnelli VPJ4",
+        "src": "/Images/monoplazas/1975/parnelli.webp",
+        "autor": "Christian Sinclair",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Patrick_Depailler,_Mario_Andretti_and_Wilson_Fittipaldi_1975_Watkins_Glen.jpg"
+      },
+      "penske": {
+        "modelo": "Penske PC1",
+        "src": "/Images/monoplazas/1975/penske.webp",
+        "autor": "Christian Sinclair",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:John_Watson_1975_Watkins_Glen.jpg"
+      },
+      "shadow-ford": {
+        "modelo": "Shadow DN5",
+        "src": "/Images/monoplazas/1975/shadow-ford.webp",
+        "autor": "_morgado2",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:-16_-_Shadow_DN5_-_1975.jpg"
+      },
+      "shadow-matra": {
+        "modelo": "Shadow DN7",
+        "src": "/Images/monoplazas/1975/shadow-matra.webp",
+        "autor": "Bryce 003 at English Wikipedia",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:DN7matra.jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS16",
+        "src": "/Images/monoplazas/1975/surtees.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1975_Surtees_TS16_(51353898685).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 72E",
+        "src": "/Images/monoplazas/1975/team_lotus.webp",
+        "autor": "Gillfoto",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ronnie_Peterson_Lotus_72E_Brands_Hatch_1975.png"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 007",
+        "src": "/Images/monoplazas/1975/tyrrell.webp",
+        "autor": "Gillfoto",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jody_Scheckter_Tyrrell_Silverstone_39_b.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW04",
+        "src": "/Images/monoplazas/1975/williams.webp",
+        "autor": "Christian Sinclair",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jacques_Laffite_and_Jean-Pierre_Jarier_1975_Watkins_Glen.jpg"
+      }
+    },
+    "1976": {
+      "brabham-alfa_romeo": {
+        "modelo": "Brabham BT45",
+        "src": "/Images/monoplazas/1976/brabham-alfa_romeo.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Carlos_Pace_-_Brabham_BT45_-_1976_Race_of_Champions,_Brands_Hatch.jpg"
+      },
+      "brabham-ford": {
+        "modelo": "Brabham BT44B",
+        "src": "/Images/monoplazas/1976/brabham-ford.webp",
+        "autor": "Chris Game",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT44B_turning.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P201B",
+        "src": "/Images/monoplazas/1976/brm.webp",
+        "autor": "TOM",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P201_Mallory_Park.JPG"
+      },
+      "ensign": {
+        "modelo": "Ensign N176",
+        "src": "/Images/monoplazas/1976/ensign.webp",
+        "autor": "Gillfoto",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1976_British_GP_Amon_Ensign.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312T2",
+        "src": "/Images/monoplazas/1976/ferrari.webp",
+        "autor": "Prova MO",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1976_Ferrari_312_T2_at_RMMR_2022.jpg"
+      },
+      "fittipaldi": {
+        "modelo": "Fittipaldi FD04",
+        "src": "/Images/monoplazas/1976/fittipaldi.webp",
+        "autor": "Christian Sinclair",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Emerson_Fittipaldi_1976_Long_Beach.jpg"
+      },
+      "hesketh": {
+        "modelo": "Hesketh 308D",
+        "src": "/Images/monoplazas/1976/hesketh.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Hesketh_308D.jpg"
+      },
+      "kojima": {
+        "modelo": "Kojima KE007",
+        "src": "/Images/monoplazas/1976/kojima.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kojima_KE007_front-left_2013_Yurakucho.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS5",
+        "src": "/Images/monoplazas/1976/ligier.webp",
+        "autor": "Gillfoto",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Laffite_Ligier_1.jpg"
+      },
+      "march": {
+        "modelo": "March 761",
+        "src": "/Images/monoplazas/1976/march.webp",
+        "autor": "Der Alf",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:F1_1976,_March_761-10,_Spa_Francorchamps_(55424597747).jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M26",
+        "src": "/Images/monoplazas/1976/mclaren.webp",
+        "autor": "MrWalkr",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1976_McLaren_M26_HCC25.jpg"
+      },
+      "penske": {
+        "modelo": "Penske PC4",
+        "src": "/Images/monoplazas/1976/penske.webp",
+        "autor": "Gillfoto",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:John_Watson_Penske_55.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN8",
+        "src": "/Images/monoplazas/1976/shadow.webp",
+        "autor": "Legends Of Motorsports",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Shadow_DN8_at_Barber_02.jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS19",
+        "src": "/Images/monoplazas/1976/surtees.webp",
+        "autor": "Gillfoto",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alan_Jones_Surtees_TS19_RoC_1976.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 77",
+        "src": "/Images/monoplazas/1976/team_lotus.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1976_Lotus_77_(19699088274).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell P34",
+        "src": "/Images/monoplazas/1976/tyrrell.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jody_Scheckter_-_Tyrrell_P34_-_at_the_Graham_Hil_International_Trophy_Race,_Silverstone_in_1976_(52411283725).jpg"
+      },
+      "wolf": {
+        "modelo": "Wolf-Williams FW05",
+        "src": "/Images/monoplazas/1976/wolf.webp",
+        "autor": "Andrew Basterfield",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Wolf-Williams_FW05_at_Goodwood_2010_crop.jpg"
+      }
+    },
+    "1977": {
+      "brabham": {
+        "modelo": "Brabham BT45B",
+        "src": "/Images/monoplazas/1977/brabham.webp",
+        "autor": "Zairon",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arese_Museo_Storico_Alfa_Romeo_1977_Brabham_BT-45B_2.jpg"
+      },
+      "ensign": {
+        "modelo": "Ensign N177",
+        "src": "/Images/monoplazas/1977/ensign.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1977_Ensign_MN177_(20321728485).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312T2B",
+        "src": "/Images/monoplazas/1977/ferrari.webp",
+        "autor": "Koen Suyk / Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lauda_at_1977_Dutch_Grand_Prix.jpg"
+      },
+      "fittipaldi": {
+        "modelo": "Fittipaldi F5",
+        "src": "/Images/monoplazas/1977/fittipaldi.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Fittipaldi_F5,_Bj._1977_(2011-08-13_Sp).JPG"
+      },
+      "hesketh": {
+        "modelo": "Hesketh 308E",
+        "src": "/Images/monoplazas/1977/hesketh.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Hesketh_308E.jpg"
+      },
+      "lec": {
+        "modelo": "LEC CRP1",
+        "src": "/Images/monoplazas/1977/lec.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:LEC_CRP1_Donington_Grand_Prix_Collection_in_2007.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS7",
+        "src": "/Images/monoplazas/1977/ligier.webp",
+        "autor": "Suyk, Koen / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 929-3237",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lauda_and_Laffite_at_1977_Dutch_Grand_Prix.jpg"
+      },
+      "march": {
+        "modelo": "March 761B",
+        "src": "/Images/monoplazas/1977/march.webp",
+        "autor": "Unknown author Unknown author",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1977_Argentine_Grand_Prix_Ribeiro.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M26",
+        "src": "/Images/monoplazas/1977/mclaren.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:James_Hunt_McLaren_M26_2019_Silverstone_Classic_(48557923242).jpg"
+      },
+      "penske": {
+        "modelo": "Penske PC4",
+        "src": "/Images/monoplazas/1977/penske.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jean-Pierre_Jarier_-_Penske_PC4_at_Tabac_at_the_1977_Monaco_GP.jpg"
+      },
+      "renault": {
+        "modelo": "Renault RS01",
+        "src": "/Images/monoplazas/1977/renault.webp",
+        "autor": "Nic Redhead from Birmingham, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Renault_RS01_at_Goodwood_2012.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN8",
+        "src": "/Images/monoplazas/1977/shadow.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1977_Shadow_DN8_(20327654591).jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS19",
+        "src": "/Images/monoplazas/1977/surtees.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Vittorio_Brambilla_-_Surtees_TS19_leads_Jacques_Laffite_-_Ligier_JS7_at_Tabac_at_the_1977_Monaco_GP.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 78",
+        "src": "/Images/monoplazas/1977/team_lotus.webp",
+        "autor": "Martin Lee",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mario_Andretti_-_Lotus_78_at_Tabac_at_the_1977_Monaco_GP.jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell P34",
+        "src": "/Images/monoplazas/1977/tyrrell.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Tyrrell_P34_-_1977_-_001.jpg"
+      },
+      "wolf": {
+        "modelo": "Wolf WR1",
+        "src": "/Images/monoplazas/1977/wolf.webp",
+        "autor": "Ben Sutherland from Crystal Palace, London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jody_Scheckter%27s_1977_Wolf-Ford_Wolf_WR1_F1_car_(14662121211).jpg"
+      }
+    },
+    "1978": {
+      "arrows": {
+        "modelo": "Arrows FA1",
+        "src": "/Images/monoplazas/1978/arrows.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Riccardo_Patrese_-_Arrows_FA1_at_Druids_at_the_1978_British_Grand_Prix_(50050521097).jpg"
+      },
+      "ats": {
+        "modelo": "ATS HS1",
+        "src": "/Images/monoplazas/1978/ats.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jochen_Mass_-_ATS_HS1_leads_Bruno_Giacomelli_-_Mclaren_M26_%26_PatrickTambay_-_Mclaren_M26_at_Druids_at_the_1978_British_Grand_Prix_(50049698498).jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT46",
+        "src": "/Images/monoplazas/1978/brabham.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1978_Brabham-Alfa_Romeo_BT46B_Fan_Car.jpg"
+      },
+      "ensign": {
+        "modelo": "Ensign N177",
+        "src": "/Images/monoplazas/1978/ensign.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Derek_Daly_-_Ensign_N177_%26_Rupert_Keegan_-_Surtees_TS20_head_down_Paddock_Hill_at_the_1978_British_Grand_Prix_(50050265771).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312T3",
+        "src": "/Images/monoplazas/1978/ferrari.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Ferrari_312_T3_-_1978_-_001.jpg"
+      },
+      "fittipaldi": {
+        "modelo": "Fittipaldi F5A",
+        "src": "/Images/monoplazas/1978/fittipaldi.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1978_Fittipaldi_F5A_(20313248072).jpg"
+      },
+      "hesketh": {
+        "modelo": "Hesketh 308E",
+        "src": "/Images/monoplazas/1978/hesketh.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1978_Hesketh_308E.jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS9",
+        "src": "/Images/monoplazas/1978/ligier.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jacques_Laffite_-_Ligier_JS9_heads_towards_Druids_at_the_1978_British_Grand_Prix_(50050267606).jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M26",
+        "src": "/Images/monoplazas/1978/mclaren.webp",
+        "autor": "Mr.choppers",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M26,_ex-James_Hunt_(1978_spec)_at_Classic_Remise_Berlin.jpg"
+      },
+      "renault": {
+        "modelo": "Renault RS01",
+        "src": "/Images/monoplazas/1978/renault.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Paris_-_Retromobile_2013_-_Renault_F1_RS01_-_1978_-_102.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN9",
+        "src": "/Images/monoplazas/1978/shadow.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Clay_Regazzoni_-_Shadow_DN9_at_Druids_at_the_1978_British_Grand_Prix_(50049697668).jpg"
+      },
+      "surtees": {
+        "modelo": "Surtees TS20",
+        "src": "/Images/monoplazas/1978/surtees.webp",
+        "autor": "Nheyob",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Barber_Vintage_Motorsports_Museum_(Birmingham,_Alabama)_-_1978_Surtees_F-1_TS20_No._003,_2_(1).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 79",
+        "src": "/Images/monoplazas/1978/team_lotus.webp",
+        "autor": "MrWalkr",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1978_Lotus_79_SCD_24.jpg"
+      },
+      "theodore": {
+        "modelo": "Theodore TR1",
+        "src": "/Images/monoplazas/1978/theodore.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Theodore_TR1_2019_Silverstone_Classic_(48557784306).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 008",
+        "src": "/Images/monoplazas/1978/tyrrell.webp",
+        "autor": "Tony Hisgett from Birmingham, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Patrick_Depailler_1978_Tyrrell_008_2_(51861706321).jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW06",
+        "src": "/Images/monoplazas/1978/williams.webp",
+        "autor": "Tony Hisgett from Birmingham, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alan_Jones_1978_Williams_Fw06_F1_2_(51860748602).jpg"
+      },
+      "wolf": {
+        "modelo": "Wolf WR5",
+        "src": "/Images/monoplazas/1978/wolf.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jody_Scheckter_-_Wolf_WR5_exits_Druids_at_the_1978_British_Grand_Prix_(50050519762).jpg"
+      }
+    },
+    "1979": {
+      "alfa": {
+        "modelo": "Alfa Romeo 179",
+        "src": "/Images/monoplazas/1979/alfa.webp",
+        "autor": "Ladislaus Hoffner",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1979-05_Bruno_Giacomelli_-_Zolder_-_Alfa_Romeo_-_Formel_1.jpg"
+      },
+      "arrows": {
+        "modelo": "Arrows A2",
+        "src": "/Images/monoplazas/1979/arrows.webp",
+        "autor": "MPW57",
+        "licencia": "CC BY 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Arrows_A2_N%C3%BCrburgring_Motorsport_Museum.jpg"
+      },
+      "ats": {
+        "modelo": "ATS D3",
+        "src": "/Images/monoplazas/1979/ats.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_ATS_D3_-_1979_-_001.jpg"
+      },
+      "brabham-alfa_romeo": {
+        "modelo": "Brabham BT48",
+        "src": "/Images/monoplazas/1979/brabham-alfa_romeo.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1979_Brabham-Alfa_Romeo_BT48.jpg"
+      },
+      "brabham-ford": {
+        "modelo": "Brabham BT49",
+        "src": "/Images/monoplazas/1979/brabham-ford.webp",
+        "autor": "Fordcapri at English Wikipedia",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT49_Nelson_Piquet.jpg"
+      },
+      "ensign": {
+        "modelo": "Ensign N179",
+        "src": "/Images/monoplazas/1979/ensign.webp",
+        "autor": "_morgado2",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:-22_-_Ensign_N179.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312T4",
+        "src": "/Images/monoplazas/1979/ferrari.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_312T4_-_Jody_Scheckter_at_the_1979_Belgian_Grand_Prix,_Zolder_(51632958993).jpg"
+      },
+      "ligier": {
+        "modelo": "Ligier JS11",
+        "src": "/Images/monoplazas/1979/ligier.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1979_Ligier-Cosworth_JS11.jpg"
+      },
+      "mclaren": {
+        "modelo": "McLaren M28",
+        "src": "/Images/monoplazas/1979/mclaren.webp",
+        "autor": "Legends Of Motorsports",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M28_Watson_1979-Barber02.jpg"
+      },
+      "merzario": {
+        "modelo": "Merzario A2",
+        "src": "/Images/monoplazas/1979/merzario.webp",
+        "autor": "MPW57",
+        "licencia": "CC BY 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Merzario_A2_2015_Oldtimer_Grand_Prix_N%C3%BCrburgring.jpg"
+      },
+      "renault": {
+        "modelo": "Renault RS10",
+        "src": "/Images/monoplazas/1979/renault.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1979_Renault_RS10.jpg"
+      },
+      "shadow": {
+        "modelo": "Shadow DN9",
+        "src": "/Images/monoplazas/1979/shadow.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Elio_de_Angelis%27s_1979_Shadow_DN9_(51352872951).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 79",
+        "src": "/Images/monoplazas/1979/team_lotus.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Mario_Andretti_-_Lotus_79_at_the_1979_Race_of_Champions_(50141072022).jpg"
+      },
+      "tyrrell": {
+        "modelo": "Tyrrell 009",
+        "src": "/Images/monoplazas/1979/tyrrell.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tyrrell_009_at_Silverstone_Classic_2011.jpg"
+      },
+      "williams": {
+        "modelo": "Williams FW07",
+        "src": "/Images/monoplazas/1979/williams.webp",
+        "autor": "Martin Lee from London, UK",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alan_Jones_-_Williams_FW07_at_Rascasse_during_practice_for_the_1979_Monaco_GP_(49984746103).jpg"
+      },
+      "wolf": {
+        "modelo": "Wolf WR8",
+        "src": "/Images/monoplazas/1979/wolf.webp",
+        "autor": "Mick from Northamptonshire, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ex_James_Hunt._Wolf_WR8_Ford_Cosworth_F1_Race_Car_-_Flickr_-_mick_-_Lumix.jpg"
+      }
+    },
     "1980": {
       "alfa": {
         "modelo": "Alfa Romeo 179",
@@ -3711,8 +4739,26 @@
       }
     }
   },
-  "newPhotos": 109,
+  "newPhotos": 144,
   "missing": [
+    "1970/bellasi",
+    "1970/mclaren-alfa_romeo",
+    "1971/bellasi",
+    "1972/connew",
+    "1972/politoys",
+    "1974/ensign",
+    "1974/parnelli",
+    "1975/lola",
+    "1976/boro",
+    "1976/parnelli",
+    "1976/williams",
+    "1977/boro",
+    "1977/brm",
+    "1977/kojima",
+    "1978/martini",
+    "1978/merzario",
+    "1979/fittipaldi",
+    "1979/rebaque",
     "1991/ags",
     "1991/brabham",
     "1991/fondmetal",
