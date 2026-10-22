@@ -33,5 +33,5 @@ jobs:
       - name: Check images
         env:
           IMAGE_MAX_KB: 250
-          IMAGE_BUDGET_MB: 60
+          IMAGE_BUDGET_MB: 85
         run: bash deploy/check-image-budget.sh

@@ -145,6 +145,115 @@ licencia y fuente original. No se reutilizan fotos de otra temporada.
 - 1990 `team_lotus` — Lotus 102; Andrew Basterfield; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus-Lamborghini_102.jpg
 - 1990 `tyrrell` — Tyrrell 019; Norimasa Hayashida; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_019_(cropped_version).jpg
 - 1990 `williams` — Williams FW13B; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Williams_FW13_front-left_2017_Williams_Conference_Centre.jpg
+- 1991 `benetton` — Benetton B191; David Merrett from Daventry, England; CC BY 4.0; https://commons.wikimedia.org/wiki/File:1991_Benetton_191_(54833107397).jpg
+- 1991 `dallara` — Dallara F191; Matt Buck; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Dallara_191_-_Brands_Hatch_2018_(2).jpg
+- 1991 `ferrari` — Ferrari 643; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_Ferrari_643_-_1991_-_001.jpg
+- 1991 `footwork` — Footwork A11C; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:Motor-Sport-Museum_am_Hockenheimring,_1991_Footwork_Porsche_A11C,_pic2.jpg
+- 1991 `jordan` — Jordan 191; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:1991_Jordan_191_pic2.JPG
+- 1991 `lambo` — Lamborghini 291; Rob Oo from NL; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lambo_291_V12_(22527014528).jpg
+- 1991 `leyton` — Leyton House CG911; Stuart Seeger; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Gugelmin_US_gp_1991.jpg
+- 1991 `ligier` — Ligier JS35; Thomas Bersy; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ligier_JS35.jpg
+- 1991 `mclaren` — McLaren MP4/6; BWard 1997; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Honda_RACING_Gallery_1991_McLaren_MP4-6_Gerhard_Berger.jpg
+- 1991 `team_lotus` — Lotus 102B; Dan Wildhirt; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lotus102b.jpg
+- 1991 `tyrrell` — Tyrrell 020; Iwao from Tokyo, Japan; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_020,_1991_(15123336255).jpg
+- 1991 `williams` — Williams FW14; Tony Hisgett; CC BY 4.0; https://commons.wikimedia.org/wiki/File:F1_1991_Williams_FW14_Nigel_Mansell_2_(55407239800).jpg
+- 1992 `benetton` — Benetton B192; Nic Redhead; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Benetton_B192_at_Goodwood_2014_001.jpg
+- 1992 `brabham` — Brabham BT60B; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Brabham_BT60B_front-left_Donington_Grand_Prix_Collection.jpg
+- 1992 `dallara` — Dallara F192; Eric Salard from Le Chateau d'Oleron, FRANCE; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:DALLARA_F192_1992_RETROMOBILE_2026_(55225548170).jpg
+- 1992 `ferrari` — Ferrari F92A; Iwao from Tokyo, Japan; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jean_Alesi.jpg
+- 1992 `fondmetal` — Fondmetal GR01; Iwao from Tokyo, Japan; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1992_Andrea_Chiesa_Fondmetal.jpg
+- 1992 `footwork` — Footwork FA13; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Aguri_Suzuki_1992_Footwork_FA13_(51862039629).jpg
+- 1992 `jordan` — Jordan 192; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Jordan_192_Yamaha_Communication_Plaza.jpg
+- 1992 `larrousse` — Larrousse LC92; Liondartois; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Venturi_Larrousse_Lamborghini_LC_92_(1992).jpg
+- 1992 `ligier` — Ligier JS37; Koreller; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Manoir_de_l%27Automobile_-_208_-_F1_Ligier_JS_37_V10_Renault_1992.jpg
+- 1992 `mclaren` — McLaren MP4/7A; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1992_McLaren_MP4_7A_HCC22.jpg
+- 1992 `minardi` — Minardi M191B; Arnaud 25; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Minardi_M191_Mus%C3%A9e_Lamborghini.jpg
+- 1992 `moda` — Andrea Moda S921; Masbrolla; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:AndreaModaMisano.jpg
+- 1992 `team_lotus` — Lotus 107; MARCO AURÉLIO ESPARZ…; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:XVI_Open_de_Plastimodelismo_de_Catanduva._Carros_de_F%C3%B3rmula_1,_McLaren_MP4_1-24,_BMW_Sauber_1-24_e_Ford_Lotus_107B_1-20_-_panoramio.jpg
+- 1992 `tyrrell` — Tyrrell 020B; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_020B_F1_(51861706116).jpg
+- 1992 `williams` — Williams FW14B; Martin Pettitt; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Car_Show_Nigel_Mansell_with_His_1992_Williams-Renault_FW14B_Formula_1_Car.jpg
+- 1993 `benetton` — Benetton B193; Bahnfrend; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1993_Benetton-Ford_B193_Goodwood,_2009_(0).jpg
+- 1993 `ferrari` — Ferrari F93A; Darren; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_F93A_Goodwood_2008.jpg
+- 1993 `footwork` — Footwork FA14; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Derek_Warwick_-_Footwork_FA14_during_practice_for_the_1993_British_Grand_Prix_(33302822660).jpg
+- 1993 `jordan` — Jordan 193; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Thierry_Boutsen%60s_Jordan_193_in_the_pit_garage_at_the_1993_British_Grand_Prix_(32873429303).jpg
+- 1993 `larrousse` — Larrousse LH93; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Philippe_Alliot_-_Larousse_LH93_heads_for_Copse_during_practice_for_the_1993_British_Grand_Prix_(32873461753).jpg
+- 1993 `ligier` — Ligier JS39; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mark_Blundell_-_Ligier_JS39_during_practice_for_the_1993_British_Grand_Prix_(33686685295).jpg
+- 1993 `lola` — Lola T93/30; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Michele_Alboreto_-_Lola_T93-30_during_practice_for_the_1993_British_Grand_Prix_(33557339751).jpg
+- 1993 `mclaren` — McLaren MP4/8; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ayrton_Senna_-_Mclaren_MP4-8_during_practice_for_the_1993_British_Grand_Prix_(32873581563).jpg
+- 1993 `minardi` — Minardi M193; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Christian_Fittipaldi_-_Minardi_M193_heading_for_Copse_during_practice_for_the_1993_British_Grand_Prix_(32873564783).jpg
+- 1993 `sauber` — Sauber C12; Andrew-44-19; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C12-1993.jpg
+- 1993 `team_lotus` — Lotus 107B; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alessandro_Zanardi_-_Lotus_107B_heads_for_Copse_during_practice_for_the_1993_British_Grand_Prix_(32873595913).jpg
+- 1993 `tyrrell` — Tyrrell 021; Alf van Beem; Public domain; https://commons.wikimedia.org/wiki/File:1993_Tyrrell_021_Formule_1,_Judd_(Yamaha)_V_72_10cyl_750hp_with_Tyrrell_gearbox_pic1.jpg
+- 1993 `williams` — Williams FW15C; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alain_Prost_-_Williams_FW15C_at_the_1993_British_Grand_Prix_(32873616913).jpg
+- 1994 `benetton` — Benetton B194; big-ashb; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Michael_Schumacher%27s_1994_Benetton_B194_(14570353531).jpg
+- 1994 `ferrari` — Ferrari 412T1; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_Ferrari_412T1_-_1994_-_001.jpg
+- 1994 `footwork` — Footwork FA15; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Footwork_FA15_in_the_pits_at_the_1994_British_Grand_Prix_(32500394006).jpg
+- 1994 `jordan` — Jordan 194; Tony Hisgett from Birmingham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jordan_194_NEC_Aug_1994_(51898078665).jpg
+- 1994 `larrousse` — Larrousse LH94; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Olivier_Beretta_-_Larrousse_LH94_at_the_1994_British_Grand_Prix_(32541361145).jpg
+- 1994 `ligier` — Ligier JS39B; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Olivier_Panis_-_Ligier_JS39B_at_the_1994_British_Grand_Prix_(32541362585).jpg
+- 1994 `mclaren` — McLaren MP4/9; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:The_1994_McLaren-Ford_MP4-9_Formula_1_racing_car,_driven_by_Mika_Hakkinen_(14685487803).jpg
+- 1994 `minardi` — Minardi M194; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Pierluigi_Martini_-_Minardi_M194_at_the_1994_British_Grand_Prix_(32162212460).jpg
+- 1994 `pacific` — Pacific PR01; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Bertrand_Gachot_-_Pacific_PR01_at_the_1994_British_Grand_Prix_(32388924522).jpg
+- 1994 `sauber` — Sauber C13; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Andrea_de_Cesaris_-_Sauber_C13_at_the_1994_British_Grand_Prix_(32418704201).jpg
+- 1994 `simtek` — Simtek S941; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:David_Brabham_-_Simtek_S941_leaves_the_pits_at_the_1994_British_Grand_Prix_(32388881792).jpg
+- 1994 `team_lotus` — Lotus 109; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Johnny_Herbert_-_Lotus_109_at_the_1994_British_Grand_Prix_(32388842372).jpg
+- 1994 `tyrrell` — Tyrrell 022; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mark_Blundell_-_Tyrrell_022_at_the_1994_British_Grand_Prix_(32500358346).jpg
+- 1994 `williams` — Williams FW16; Tony Hisgett; CC BY 4.0; https://commons.wikimedia.org/wiki/File:F1_1994_Williams_FW16_Damon_Hill_(55407239935).jpg
+- 1995 `benetton` — Benetton B195; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1995_Benetton_B195.jpg
+- 1995 `ferrari` — Ferrari 412T2; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jean_Alesi_-_Ferrari_412T2_at_the_1995_British_Grand_Prix,_Silverstone_(49720286263).jpg
+- 1995 `footwork` — Footwork FA16; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Max_Papis_-_Footwork_FA16_at_Silverstone,_British_GP_1995_(49684425306).jpg
+- 1995 `forti` — Forti FG01; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Forti_FG01-95_-_1995_British_GP_(garage).jpg
+- 1995 `jordan` — Jordan 195; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Eddie_Irvine_-_Jordan195_at_the_1995_British_Grand_Prix,_Silverstone_(49721139047).jpg
+- 1995 `ligier` — Ligier JS41; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Olivier_Panis_-_Ligier_JS41_leaves_the_pit_lane_at_the_1995_British_GP,_Silverstone_(49713883237).jpg
+- 1995 `mclaren` — McLaren MP4/10; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mark_Blundell_-_Mclaren_MP4-10B_at_the_1995_British_Grand_Prix,_Silverstone_(49703535003).jpg
+- 1995 `minardi` — Minardi M195; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Minardi_M195_in_the_pit_garage_at_the_1995_British_GP,_Silverstone_(49712756467).jpg
+- 1995 `pacific` — Pacific PR02; Martin Lee; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Pacific_PR02_-_1995_British_GP_pit_garage.jpg
+- 1995 `sauber` — Sauber C14; Andrew-44-19; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C14-1995.jpg
+- 1995 `simtek` — Simtek S951; crash71100; CC0; https://commons.wikimedia.org/wiki/File:Simtek_S951.jpg
+- 1995 `tyrrell` — Tyrrell 023; Martin Lee from London, UK; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ukyo_Katayama_-_Tyrrell_023_braking_for_Copse_at_the_1995_British_Grand_Prix,_Silverstone_(49727457428).jpg
+- 1995 `williams` — Williams FW17; Phil Guest; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Williams_FW17_of_Damon_Hill,_1995.jpg
+- 1996 `benetton` — Benetton B196; Restu20; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Jean_Alesi_-_Imola_1996_(2).jpg
+- 1996 `ferrari` — Ferrari F310; Michael Garlick; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Beaulieu_Motor_Museum,_Ferrari_F310_(1996)_-_geograph.org.uk_-_8064793.jpg
+- 1996 `forti` — Forti FG01B; Restu20; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Pedro_Lamy_with_a_Forti_car_-_Imola_1996.jpg
+- 1996 `jordan` — Jordan 196; viann from Mulhouse, France; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jordan_196_at_Mus%C3%A9e_National_de_lAutomobile.jpg
+- 1996 `ligier` — Ligier JS43; Iwao from Tokyo, Japan; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ligier_JS43,_1996_(15122865102).jpg
+- 1996 `mclaren` — McLaren MP4/11; Ozzy Delaney; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1996_-_Mclaren_MP4.11A.._(12683447635).jpg
+- 1996 `minardi` — Minardi M195B; Restu20; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Pedro_Lamy_-_Imola_1996.jpg
+- 1996 `sauber` — Sauber C15; Andrew-44-19; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C15-1996.jpg
+- 1996 `tyrrell` — Tyrrell 024; Matthias v.d. Elbe; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Tyrrell_024_Mika_Salo_1996_German_Grand_Prix.jpg
+- 1996 `williams` — Williams FW18; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Damon_Hill%27s_1996_World_Championship_Winning_Car_-_Williams_FW18_Renault_(32160968440).jpg
+- 1997 `arrows` — Arrows A18; Matt Buck; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A18_-_Brands_Hatch_2018_(2).jpg
+- 1997 `benetton` — Benetton B197; Royal Broil from East Central, Wisconsin, USA; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:5.15.16_Road_America_Spring_Vintage_Weekend_-_Berger_1997_Benetton_B197_(26640283823).jpg
+- 1997 `ferrari` — Ferrari F310B; Dennis Boberg / Freisteller von Auge=mit; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Ferrari_F310B_MG_0828-klein_(21984640069)_noBG_2.jpg
+- 1997 `jordan` — Jordan 197; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:1997_Jordan_197_Peugeot_2998cc_V10_photo_1.JPG
+- 1997 `mclaren` — McLaren MP4/12; LSDSL; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_Mercedes_MP4-12_1997.jpg
+- 1997 `minardi` — Minardi M197; Andrea borsari; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Minardi_M197.jpg
+- 1997 `prost` — Prost JS45; viann from Mulhouse, France; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Prost_JS45_at_Mus%C3%A9e_National_de_lAutomobile.jpg
+- 1997 `sauber` — Sauber C16; Morio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C16_front-right_2017_Hangar-7_1.jpg
+- 1997 `stewart` — Stewart SF01; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:The_number_23_1997_F1_car_-_Jan_Magnussen%27s_Stewart-Ford_SF01_(14685289813).jpg
+- 1997 `williams` — Williams FW19; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1997_Williams_FW19_SCD24.jpg
+- 1998 `arrows` — Arrows A19; danishevskiy; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Mika_Salo_Arrows_A19_Sinsheim_Baden-W%C3%BCrttemberg.jpg
+- 1998 `benetton` — Benetton B198; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Benetton_B198_Showrun.jpg
+- 1998 `ferrari` — Ferrari F300; Brian Snelson from Hockley, Essex, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1998_F1_car_Ferrari_F300_Goodwood_2009.jpg
+- 1998 `jordan` — Jordan 198; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Jordan_198_1998.jpg
+- 1998 `mclaren` — McLaren MP4/13; Valder137; CC BY 2.0; https://commons.wikimedia.org/wiki/File:McLaren-Mercedes_MP4-13_1998_F1_Mika_H%C3%A4kkinen_LSide_MBMuse_9June2013_(14796968698).jpg
+- 1998 `minardi` — Minardi M198; formulanone from Huntsville, United States; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Shinji_Nakano_Minardi_M198-Ford_(12095605493).jpg
+- 1998 `prost` — Prost AP01; Falcon® Photography from France; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Prost_AP01_(31457991535).jpg
+- 1998 `sauber` — Sauber C17; Andrew-44-19; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C17-1998.jpg
+- 1998 `stewart` — Stewart SF02; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Jos_Verstappen%27s_1998_Stewart-Ford_Stewart_SF02_Formula_1_car_at_the_National_Museum_of_Scotland,_Edinburgh_(7400358102).jpg
+- 1998 `tyrrell` — Tyrrell 026; PSParrot; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Tyrrell_026_Goodwood_1998.jpg
+- 1998 `williams` — Williams FW20; Phil Guest; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Williams_FW20_of_Heinz-Harald_Frentzen,_1998.jpg
+- 1999 `arrows` — Arrows A20; Thomas Bersy; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Arrows_A20_Historacing_Festival_L%C3%A9denon_2012.jpg
+- 1999 `bar` — BAR 01; Paul Lannuier from Sussex, NJ, USA; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jacques_Villeneuve_1999_Canada.jpg
+- 1999 `benetton` — Benetton B199; Paul Lannuier from Sussex, NJ, USA; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Giancarlo_Fisichella_1999_Canada.jpg
+- 1999 `ferrari` — Ferrari F399; Sausius; Public domain; https://commons.wikimedia.org/wiki/File:1999_Ferrari_F399_2.jpg
+- 1999 `jordan` — Jordan 199; John R. from Scotland, Britain.; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Damon_Hill_1999_Britain.jpg
+- 1999 `mclaren` — McLaren MP4/14; Ank Kumar; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Mika_H%C3%A4kkinen%27s_1999_McLaren_Mercedes_MP4_14_F1_car_display_at_London_Science_Museum_(Ank_Kumar,_INFOSYS_Limited)_01.jpg
+- 1999 `minardi` — Minardi M01; Andrea borsari; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Minardi_M01.jpg
+- 1999 `prost` — Prost AP02; Paul Lannuier from Sussex, NJ, USA; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Jarno_Trulli_1999_Canada.jpg
+- 1999 `sauber` — Sauber C18; Andrew-44-19; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Sauber_C18-1999.jpg
+- 1999 `stewart` — Stewart SF3; MCMXC; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Stewart_SF3.jpg
+- 1999 `williams` — Williams FW21; danishevskiy; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Williams-Mechachrome_FW21.jpg
 - 2000 `arrows` — Arrows A21; Vakie81; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Arrows_A21_Spa-Francorchamps_Racing_Museum.jpg
 - 2000 `bar` — BAR 002; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BAR_002_Honda_Collection_Hall.jpg
 - 2000 `benetton` — Benetton B200; Erikrost22; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Benetton_F1_2000.jpg
@@ -411,3 +520,17 @@ licencia y fuente original. No se reutilizan fotos de otra temporada.
 - 2025 `red_bull` ÔÇö Red Bull Racing RB21; Lukas Raich; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:FIA_F1_Austria_2025_Nr._1_Verstappen.jpg
 - 2025 `sauber` ÔÇö Sauber C45; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Sauber_-_Nico_Hulkenberg_-_FP1.jpg
 - 2025 `williams` ÔÇö Williams FW47; Liauzh; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:2025_Japan_GP_-_Williams_-_Carlos_Sainz_-_FP1.jpg
+
+## Pendientes (sin fotografía verificable)
+
+Se conserva el fallback (logotipo o nombre del equipo) y no se publica una imagen dudosa.
+
+- `1991/ags` — AGS JH27: sin foto verificable en Wikimedia Commons.
+- `1991/brabham` — Brabham BT60Y: sin foto verificable en Wikimedia Commons.
+- `1991/fondmetal` — Fondmetal F1: sin foto verificable en Wikimedia Commons.
+- `1991/larrousse` — Lola LC91: sin foto verificable en Wikimedia Commons.
+- `1991/lola` — Lola LC91: sin foto verificable en Wikimedia Commons.
+- `1991/minardi` — Minardi M191: sin foto verificable en Wikimedia Commons.
+- `1992/march` — March CG911B: solo existe un recorte de 322x185 px, insuficiente para las tarjetas.
+- `1996/footwork` — Footwork FA17: solo hay una foto aerea del peloton donde no se identifica el FA17.
+- `1997/tyrrell` — Tyrrell 025: solo existe una maqueta a escala, no una fotografia del coche real.
