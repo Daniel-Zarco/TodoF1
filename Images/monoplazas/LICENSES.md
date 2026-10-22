@@ -3,6 +3,57 @@
 Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
 licencia y fuente original. No se reutilizan fotos de otra temporada.
 
+- 1950 `adams` — Adams Indy; Indianapolis Motor Speedway; CC0; https://commons.wikimedia.org/wiki/File:Bayliss_Levrett_in_Adams_Offenhauser_Palmer_Special,_1950_Indianapolis_500.jpg
+- 1950 `alfa` — Alfa Romeo 158; azrhey; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alfa_Romeo_158_Alfetta_1950_Museo_Storico_OCT_2015.jpg
+- 1950 `ferrari` — Ferrari 125; Neil; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_125_166_(34880052384).jpg
+- 1950 `kurtis_kraft` — Kurtis Kraft 500; OctaviaCombi; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Kurtis_Kraft-Offenhauser_1950_Indy_500_Winner_-_Johnnie_Parsons.jpg
+- 1950 `maserati` — Maserati 4CLT/48; Thomas Vogt from Paderborn, Deutschland; CC0; https://commons.wikimedia.org/wiki/File:Maserati_4CLT_(46831684035).jpg
+- 1950 `simca` — Simca-Gordini 15; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:1950_Simca-Gordini_15S,_4_cylinder,_1490cm3,_135hp,_200kmh,_photo_1.JPG
+- 1951 `alfa` — Alfa Romeo 159; Rahil Rupawala; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1951_Alfa_Romeo_159_Alfetta_Museo_Nazionale_dell%27Automobile_Torino_01.jpg
+- 1951 `brm` — BRM P15; Nic Redhead; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:BRM_Type_15_at_Goodwood_2014_001.jpg
+- 1951 `ferrari` — Ferrari 375; Pedro Simões; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1951_Ferrari_375F1.jpg
+- 1951 `hwm` — HWM 52; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1951_HWM_51.jpg
+- 1951 `maserati` — Maserati 4CLT/48; Willy Pragher; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Schauinsland-Rennstrecke;_Training;_am_Start-_E._de_Graffenried;_Nr._172;_Maserati_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._021015.jpeg
+- 1951 `osca` — OSCA F1; Unknown photographer; Public domain; https://commons.wikimedia.org/wiki/File:1951-09-16_Monza_OSCA_4500G_V12_Rol.jpg
+- 1951 `veritas` — Veritas Meteor; Stahlkocher; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Veritas_Meteor_silver_vl_TCE.jpg
+- 1952 `cooper` — Cooper T20; Iain Cameron; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Cooper_T20_Bristol_-_Chassis_CB-6-52_(21310303852).jpg
+- 1952 `ferrari` — Ferrari 500; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1952_Ferrari_500_625.jpg
+- 1952 `gordini` — Gordini 16; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Gordini_Type_16_at_Silverstone_Classic_2011.jpg
+- 1952 `hwm` — HWM 52; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:HWM_1952_car_Donington_2007.jpg
+- 1952 `kuzma` — Kuzma Indy; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_43_(Troy_Ruttman%27s_1952_Agajanian_Special_Kuzma).jpg
+- 1952 `maserati` — Maserati A6GCM; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1952_Maserati_A6GCM_HCC25.jpg
+- 1953 `cooper` — Cooper T23; https://www.flickr.com/photos/davehamster/; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Cooper_T23_2017_Silverstone_Classic_(38632978040).jpg
+- 1953 `ferrari` — Ferrari 500; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:The_1952_Ferrari_500_F1_car_-_which_won_the_1952_and_1953_F1_World_Championships_(14478897077).jpg
+- 1953 `kurtis_kraft` — Kurtis Kraft 500; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_37_(Bill_Vukovich%27s_1953-1954_Fuel_Injection_Special_Kurtis-Kraft).jpg
+- 1953 `maserati` — Maserati A6GCM; David Merrett; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1953_Maserati_A6GCM.jpg
+- 1954 `connaught` — Connaught A; Calreyn88; CC BY 4.0; https://commons.wikimedia.org/wiki/File:1954_Connaught_Type_B_F1_Car.jpg
+- 1954 `ferrari` — Ferrari 625; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1954_Ferrari_625.jpg
+- 1954 `lancia` — Lancia D50; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1954_Lancia_D50_(48954161196).jpg
+- 1954 `maserati` — Maserati 250F; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1954_Maserati_250F.jpg
+- 1954 `mercedes` — Mercedes W196; Bahnfrend; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1954_Mercedes-Benz_W196_%2B_1955_Mercedes-Benz_W196_R_Stromlinie_Goodwood,_2009_(01).jpg
+- 1955 `ferrari` — Ferrari 625; Prova MO; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1954_Ferrari_625_F1_front.jpg
+- 1955 `kurtis_kraft` — Kurtis Kraft 500; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_40_(Bob_Sweikert%27s_1955_John_Zink_Special_Kurtis-Kraft).jpg
+- 1955 `lancia` — Lancia D50; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2016_-_Lancia_D50_-_1955_-_001.jpg
+- 1955 `maserati` — Maserati 250F; Ben Sutherland from Forest Hill, London, European Union; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1955_Maserati_250F_at_Coventry_Motor_Museum.jpg
+- 1955 `mercedes` — Mercedes W196; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1955_Mercedes_W196_R.jpg
+- 1956 `maserati` — Maserati 250F; MrWalkr; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1956_Maserati_250F.jpg
+- 1956 `watson` — Watson Indy; Doctorindy; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Indy500winningcar1956.JPG
+- 1957 `cooper` — Cooper T43; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Cooper_T43_at_Silverstone_Classic_2011_(7).jpg
+- 1957 `epperly` — Epperly Indy; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_22_(Sam_Hanks%27_and_Jimmy_Bryan%27s_1957-1958_Belond_Exhaust_Special_Salih).jpg
+- 1957 `maserati` — Maserati 250F; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1957_Maserati_250F_(48954349622).jpg
+- 1957 `vanwall` — Vanwall VW; x Romero; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Vanwall_1957_2.JPG
+- 1958 `brm` — BRM P25; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_BRM_P25_-_1958_-_001.jpg
+- 1958 `cooper` — Cooper T45; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1958_Cooper_Climax_T45_51_(48953616858).jpg
+- 1958 `ferrari` — Ferrari Dino 246; Jitesh Jagadish from Dubai, United Arab Emirates; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_246_F1.jpg
+- 1958 `maserati` — Maserati 250F; Bahnfrend; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1958_Maserati_250F_Goodwood,_2009_(01).jpg
+- 1958 `team_lotus` — Lotus 12; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1958_Lotus_Climax_16_(48954351687).jpg
+- 1958 `vanwall` — Vanwall VW; Vanwall1958; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Vanwall_1958.jpg
+- 1959 `aston_martin` — Aston Martin DBR4; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Aston_Martin_DBR4,_Bj._1959_(2011-08-13_Sp).JPG
+- 1959 `brm` — BRM P25; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BRM_P25.jpg
+- 1959 `cooper-climax` — Cooper T51; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1959_Cooper_Climax_T51_(48953608888).jpg
+- 1959 `jbw` — JBW 59; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1959_JBW_Maserati_(48953615878).jpg
+- 1959 `team_lotus` — Lotus 16; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1959_Lotus_Climax_16_(48953615703).jpg
+- 1959 `tec-mec` — Tec-Mec F415; Kogo; CC BY-SA 3.0 de; https://commons.wikimedia.org/wiki/File:Maserati_TecMec.jpg
 - 1960 `aston_martin` — Aston Martin DBR4; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1959_Aston_Martin_DBR4_(48953615403).jpg
 - 1960 `brm` — BRM P25; Dennis Elzinga; CC BY 2.0; https://commons.wikimedia.org/wiki/File:BRM_P25_(52296573573).jpg
 - 1960 `cooper-castellotti` — Cooper T51; Unknown author Unknown author; Public domain; https://commons.wikimedia.org/wiki/File:Scuderia_Castellotti_-_Gran_Premio_d%27Italia_1960.jpg
@@ -869,3 +920,156 @@ Se conserva el fallback (logotipo o nombre del equipo) y no se publica una image
 - `1968/lola` — Lola T102: sin foto verificable del Lola T102.
 - `1968/mclaren` — McLaren M5A: sin foto verificable del McLaren M5A privado de 1968.
 - `1969/brabham-climax` — Brabham BT23B: sin foto verificable del Brabham BT23B.
+
+## Pendientes 1950-1959 (sin fotografía verificable)
+
+Se conserva el fallback (logotipo o nombre del equipo) y no se publica una imagen dudosa.
+
+- `1950/alta` — Alta GP: solo hay un dibujo, no fotografia.
+- `1950/cooper` — Cooper T12: solo hay un dibujo, no fotografia.
+- `1950/deidt` — Deidt Indy: solo hay foto del Deidt de 1947-48, no de 1950.
+- `1950/era` — ERA E-type: solo hay fotos de ERA de 1938-39, no de la temporada 1950.
+- `1950/ewing` — Ewing Indy: sin foto verificable en Wikimedia Commons.
+- `1950/lago` — Talbot-Lago T26C: la unica foto disponible es un Talbot T26C de 1949.
+- `1950/langley` — Langley Indy: sin foto verificable en Wikimedia Commons.
+- `1950/lesovsky` — Lesovsky Indy: sin foto verificable en Wikimedia Commons.
+- `1950/marchese` — Marchese Indy: sin foto verificable en Wikimedia Commons.
+- `1950/milano` — Milano Indy: sin foto verificable en Wikimedia Commons.
+- `1950/moore` — Moore Indy: sin foto verificable en Wikimedia Commons.
+- `1950/nichels` — Nichels Indy: sin foto verificable en Wikimedia Commons.
+- `1950/olson` — Olson Indy: sin foto verificable en Wikimedia Commons.
+- `1950/rae` — Rae Special: sin foto verificable en Wikimedia Commons.
+- `1950/snowberger` — Snowberger Indy: sin foto verificable en Wikimedia Commons.
+- `1950/stevens` — Stevens Indy: sin foto verificable en Wikimedia Commons.
+- `1950/watson` — Watson Indy: sin foto verificable en Wikimedia Commons.
+- `1950/wetteroth` — Wetteroth Indy: sin foto verificable en Wikimedia Commons.
+- `1951/alta` — Alta GP: solo hay un dibujo, no fotografia.
+- `1951/bromme` — Bromme Indy: sin foto verificable en Wikimedia Commons.
+- `1951/deidt` — Deidt Indy: solo hay foto del Deidt de 1947-48, no de 1951.
+- `1951/era` — ERA E-type: solo hay fotos de ERA de 1938, no de la temporada 1951.
+- `1951/hall` — Hall Indy: sin foto verificable del Hall Indy de 1951.
+- `1951/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable en Wikimedia Commons.
+- `1951/kuzma` — Kuzma Indy: sin foto verificable en Wikimedia Commons.
+- `1951/lago` — Talbot-Lago T26C: sin foto distinta del Talbot T26C de 1950.
+- `1951/lesovsky` — Lesovsky Indy: sin foto verificable en Wikimedia Commons.
+- `1951/marchese` — Marchese Indy: sin foto verificable en Wikimedia Commons.
+- `1951/moore` — Moore Indy: sin foto verificable en Wikimedia Commons.
+- `1951/pawl` — Pawl Indy: sin foto verificable en Wikimedia Commons.
+- `1951/schroeder` — Schroeder Indy: sin foto verificable en Wikimedia Commons.
+- `1951/sherman` — Sherman Indy: sin foto verificable en Wikimedia Commons.
+- `1951/simca` — Simca-Gordini 15: la foto disponible es un deportivo Simca, no el monoplaza.
+- `1951/trevis` — Trevis Indy: sin foto verificable en Wikimedia Commons.
+- `1951/watson` — Watson Indy: sin foto verificable en Wikimedia Commons.
+- `1952/afm` — AFM 50: sin foto verificable en Wikimedia Commons.
+- `1952/alta` — Alta GP: sin foto verificable en Wikimedia Commons.
+- `1952/bmw` — BMW 328: sin foto verificable en Wikimedia Commons.
+- `1952/bromme` — Bromme Indy: sin foto verificable en Wikimedia Commons.
+- `1952/butterworth` — Butterworth Indy: sin foto verificable en Wikimedia Commons.
+- `1952/connaught` — Connaught A: sin foto verificable en Wikimedia Commons.
+- `1952/deidt` — Deidt Indy: sin foto verificable en Wikimedia Commons.
+- `1952/era` — ERA E-type: sin foto verificable en Wikimedia Commons.
+- `1952/frazer_nash` — Frazer Nash 421: sin foto verificable en Wikimedia Commons.
+- `1952/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable en Wikimedia Commons.
+- `1952/lesovsky` — Lesovsky Indy: sin foto verificable en Wikimedia Commons.
+- `1952/osca` — OSCA F1: sin foto verificable en Wikimedia Commons.
+- `1952/sherman` — Sherman Indy: sin foto verificable en Wikimedia Commons.
+- `1952/simca` — Simca-Gordini 15: sin foto verificable en Wikimedia Commons.
+- `1952/stevens` — Stevens Indy: sin foto verificable en Wikimedia Commons.
+- `1952/trevis` — Trevis Indy: sin foto verificable en Wikimedia Commons.
+- `1952/veritas` — Veritas Meteor: sin foto distinta del Veritas Meteor ya usada en 1951.
+- `1952/watson` — Watson Indy: sin foto verificable en Wikimedia Commons.
+- `1953/afm` — AFM 50: sin foto verificable en Wikimedia Commons.
+- `1953/bmw` — BMW 328: sin foto verificable en Wikimedia Commons.
+- `1953/bromme` — Bromme Indy: sin foto verificable en Wikimedia Commons.
+- `1953/connaught` — Connaught A: la foto disponible no es un Connaught.
+- `1953/del_roy` — Del Roy Indy: sin foto verificable en Wikimedia Commons.
+- `1953/emw` — EMW 52: sin foto verificable en Wikimedia Commons.
+- `1953/gordini` — Gordini 16: sin foto verificable en Wikimedia Commons.
+- `1953/hwm` — HWM 52: la foto disponible es un HWM Jaguar deportivo, no el monoplaza.
+- `1953/kuzma` — Kuzma Indy: sin foto verificable en Wikimedia Commons.
+- `1953/lesovsky` — Lesovsky Indy: sin foto verificable en Wikimedia Commons.
+- `1953/osca` — OSCA F1: sin foto verificable en Wikimedia Commons.
+- `1953/schroeder` — Schroeder Indy: sin foto verificable en Wikimedia Commons.
+- `1953/simca` — Simca-Gordini 15: solo hay un dibujo, no fotografia.
+- `1953/stevens` — Stevens Indy: sin foto verificable en Wikimedia Commons.
+- `1953/turner` — Turner Indy: sin foto verificable en Wikimedia Commons.
+- `1953/veritas` — Veritas Meteor: solo hay una foto del cockpit, no del coche completo.
+- `1953/watson` — Watson Indy: sin foto verificable en Wikimedia Commons.
+- `1954/bromme` — Bromme Indy: sin foto verificable en Wikimedia Commons.
+- `1954/cooper` — Cooper T24: sin foto verificable del Cooper T24.
+- `1954/gordini` — Gordini 16: sin foto verificable en Wikimedia Commons.
+- `1954/hwm` — HWM 52: solo hay HWM Jaguar deportivos, no el monoplaza.
+- `1954/klenk` — Klenk Indy: sin foto verificable en Wikimedia Commons.
+- `1954/kurtis_kraft` — Kurtis Kraft 500: misma foto que el Kurtis Kraft de 1953.
+- `1954/kuzma` — Kuzma Indy: sin foto verificable en Wikimedia Commons.
+- `1954/nichels` — Nichels Indy: sin foto verificable en Wikimedia Commons.
+- `1954/pankratz` — Pankratz Indy: sin foto verificable en Wikimedia Commons.
+- `1954/pawl` — Pawl Indy: sin foto verificable en Wikimedia Commons.
+- `1954/phillips` — Phillips Indy: sin foto verificable en Wikimedia Commons.
+- `1954/schroeder` — Schroeder Indy: sin foto verificable en Wikimedia Commons.
+- `1954/stevens` — Stevens Indy: sin foto verificable en Wikimedia Commons.
+- `1954/vanwall` — Vanwall VW: sin foto verificable del Vanwall de 1954.
+- `1955/arzani-volpini` — Arzani-Volpini F1: solo hay un logo, no fotografia.
+- `1955/connaught` — Connaught A: sin foto verificable del Connaught de 1955.
+- `1955/cooper` — Cooper T24: sin foto verificable del Cooper T24 de 1955.
+- `1955/epperly` — Epperly Indy: sin foto verificable en Wikimedia Commons.
+- `1955/gordini` — Gordini 16: sin foto distinta del Gordini Type 16 ya usada en 1954.
+- `1955/kuzma` — Kuzma Indy: sin foto verificable en Wikimedia Commons.
+- `1955/pankratz` — Pankratz Indy: sin foto verificable en Wikimedia Commons.
+- `1955/pawl` — Pawl Indy: sin foto verificable en Wikimedia Commons.
+- `1955/phillips` — Phillips Indy: sin foto verificable en Wikimedia Commons.
+- `1955/schroeder` — Schroeder Indy: sin foto verificable en Wikimedia Commons.
+- `1955/stevens` — Stevens Indy: sin foto verificable en Wikimedia Commons.
+- `1955/trevis` — Trevis Indy: sin foto verificable en Wikimedia Commons.
+- `1955/vanwall` — Vanwall VW: sin foto verificable del Vanwall de 1955.
+- `1956/brm` — BRM P25: sin foto verificable en Wikimedia Commons.
+- `1956/bugatti` — Bugatti T251: sin foto verificable en Wikimedia Commons.
+- `1956/connaught` — Connaught A: sin foto verificable en Wikimedia Commons.
+- `1956/cooper` — Cooper T23: sin foto verificable en Wikimedia Commons.
+- `1956/emeryson` — Emeryson 56: sin foto verificable en Wikimedia Commons.
+- `1956/ferrari` — Ferrari 555: sin foto verificable en Wikimedia Commons.
+- `1956/gordini` — Gordini 16: sin foto distinta del Gordini Type 16 ya usada en 1952.
+- `1956/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable en Wikimedia Commons.
+- `1956/kuzma` — Kuzma Indy: sin foto verificable en Wikimedia Commons.
+- `1956/lesovsky` — Lesovsky Indy: sin foto verificable en Wikimedia Commons.
+- `1956/phillips` — Phillips Indy: sin foto verificable en Wikimedia Commons.
+- `1956/stevens` — Stevens Indy: sin foto verificable en Wikimedia Commons.
+- `1956/vanwall` — Vanwall VW: sin foto verificable en Wikimedia Commons.
+- `1957/brm` — BRM P25: sin foto verificable en Wikimedia Commons.
+- `1957/connaught` — Connaught A: sin foto verificable en Wikimedia Commons.
+- `1957/dunn` — Dunn Indy: sin foto verificable en Wikimedia Commons.
+- `1957/ferrari` — Ferrari 801: sin foto verificable en Wikimedia Commons.
+- `1957/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable en Wikimedia Commons.
+- `1957/kuzma` — Kuzma Indy: sin foto verificable en Wikimedia Commons.
+- `1957/lesovsky` — Lesovsky Indy: sin foto verificable en Wikimedia Commons.
+- `1957/phillips` — Phillips Indy: sin foto verificable en Wikimedia Commons.
+- `1957/porsche` — Porsche 718: la unica foto disponible es un Porsche 718 Spyder deportivo.
+- `1957/watson` — Watson Indy: sin foto verificable en Wikimedia Commons.
+- `1958/connaught` — Connaught A: sin foto verificable para esta temporada.
+- `1958/dunn` — Dunn Indy: sin foto verificable para esta temporada.
+- `1958/epperly` — Epperly Indy: sin foto verificable para esta temporada.
+- `1958/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable para esta temporada.
+- `1958/kuzma` — Kuzma Indy: sin foto verificable para esta temporada.
+- `1958/lesovsky` — Lesovsky Indy: sin foto verificable para esta temporada.
+- `1958/phillips` — Phillips Indy: sin foto verificable para esta temporada.
+- `1958/porsche` — Porsche 718: sin foto verificable para esta temporada.
+- `1958/watson` — Watson Indy: sin foto verificable para esta temporada.
+- `1959/connaught` — Connaught A: sin foto verificable para esta temporada.
+- `1959/cooper-borgward` — Cooper T51: sin foto verificable para esta temporada.
+- `1959/cooper-maserati` — Cooper T51: sin foto verificable para esta temporada.
+- `1959/cooper-osca` — Cooper T51: sin foto verificable para esta temporada.
+- `1959/dunn` — Dunn Indy: sin foto verificable para esta temporada.
+- `1959/elder` — Elder Indy: sin foto verificable para esta temporada.
+- `1959/epperly` — Epperly Indy: sin foto verificable para esta temporada.
+- `1959/ferrari` — Ferrari Dino 246: sin foto verificable para esta temporada.
+- `1959/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable para esta temporada.
+- `1959/kuzma` — Kuzma Indy: sin foto verificable para esta temporada.
+- `1959/lesovsky` — Lesovsky Indy: sin foto verificable para esta temporada.
+- `1959/maserati` — Maserati 250F: sin foto verificable para esta temporada.
+- `1959/moore` — Moore Indy: sin foto verificable para esta temporada.
+- `1959/phillips` — Phillips Indy: sin foto verificable para esta temporada.
+- `1959/porsche` — Porsche 718: sin foto verificable para esta temporada.
+- `1959/sutton` — Sutton Indy: sin foto verificable para esta temporada.
+- `1959/vanwall` — Vanwall VW: sin foto verificable para esta temporada.
+- `1959/vhristensen` — Christensen Indy: sin foto verificable para esta temporada.
+- `1959/watson` — Watson Indy: sin foto verificable para esta temporada.

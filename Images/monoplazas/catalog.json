@@ -1,6 +1,383 @@
 {
   "generatedFrom": "Wikimedia Commons / Wikipedia page images",
   "years": {
+    "1950": {
+      "adams": {
+        "modelo": "Adams Indy",
+        "src": "/Images/monoplazas/1950/adams.webp",
+        "autor": "Indianapolis Motor Speedway",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Bayliss_Levrett_in_Adams_Offenhauser_Palmer_Special,_1950_Indianapolis_500.jpg"
+      },
+      "alfa": {
+        "modelo": "Alfa Romeo 158",
+        "src": "/Images/monoplazas/1950/alfa.webp",
+        "autor": "azrhey",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alfa_Romeo_158_Alfetta_1950_Museo_Storico_OCT_2015.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 125",
+        "src": "/Images/monoplazas/1950/ferrari.webp",
+        "autor": "Neil",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_125_166_(34880052384).jpg"
+      },
+      "kurtis_kraft": {
+        "modelo": "Kurtis Kraft 500",
+        "src": "/Images/monoplazas/1950/kurtis_kraft.webp",
+        "autor": "OctaviaCombi",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Kurtis_Kraft-Offenhauser_1950_Indy_500_Winner_-_Johnnie_Parsons.jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 4CLT/48",
+        "src": "/Images/monoplazas/1950/maserati.webp",
+        "autor": "Thomas Vogt from Paderborn, Deutschland",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Maserati_4CLT_(46831684035).jpg"
+      },
+      "simca": {
+        "modelo": "Simca-Gordini 15",
+        "src": "/Images/monoplazas/1950/simca.webp",
+        "autor": "Alf van Beem",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1950_Simca-Gordini_15S,_4_cylinder,_1490cm3,_135hp,_200kmh,_photo_1.JPG"
+      }
+    },
+    "1951": {
+      "alfa": {
+        "modelo": "Alfa Romeo 159",
+        "src": "/Images/monoplazas/1951/alfa.webp",
+        "autor": "Rahil Rupawala",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1951_Alfa_Romeo_159_Alfetta_Museo_Nazionale_dell%27Automobile_Torino_01.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P15",
+        "src": "/Images/monoplazas/1951/brm.webp",
+        "autor": "Nic Redhead",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_Type_15_at_Goodwood_2014_001.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 375",
+        "src": "/Images/monoplazas/1951/ferrari.webp",
+        "autor": "Pedro Simões",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1951_Ferrari_375F1.jpg"
+      },
+      "hwm": {
+        "modelo": "HWM 52",
+        "src": "/Images/monoplazas/1951/hwm.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1951_HWM_51.jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 4CLT/48",
+        "src": "/Images/monoplazas/1951/maserati.webp",
+        "autor": "Willy Pragher",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Schauinsland-Rennstrecke;_Training;_am_Start-_E._de_Graffenried;_Nr._172;_Maserati_-_LABW_-_Staatsarchiv_Freiburg_W_134_Nr._021015.jpeg"
+      },
+      "osca": {
+        "modelo": "OSCA F1",
+        "src": "/Images/monoplazas/1951/osca.webp",
+        "autor": "Unknown photographer",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1951-09-16_Monza_OSCA_4500G_V12_Rol.jpg"
+      },
+      "veritas": {
+        "modelo": "Veritas Meteor",
+        "src": "/Images/monoplazas/1951/veritas.webp",
+        "autor": "Stahlkocher",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Veritas_Meteor_silver_vl_TCE.jpg"
+      }
+    },
+    "1952": {
+      "cooper": {
+        "modelo": "Cooper T20",
+        "src": "/Images/monoplazas/1952/cooper.webp",
+        "autor": "Iain Cameron",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T20_Bristol_-_Chassis_CB-6-52_(21310303852).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 500",
+        "src": "/Images/monoplazas/1952/ferrari.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1952_Ferrari_500_625.jpg"
+      },
+      "gordini": {
+        "modelo": "Gordini 16",
+        "src": "/Images/monoplazas/1952/gordini.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Gordini_Type_16_at_Silverstone_Classic_2011.jpg"
+      },
+      "hwm": {
+        "modelo": "HWM 52",
+        "src": "/Images/monoplazas/1952/hwm.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:HWM_1952_car_Donington_2007.jpg"
+      },
+      "kuzma": {
+        "modelo": "Kuzma Indy",
+        "src": "/Images/monoplazas/1952/kuzma.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_43_(Troy_Ruttman%27s_1952_Agajanian_Special_Kuzma).jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati A6GCM",
+        "src": "/Images/monoplazas/1952/maserati.webp",
+        "autor": "MrWalkr",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1952_Maserati_A6GCM_HCC25.jpg"
+      }
+    },
+    "1953": {
+      "cooper": {
+        "modelo": "Cooper T23",
+        "src": "/Images/monoplazas/1953/cooper.webp",
+        "autor": "https://www.flickr.com/photos/davehamster/",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T23_2017_Silverstone_Classic_(38632978040).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 500",
+        "src": "/Images/monoplazas/1953/ferrari.webp",
+        "autor": "Ben Sutherland from Crystal Palace, London, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:The_1952_Ferrari_500_F1_car_-_which_won_the_1952_and_1953_F1_World_Championships_(14478897077).jpg"
+      },
+      "kurtis_kraft": {
+        "modelo": "Kurtis Kraft 500",
+        "src": "/Images/monoplazas/1953/kurtis_kraft.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_37_(Bill_Vukovich%27s_1953-1954_Fuel_Injection_Special_Kurtis-Kraft).jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati A6GCM",
+        "src": "/Images/monoplazas/1953/maserati.webp",
+        "autor": "David Merrett",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1953_Maserati_A6GCM.jpg"
+      }
+    },
+    "1954": {
+      "connaught": {
+        "modelo": "Connaught A",
+        "src": "/Images/monoplazas/1954/connaught.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1954_Connaught_Type_B_F1_Car.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 625",
+        "src": "/Images/monoplazas/1954/ferrari.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1954_Ferrari_625.jpg"
+      },
+      "lancia": {
+        "modelo": "Lancia D50",
+        "src": "/Images/monoplazas/1954/lancia.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1954_Lancia_D50_(48954161196).jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 250F",
+        "src": "/Images/monoplazas/1954/maserati.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1954_Maserati_250F.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes W196",
+        "src": "/Images/monoplazas/1954/mercedes.webp",
+        "autor": "Bahnfrend",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1954_Mercedes-Benz_W196_%2B_1955_Mercedes-Benz_W196_R_Stromlinie_Goodwood,_2009_(01).jpg"
+      }
+    },
+    "1955": {
+      "ferrari": {
+        "modelo": "Ferrari 625",
+        "src": "/Images/monoplazas/1955/ferrari.webp",
+        "autor": "Prova MO",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1954_Ferrari_625_F1_front.jpg"
+      },
+      "kurtis_kraft": {
+        "modelo": "Kurtis Kraft 500",
+        "src": "/Images/monoplazas/1955/kurtis_kraft.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_40_(Bob_Sweikert%27s_1955_John_Zink_Special_Kurtis-Kraft).jpg"
+      },
+      "lancia": {
+        "modelo": "Lancia D50",
+        "src": "/Images/monoplazas/1955/lancia.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2016_-_Lancia_D50_-_1955_-_001.jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 250F",
+        "src": "/Images/monoplazas/1955/maserati.webp",
+        "autor": "Ben Sutherland from Forest Hill, London, European Union",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1955_Maserati_250F_at_Coventry_Motor_Museum.jpg"
+      },
+      "mercedes": {
+        "modelo": "Mercedes W196",
+        "src": "/Images/monoplazas/1955/mercedes.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1955_Mercedes_W196_R.jpg"
+      }
+    },
+    "1956": {
+      "maserati": {
+        "modelo": "Maserati 250F",
+        "src": "/Images/monoplazas/1956/maserati.webp",
+        "autor": "MrWalkr",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1956_Maserati_250F.jpg"
+      },
+      "watson": {
+        "modelo": "Watson Indy",
+        "src": "/Images/monoplazas/1956/watson.webp",
+        "autor": "Doctorindy",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Indy500winningcar1956.JPG"
+      }
+    },
+    "1957": {
+      "cooper": {
+        "modelo": "Cooper T43",
+        "src": "/Images/monoplazas/1957/cooper.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T43_at_Silverstone_Classic_2011_(7).jpg"
+      },
+      "epperly": {
+        "modelo": "Epperly Indy",
+        "src": "/Images/monoplazas/1957/epperly.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Indianapolis_Motor_Speedway_Museum_May_2026_22_(Sam_Hanks%27_and_Jimmy_Bryan%27s_1957-1958_Belond_Exhaust_Special_Salih).jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 250F",
+        "src": "/Images/monoplazas/1957/maserati.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1957_Maserati_250F_(48954349622).jpg"
+      },
+      "vanwall": {
+        "modelo": "Vanwall VW",
+        "src": "/Images/monoplazas/1957/vanwall.webp",
+        "autor": "x Romero",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Vanwall_1957_2.JPG"
+      }
+    },
+    "1958": {
+      "brm": {
+        "modelo": "BRM P25",
+        "src": "/Images/monoplazas/1958/brm.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_BRM_P25_-_1958_-_001.jpg"
+      },
+      "cooper": {
+        "modelo": "Cooper T45",
+        "src": "/Images/monoplazas/1958/cooper.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1958_Cooper_Climax_T45_51_(48953616858).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari Dino 246",
+        "src": "/Images/monoplazas/1958/ferrari.webp",
+        "autor": "Jitesh Jagadish from Dubai, United Arab Emirates",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_246_F1.jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 250F",
+        "src": "/Images/monoplazas/1958/maserati.webp",
+        "autor": "Bahnfrend",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1958_Maserati_250F_Goodwood,_2009_(01).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 12",
+        "src": "/Images/monoplazas/1958/team_lotus.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1958_Lotus_Climax_16_(48954351687).jpg"
+      },
+      "vanwall": {
+        "modelo": "Vanwall VW",
+        "src": "/Images/monoplazas/1958/vanwall.webp",
+        "autor": "Vanwall1958",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Vanwall_1958.jpg"
+      }
+    },
+    "1959": {
+      "aston_martin": {
+        "modelo": "Aston Martin DBR4",
+        "src": "/Images/monoplazas/1959/aston_martin.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Aston_Martin_DBR4,_Bj._1959_(2011-08-13_Sp).JPG"
+      },
+      "brm": {
+        "modelo": "BRM P25",
+        "src": "/Images/monoplazas/1959/brm.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P25.jpg"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T51",
+        "src": "/Images/monoplazas/1959/cooper-climax.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1959_Cooper_Climax_T51_(48953608888).jpg"
+      },
+      "jbw": {
+        "modelo": "JBW 59",
+        "src": "/Images/monoplazas/1959/jbw.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1959_JBW_Maserati_(48953615878).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 16",
+        "src": "/Images/monoplazas/1959/team_lotus.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1959_Lotus_Climax_16_(48953615703).jpg"
+      },
+      "tec-mec": {
+        "modelo": "Tec-Mec F415",
+        "src": "/Images/monoplazas/1959/tec-mec.webp",
+        "autor": "Kogo",
+        "licencia": "CC BY-SA 3.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Maserati_TecMec.jpg"
+      }
+    },
     "1960": {
       "aston_martin": {
         "modelo": "Aston Martin DBR4",
@@ -5487,8 +5864,156 @@
       }
     }
   },
-  "newPhotos": 104,
+  "newPhotos": 51,
   "missing": [
+    "1950/alta",
+    "1950/cooper",
+    "1950/deidt",
+    "1950/era",
+    "1950/ewing",
+    "1950/lago",
+    "1950/langley",
+    "1950/lesovsky",
+    "1950/marchese",
+    "1950/milano",
+    "1950/moore",
+    "1950/nichels",
+    "1950/olson",
+    "1950/rae",
+    "1950/snowberger",
+    "1950/stevens",
+    "1950/watson",
+    "1950/wetteroth",
+    "1951/alta",
+    "1951/bromme",
+    "1951/deidt",
+    "1951/era",
+    "1951/hall",
+    "1951/kurtis_kraft",
+    "1951/kuzma",
+    "1951/lago",
+    "1951/lesovsky",
+    "1951/marchese",
+    "1951/moore",
+    "1951/pawl",
+    "1951/schroeder",
+    "1951/sherman",
+    "1951/simca",
+    "1951/trevis",
+    "1951/watson",
+    "1952/afm",
+    "1952/alta",
+    "1952/bmw",
+    "1952/bromme",
+    "1952/butterworth",
+    "1952/connaught",
+    "1952/deidt",
+    "1952/era",
+    "1952/frazer_nash",
+    "1952/kurtis_kraft",
+    "1952/lesovsky",
+    "1952/osca",
+    "1952/sherman",
+    "1952/simca",
+    "1952/stevens",
+    "1952/trevis",
+    "1952/veritas",
+    "1952/watson",
+    "1953/afm",
+    "1953/bmw",
+    "1953/bromme",
+    "1953/connaught",
+    "1953/del_roy",
+    "1953/emw",
+    "1953/gordini",
+    "1953/hwm",
+    "1953/kuzma",
+    "1953/lesovsky",
+    "1953/osca",
+    "1953/schroeder",
+    "1953/simca",
+    "1953/stevens",
+    "1953/turner",
+    "1953/veritas",
+    "1953/watson",
+    "1954/bromme",
+    "1954/cooper",
+    "1954/gordini",
+    "1954/hwm",
+    "1954/klenk",
+    "1954/kurtis_kraft",
+    "1954/kuzma",
+    "1954/nichels",
+    "1954/pankratz",
+    "1954/pawl",
+    "1954/phillips",
+    "1954/schroeder",
+    "1954/stevens",
+    "1954/vanwall",
+    "1955/arzani-volpini",
+    "1955/connaught",
+    "1955/cooper",
+    "1955/epperly",
+    "1955/gordini",
+    "1955/kuzma",
+    "1955/pankratz",
+    "1955/pawl",
+    "1955/phillips",
+    "1955/schroeder",
+    "1955/stevens",
+    "1955/trevis",
+    "1955/vanwall",
+    "1956/brm",
+    "1956/bugatti",
+    "1956/connaught",
+    "1956/cooper",
+    "1956/emeryson",
+    "1956/ferrari",
+    "1956/gordini",
+    "1956/kurtis_kraft",
+    "1956/kuzma",
+    "1956/lesovsky",
+    "1956/phillips",
+    "1956/stevens",
+    "1956/vanwall",
+    "1957/brm",
+    "1957/connaught",
+    "1957/dunn",
+    "1957/ferrari",
+    "1957/kurtis_kraft",
+    "1957/kuzma",
+    "1957/lesovsky",
+    "1957/phillips",
+    "1957/porsche",
+    "1957/watson",
+    "1958/connaught",
+    "1958/dunn",
+    "1958/epperly",
+    "1958/kurtis_kraft",
+    "1958/kuzma",
+    "1958/lesovsky",
+    "1958/phillips",
+    "1958/porsche",
+    "1958/watson",
+    "1959/connaught",
+    "1959/cooper-borgward",
+    "1959/cooper-maserati",
+    "1959/cooper-osca",
+    "1959/dunn",
+    "1959/elder",
+    "1959/epperly",
+    "1959/ferrari",
+    "1959/kurtis_kraft",
+    "1959/kuzma",
+    "1959/lesovsky",
+    "1959/maserati",
+    "1959/moore",
+    "1959/phillips",
+    "1959/porsche",
+    "1959/sutton",
+    "1959/vanwall",
+    "1959/vhristensen",
+    "1959/watson",
     "1960/behra-porsche",
     "1960/epperly",
     "1960/ewing",
