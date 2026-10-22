@@ -1,6 +1,754 @@
 {
   "generatedFrom": "Wikimedia Commons / Wikipedia page images",
   "years": {
+    "1960": {
+      "aston_martin": {
+        "modelo": "Aston Martin DBR4",
+        "src": "/Images/monoplazas/1960/aston_martin.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1959_Aston_Martin_DBR4_(48953615403).jpg"
+      },
+      "brm": {
+        "modelo": "BRM P25",
+        "src": "/Images/monoplazas/1960/brm.webp",
+        "autor": "Dennis Elzinga",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P25_(52296573573).jpg"
+      },
+      "cooper-castellotti": {
+        "modelo": "Cooper T51",
+        "src": "/Images/monoplazas/1960/cooper-castellotti.webp",
+        "autor": "Unknown author Unknown author",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Scuderia_Castellotti_-_Gran_Premio_d%27Italia_1960.jpg"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T51",
+        "src": "/Images/monoplazas/1960/cooper-climax.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1960_Cooper_Climax_T51_(48953613748).jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T51",
+        "src": "/Images/monoplazas/1960/cooper-maserati.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T51_Centro_Sud_Donington.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 246",
+        "src": "/Images/monoplazas/1960/ferrari.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1960_Ferrari_246_Dino_(48954160311).jpg"
+      },
+      "jbw": {
+        "modelo": "JBW 59",
+        "src": "/Images/monoplazas/1960/jbw.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:JBW_Type_1_at_Silverstone_Classic_2009_(1).jpg"
+      },
+      "maserati": {
+        "modelo": "Maserati 250F",
+        "src": "/Images/monoplazas/1960/maserati.webp",
+        "autor": "Brier Thomas",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lowood-1960-Arnold-Glass-Maserati-250F.jpg"
+      },
+      "porsche": {
+        "modelo": "Porsche 718",
+        "src": "/Images/monoplazas/1960/porsche.webp",
+        "autor": "nakhon100",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Porsche_718-2_-02_Formel_1_1960_(14464876382).jpg"
+      },
+      "scarab": {
+        "modelo": "Scarab F1",
+        "src": "/Images/monoplazas/1960/scarab.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Millers_at_Milwaukee_2026_006_(1960_Scarab_Formula_1_No._48).jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 18",
+        "src": "/Images/monoplazas/1960/team_lotus.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_18_at_Silverstone_Classic_2011.jpg"
+      },
+      "vanwall": {
+        "modelo": "Vanwall VW11",
+        "src": "/Images/monoplazas/1960/vanwall.webp",
+        "autor": "In Vitrio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Tony_Brooks,_Vanwall_VW11,_2017_Goodwood_Revival_Meeting.jpg"
+      },
+      "watson": {
+        "modelo": "Watson Indy",
+        "src": "/Images/monoplazas/1960/watson.webp",
+        "autor": "OctaviaCombi",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Watson-Offenhauser_1960_Indy_500_Winner_-_Jim_Rathmann.jpg"
+      }
+    },
+    "1961": {
+      "brm": {
+        "modelo": "BRM P48/57",
+        "src": "/Images/monoplazas/1961/brm.webp",
+        "autor": "TOM at Picassa .",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P48_Mallory_Park.JPG"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T53",
+        "src": "/Images/monoplazas/1961/cooper-climax.webp",
+        "autor": "Julian Herzog ( Website )",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1961_Cooper_T53_Donington_Park_2023_01.jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T53",
+        "src": "/Images/monoplazas/1961/cooper-maserati.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T53_Donington_pits.jpg"
+      },
+      "ferguson": {
+        "modelo": "Ferguson P99",
+        "src": "/Images/monoplazas/1961/ferguson.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1960_Ferguson-Climax_P99.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 156",
+        "src": "/Images/monoplazas/1961/ferrari.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1961_Ferrari_156_Sharknose.jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 21",
+        "src": "/Images/monoplazas/1961/lotus-climax.webp",
+        "autor": "Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Jim_Clark_(nummer_15)_met_de_Lotus_21,_Bestanddeelnr_912-5059_(cropped).jpg"
+      },
+      "lotus-maserati": {
+        "modelo": "Lotus 18",
+        "src": "/Images/monoplazas/1961/lotus-maserati.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_18_Stirling_Moss_Monaco_1961.jpg"
+      },
+      "porsche": {
+        "modelo": "Porsche 718",
+        "src": "/Images/monoplazas/1961/porsche.webp",
+        "autor": "OlliFoolish",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Porsche_718_2-02_F1_(1).jpg"
+      }
+    },
+    "1962": {
+      "brabham": {
+        "modelo": "Brabham BT3",
+        "src": "/Images/monoplazas/1962/brabham.webp",
+        "autor": "Alexander Migl",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT3_(1962)_Solitude_Revival_2019_IMG_1616.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P57",
+        "src": "/Images/monoplazas/1962/brm.webp",
+        "autor": "Alan Raine from Cheshire",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1962_BRM_P-578_(48853936182).jpg"
+      },
+      "cooper-alfa_romeo": {
+        "modelo": "Cooper T53",
+        "src": "/Images/monoplazas/1962/cooper-alfa_romeo.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1961_Cooper_Climax_T53_Lowline_(48954353322).jpg"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T60",
+        "src": "/Images/monoplazas/1962/cooper-climax.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T60_Donington.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 156",
+        "src": "/Images/monoplazas/1962/ferrari.webp",
+        "autor": "Michael Gaylard from Horsham, UK",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_156_F1-3476_(52369285499).jpg"
+      },
+      "lola": {
+        "modelo": "Lola Mk4",
+        "src": "/Images/monoplazas/1962/lola.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lola_MK4_at_Silverstone_Classic_2011.jpg"
+      },
+      "lotus-borgward": {
+        "modelo": "Lotus 18",
+        "src": "/Images/monoplazas/1962/lotus-borgward.webp",
+        "autor": "mick mft from England",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_18.jpg"
+      },
+      "lotus-brm": {
+        "modelo": "Lotus 24",
+        "src": "/Images/monoplazas/1962/lotus-brm.webp",
+        "autor": "David Merrett from Daventry, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_24_at_Silverstone_Classic_2011.jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 25",
+        "src": "/Images/monoplazas/1962/lotus-climax.webp",
+        "autor": "Brian Snelson from Hockley, Essex, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1962_Lotus_25_Climax_-_Flickr_-_exfordy.jpg"
+      },
+      "porsche": {
+        "modelo": "Porsche 804",
+        "src": "/Images/monoplazas/1962/porsche.webp",
+        "autor": "Michael Barera",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_70_(Porsche_Museum_-_1962_Porsche_804_Formel_1).JPG"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 25",
+        "src": "/Images/monoplazas/1962/team_lotus.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:ClarkJim-Lotus19620805.jpg"
+      }
+    },
+    "1963": {
+      "alfa": {
+        "modelo": "Alfa Special",
+        "src": "/Images/monoplazas/1963/alfa.webp",
+        "autor": "Bob Adams from George, South Africa",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Alfa_Special_F1_(11818671363).jpg"
+      },
+      "brabham": {
+        "modelo": "Brabham BT7",
+        "src": "/Images/monoplazas/1963/brabham.webp",
+        "autor": "Alexandre Prevot",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT7_(55364900095).jpg"
+      },
+      "brm": {
+        "modelo": "BRM P57",
+        "src": "/Images/monoplazas/1963/brm.webp",
+        "autor": "Kogo",
+        "licencia": "CC BY-SA 3.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P57.jpg"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T66",
+        "src": "/Images/monoplazas/1963/cooper-climax.webp",
+        "autor": "Harry Pot for Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Grand_Prix_te_Zandvoort_Nummer_2_Tony_Maggs_voor_de_start,_Bestanddeelnr_915-2891_(cropped).jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T53",
+        "src": "/Images/monoplazas/1963/cooper-maserati.webp",
+        "autor": "Richard Taylor from Australia",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_Climax_T53.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 156",
+        "src": "/Images/monoplazas/1963/ferrari.webp",
+        "autor": "Rahil Rupawala",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1963_Ferrari_156_F1_Museo_Nazionale_dell%27Automobile_Torino_02.jpg"
+      },
+      "lola": {
+        "modelo": "Lola Mk4",
+        "src": "/Images/monoplazas/1963/lola.webp",
+        "autor": "Darren",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lola_Mk4_Surtees_2008_Goodwood.jpg"
+      },
+      "lotus-brm": {
+        "modelo": "Lotus 24",
+        "src": "/Images/monoplazas/1963/lotus-brm.webp",
+        "autor": "viann from Mulhouse, France",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Siffert_Lotus_24_at_Mus%C3%A9e_National_de_lAutomobile.jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 25",
+        "src": "/Images/monoplazas/1963/lotus-climax.webp",
+        "autor": "Troxx",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Goodwood2007-021_Lotus_Climax_25_(1963).jpg"
+      },
+      "lotus-ford": {
+        "modelo": "Lotus 22",
+        "src": "/Images/monoplazas/1963/lotus-ford.webp",
+        "autor": "Duke le palois",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_22.jpg"
+      },
+      "team_lotus": {
+        "modelo": "Lotus 25",
+        "src": "/Images/monoplazas/1963/team_lotus.webp",
+        "autor": "Iain Cameron",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1963_F1_Lotus_25_F1_racing_car,_raced_by_Jim_Clark_in_1963_(21133245490).jpg"
+      }
+    },
+    "1964": {
+      "brabham-climax": {
+        "modelo": "Brabham BT11",
+        "src": "/Images/monoplazas/1964/brabham-climax.webp",
+        "autor": "GTHO",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Repco_Brabham_BT11A_of_Peter_Strauss_(2).JPG"
+      },
+      "brabham-ford": {
+        "modelo": "Brabham BT10",
+        "src": "/Images/monoplazas/1964/brabham-ford.webp",
+        "autor": "Kogo",
+        "licencia": "CC BY-SA 3.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT10.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P261",
+        "src": "/Images/monoplazas/1964/brm.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1964_BRM_P261.jpg"
+      },
+      "derrington": {
+        "modelo": "Derrington F1",
+        "src": "/Images/monoplazas/1964/derrington.webp",
+        "autor": "In Vitrio",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Derrington_Francis-ATS,_BRM_Celebration_Day,_Bourne,_Lincolnshire,_2012.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 158",
+        "src": "/Images/monoplazas/1964/ferrari.webp",
+        "autor": "Tim Dobbelaere ( Flickr account: storem )",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_158_F1_1964.jpg"
+      },
+      "honda": {
+        "modelo": "Honda RA271",
+        "src": "/Images/monoplazas/1964/honda.webp",
+        "autor": "Iwao from Tokyo, Japan",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Honda_RA271,_1964_(9720106899).jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 25",
+        "src": "/Images/monoplazas/1964/lotus-climax.webp",
+        "autor": "Chris Peeters",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1964_Lotus-Climax_25.jpg"
+      }
+    },
+    "1965": {
+      "brabham-brm": {
+        "modelo": "Brabham BT11",
+        "src": "/Images/monoplazas/1965/brabham-brm.webp",
+        "autor": "Unknown author Unknown author",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1965_Syracuse_GP_-_Surtees,_Siffert_and_Clark.jpg"
+      },
+      "brabham-climax": {
+        "modelo": "Brabham BT11",
+        "src": "/Images/monoplazas/1965/brabham-climax.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BrabhamJack19650801S%C3%BCdkehre.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P261",
+        "src": "/Images/monoplazas/1965/brm.webp",
+        "autor": "Neil",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P261_(42184110510).jpg"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T77",
+        "src": "/Images/monoplazas/1965/cooper-climax.webp",
+        "autor": "MPW57",
+        "licencia": "CC BY 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T77_1.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 158",
+        "src": "/Images/monoplazas/1965/ferrari.webp",
+        "autor": "Neil",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ferrari_158_(43087542175).jpg"
+      },
+      "honda": {
+        "modelo": "Honda RA272",
+        "src": "/Images/monoplazas/1965/honda.webp",
+        "autor": "Calreyn88",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1965_Honda_RA272.jpg"
+      },
+      "lotus-brm": {
+        "modelo": "Lotus 25",
+        "src": "/Images/monoplazas/1965/lotus-brm.webp",
+        "autor": "Spurzem - Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1965-07-30_Richard_Attwood,_Lotus-BRM.jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 33",
+        "src": "/Images/monoplazas/1965/lotus-climax.webp",
+        "autor": "Iain A Wanless",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_33_Climax_Jackie_Stewart_at_Goodwood_Revival_2013_001.jpg"
+      }
+    },
+    "1966": {
+      "brabham-climax": {
+        "modelo": "Brabham BT22",
+        "src": "/Images/monoplazas/1966/brabham-climax.webp",
+        "autor": "Richard Taylor from Australia",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT22_(3).jpg"
+      },
+      "brabham-repco": {
+        "modelo": "Brabham BT19",
+        "src": "/Images/monoplazas/1966/brabham-repco.webp",
+        "autor": "Yu Chu Chin",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT19_of_Jack_Brabham_in_1966_at_the_2026_Adelaide_Motorsport_Festival_(DSCF2500).jpg"
+      },
+      "brm": {
+        "modelo": "BRM P261",
+        "src": "/Images/monoplazas/1966/brm.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P261_Richard_Attwood_2007.jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T81",
+        "src": "/Images/monoplazas/1966/cooper-maserati.webp",
+        "autor": "Eric Koch for Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Grand_Prix_Zandvoort_1966,_Bestanddeelnr_919-3827.jpg"
+      },
+      "eagle-climax": {
+        "modelo": "Eagle Mk1",
+        "src": "/Images/monoplazas/1966/eagle-climax.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Eagle_T1F.jpg"
+      },
+      "eagle-weslake": {
+        "modelo": "Eagle Mk1",
+        "src": "/Images/monoplazas/1966/eagle-weslake.webp",
+        "autor": "Tomás Del Coro",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1967_All_American_Racers_Eagle_Gurney_Weslake_Mk_1_Formula_1_(54586091379).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312/66",
+        "src": "/Images/monoplazas/1966/ferrari.webp",
+        "autor": "Unknown author Unknown author",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1966_Italian_GP_-_Ludovico_Scarfiotti_-_Ferrari_312_F1-66.jpg"
+      },
+      "honda": {
+        "modelo": "Honda RA273",
+        "src": "/Images/monoplazas/1966/honda.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Honda_RA273_Honda_Collection_Hall.jpg"
+      },
+      "lotus-brm": {
+        "modelo": "Lotus 43",
+        "src": "/Images/monoplazas/1966/lotus-brm.webp",
+        "autor": "Neil",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_43_(20004186945).jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 33",
+        "src": "/Images/monoplazas/1966/lotus-climax.webp",
+        "autor": "Brian Snelson from Hockley, Essex, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:2006FOS_1964LotusClimax33.jpg"
+      },
+      "mclaren-ford": {
+        "modelo": "McLaren M2B",
+        "src": "/Images/monoplazas/1966/mclaren-ford.webp",
+        "autor": "Eric Koch for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 919-3824",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_at_1966_Dutch_Grand_Prix.jpg"
+      },
+      "mclaren-seren": {
+        "modelo": "McLaren M2B",
+        "src": "/Images/monoplazas/1966/mclaren-seren.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_McLaren_M2B_-_1966_-_001.jpg"
+      }
+    },
+    "1967": {
+      "brabham-ford": {
+        "modelo": "Brabham BT23C",
+        "src": "/Images/monoplazas/1967/brabham-ford.webp",
+        "autor": "sv1ambo",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1967_Brabham_BT23C_race_car_(8883394964).jpg"
+      },
+      "brabham-repco": {
+        "modelo": "Brabham BT24",
+        "src": "/Images/monoplazas/1967/brabham-repco.webp",
+        "autor": "John Chapman Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT24_1967.jpg"
+      },
+      "cooper-climax": {
+        "modelo": "Cooper T79",
+        "src": "/Images/monoplazas/1967/cooper-climax.webp",
+        "autor": "SunflowerYuri",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_T53s_and_Cooper_T79_at_Spa.jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T81",
+        "src": "/Images/monoplazas/1967/cooper-maserati.webp",
+        "autor": "Numobeer",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Cooper_t81.jpg"
+      },
+      "eagle-climax": {
+        "modelo": "Eagle T1F",
+        "src": "/Images/monoplazas/1967/eagle-climax.webp",
+        "autor": "Alan Raine from Cheshire",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1967_AAR_Eagle_3_(48853936737).jpg"
+      },
+      "eagle-weslake": {
+        "modelo": "Eagle T1G",
+        "src": "/Images/monoplazas/1967/eagle-weslake.webp",
+        "autor": "Alan Raine from Cheshire",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1967_AAR_Eagle_2_(48853936582).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312/67",
+        "src": "/Images/monoplazas/1967/ferrari.webp",
+        "autor": "ChrisBeechler",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Turn_1_-_%2767_Ferrari_312_F1pathed.jpg"
+      },
+      "honda": {
+        "modelo": "Honda RA300",
+        "src": "/Images/monoplazas/1967/honda.webp",
+        "autor": "BWard 1997",
+        "licencia": "CC BY 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Honda_RACING_Gallery_1967_Honda_RA300_John_Surtees.jpg"
+      },
+      "lotus-brm": {
+        "modelo": "Lotus 43",
+        "src": "/Images/monoplazas/1967/lotus-brm.webp",
+        "autor": "Patrick Down",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_43_2014_2.jpg"
+      },
+      "lotus-climax": {
+        "modelo": "Lotus 33",
+        "src": "/Images/monoplazas/1967/lotus-climax.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_33_Silverstone.jpg"
+      },
+      "lotus-ford": {
+        "modelo": "Lotus 49",
+        "src": "/Images/monoplazas/1967/lotus-ford.webp",
+        "autor": "Michael Garlick",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Beaulieu_Motor_Museum,_Lotus_49_(1967)_-_geograph.org.uk_-_8064812.jpg"
+      },
+      "matra": {
+        "modelo": "Matra MS5",
+        "src": "/Images/monoplazas/1967/matra.webp",
+        "autor": "Kärjens Slædebjørg",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Matra_MS5.jpg"
+      },
+      "mclaren-ford": {
+        "modelo": "McLaren M4A",
+        "src": "/Images/monoplazas/1967/mclaren-ford.webp",
+        "autor": "Mutari",
+        "licencia": "Public domain",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M4A_-_001.jpg"
+      }
+    },
+    "1968": {
+      "brabham-repco": {
+        "modelo": "Brabham BT26",
+        "src": "/Images/monoplazas/1968/brabham-repco.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Brabham_BT26_Tasman_Donington.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P133",
+        "src": "/Images/monoplazas/1968/brm.webp",
+        "autor": "Lothar Spurzem",
+        "licencia": "CC BY-SA 2.0 de",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Rodriguez,_Pedro_-_BRM_1968.jpg"
+      },
+      "cooper-brm": {
+        "modelo": "Cooper T86B",
+        "src": "/Images/monoplazas/1968/cooper-brm.webp",
+        "autor": "Evers, Joost / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 921-4600",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Bianchi_and_McLaren_at_1968_Dutch_Grand_Prix.jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T86",
+        "src": "/Images/monoplazas/1968/cooper-maserati.webp",
+        "autor": "edvvc from London, UK, upload by Herrick 10:51, 27 November 2007 (UTC)",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1967_Cooper-Maserati_T86_191599250.jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312/68",
+        "src": "/Images/monoplazas/1968/ferrari.webp",
+        "autor": "Evers, Joost / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 921-4527",
+        "licencia": "CC BY-SA 3.0 nl",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Ickx_at_1968_Dutch_Grand_Prix.jpg"
+      },
+      "honda": {
+        "modelo": "Honda RA301",
+        "src": "/Images/monoplazas/1968/honda.webp",
+        "autor": "Morio",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Honda_RA301_1968_Mexico_Honda_Collection_Hall.jpg"
+      },
+      "lotus-ford": {
+        "modelo": "Lotus 49B",
+        "src": "/Images/monoplazas/1968/lotus-ford.webp",
+        "autor": "Nic Redhead",
+        "licencia": "CC BY-SA 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_49B_at_Goodwood_2014_003.jpg"
+      },
+      "matra": {
+        "modelo": "Matra MS11",
+        "src": "/Images/monoplazas/1968/matra.webp",
+        "autor": "Ozzy Delaney from Birmingham",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1968_-_Matra_MS11_(12678870524).jpg"
+      },
+      "matra-ford": {
+        "modelo": "Matra MS10",
+        "src": "/Images/monoplazas/1968/matra-ford.webp",
+        "autor": "Brian Snelson",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1968_Matra-Cosworth_MS10.jpg"
+      },
+      "mclaren-brm": {
+        "modelo": "McLaren M5A",
+        "src": "/Images/monoplazas/1968/mclaren-brm.webp",
+        "autor": "Joost Evers / Anefo",
+        "licencia": "CC0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Grand_Prix_68_Zandvoort_.Joachim_Bonnier,_Bestanddeelnr_921-4593.jpg"
+      },
+      "mclaren-ford": {
+        "modelo": "McLaren M7A",
+        "src": "/Images/monoplazas/1968/mclaren-ford.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_McLaren_M7A_-_1968_-_001.jpg"
+      }
+    },
+    "1969": {
+      "brabham-ford": {
+        "modelo": "Brabham BT26A",
+        "src": "/Images/monoplazas/1969/brabham-ford.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2011_-_Brabham_BT26_-_1969_-_003.jpg"
+      },
+      "brabham-repco": {
+        "modelo": "Brabham BT24",
+        "src": "/Images/monoplazas/1969/brabham-repco.webp",
+        "autor": "Brian Snelson from Hockley, Essex, England",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:2006FOS_1967BrabhamBT24.jpg"
+      },
+      "brm": {
+        "modelo": "BRM P139",
+        "src": "/Images/monoplazas/1969/brm.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:BRM_P139.jpg"
+      },
+      "brm-ford": {
+        "modelo": "BRM P126",
+        "src": "/Images/monoplazas/1969/brm-ford.webp",
+        "autor": "Brian Snelson",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1968_BRM_P126.jpg"
+      },
+      "cooper-maserati": {
+        "modelo": "Cooper T86",
+        "src": "/Images/monoplazas/1969/cooper-maserati.webp",
+        "autor": "edvvc on flickr",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:2006FOS_1967CooperMaseratiT86.jpg"
+      },
+      "eagle-climax": {
+        "modelo": "Eagle T1F",
+        "src": "/Images/monoplazas/1969/eagle-climax.webp",
+        "autor": "Alan Raine from Cheshire",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:1967_AAR_Eagle_(48853385713).jpg"
+      },
+      "ferrari": {
+        "modelo": "Ferrari 312/69",
+        "src": "/Images/monoplazas/1969/ferrari.webp",
+        "autor": "Thesupermat",
+        "licencia": "CC BY-SA 4.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Ferrari_312_F1_-_1969_-_001.jpg"
+      },
+      "lotus-ford": {
+        "modelo": "Lotus 49B",
+        "src": "/Images/monoplazas/1969/lotus-ford.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Lotus_49B_Donington.jpg"
+      },
+      "matra-ford": {
+        "modelo": "Matra MS80",
+        "src": "/Images/monoplazas/1969/matra-ford.webp",
+        "autor": "Iain Cameron",
+        "licencia": "CC BY 2.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:Matra_Cosworth_MS80_F1_World_Championship_winning_car_-_1969_(21135327460).jpg"
+      },
+      "mclaren-ford": {
+        "modelo": "McLaren M7C",
+        "src": "/Images/monoplazas/1969/mclaren-ford.webp",
+        "autor": "John Chapman ( Pyrope )",
+        "licencia": "CC BY-SA 3.0",
+        "fuente": "https://commons.wikimedia.org/wiki/File:McLaren_M7C.jpg"
+      }
+    },
     "1970": {
       "brabham": {
         "modelo": "Brabham BT33",
@@ -4739,8 +5487,67 @@
       }
     }
   },
-  "newPhotos": 144,
+  "newPhotos": 104,
   "missing": [
+    "1960/behra-porsche",
+    "1960/epperly",
+    "1960/ewing",
+    "1960/kurtis_kraft",
+    "1960/kuzma",
+    "1960/lesovsky",
+    "1960/meskowski",
+    "1960/phillips",
+    "1960/trevis",
+    "1960/vhristensen",
+    "1961/de_tomaso-alfa_romeo",
+    "1961/de_tomaso-osca",
+    "1961/emeryson",
+    "1961/gilby",
+    "1961/jbw",
+    "1961/mbm",
+    "1962/cooper",
+    "1962/de_tomaso-alfa_romeo",
+    "1962/emeryson",
+    "1962/enb",
+    "1962/gilby",
+    "1962/lds",
+    "1963/ats",
+    "1963/brp",
+    "1963/gilby",
+    "1963/lds",
+    "1963/lotus-maserati",
+    "1963/porsche",
+    "1963/scirocco",
+    "1963/stebro",
+    "1963/tomaso",
+    "1964/brabham-brm",
+    "1964/brp",
+    "1964/cooper-climax",
+    "1964/lotus-brm",
+    "1964/porsche",
+    "1964/scirocco",
+    "1965/alfa",
+    "1965/brabham-ford",
+    "1965/cooper-maserati",
+    "1965/lds-alfa_romeo",
+    "1965/re",
+    "1966/brabham-brm",
+    "1966/cooper-ferrari",
+    "1966/shannon",
+    "1967/brabham-climax",
+    "1967/brm",
+    "1967/cooper-ats",
+    "1967/lds-climax",
+    "1967/lola",
+    "1967/mclaren-brm",
+    "1967/protos",
+    "1968/brabham-climax",
+    "1968/cooper-climax",
+    "1968/eagle-weslake",
+    "1968/lds",
+    "1968/lola",
+    "1968/mclaren",
+    "1969/brabham-climax",
     "1970/bellasi",
     "1970/mclaren-alfa_romeo",
     "1971/bellasi",

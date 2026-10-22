@@ -3,6 +3,110 @@
 Archivos descargados de Wikimedia Commons o Wikipedia. Cada entrada conserva autor,
 licencia y fuente original. No se reutilizan fotos de otra temporada.
 
+- 1960 `aston_martin` — Aston Martin DBR4; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1959_Aston_Martin_DBR4_(48953615403).jpg
+- 1960 `brm` — BRM P25; Dennis Elzinga; CC BY 2.0; https://commons.wikimedia.org/wiki/File:BRM_P25_(52296573573).jpg
+- 1960 `cooper-castellotti` — Cooper T51; Unknown author Unknown author; Public domain; https://commons.wikimedia.org/wiki/File:Scuderia_Castellotti_-_Gran_Premio_d%27Italia_1960.jpg
+- 1960 `cooper-climax` — Cooper T51; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1960_Cooper_Climax_T51_(48953613748).jpg
+- 1960 `cooper-maserati` — Cooper T51; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Cooper_T51_Centro_Sud_Donington.jpg
+- 1960 `ferrari` — Ferrari 246; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1960_Ferrari_246_Dino_(48954160311).jpg
+- 1960 `jbw` — JBW 59; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:JBW_Type_1_at_Silverstone_Classic_2009_(1).jpg
+- 1960 `maserati` — Maserati 250F; Brier Thomas; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Lowood-1960-Arnold-Glass-Maserati-250F.jpg
+- 1960 `porsche` — Porsche 718; nakhon100; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Porsche_718-2_-02_Formel_1_1960_(14464876382).jpg
+- 1960 `scarab` — Scarab F1; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Millers_at_Milwaukee_2026_006_(1960_Scarab_Formula_1_No._48).jpg
+- 1960 `team_lotus` — Lotus 18; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_18_at_Silverstone_Classic_2011.jpg
+- 1960 `vanwall` — Vanwall VW11; In Vitrio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Tony_Brooks,_Vanwall_VW11,_2017_Goodwood_Revival_Meeting.jpg
+- 1960 `watson` — Watson Indy; OctaviaCombi; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Watson-Offenhauser_1960_Indy_500_Winner_-_Jim_Rathmann.jpg
+- 1961 `brm` — BRM P48/57; TOM at Picassa .; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BRM_P48_Mallory_Park.JPG
+- 1961 `cooper-climax` — Cooper T53; Julian Herzog ( Website ); CC BY 4.0; https://commons.wikimedia.org/wiki/File:1961_Cooper_T53_Donington_Park_2023_01.jpg
+- 1961 `cooper-maserati` — Cooper T53; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Cooper_T53_Donington_pits.jpg
+- 1961 `ferguson` — Ferguson P99; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1960_Ferguson-Climax_P99.jpg
+- 1961 `ferrari` — Ferrari 156; Calreyn88; CC BY 4.0; https://commons.wikimedia.org/wiki/File:1961_Ferrari_156_Sharknose.jpg
+- 1961 `lotus-climax` — Lotus 21; Anefo; CC0; https://commons.wikimedia.org/wiki/File:Jim_Clark_(nummer_15)_met_de_Lotus_21,_Bestanddeelnr_912-5059_(cropped).jpg
+- 1961 `lotus-maserati` — Lotus 18; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lotus_18_Stirling_Moss_Monaco_1961.jpg
+- 1961 `porsche` — Porsche 718; OlliFoolish; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Porsche_718_2-02_F1_(1).jpg
+- 1962 `brabham` — Brabham BT3; Alexander Migl; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Brabham_BT3_(1962)_Solitude_Revival_2019_IMG_1616.jpg
+- 1962 `brm` — BRM P57; Alan Raine from Cheshire; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1962_BRM_P-578_(48853936182).jpg
+- 1962 `cooper-alfa_romeo` — Cooper T53; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1961_Cooper_Climax_T53_Lowline_(48954353322).jpg
+- 1962 `cooper-climax` — Cooper T60; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Cooper_T60_Donington.jpg
+- 1962 `ferrari` — Ferrari 156; Michael Gaylard from Horsham, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_156_F1-3476_(52369285499).jpg
+- 1962 `lola` — Lola Mk4; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lola_MK4_at_Silverstone_Classic_2011.jpg
+- 1962 `lotus-borgward` — Lotus 18; mick mft from England; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus_18.jpg
+- 1962 `lotus-brm` — Lotus 24; David Merrett from Daventry, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_24_at_Silverstone_Classic_2011.jpg
+- 1962 `lotus-climax` — Lotus 25; Brian Snelson from Hockley, Essex, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1962_Lotus_25_Climax_-_Flickr_-_exfordy.jpg
+- 1962 `porsche` — Porsche 804; Michael Barera; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Stuttgart_Jul_2012_70_(Porsche_Museum_-_1962_Porsche_804_Formel_1).JPG
+- 1962 `team_lotus` — Lotus 25; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:ClarkJim-Lotus19620805.jpg
+- 1963 `alfa` — Alfa Special; Bob Adams from George, South Africa; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Alfa_Special_F1_(11818671363).jpg
+- 1963 `brabham` — Brabham BT7; Alexandre Prevot; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Brabham_BT7_(55364900095).jpg
+- 1963 `brm` — BRM P57; Kogo; CC BY-SA 3.0 de; https://commons.wikimedia.org/wiki/File:BRM_P57.jpg
+- 1963 `cooper-climax` — Cooper T66; Harry Pot for Anefo; CC0; https://commons.wikimedia.org/wiki/File:Grand_Prix_te_Zandvoort_Nummer_2_Tony_Maggs_voor_de_start,_Bestanddeelnr_915-2891_(cropped).jpg
+- 1963 `cooper-maserati` — Cooper T53; Richard Taylor from Australia; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Cooper_Climax_T53.jpg
+- 1963 `ferrari` — Ferrari 156; Rahil Rupawala; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1963_Ferrari_156_F1_Museo_Nazionale_dell%27Automobile_Torino_02.jpg
+- 1963 `lola` — Lola Mk4; Darren; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lola_Mk4_Surtees_2008_Goodwood.jpg
+- 1963 `lotus-brm` — Lotus 24; viann from Mulhouse, France; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Siffert_Lotus_24_at_Mus%C3%A9e_National_de_lAutomobile.jpg
+- 1963 `lotus-climax` — Lotus 25; Troxx; Public domain; https://commons.wikimedia.org/wiki/File:Goodwood2007-021_Lotus_Climax_25_(1963).jpg
+- 1963 `lotus-ford` — Lotus 22; Duke le palois; Public domain; https://commons.wikimedia.org/wiki/File:Lotus_22.jpg
+- 1963 `team_lotus` — Lotus 25; Iain Cameron; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1963_F1_Lotus_25_F1_racing_car,_raced_by_Jim_Clark_in_1963_(21133245490).jpg
+- 1964 `brabham-climax` — Brabham BT11; GTHO; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Repco_Brabham_BT11A_of_Peter_Strauss_(2).JPG
+- 1964 `brabham-ford` — Brabham BT10; Kogo; CC BY-SA 3.0 de; https://commons.wikimedia.org/wiki/File:Brabham_BT10.jpg
+- 1964 `brm` — BRM P261; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1964_BRM_P261.jpg
+- 1964 `derrington` — Derrington F1; In Vitrio; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Derrington_Francis-ATS,_BRM_Celebration_Day,_Bourne,_Lincolnshire,_2012.jpg
+- 1964 `ferrari` — Ferrari 158; Tim Dobbelaere ( Flickr account: storem ); CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_158_F1_1964.jpg
+- 1964 `honda` — Honda RA271; Iwao from Tokyo, Japan; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Honda_RA271,_1964_(9720106899).jpg
+- 1964 `lotus-climax` — Lotus 25; Chris Peeters; CC0; https://commons.wikimedia.org/wiki/File:1964_Lotus-Climax_25.jpg
+- 1965 `brabham-brm` — Brabham BT11; Unknown author Unknown author; Public domain; https://commons.wikimedia.org/wiki/File:1965_Syracuse_GP_-_Surtees,_Siffert_and_Clark.jpg
+- 1965 `brabham-climax` — Brabham BT11; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:BrabhamJack19650801S%C3%BCdkehre.jpg
+- 1965 `brm` — BRM P261; Neil; CC BY 2.0; https://commons.wikimedia.org/wiki/File:BRM_P261_(42184110510).jpg
+- 1965 `cooper-climax` — Cooper T77; MPW57; CC BY 3.0; https://commons.wikimedia.org/wiki/File:Cooper_T77_1.jpg
+- 1965 `ferrari` — Ferrari 158; Neil; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Ferrari_158_(43087542175).jpg
+- 1965 `honda` — Honda RA272; Calreyn88; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1965_Honda_RA272.jpg
+- 1965 `lotus-brm` — Lotus 25; Spurzem - Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:1965-07-30_Richard_Attwood,_Lotus-BRM.jpg
+- 1965 `lotus-climax` — Lotus 33; Iain A Wanless; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_33_Climax_Jackie_Stewart_at_Goodwood_Revival_2013_001.jpg
+- 1966 `brabham-climax` — Brabham BT22; Richard Taylor from Australia; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Brabham_BT22_(3).jpg
+- 1966 `brabham-repco` — Brabham BT19; Yu Chu Chin; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Brabham_BT19_of_Jack_Brabham_in_1966_at_the_2026_Adelaide_Motorsport_Festival_(DSCF2500).jpg
+- 1966 `brm` — BRM P261; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BRM_P261_Richard_Attwood_2007.jpg
+- 1966 `cooper-maserati` — Cooper T81; Eric Koch for Anefo; CC0; https://commons.wikimedia.org/wiki/File:Grand_Prix_Zandvoort_1966,_Bestanddeelnr_919-3827.jpg
+- 1966 `eagle-climax` — Eagle Mk1; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Eagle_T1F.jpg
+- 1966 `eagle-weslake` — Eagle Mk1; Tomás Del Coro; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:1967_All_American_Racers_Eagle_Gurney_Weslake_Mk_1_Formula_1_(54586091379).jpg
+- 1966 `ferrari` — Ferrari 312/66; Unknown author Unknown author; Public domain; https://commons.wikimedia.org/wiki/File:1966_Italian_GP_-_Ludovico_Scarfiotti_-_Ferrari_312_F1-66.jpg
+- 1966 `honda` — Honda RA273; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Honda_RA273_Honda_Collection_Hall.jpg
+- 1966 `lotus-brm` — Lotus 43; Neil; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Lotus_43_(20004186945).jpg
+- 1966 `lotus-climax` — Lotus 33; Brian Snelson from Hockley, Essex, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2006FOS_1964LotusClimax33.jpg
+- 1966 `mclaren-ford` — McLaren M2B; Eric Koch for Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 919-3824; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:McLaren_at_1966_Dutch_Grand_Prix.jpg
+- 1966 `mclaren-seren` — McLaren M2B; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_McLaren_M2B_-_1966_-_001.jpg
+- 1967 `brabham-ford` — Brabham BT23C; sv1ambo; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1967_Brabham_BT23C_race_car_(8883394964).jpg
+- 1967 `brabham-repco` — Brabham BT24; John Chapman Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Brabham_BT24_1967.jpg
+- 1967 `cooper-climax` — Cooper T79; SunflowerYuri; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Cooper_T53s_and_Cooper_T79_at_Spa.jpg
+- 1967 `cooper-maserati` — Cooper T81; Numobeer; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Cooper_t81.jpg
+- 1967 `eagle-climax` — Eagle T1F; Alan Raine from Cheshire; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1967_AAR_Eagle_3_(48853936737).jpg
+- 1967 `eagle-weslake` — Eagle T1G; Alan Raine from Cheshire; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1967_AAR_Eagle_2_(48853936582).jpg
+- 1967 `ferrari` — Ferrari 312/67; ChrisBeechler; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:Turn_1_-_%2767_Ferrari_312_F1pathed.jpg
+- 1967 `honda` — Honda RA300; BWard 1997; CC BY 4.0; https://commons.wikimedia.org/wiki/File:Honda_RACING_Gallery_1967_Honda_RA300_John_Surtees.jpg
+- 1967 `lotus-brm` — Lotus 43; Patrick Down; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus_43_2014_2.jpg
+- 1967 `lotus-climax` — Lotus 33; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lotus_33_Silverstone.jpg
+- 1967 `lotus-ford` — Lotus 49; Michael Garlick; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Beaulieu_Motor_Museum,_Lotus_49_(1967)_-_geograph.org.uk_-_8064812.jpg
+- 1967 `matra` — Matra MS5; Kärjens Slædebjørg; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Matra_MS5.jpg
+- 1967 `mclaren-ford` — McLaren M4A; Mutari; Public domain; https://commons.wikimedia.org/wiki/File:McLaren_M4A_-_001.jpg
+- 1968 `brabham-repco` — Brabham BT26; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Brabham_BT26_Tasman_Donington.jpg
+- 1968 `brm` — BRM P133; Lothar Spurzem; CC BY-SA 2.0 de; https://commons.wikimedia.org/wiki/File:Rodriguez,_Pedro_-_BRM_1968.jpg
+- 1968 `cooper-brm` — Cooper T86B; Evers, Joost / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 921-4600; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Bianchi_and_McLaren_at_1968_Dutch_Grand_Prix.jpg
+- 1968 `cooper-maserati` — Cooper T86; edvvc from London, UK, upload by Herrick 10:51, 27 November 2007 (UTC); CC BY 2.0; https://commons.wikimedia.org/wiki/File:1967_Cooper-Maserati_T86_191599250.jpg
+- 1968 `ferrari` — Ferrari 312/68; Evers, Joost / Anefo / neg. stroken, 1945-1989, 2.24.01.05, item number 921-4527; CC BY-SA 3.0 nl; https://commons.wikimedia.org/wiki/File:Ickx_at_1968_Dutch_Grand_Prix.jpg
+- 1968 `honda` — Honda RA301; Morio; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Honda_RA301_1968_Mexico_Honda_Collection_Hall.jpg
+- 1968 `lotus-ford` — Lotus 49B; Nic Redhead; CC BY-SA 2.0; https://commons.wikimedia.org/wiki/File:Lotus_49B_at_Goodwood_2014_003.jpg
+- 1968 `matra` — Matra MS11; Ozzy Delaney from Birmingham; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1968_-_Matra_MS11_(12678870524).jpg
+- 1968 `matra-ford` — Matra MS10; Brian Snelson; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1968_Matra-Cosworth_MS10.jpg
+- 1968 `mclaren-brm` — McLaren M5A; Joost Evers / Anefo; CC0; https://commons.wikimedia.org/wiki/File:Grand_Prix_68_Zandvoort_.Joachim_Bonnier,_Bestanddeelnr_921-4593.jpg
+- 1968 `mclaren-ford` — McLaren M7A; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2018_-_McLaren_M7A_-_1968_-_001.jpg
+- 1969 `brabham-ford` — Brabham BT26A; Thesupermat; CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2011_-_Brabham_BT26_-_1969_-_003.jpg
+- 1969 `brabham-repco` — Brabham BT24; Brian Snelson from Hockley, Essex, England; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2006FOS_1967BrabhamBT24.jpg
+- 1969 `brm` — BRM P139; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:BRM_P139.jpg
+- 1969 `brm-ford` — BRM P126; Brian Snelson; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1968_BRM_P126.jpg
+- 1969 `cooper-maserati` — Cooper T86; edvvc on flickr; CC BY 2.0; https://commons.wikimedia.org/wiki/File:2006FOS_1967CooperMaseratiT86.jpg
+- 1969 `eagle-climax` — Eagle T1F; Alan Raine from Cheshire; CC BY 2.0; https://commons.wikimedia.org/wiki/File:1967_AAR_Eagle_(48853385713).jpg
+- 1969 `ferrari` — Ferrari 312/69; Thesupermat; CC BY-SA 4.0; https://commons.wikimedia.org/wiki/File:R%C3%A9tromobile_2017_-_Ferrari_312_F1_-_1969_-_001.jpg
+- 1969 `lotus-ford` — Lotus 49B; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:Lotus_49B_Donington.jpg
+- 1969 `matra-ford` — Matra MS80; Iain Cameron; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Matra_Cosworth_MS80_F1_World_Championship_winning_car_-_1969_(21135327460).jpg
+- 1969 `mclaren-ford` — McLaren M7C; John Chapman ( Pyrope ); CC BY-SA 3.0; https://commons.wikimedia.org/wiki/File:McLaren_M7C.jpg
 - 1970 `brabham` — Brabham BT33; Muzio Photo / SAEMEC Editions (S/688); Public domain; https://commons.wikimedia.org/wiki/File:1970_Italian_GP_-_Brabham%27s_Brabham-Ford_BT33.jpg
 - 1970 `brm` — BRM P153; Ben Sutherland from Crystal Palace, London, UK; CC BY 2.0; https://commons.wikimedia.org/wiki/File:Pedro_Rodriguez%27_1970_BRM_P153_F1_car_(14478690210).jpg
 - 1970 `ferrari` — Ferrari 312B; Alf van Beem; CC0; https://commons.wikimedia.org/wiki/File:1970_Ferrari_F1_312B_driven_by_Mario_Andretti,_pic2.JPG
@@ -701,3 +805,67 @@ Se conserva el fallback (logotipo o nombre del equipo) y no se publica una image
 - `1978/merzario` — Merzario A1: solo hay foto del Merzario A2, no del A1.
 - `1979/fittipaldi` — Fittipaldi F6: sin foto verificable del Fittipaldi F6.
 - `1979/rebaque` — Rebaque HR100: sin foto verificable del Rebaque HR100.
+
+## Pendientes 1960-1969 (sin fotografía verificable)
+
+Se conserva el fallback (logotipo o nombre del equipo) y no se publica una imagen dudosa.
+
+- `1960/behra-porsche` — Porsche RSK: solo hay fotos del Porsche RSK deportivo, no del monoplaza Behra-Porsche.
+- `1960/epperly` — Epperly Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/ewing` — Ewing Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/kurtis_kraft` — Kurtis Kraft 500: sin foto verificable del Indy 500 de 1960.
+- `1960/kuzma` — Kuzma Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/lesovsky` — Lesovsky Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/meskowski` — Meskowski Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/phillips` — Phillips Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/trevis` — Trevis Indy: sin foto verificable del Indy 500 de 1960.
+- `1960/vhristensen` — Christensen Indy: sin foto verificable del Indy 500 de 1960.
+- `1961/de_tomaso-alfa_romeo` — De Tomaso F1: sin foto verificable del De Tomaso F1.
+- `1961/de_tomaso-osca` — De Tomaso F1: sin foto verificable del De Tomaso F1.
+- `1961/emeryson` — Emeryson 61: sin foto verificable del Emeryson 61.
+- `1961/gilby` — Gilby 61: sin foto verificable del Gilby 61.
+- `1961/jbw` — JBW 59: sin foto verificable del JBW 59 de 1961.
+- `1961/mbm` — MBM F1: sin foto verificable del MBM F1.
+- `1962/cooper` — Cooper T59: solo hay foto de un Cooper T59 de Formula Junior, no de F1.
+- `1962/de_tomaso-alfa_romeo` — De Tomaso F1: sin foto verificable del De Tomaso F1.
+- `1962/emeryson` — Emeryson 61: sin foto verificable del Emeryson 61.
+- `1962/enb` — ENB F1: sin foto verificable del ENB F1.
+- `1962/gilby` — Gilby 62: sin foto verificable del Gilby 62.
+- `1962/lds` — LDS Mk1: sin foto verificable del LDS Mk1.
+- `1963/ats` — ATS 100: solo hay una foto de prensa del coche accidentado, no una imagen clara del ATS 100.
+- `1963/brp` — BRP Mk1: sin foto verificable del BRP Mk1.
+- `1963/gilby` — Gilby 62: sin foto verificable del Gilby 62.
+- `1963/lds` — LDS Mk1: sin foto verificable del LDS Mk1.
+- `1963/lotus-maserati` — Lotus 18: sin foto distinta del Lotus 18 ya usada en 1962.
+- `1963/porsche` — Porsche 718: sin foto verificable del Porsche 718 de F1 en 1963.
+- `1963/scirocco` — Scirocco SP: sin foto verificable del Scirocco SP.
+- `1963/stebro` — Stebro Mk IV: solo hay una foto nocturna de la fabrica, no del coche.
+- `1963/tomaso` — De Tomaso F1: sin foto verificable del De Tomaso F1.
+- `1964/brabham-brm` — Brabham BT11: sin foto verificable de 1964; la disponible es de 1965.
+- `1964/brp` — BRP Mk2: sin foto verificable del BRP Mk2.
+- `1964/cooper-climax` — Cooper T73: sin foto verificable del Cooper T73.
+- `1964/lotus-brm` — Lotus 25: sin foto verificable del Lotus 25 BRM de 1964.
+- `1964/porsche` — Porsche 718: sin foto verificable del Porsche 718 de F1 en 1964.
+- `1964/scirocco` — Scirocco SP: sin foto verificable del Scirocco SP.
+- `1965/alfa` — Alfa Special: sin foto distinta del Alfa Special ya usada en 1963.
+- `1965/brabham-ford` — Brabham BT10: sin foto distinta del BT10 ya usada en 1964.
+- `1965/cooper-maserati` — Cooper T55: sin foto verificable del Cooper T55.
+- `1965/lds-alfa_romeo` — LDS Mk2: sin foto verificable del LDS Mk2.
+- `1965/re` — RE F1: sin foto verificable del RE F1.
+- `1966/brabham-brm` — Brabham BT11: sin foto verificable del Brabham BT11 BRM de 1966.
+- `1966/cooper-ferrari` — Cooper T73: sin foto verificable del Cooper T73.
+- `1966/shannon` — Shannon SH1: sin foto verificable del Shannon SH1.
+- `1967/brabham-climax` — Brabham BT11: sin foto verificable del Brabham BT11 Climax de 1967.
+- `1967/brm` — BRM P115: sin foto verificable del BRM P115.
+- `1967/cooper-ats` — Cooper T77: sin foto verificable del Cooper T77 ATS; la disponible es Climax y ya se usa en 1965.
+- `1967/lds-climax` — LDS Mk3: sin foto verificable del LDS Mk3.
+- `1967/lola` — Lola T100: sin foto verificable del Lola T100.
+- `1967/mclaren-brm` — McLaren M5A: sin foto verificable del McLaren M5A.
+- `1967/protos` — Protos F2: sin foto verificable del Protos F2.
+- `1968/brabham-climax` — Brabham BT11: sin foto verificable del Brabham BT11 Climax de 1968.
+- `1968/cooper-climax` — Cooper T79: sin foto distinta del Cooper T79 ya usada en 1967.
+- `1968/eagle-weslake` — Eagle T1G: sin foto verificable del Eagle T1G de 1968.
+- `1968/lds` — LDS Mk3: sin foto verificable del LDS Mk3.
+- `1968/lola` — Lola T102: sin foto verificable del Lola T102.
+- `1968/mclaren` — McLaren M5A: sin foto verificable del McLaren M5A privado de 1968.
+- `1969/brabham-climax` — Brabham BT23B: sin foto verificable del Brabham BT23B.
