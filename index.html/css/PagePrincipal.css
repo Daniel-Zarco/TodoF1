@@ -884,3 +884,76 @@
     transition: none;
   }
 }
+/* ---------- Escritorio ancho: carrera y pilotos a la misma altura ----------
+   Desde 1280px, el circuito pasa al lado del texto conservando su caja de
+   412x232px. El grid estira ambas tarjetas a la altura de la mas alta. */
+@media (min-width: 1280px) {
+  .two-col {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .panel--race {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel--race > #next-race,
+  .panel--race .flip,
+  .panel--race .flip__interior {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .panel--race .flip__cara--frente {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 412px;
+    grid-template-rows: auto auto auto auto 1fr;
+    column-gap: var(--sp-4);
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .panel--race .race__round {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    align-self: start;
+  }
+
+  .panel--race .race__name {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .panel--race .race__date {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .panel--race .race__circuit {
+    grid-column: 1;
+    grid-row: 4;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .panel--race .race__trazo {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    width: 412px;
+    max-width: 100%;
+    margin: 0;
+    align-self: center;
+  }
+
+  .panel--race .race__acciones {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    margin-top: var(--sp-4);
+    align-self: end;
+  }
+}
