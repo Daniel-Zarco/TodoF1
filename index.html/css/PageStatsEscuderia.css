@@ -75,14 +75,11 @@
   place-items: center;
   width: 100%;
   max-width: 210px;
+  min-width: 0;
+  min-height: 0;
   aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border: 1px solid var(--c-line);
-  border-radius: var(--r-lg);
-  background-color: #111216;
-  background-image:
-    radial-gradient(125% 100% at 50% 0%, var(--team-soft, rgba(85, 85, 94, 0.16)), transparent 72%),
-    linear-gradient(180deg, #1a1b20, #0f1013 72%);
+  overflow: visible;
+  padding: 0 0 10px;
 }
 
 .team-hero__fallback {
@@ -99,38 +96,26 @@
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Logotipo real: se conserva la proporciÃ³n y nunca se deforma. */
+/* Logotipo real: ocupa todo el escenario, centrado y sin deformarse. */
 .team-hero__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
-  width: 92%;
-  height: 78%;
-  object-fit: contain;
-  object-position: center;
-  filter:
-    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45))
-    drop-shadow(0 0 2px rgba(255, 255, 255, 0.32));
-}
-
-/* Los logotipos opacos o de tinta oscura se muestran sobre una placa clara. */
-.team-hero__logo-plate {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 86%;
-  height: 78%;
-  padding: clamp(10px, 1.8vw, 18px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--r-md);
-  background: #f7f7f4;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
-}
-
-.team-hero__logo-plate .team-hero__logo {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 10px);
   max-width: 100%;
   max-height: 100%;
-  filter: none;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+}
+
+/* Tinta oscura sobre el hero: contorno claro discreto, sin placa ni marco. */
+.team-hero__crest.has-dark-logo .team-hero__logo {
+  filter:
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
 }
 
 /* Marca inferior del escudo: identidad del equipo */

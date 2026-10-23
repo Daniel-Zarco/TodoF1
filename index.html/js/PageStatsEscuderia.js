@@ -75,6 +75,27 @@
     return catalog.resolve(constructorId, seasonYear);
   }
 
+  /* Copias transparentes solo para el hero. Los archivos originales y el
+     catálogo de tarjetas no se modifican. */
+  var HERO_LOGO_OVERRIDES = {
+    '/Images/escuderias/logos/red-bull-racing-logo-2026.svg': '/Images/escuderias/logos/hero/red-bull-racing-logo-2026.svg',
+    '/Images/escuderias/logos/teamlotus.jpg': '/Images/escuderias/logos/hero/teamlotus.png',
+    '/Images/escuderias/logos/brabham91.png': '/Images/escuderias/logos/hero/brabham91.png',
+    '/Images/escuderias/logos/larrousse-logo.png': '/Images/escuderias/logos/hero/larrousse-logo.png',
+    '/Images/escuderias/logos/mastercard-lola-formula-one-team-logo.jpg': '/Images/escuderias/logos/hero/mastercard-lola-formula-one-team-logo.png',
+    '/Images/escuderias/logos/racing-point-force-india-logo.jpg': '/Images/escuderias/logos/hero/racing-point-force-india-logo.png',
+    '/Images/escuderias/logos/vanwall-logo.jpg': '/Images/escuderias/logos/hero/vanwall-logo.png',
+    '/Images/escuderias/logos/stewart-logo.png': '/Images/escuderias/logos/hero/stewart-logo.png',
+    '/Images/escuderias/logos/logo-500-gp-team-lotus.png': '/Images/escuderias/logos/hero/logo-500-gp-team-lotus.png',
+    '/Images/escuderias/logos/amon-formula-one-team-logo.png': '/Images/escuderias/logos/hero/amon-formula-one-team-logo.png',
+    '/Images/escuderias/logos/frank-williams-racing-cars-historical-logo.jpg': '/Images/escuderias/logos/hero/frank-williams-racing-cars-historical-logo.png'
+  };
+
+  var HERO_LOGO_NO_CONTRAST = {
+    '/Images/escuderias/logos/red-bull-racing-logo-2026.svg': true,
+    '/Images/escuderias/logos/audif1-com-logo17-cropped.svg': true
+  };
+
   function teamIdentityColor(constructorId) {
     var catalog = window.TodoF1EscuderiaLogos;
     if (!catalog || typeof catalog.color !== 'function') return null;
@@ -457,6 +478,7 @@
 
   function renderCrestFallback() {
     el.crest.classList.remove('has-logo');
+    el.crest.classList.remove('has-dark-logo');
     el.crest.innerHTML =
       '<span class="team-hero__fallback" id="team-mono">' + esc(state.name || 'Escudería') + '</span>' +
       '<span class="team-hero__crest-line" aria-hidden="true"></span>';
@@ -470,21 +492,15 @@
     }
 
     el.crest.classList.add('has-logo');
+    el.crest.classList.toggle('has-dark-logo', logo.plate === 'light' && !HERO_LOGO_NO_CONTRAST[logo.src]);
     el.crest.innerHTML = '';
     var img = el_('img', 'team-hero__logo');
-    img.src = logo.src;
+    img.src = HERO_LOGO_OVERRIDES[logo.src] || logo.src;
     img.alt = 'Logotipo de ' + (state.name || 'la escudería');
     img.decoding = 'async';
     img.loading = 'eager';
     img.addEventListener('error', renderCrestFallback);
-
-    if (logo.plate === 'light') {
-      var plate = el_('span', 'team-hero__logo-plate');
-      plate.appendChild(img);
-      el.crest.appendChild(plate);
-    } else {
-      el.crest.appendChild(img);
-    }
+    el.crest.appendChild(img);
 
     var line = el_('span', 'team-hero__crest-line');
     line.setAttribute('aria-hidden', 'true');
