@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/session.php';
 session_start();
 
 if (isset($_SESSION['username'])) {
@@ -32,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verificar contraseña
         if (password_verify($password, $hashed_password)) {
             if ($role === 'admin') {
+                session_regenerate_id(true);
                 $_SESSION['user_role'] = 'admin';
                 $_SESSION['username'] = $username;
                 header("Location: /");

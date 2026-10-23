@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/session.php';
 session_start();
 if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     header("Location: /index.html/login.php");

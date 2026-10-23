@@ -17,6 +17,14 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # ---- HTTPS obligatorio (Alwaysdata termina TLS en su proxy) ----
+    # Solo se redirige cuando el proxy indica explicitamente "http". Asi una
+    # peticion HTTPS (X-Forwarded-Proto=https) o sin cabecera no entra en un
+    # bucle. Se conserva la ruta y la query string.
+    RewriteCond %{HTTP:X-Forwarded-Proto} ^http$ [NC]
+    RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
+    RewriteRule ^ https://todof1.alwaysdata.net%{REQUEST_URI} [R=301,L]
+
     # ---- URLs antiguas -> raiz (301 permanente) ----
     RewriteRule ^index\.html/index\.html$ / [R=301,L]
     RewriteRule ^index\.html/?$ / [R=301,L]
