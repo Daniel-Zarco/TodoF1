@@ -1146,6 +1146,13 @@ html[data-drawer="open"] .tf-drawer__panel {
   .tf-season__year {
     min-height: 48px;
   }
+
+  /* Reserva siempre 4 filas (10 años) para que el panel no cambie de alto
+     al pasar de una decada completa a una parcial. */
+  .tf-season__grid {
+    min-height: calc(4 * 48px + 3 * 8px);
+    align-content: start;
+  }
 }
 
 @media (max-width: 359px) {
