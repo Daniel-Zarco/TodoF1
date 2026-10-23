@@ -72,7 +72,6 @@
   var counter = document.getElementById('count-badge');
   var seasonSub = document.getElementById('season-sub');
   var seasonNote = document.getElementById('season-note');
-  var photoNote = document.getElementById('photo-note');
   var carPhotoCredits = document.getElementById('car-photo-credits');
 
   document.getElementById('year-label').textContent = year;
@@ -85,9 +84,6 @@
   var standingsFailed = false; // la petición de clasificación falló (no es lo mismo que no existir)
   var resultsOk = true;    // se pudieron cargar los resultados de carrera
   var provisional = false; // la temporada está en curso
-  var photosShown = 0;     // tarjetas con foto real de la temporada
-  var logosShown = 0;      // tarjetas sin foto que usan logotipo histórico
-  var fallbacksShown = 0;  // tarjetas sin foto ni logotipo (nombre completo)
   var photosCredits = [];  // autoría de las fotos de la temporada (licencias libres)
 
   /* ------------------------------------------------------------ utilidades */
@@ -564,7 +560,6 @@
     var foto = carPhoto(team.id);
     var photo = '';
     if (foto) {
-      photosShown += 1;
       if (foto.autor || foto.fuente) photosCredits.push(foto);
       var alt = foto.modelo
         ? 'Monoplaza ' + foto.modelo + ' de ' + team.name + ' en ' + year
@@ -586,7 +581,6 @@
     var logo = teamLogo(team.id);
     var fallback = '';
     if (logo) {
-      if (!foto) logosShown += 1;
       var plate = logo.plate === 'light';
       fallback = '<span class="team-card__fallback team-card__fallback--logo" aria-hidden="true">' +
         (plate ? '<span class="team-card__logo-plate">' : '') +
@@ -594,7 +588,6 @@
         (plate ? '</span>' : '') +
         '<span class="team-card__fallback-name">' + esc(team.name) + '</span></span>';
     } else {
-      if (!foto) fallbacksShown += 1;
       fallback = '<span class="team-card__fallback team-card__fallback--name" aria-hidden="true">' +
         '<span class="team-card__fallback-name">' + esc(team.name) + '</span></span>';
     }
@@ -749,7 +742,6 @@
       grid.innerHTML = '';
       grid.appendChild(emptyState('No hay escuderías registradas para la temporada ' + year + '.'));
       counter.textContent = '0 escuderías';
-      if (photoNote) photoNote.hidden = true;
       return;
     }
 
@@ -761,31 +753,13 @@
     grid.innerHTML = '';
     if (!list.length) {
       grid.appendChild(emptyState('No se encontraron escuderías con ese nombre.'));
-      if (photoNote) photoNote.hidden = true;
       return;
     }
 
-    photosShown = 0;
-    logosShown = 0;
-    fallbacksShown = 0;
     photosCredits = [];
     var fragment = document.createDocumentFragment();
     list.forEach(function (team, index) { fragment.appendChild(card(team, index)); });
     grid.appendChild(fragment);
-
-    // Cobertura visual de la temporada: fotos reales, logos históricos y
-    // fallbacks tipográficos. Nunca se presenta una foto de otro año como si
-    // fuera de esta temporada.
-    if (photoNote) {
-      var partesCobertura = [];
-      if (photosShown) partesCobertura.push(photosShown + ' ' + (photosShown === 1 ? 'fotografía real' : 'fotografías reales'));
-      if (logosShown) partesCobertura.push(logosShown + ' ' + (logosShown === 1 ? 'logotipo histórico' : 'logotipos históricos'));
-      if (fallbacksShown) partesCobertura.push(fallbacksShown + ' ' + (fallbacksShown === 1 ? 'fallback tipográfico' : 'fallbacks tipográficos'));
-      photoNote.textContent = partesCobertura.length
-        ? 'Cobertura visual de ' + year + ': ' + partesCobertura.join(' · ') + '.'
-        : '';
-      photoNote.hidden = !partesCobertura.length;
-    }
 
     // Créditos de autoría de las fotos de esa temporada (licencias libres).
     // Se usa un id propio: #photo-credits lo reserva teams.js para los créditos
@@ -908,7 +882,6 @@
       grid.appendChild(box);
       counter.textContent = 'Error';
       if (seasonNote) seasonNote.hidden = true;
-      if (photoNote) photoNote.hidden = true;
       var retry = box.querySelector('#teams-retry');
       if (retry) retry.addEventListener('click', load);
     });

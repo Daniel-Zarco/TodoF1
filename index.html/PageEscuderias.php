@@ -104,7 +104,6 @@ if (session_status() === PHP_SESSION_NONE) {
       </section>
 
       <p class="teams-note" id="season-note" hidden></p>
-      <p class="teams-note teams-note--soft" id="photo-note" hidden></p>
 
       <!-- Cuadr&iacute;cula de tarjetas: dos columnas en escritorio -->
       <div class="teams-grid" id="teams-grid">
