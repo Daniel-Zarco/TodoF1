@@ -1,0 +1,103 @@
+/* Panel plegable de búsqueda y filtros (solo móvil) */
+.tf-filters-toggle {
+  display: none;
+}
+
+.tf-filters-body {
+  display: contents;
+}
+
+@media (max-width: 767px) {
+  .tf-filters-toggle {
+    display: flex;
+    flex: 1 1 100%;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--c-line-2);
+    border-radius: var(--r-md);
+    background: var(--c-surface-2);
+    color: var(--c-text);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color var(--t-fast), background-color var(--t-fast);
+  }
+
+  .tf-filters-toggle[hidden] {
+    display: none;
+  }
+
+  .tf-filters-toggle:hover {
+    border-color: var(--team-primary-line);
+    background: var(--c-surface-3);
+  }
+
+  .tf-filters-toggle:focus-visible {
+    outline: 2px solid var(--team-primary);
+    outline-offset: 2px;
+  }
+
+  .tf-filters-toggle__icon,
+  .tf-filters-toggle__chev {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+
+  .tf-filters-toggle__icon {
+    color: var(--team-primary);
+  }
+
+  .tf-filters-toggle__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .tf-filters-toggle__label {
+    min-width: 0;
+  }
+
+  .tf-filters-toggle__dot {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--team-primary);
+    box-shadow: 0 0 0 3px var(--team-primary-dim);
+  }
+
+  .tf-filters-toggle__dot[hidden] {
+    display: none;
+  }
+
+  .tf-filters-toggle__chev {
+    margin-left: auto;
+    color: var(--c-dim);
+    transition: transform 160ms var(--ease);
+  }
+
+  .tf-filters-toggle__chev svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .tf-filters-toggle[aria-expanded="true"] .tf-filters-toggle__chev {
+    transform: rotate(180deg);
+  }
+
+  .tf-filters-body.is-collapsed {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tf-filters-toggle,
+  .tf-filters-toggle__chev {
+    transition: none;
+  }
+}

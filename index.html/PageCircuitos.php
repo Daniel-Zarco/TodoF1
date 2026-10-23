@@ -12,9 +12,11 @@
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageCircuitos.css?v=<?= @filemtime(__DIR__ . '/css/PageCircuitos.css') ?: '1' ?>">
+  <link rel="stylesheet" href="css/mobile-filters.css?v=<?= @filemtime(__DIR__ . '/css/mobile-filters.css') ?: '1' ?>">
   <script src="js/CircuitosTrazados.js?v=<?= @filemtime(__DIR__ . '/js/CircuitosTrazados.js') ?: '1' ?>" defer></script>
   <script src="js/f1-horarios.js?v=<?= @filemtime(__DIR__ . '/js/f1-horarios.js') ?: '1' ?>" defer></script>
   <script src="js/PageCircuitos.js?v=<?= @filemtime(__DIR__ . '/js/PageCircuitos.js') ?: '1' ?>" defer></script>
+  <script src="js/mobile-filters.js?v=<?= @filemtime(__DIR__ . '/js/mobile-filters.js') ?: '1' ?>" defer></script>
 </head>
 
 <body>
@@ -34,6 +36,17 @@
 
       <!-- Buscador, filtro por pa&iacute;s y ordenaci&oacute;n -->
       <section class="circuitos-controls" aria-label="Buscar, filtrar y ordenar circuitos">
+        <button type="button" class="tf-filters-toggle" aria-expanded="false" aria-controls="circuitos-filters" hidden>
+          <span class="tf-filters-toggle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 5h18l-7 8v5l-4 2v-7L3 5Z"></path></svg>
+          </span>
+          <span class="tf-filters-toggle__label">Buscar y filtrar</span>
+          <span class="tf-filters-toggle__dot" aria-hidden="true" hidden></span>
+          <span class="tf-filters-toggle__chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </button>
+        <div class="tf-filters-body" id="circuitos-filters">
         <div class="circuitos-controls__search tf-input-icon">
           <input type="search" id="search" class="tf-input" placeholder="Buscar circuito, pa&iacute;s o ciudad&hellip;"
                  autocomplete="off" spellcheck="false" aria-label="Buscar circuito por nombre, pa&iacute;s o ciudad">
@@ -64,6 +77,7 @@
               <option value="gp-desc">M&aacute;s Grandes Premios</option>
             </select>
           </label>
+        </div>
         </div>
 
         <p class="circuitos-controls__count" id="count-badge" role="status" aria-live="polite">Cargando&hellip;</p>

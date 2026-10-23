@@ -17,9 +17,11 @@ if (session_status() === PHP_SESSION_NONE) {
   <link rel="stylesheet" href="css/todof1.css?v=<?= @filemtime(__DIR__ . '/css/todof1.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/navbar.css?v=<?= @filemtime(__DIR__ . '/css/navbar.css') ?: '1' ?>">
   <link rel="stylesheet" href="css/PageEscuderias.css?v=<?= @filemtime(__DIR__ . '/css/PageEscuderias.css') ?: '1' ?>">
+  <link rel="stylesheet" href="css/mobile-filters.css?v=<?= @filemtime(__DIR__ . '/css/mobile-filters.css') ?: '1' ?>">
   <script src="js/escuderia-logos.js?v=<?= @filemtime(__DIR__ . '/js/escuderia-logos.js') ?: '1' ?>" defer></script>
   <script src="js/car-photos.js?v=<?= @filemtime(__DIR__ . '/js/car-photos.js') ?: '1' ?>" defer></script>
   <script src="js/PageEscuderias.js?v=<?= @filemtime(__DIR__ . '/js/PageEscuderias.js') ?: '1' ?>" defer></script>
+  <script src="js/mobile-filters.js?v=<?= @filemtime(__DIR__ . '/js/mobile-filters.js') ?: '1' ?>" defer></script>
   <?php
   /* Versiones (fecha de modificación) de las fotografías, para que el caché del
      navegador se refresque igual que en la página principal. El mapa lo consume
@@ -66,6 +68,17 @@ if (session_status() === PHP_SESSION_NONE) {
 
       <!-- Buscador y ordenaci&oacute;n de la temporada activa -->
       <section class="teams-controls" aria-label="Buscar y ordenar escuder&iacute;as">
+        <button type="button" class="tf-filters-toggle" aria-expanded="false" aria-controls="teams-filters" hidden>
+          <span class="tf-filters-toggle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 5h18l-7 8v5l-4 2v-7L3 5Z"></path></svg>
+          </span>
+          <span class="tf-filters-toggle__label">Buscar y filtrar</span>
+          <span class="tf-filters-toggle__dot" aria-hidden="true" hidden></span>
+          <span class="tf-filters-toggle__chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </button>
+        <div class="tf-filters-body" id="teams-filters">
         <div class="teams-controls__search tf-input-icon">
           <input type="search" id="search" class="tf-input" placeholder="Buscar escuder&iacute;a&hellip;"
                  autocomplete="off" spellcheck="false" aria-label="Buscar escuder&iacute;a por nombre">
@@ -84,6 +97,7 @@ if (session_status() === PHP_SESSION_NONE) {
               <option value="points-desc">M&aacute;s puntos</option>
             </select>
           </label>
+        </div>
         </div>
 
         <p class="teams-controls__count" id="count-badge" role="status" aria-live="polite">Cargando&hellip;</p>
