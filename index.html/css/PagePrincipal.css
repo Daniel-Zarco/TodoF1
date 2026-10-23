@@ -956,4 +956,11 @@
     margin-top: var(--sp-4);
     align-self: end;
   }
+
+  /* Dorso: elimina el interlineado superior del eyebrow y ajusta su margen
+     inferior para que horarios y boton quepan sin scroll. */
+  .panel--race .flip__cara--dorso > .tf-eyebrow {
+    display: flex;
+    margin-bottom: -7px;
+  }
 }
