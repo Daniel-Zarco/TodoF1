@@ -41,9 +41,7 @@ LOCK_FILE="${TODOF1_LOCK_FILE:-${TMPDIR:-/tmp}/todof1-deploy.lock}"
 API_FILES=(
   db.php
   navbar.php
-  logout.php
   guardar_usuario.php
-  PageInfo.php
   f1.php
 )
 

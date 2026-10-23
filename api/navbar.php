@@ -1,8 +1,4 @@
 <?php
-require_once __DIR__ . '/../index.html/session.php';
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
 $current = basename($_SERVER['SCRIPT_NAME'] ?? ($_SERVER['PHP_SELF'] ?? ''));
 
