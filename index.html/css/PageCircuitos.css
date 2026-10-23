@@ -183,17 +183,48 @@
 
 .circuito-card__estado {
   right: var(--sp-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   padding: 1px var(--sp-2);
   border: 1px solid var(--c-line-2);
   border-radius: var(--r-pill);
   background: var(--c-glass);
   color: var(--c-mute);
   font-size: 0.58rem;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.circuito-card__estado--disputado {
+  border-color: rgba(87, 214, 141, 0.45);
+  color: #57d68d;
+}
+
+.circuito-card__estado--disputado::before {
+  content: "\2713";
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .circuito-card__estado--proximo {
-  border-color: var(--team-primary-line);
-  color: var(--team-primary);
+  border-color: rgba(232, 193, 90, 0.45);
+  color: #e8c15a;
+}
+
+.circuito-card__estado--pendiente {
+  border-color: var(--c-line-2);
+  color: var(--c-mute);
+}
+
+.circuito-card--proximo {
+  border-color: rgba(232, 193, 90, 0.55);
+}
+
+.circuito-card--proximo:hover,
+.circuito-card--proximo:focus-visible {
+  border-color: rgba(232, 193, 90, 0.8);
 }
 
 /* Respaldo elegante (nunca simula un trazado) */

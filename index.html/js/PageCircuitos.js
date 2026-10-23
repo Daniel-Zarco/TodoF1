@@ -71,13 +71,11 @@
   })();
 
   /* ------------------------------ Tarjeta ------------------------------ */
-  function construirTarjeta(race) {
-    var hoy = new Date();
-    var proximo = race.dateObj > hoy;
+  function construirTarjeta(race, estado) {
     var tieneTrazo = trazados && trazados.tiene(race.circuitoId);
 
     var card = document.createElement('a');
-    card.className = 'circuito-card';
+    card.className = 'circuito-card' + (estado === 'proximo' ? ' circuito-card--proximo' : '');
     card.href = 'PageStatsCircuito.php?circuito=' + encodeURIComponent(race.circuitName) +
       '&year=' + encodeURIComponent(year) +
       (race.circuitoId ? '&id=' + encodeURIComponent(race.circuitoId) : '');
@@ -85,9 +83,11 @@
     card.innerHTML =
       '<span class="circuito-card__trazo">' +
         '<span class="circuito-card__ronda">Ronda ' + esc(race.round) + '</span>' +
-        '<span class="circuito-card__estado' + (proximo ? ' circuito-card__estado--proximo' : '') + '">' +
-          (proximo ? 'Próximamente' : 'Disputado') +
-        '</span>' +
+        (estado
+          ? '<span class="circuito-card__estado circuito-card__estado--' + estado + '">' +
+            (estado === 'proximo' ? 'Próximo GP' : (estado === 'disputado' ? 'Disputado' : 'Pendiente')) +
+            '</span>'
+          : '') +
         (tieneTrazo
           ? '<span class="tf-trazo" data-trazo="' + esc(race.circuitoId) + '"></span>' +
             '<span class="circuito-card__fallback" hidden><strong>' + esc(iniciales(race.circuitName)) +
@@ -330,12 +330,63 @@
   }
 
   /* ------------------------------ Arranque ------------------------------ */
-  function montar(races) {
+  function cargarResultadosTemporada() {
+    var disputadas = {};
+
+    function pagina(offset) {
+      return fetch(API + '/' + year + '/results.json?limit=100&offset=' + offset)
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          var tabla = (data.MRData && data.MRData.RaceTable) || {};
+          var carreras = tabla.Races || [];
+          carreras.forEach(function (carrera) {
+            if ((carrera.Results || []).length) disputadas[String(carrera.round)] = true;
+          });
+          var total = parseInt((data.MRData && data.MRData.total) || '0', 10);
+          var siguiente = offset + 100;
+          if (carreras.length && siguiente < total) return pagina(siguiente);
+          return { ready: true, disputadas: disputadas };
+        });
+    }
+
+    return pagina(0).catch(function () {
+      return { ready: false, disputadas: {} };
+    });
+  }
+
+  function calcularEstados(races, info) {
+    if (!info || !info.ready) return null;
+
+    var ahora = new Date();
+    var porFecha = races.slice().sort(function (a, b) { return a.dateObj - b.dateObj; });
+    var proxima = null;
+    for (var i = 0; i < porFecha.length; i++) {
+      var r = porFecha[i];
+      if (!info.disputadas[String(r.round)] && r.dateObj > ahora) {
+        proxima = String(r.round);
+        break;
+      }
+    }
+
+    var estados = {};
+    races.forEach(function (carrera) {
+      var key = String(carrera.round);
+      if (info.disputadas[key]) estados[key] = 'disputado';
+      else if (proxima !== null && key === proxima) estados[key] = 'proximo';
+      else estados[key] = 'pendiente';
+    });
+    return estados;
+  }
+
+  function montar(races, estados) {
     grid.innerHTML = '';
     entries = [];
 
     races.forEach(function (race) {
-      var card = construirTarjeta(race);
+      var card = construirTarjeta(race, estados ? estados[String(race.round)] : null);
       var entrada = {
         race: race,
         circuitoId: race.circuitoId,
@@ -417,6 +468,8 @@
     window.setInterval(pintarSesiones, 30000);
   }
 
+  var resultadosPromise = temporadaActual ? cargarResultadosTemporada() : Promise.resolve(null);
+
   fetch(API + '/' + year + '.json?limit=100')
     .then(function (res) { return res.json(); })
     .then(function (data) {
@@ -445,7 +498,9 @@
         };
       });
 
-      montar(races);
+      return resultadosPromise.then(function (info) {
+        montar(races, info ? calcularEstados(races, info) : null);
+      });
     })
     .catch(function (error) {
       console.error(error);
