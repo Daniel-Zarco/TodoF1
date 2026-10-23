@@ -50,11 +50,12 @@ API_FILES=(
 DRY_RUN=0
 
 # Archivos que SÍ se publican en la raíz del sitio (www/). Lista explícita y
-# cerrada: son los que gobiernan el enrutamiento de "/". Se copian de uno en
-# uno, nunca con rsync --delete sobre www/, para no tocar private/, los
-# backups del servidor ni cualquier otro archivo de la raíz.
+# cerrada: enrutamiento de "/" y configuración PHP. Se copian de uno en uno,
+# nunca con rsync --delete sobre www/, para no tocar private/, los backups del
+# servidor ni cualquier otro archivo de la raíz.
 ROOT_FILES=(
   .htaccess
+  .user.ini
   index.php
 )
 
